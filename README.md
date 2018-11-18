@@ -7,4 +7,4 @@ There is an interesting SVG file that was coupled  with  AJAX ( too early for Re
 
 The equipment was a six slot chassis with two switches, fully HA.
 
-![znyx switches](https://github.com/johnfisher/z_oacontrol/ZX2000_master_exploded.png)
+![znyx switches](https://github.com/johnfisher/z_oacontrol/blob/master/ZX2000_master_exploded.png)
