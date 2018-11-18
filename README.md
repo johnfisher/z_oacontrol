@@ -6,3 +6,5 @@ The company, Znyx Networks, made the equipment and I made this front end for it.
 There is an interesting SVG file that was coupled  with  AJAX ( too early for React or Angular) to get real time connection to the many LEDs on the equipment face.
 
 The equipment was a six slot chassis with two switches, fully HA.
+
+![zenyx switches]https://github.com/johnfisher/z_oacontrol/ZX2000_master_exploded.svg
