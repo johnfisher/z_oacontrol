@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenEvents.SendEvent</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenEvents-module.html">Package&nbsp;ZenEvents</a> ::
+        Module&nbsp;SendEvent
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenEvents.SendEvent-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenEvents.SendEvent-module.html">Module Products.ZenEvents.SendEvent</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Variable Products.ZenModel.CPU.CPU.socket=Products.ZenModel.CPU.CPU-class.html#socket"><a title="Products.ZenModel.CPU.CPU.socket" class="py-name" href="#" onclick="return doclink('link-0', 'socket', 'link-0');">socket</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">xmlrpclib</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package Products.ZenUtils=Products.ZenUtils-module.html"><a title="Products.ZenUtils" class="py-name" href="#" onclick="return doclink('link-1', 'ZenUtils', 'link-1');">ZenUtils</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module Products.ZenReports.Utils=Products.ZenReports.Utils-module.html,Module Products.ZenUtils.Utils=Products.ZenUtils.Utils-module.html"><a title="Products.ZenReports.Utils
+Products.ZenUtils.Utils" class="py-name" href="#" onclick="return doclink('link-2', 'Utils', 'link-2');">Utils</a></tt> <tt class="py-keyword">import</tt>  <tt id="link-3" class="py-name" targets="Function Products.ZenUtils.Utils.basicAuthUrl()=Products.ZenUtils.Utils-module.html#basicAuthUrl"><a title="Products.ZenUtils.Utils.basicAuthUrl" class="py-name" href="#" onclick="return doclink('link-3', 'basicAuthUrl', 'link-3');">basicAuthUrl</a></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="SendEvent"></a><div id="SendEvent-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="SendEvent-toggle" onclick="return toggle('SendEvent');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenEvents.SendEvent.SendEvent-class.html">SendEvent</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SendEvent-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="SendEvent-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="SendEvent.__init__"></a><div id="SendEvent.__init__-def"><a name="L22"></a><tt class="py-lineno">22</tt> <a class="py-toggle" href="#" id="SendEvent.__init__-toggle" onclick="return toggle('SendEvent.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenEvents.SendEvent.SendEvent-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">agent</tt><tt class="py-op">,</tt> <tt class="py-param">username</tt><tt class="py-op">,</tt> <tt class="py-param">password</tt><tt class="py-op">,</tt> <tt class="py-param">url</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SendEvent.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SendEvent.__init__-expanded"><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Variable Products.ZenEvents.MailProcessor.MailEvent.agent=Products.ZenEvents.MailProcessor.MailEvent-class.html#agent,Variable Products.ZenStatus.zenping.ZenPing.agent=Products.ZenStatus.zenping.ZenPing-class.html#agent,Variable Products.ZenStatus.zenstatus.ZenStatus.agent=Products.ZenStatus.zenstatus.ZenStatus-class.html#agent"><a title="Products.ZenEvents.MailProcessor.MailEvent.agent
+Products.ZenStatus.zenping.ZenPing.agent
+Products.ZenStatus.zenstatus.ZenStatus.agent" class="py-name" href="#" onclick="return doclink('link-4', 'agent', 'link-4');">agent</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="Products.ZenEvents.MailProcessor.MailEvent.agent
+Products.ZenStatus.zenping.ZenPing.agent
+Products.ZenStatus.zenstatus.ZenStatus.agent" class="py-name" href="#" onclick="return doclink('link-5', 'agent', 'link-4');">agent</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Variable Products.ZenModel.Manufacturer.Manufacturer.url=Products.ZenModel.Manufacturer.Manufacturer-class.html#url,Variable Products.ZenModel.ZenPack.ZenPack.url=Products.ZenModel.ZenPack.ZenPack-class.html#url"><a title="Products.ZenModel.Manufacturer.Manufacturer.url
+Products.ZenModel.ZenPack.ZenPack.url" class="py-name" href="#" onclick="return doclink('link-6', 'url', 'link-6');">url</a></tt> <tt class="py-op">=</tt> <tt id="link-7" class="py-name"><a title="Products.ZenUtils.Utils.basicAuthUrl" class="py-name" href="#" onclick="return doclink('link-7', 'basicAuthUrl', 'link-3');">basicAuthUrl</a></tt><tt class="py-op">(</tt><tt id="link-8" class="py-name" targets="Variable Products.ZenRRD.zencommand.DeviceConfig.username=Products.ZenRRD.zencommand.DeviceConfig-class.html#username,Variable twisted.spread.pb.Broker.username=twisted.spread.pb.Broker-class.html#username"><a title="Products.ZenRRD.zencommand.DeviceConfig.username
+twisted.spread.pb.Broker.username" class="py-name" href="#" onclick="return doclink('link-8', 'username', 'link-8');">username</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Variable Products.ZenRRD.zencommand.DeviceConfig.password=Products.ZenRRD.zencommand.DeviceConfig-class.html#password"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-9', 'password', 'link-9');">password</a></tt><tt class="py-op">,</tt> <tt id="link-10" class="py-name"><a title="Products.ZenModel.Manufacturer.Manufacturer.url
+Products.ZenModel.ZenPack.ZenPack.url" class="py-name" href="#" onclick="return doclink('link-10', 'url', 'link-6');">url</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt> <tt class="py-op">=</tt> <tt class="py-name">xmlrpclib</tt><tt class="py-op">.</tt><tt class="py-name">Server</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="Products.ZenModel.Manufacturer.Manufacturer.url
+Products.ZenModel.ZenPack.ZenPack.url" class="py-name" href="#" onclick="return doclink('link-11', 'url', 'link-6');">url</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt id="link-12" class="py-name" targets="Variable Products.ZenEvents.EventClass.EventClass.severities=Products.ZenEvents.EventClass.EventClass-class.html#severities,Variable Products.ZenEvents.EventManagerBase.EventManagerBase.severities=Products.ZenEvents.EventManagerBase.EventManagerBase-class.html#severities,Variable Products.ZenUtils.Logger.severities=Products.ZenUtils.Logger-module.html#severities"><a title="Products.ZenEvents.EventClass.EventClass.severities
+Products.ZenEvents.EventManagerBase.EventManagerBase.severities
+Products.ZenUtils.Logger.severities" class="py-name" href="#" onclick="return doclink('link-12', 'severities', 'link-12');">severities</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Products.ZenEvents.EventManagerBase.EventManagerBase.getSeverities()=Products.ZenEvents.EventManagerBase.EventManagerBase-class.html#getSeverities,Method Products.ZenModel.OSProcess.OSProcess.getSeverities()=Products.ZenModel.OSProcess.OSProcess-class.html#getSeverities,Method Products.ZenModel.Service.Service.getSeverities()=Products.ZenModel.Service.Service-class.html#getSeverities"><a title="Products.ZenEvents.EventManagerBase.EventManagerBase.getSeverities
+Products.ZenModel.OSProcess.OSProcess.getSeverities
+Products.ZenModel.Service.Service.getSeverities" class="py-name" href="#" onclick="return doclink('link-13', 'getSeverities', 'link-13');">getSeverities</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-14" class="py-name" targets="Variable Products.DataCollector.SshClient.CommandChannel.name=Products.DataCollector.SshClient.CommandChannel-class.html#name,Variable Products.DataCollector.zendisc.ZenDisc.name=Products.DataCollector.zendisc.ZenDisc-class.html#name,Variable Products.DataCollector.zenmodeler.ZenModeler.name=Products.DataCollector.zenmodeler.ZenModeler-class.html#name,Variable Products.ZenEvents.EventServer.EventServer.name=Products.ZenEvents.EventServer.EventServer-class.html#name,Variable Products.ZenEvents.zenmail.ZenMail.name=Products.ZenEvents.zenmail.ZenMail-class.html#name,Variable Products.ZenEvents.zenpop3.ZenPOP3.name=Products.ZenEvents.zenpop3.ZenPOP3-class.html#name,Variable Products.ZenEvents.zensyslog.ZenSyslog.name=Products.ZenEvents.zensyslog.ZenSyslog-class.html#name,Variable Products.ZenEvents.zentrap.ZenTrap.name=Products.ZenEvents.zentrap.ZenTrap-class.html#name,Method Products.ZenHub.HubService.HubService.name()=Products.ZenHub.HubService.HubService-class.html#name,Variable Products.ZenHub.PBDaemon.PBDaemon.name=Products.ZenHub.PBDaemon.PBDaemon-class.html#name,Variable Products.ZenHub.services.ProcessConfig.ProcessProxy.name=Products.ZenHub.services.ProcessConfig.ProcessProxy-class.html#name,Variable Products.ZenHub.zenhub.ZenHub.name=Products.ZenHub.zenhub.ZenHub-class.html#name,Method Products.ZenModel.Device.Device.name()=Products.ZenModel.Device.Device-class.html#name,Method Products.ZenModel.DeviceComponent.DeviceComponent.name()=Products.ZenModel.DeviceComponent.DeviceComponent-class.html#name,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#name,Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#name,Method Products.ZenModel.OSProcess.OSProcess.name()=Products.ZenModel.OSProcess.OSProcess-class.html#name,Variable Products.ZenModel.OSProcessClass.OSProcessClass.name=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#name,Variable Products.ZenModel.ProductClass.ProductClass.name=Products.ZenModel.ProductClass.ProductClass-class.html#name,Method Products.ZenModel.RRDDataPoint.RRDDataPoint.name()=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#name,Method Products.ZenModel.Service.Service.name()=Products.ZenModel.Service.Service-class.html#name,Variable Products.ZenModel.ServiceClass.ServiceClass.name=Products.ZenModel.ServiceClass.ServiceClass-class.html#name,Method Products.ZenModel.Software.Software.name()=Products.ZenModel.Software.Software-class.html#name,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.name()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#name,Method Products.ZenModel.WinService.WinService.name()=Products.ZenModel.WinService.WinService-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLAbout.name=Products.ZenModel.ZenPackLoader.ZPLAbout-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLBin.name=Products.ZenModel.ZenPackLoader.ZPLBin-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDaemons.name=Products.ZenModel.ZenPackLoader.ZPLDaemons-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDataSources.name=Products.ZenModel.ZenPackLoader.ZPLDataSources-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibExec.name=Products.ZenModel.ZenPackLoader.ZPLLibExec-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibraries.name=Products.ZenModel.ZenPackLoader.ZPLLibraries-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLModelers.name=Products.ZenModel.ZenPackLoader.ZPLModelers-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLObject.name=Products.ZenModel.ZenPackLoader.ZPLObject-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLReport.name=Products.ZenModel.ZenPackLoader.ZPLReport-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLSkins.name=Products.ZenModel.ZenPackLoader.ZPLSkins-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZenPackLoader.name=Products.ZenModel.ZenPackLoader.ZenPackLoader-class.html#name,Method Products.ZenRRD.zencommand.Cmd.name()=Products.ZenRRD.zencommand.Cmd-class.html#name,Variable Products.ZenRRD.zenrender.zenrender.name=Products.ZenRRD.zenrender.zenrender-class.html#name,Variable Products.ZenStatus.zenping.ZenPing.name=Products.ZenStatus.zenping.ZenPing-class.html#name,Variable Products.ZenStatus.zenstatus.ZenStatus.name=Products.ZenStatus.zenstatus.ZenStatus-class.html#name,Variable Products.ZenUtils.DaemonStats.DaemonStats.name=Products.ZenUtils.DaemonStats.DaemonStats-class.html#name,Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#name,Variable Products.ZenUtils.zencatalog.ZenCatalog.name=Products.ZenUtils.zencatalog.ZenCatalog-class.html#name,Method Products.ZenWin.services.WinServiceConfig.SmartService.name()=Products.ZenWin.services.WinServiceConfig.SmartService-class.html#name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-14', 'name', 'link-14');">name</a></tt><tt class="py-op">,</tt> <tt id="link-15" class="py-name" targets="Variable Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value=Products.ZenModel.AreaGraphPoint.AreaGraphPoint-class.html#value,Variable Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value=Products.ZenModel.HruleGraphPoint.HruleGraphPoint-class.html#value,Variable Products.ZenModel.LineGraphPoint.LineGraphPoint.value=Products.ZenModel.LineGraphPoint.LineGraphPoint-class.html#value"><a title="Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value
+Products.ZenModel.LineGraphPoint.LineGraphPoint.value" class="py-name" href="#" onclick="return doclink('link-15', 'value', 'link-15');">value</a></tt> <tt class="py-keyword">in</tt> <tt id="link-16" class="py-name"><a title="Products.ZenEvents.EventClass.EventClass.severities
+Products.ZenEvents.EventManagerBase.EventManagerBase.severities
+Products.ZenUtils.Logger.severities" class="py-name" href="#" onclick="return doclink('link-16', 'severities', 'link-12');">severities</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">            <tt class="py-name">setattr</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-17', 'name', 'link-14');">name</a></tt><tt class="py-op">,</tt> <tt id="link-18" class="py-name"><a title="Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value
+Products.ZenModel.LineGraphPoint.LineGraphPoint.value" class="py-name" href="#" onclick="return doclink('link-18', 'value', 'link-15');">value</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="SendEvent.sendEvent"></a><div id="SendEvent.sendEvent-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="SendEvent.sendEvent-toggle" onclick="return toggle('SendEvent.sendEvent');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenEvents.SendEvent.SendEvent-class.html#sendEvent">sendEvent</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">deviceName</tt><tt class="py-op">,</tt> <tt class="py-param">evclass</tt><tt class="py-op">,</tt> <tt class="py-param">msg</tt><tt class="py-op">,</tt> <tt class="py-param">severity</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SendEvent.sendEvent-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SendEvent.sendEvent-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">        Send a ZenEvent to the event manager.  Events must have:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">        deviceName - which is the FQDN of the device</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">        evclass - the event class of the event</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">        msg - the event message</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-docstring">        severity - the severity of the event </tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-docstring">        agent - is the management collection system that the event came through</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring">        Other potential fields are:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-name">event</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-name">event</tt><tt class="py-op">[</tt><tt class="py-string">'Node'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">deviceName</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-name">event</tt><tt class="py-op">[</tt><tt class="py-string">'Class'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">evclass</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-name">event</tt><tt class="py-op">[</tt><tt class="py-string">'Summary'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name" targets="Variable Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg=Products.ZenStatus.ZenTcpClient.ZenTcpClient-class.html#msg,Method Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg()=Products.ZenUtils.ZenBackupBase.ZenBackupBase-class.html#msg"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-19', 'msg', 'link-19');">msg</a></tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-name">event</tt><tt class="py-op">[</tt><tt class="py-string">'Severity'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name" targets="Variable Products.ZenHub.services.ProcessConfig.ProcessProxy.severity=Products.ZenHub.services.ProcessConfig.ProcessProxy-class.html#severity,Variable Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity=Products.ZenModel.MinMaxThreshold.MinMaxThreshold-class.html#severity,Variable Products.ZenModel.RRDDataSource.RRDDataSource.severity=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#severity,Variable Products.ZenModel.RRDThreshold.RRDThreshold.severity=Products.ZenModel.RRDThreshold.RRDThreshold-class.html#severity,Variable Products.ZenRRD.zencommand.Cmd.severity=Products.ZenRRD.zencommand.Cmd-class.html#severity,Method Products.ZenWin.services.WinServiceConfig.SmartService.severity()=Products.ZenWin.services.WinServiceConfig.SmartService-class.html#severity"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-20', 'severity', 'link-20');">severity</a></tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt class="py-name">event</tt><tt class="py-op">[</tt><tt class="py-string">'Agent'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Products.ZenEvents.MailProcessor.MailEvent.agent
+Products.ZenStatus.zenping.ZenPing.agent
+Products.ZenStatus.zenstatus.ZenStatus.agent" class="py-name" href="#" onclick="return doclink('link-21', 'agent', 'link-4');">agent</a></tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-name">event</tt><tt class="py-op">[</tt><tt class="py-string">'Manager'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name"><a title="Products.ZenModel.CPU.CPU.socket" class="py-name" href="#" onclick="return doclink('link-22', 'socket', 'link-0');">socket</a></tt><tt class="py-op">.</tt><tt class="py-name">getfqdn</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method Products.ZenHub.HubService.HubService.update()=Products.ZenHub.HubService.HubService-class.html#update,Method Products.ZenHub.services.CommandConfig.CommandConfig.update()=Products.ZenHub.services.CommandConfig.CommandConfig-class.html#update,Method Products.ZenHub.services.PerformanceConfig.PerformanceConfig.update()=Products.ZenHub.services.PerformanceConfig.PerformanceConfig-class.html#update,Method Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.update()=Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#update,Method Products.ZenHub.services.StatusConfig.StatusConfig.update()=Products.ZenHub.services.StatusConfig.StatusConfig-class.html#update,Method Products.ZenHub.zenhub.WorkerInterceptor.update()=Products.ZenHub.zenhub.WorkerInterceptor-class.html#update,Method Products.ZenModel.AdministrativeRole.AdministrativeRole.update()=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#update,Method Products.ZenRRD.Thresholds.Thresholds.update()=Products.ZenRRD.Thresholds.Thresholds-class.html#update,Method Products.ZenRRD.zenperfsnmp.OidData.update()=Products.ZenRRD.zenperfsnmp.OidData-class.html#update,Method Products.ZenRRD.zenprocess.DeviceStats.update()=Products.ZenRRD.zenprocess.DeviceStats-class.html#update,Method Products.ZenRRD.zenprocess.ProcessStats.update()=Products.ZenRRD.zenprocess.ProcessStats-class.html#update,Method Products.ZenUtils.Map.Locked.update()=Products.ZenUtils.Map.Locked-class.html#update,Method Products.ZenUtils.Map.Timed.update()=Products.ZenUtils.Map.Timed-class.html#update"><a title="Products.ZenHub.HubService.HubService.update
+Products.ZenHub.services.CommandConfig.CommandConfig.update
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig.update
+Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.update
+Products.ZenHub.services.StatusConfig.StatusConfig.update
+Products.ZenHub.zenhub.WorkerInterceptor.update
+Products.ZenModel.AdministrativeRole.AdministrativeRole.update
+Products.ZenRRD.Thresholds.Thresholds.update
+Products.ZenRRD.zenperfsnmp.OidData.update
+Products.ZenRRD.zenprocess.DeviceStats.update
+Products.ZenRRD.zenprocess.ProcessStats.update
+Products.ZenUtils.Map.Locked.update
+Products.ZenUtils.Map.Timed.update" class="py-name" href="#" onclick="return doclink('link-23', 'update', 'link-23');">update</a></tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">server</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Function Products.DataCollector.SshClient.sendEvent()=Products.DataCollector.SshClient-module.html#sendEvent,Method Products.ZenEvents.EventManagerBase.EventManagerBase.sendEvent()=Products.ZenEvents.EventManagerBase.EventManagerBase-class.html#sendEvent,Method Products.ZenEvents.EventServer.EventServer.sendEvent()=Products.ZenEvents.EventServer.EventServer-class.html#sendEvent,Method Products.ZenEvents.MySqlSendEvent.MySqlSendEventMixin.sendEvent()=Products.ZenEvents.MySqlSendEvent.MySqlSendEventMixin-class.html#sendEvent,Method Products.ZenEvents.MySqlSendEvent.MySqlSendEventThread.sendEvent()=Products.ZenEvents.MySqlSendEvent.MySqlSendEventThread-class.html#sendEvent,Method Products.ZenEvents.SendEvent.SendEvent.sendEvent()=Products.ZenEvents.SendEvent.SendEvent-class.html#sendEvent,Method Products.ZenEvents.interfaces.ISendEvents.sendEvent()=Products.ZenEvents.interfaces.ISendEvents-class.html#sendEvent,Method Products.ZenEvents.zenactions.BaseZenActions.sendEvent()=Products.ZenEvents.zenactions.BaseZenActions-class.html#sendEvent,Method Products.ZenHub.HubService.HubService.sendEvent()=Products.ZenHub.HubService.HubService-class.html#sendEvent,Method Products.ZenHub.PBDaemon.PBDaemon.sendEvent()=Products.ZenHub.PBDaemon.PBDaemon-class.html#sendEvent,Method Products.ZenHub.zenhub.ZenHub.sendEvent()=Products.ZenHub.zenhub.ZenHub-class.html#sendEvent,Method Products.ZenRRD.parsers.ps.ps.sendEvent()=Products.ZenRRD.parsers.ps.ps-class.html#sendEvent,Method Products.ZenUtils.CyclingDaemon.CyclingDaemon.sendEvent()=Products.ZenUtils.CyclingDaemon.CyclingDaemon-class.html#sendEvent"><a title="Products.DataCollector.SshClient.sendEvent
+Products.ZenEvents.EventManagerBase.EventManagerBase.sendEvent
+Products.ZenEvents.EventServer.EventServer.sendEvent
+Products.ZenEvents.MySqlSendEvent.MySqlSendEventMixin.sendEvent
+Products.ZenEvents.MySqlSendEvent.MySqlSendEventThread.sendEvent
+Products.ZenEvents.SendEvent.SendEvent.sendEvent
+Products.ZenEvents.interfaces.ISendEvents.sendEvent
+Products.ZenEvents.zenactions.BaseZenActions.sendEvent
+Products.ZenHub.HubService.HubService.sendEvent
+Products.ZenHub.PBDaemon.PBDaemon.sendEvent
+Products.ZenHub.zenhub.ZenHub.sendEvent
+Products.ZenRRD.parsers.ps.ps.sendEvent
+Products.ZenUtils.CyclingDaemon.CyclingDaemon.sendEvent" class="py-name" href="#" onclick="return doclink('link-24', 'sendEvent', 'link-24');">sendEvent</a></tt><tt class="py-op">(</tt><tt class="py-name">event</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">SystemExit</tt><tt class="py-op">:</tt> <tt class="py-keyword">raise</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">            <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">exception</tt><tt class="py-op">(</tt><tt class="py-string">"Event notification failed url %s"</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="Products.ZenModel.Manufacturer.Manufacturer.url
+Products.ZenModel.ZenPack.ZenPack.url" class="py-name" href="#" onclick="return doclink('link-25', 'url', 'link-6');">url</a></tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:24 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

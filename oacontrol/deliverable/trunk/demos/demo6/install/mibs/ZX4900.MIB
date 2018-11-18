@@ -1,0 +1,156 @@
+--==========================================================================
+--
+--	zx4900.mib
+--
+--	ZNYX ZX4900 SNMP MIB
+--
+--==========================================================================
+--
+--	(c) Copyright 2001 ZNYX Networks, Inc.
+--	All rights reserved.
+--
+--==========================================================================
+
+
+	ZX4900-MIB DEFINITIONS ::= BEGIN
+
+	IMPORTS
+		enterprises, NetworkAddress, IpAddress, Counter,
+		Gauge, TimeTicks, OBJECT-TYPE
+			FROM RFC1155-SMI
+		znyxProductSpecificMib
+			FROM ZNYX-MIB;
+
+	-- Conventions
+
+	DisplayString ::= OCTET STRING
+
+
+
+	znyxPsMibZX4900		OBJECT IDENTIFIER ::= { znyxProductSpecificMib 2 }
+
+	zZX4900GeoPins OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object returns a string identifying
+			 the shelf and the slot within the shelf
+			 the switch is located in."
+		::= { znyxPsMibZX4900 1 }
+
+	zZX4900InternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 Internal Fault LED is driven."
+		::= { znyxPsMibZX4900 2 }
+
+	zZX4900InternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current Internal Fault LED status."
+		::= { znyxPsMibZX4900 3 }
+
+	zZX4900ExternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 External Fault LED is driven."
+		::= { znyxPsMibZX4900 4 }
+
+	zZX4900ExternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current External Fault LED status."
+		::= { znyxPsMibZX4900 5 }
+
+	zZX4900OpenArchVersion OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Open Architect software version."
+    		::= { znyxPsMibZX4900 6 }
+
+	zZX4900LinkCtrlTable OBJECT-TYPE
+	    	SYNTAX      SEQUENCE OF ZZX4900LinkCtrlEntry
+  		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      	    	"A table containing link control information for each port
+		       available on the device."
+    		::= { znyxPsMibZX4900 7 }
+
+	zZX4900LinkCtrlEntry OBJECT-TYPE
+ 		SYNTAX      ZZX4900LinkCtrlEntry
+    		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      		"Link control information for each port available on the
+			 device."
+   		INDEX   { zZX4900LinkCtrlPort }
+    		::= { zZX4900LinkCtrlTable 1 }
+
+ 	ZZX4900LinkCtrlEntry ::=
+  		SEQUENCE {
+			zZX4900LinkCtrlPort
+				INTEGER,
+			zZX4900LinkCtrlState
+				INTEGER,
+			zZX4900LinkCtrlSpeed
+				INTEGER
+    		}
+
+	zZX4900LinkCtrlPort OBJECT-TYPE
+		SYNTAX      INTEGER (1..65535)
+		ACCESS  not-accessible
+		STATUS      mandatory
+		DESCRIPTION
+		"The port number associated with this Link Control entry."
+		::= { zZX4900LinkCtrlEntry 1 }
+
+	zZX4900LinkCtrlState OBJECT-TYPE
+    		SYNTAX      INTEGER { up (1), down (2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control state of the port."
+    		::= { zZX4900LinkCtrlEntry 2 }
+
+	zZX4900LinkCtrlSpeed OBJECT-TYPE
+    		SYNTAX      INTEGER  { auto(1), n100fd(2), n100hd(3), n10fd (4), n10hd(5), n1000fd(6), n1000hd(7) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control speed of the port. Changes to this speed
+			 require the port to be in the down state."
+    		::= { zZX4900LinkCtrlEntry 3 }
+
+	END
+
+

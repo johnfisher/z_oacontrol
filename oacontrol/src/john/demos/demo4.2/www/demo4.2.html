@@ -1,0 +1,358 @@
+<!--
+STARTING POINT
+All the HTML, like menus and layout
+the svg handling stuff
+the doc ready stuff
+the client comet stuff
+
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+<script type="text/javascript" src="js/hoverIntent.js"></script>
+<script type="text/javascript" src="js/zsuperfish.js"></script>
+<script type="text/javascript" src="js/functions4.2.js"></script>
+
+
+
+
+
+<link rel="stylesheet" media="screen" href="css/oac.css" /> 
+<link rel="stylesheet" media="screen" href="css/styles4.2.css" /> 
+
+<script type="text/javascript">
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg" ;
+
+var last_menu ;
+var pulseflag = "on";
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    getsvg();  
+});
+    
+// load the svg
+function getsvg(){
+
+      $("#svgload").svg({  
+            loadURL: 'zx1900_master_exploded.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+
+}
+
+function main (){
+    alert("main");
+
+    loop_GetSNMP();
+    //single_GetSNMP()
+}
+
+function loop_GetSNMP(){
+
+// THIS WORKS but brings the data in as text though firebug sees json...
+ //$('#debugdiv').load('backend4.1.php');
+    // see Jquery get documentation... json_data.error(function(){ alert("json_data error"); });
+    // json_data.complete(function(){ alert("second complete"); });
+    loop_control = window.setInterval(function() {
+
+	$.get("backend4.2.php",  function(data){
+	    var json_data = $.parseJSON(data);
+	    process_1900AData(json_data);
+	      } );
+
+   }, 1000 );
+
+}
+
+function single_GetSNMP(){
+// get a single shot of snmpdata
+	$.get("backend4.2.php",  function(data){
+	    var json_data = $.parseJSON(data);
+	    process_1900AData(json_data);
+	      } );
+
+}
+
+
+function process_1900AData(json){
+// taking in json data from snmpget done by backend php via ajax
+
+    for (var zre in json ) {
+	    //logDebug(zre) ;
+	    if ( json[zre] == "down" ) {
+		$("#ledAf" + zre ).css("fill", amber );
+	    }else if ( json[zre] == "up" ) {
+		$("#ledAf" + zre ).css("fill", green );
+	    }else {
+		$("#ledAf" + zre ).css("fill", ltgrey ); //some unknown state
+	    }
+    }
+}
+
+/////////////////////////////////////////////////
+</script>
+
+</head><body>
+
+<div id="debugdiv"></div>
+<iframe src="backend4.2.php" class="hiddenIframe"></iframe>
+
+<h3 >OAC Demo 4.2: SNMP Ajax .</h3>
+
+<!-- START invisble divs for drop-down menus until raised by mouseover -->
+<div id="menuDiv73003" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 3 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">Do this <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">Do That</a></li>
+						    <li><a href="#aba">Do Other</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Reports</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv73004" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 4 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Reports</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv73005" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 5 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Reports</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDivSbc3" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">SBC-Slot 3 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Report</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDivSbc4" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">SBC-Slot 4 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Report</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDivSbc5" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">SBC-Slot 5 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">menu item that is quite long</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Report</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDivShMc1" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">Shelf Manager 1 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">CLIA Interface</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv1900a" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX1900A Switch <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Telnet</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Reports</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv1900b" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX1900B FTM <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">Do This <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Reports</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<!-- END invisble divs for drop-down menus until raised by mouseover -->
+<div id="svgload" class="svgbasics">
+
+<table class="tb">
+<tr><th colspan=4 >Press buttons to configure the chassis with boards:</th></tr>
+<tr><td>slot 5</td><td><button class="bt" onClick='popSlot5_ZX7300()' >ZX7300</button></td><td><button class="bt" onClick='popSlot5_Sbc()' >SBC</button></td><td><button class="bt" onClick='popSlot5_Empty()' >empty</button></td>
+<td id="slot5notify" class="notify"></td><td></td><td></td></tr>
+<tr><td>slot 4</td><td><button class="bt" onClick='popSlot4_ZX7300()' >ZX7300</button></td><td><button class="bt" onClick='popSlot4_Sbc()' >SBC</button></td><td><button class="bt" onClick='popSlot4_Empty()' >empty</td>
+<td id="slot4notify" class="notify"></td><td></td><td></td></tr>
+<tr><td>slot 3</td><td><button class="bt" onClick='popSlot3_ZX7300()' >ZX7300</button></td><td><button class="bt" onClick='popSlot3_Sbc()' >SBC</button></td><td><button class="bt" onClick='popSlot3_Empty()' >empty</button></td>
+<td id="slot3notify" class="notify"></td><td></td><td></td></tr>
+<tr><td>Demo alarms</td><td colspan=2><button class="bt" onClick='overTempAnim();' >Temperature Alarms</button></td><td></td>
+<td id="tempnotify" class="notify"></td><td></td><td></td></tr>
+</table>
+<br>
+
+<!------------------------ SVG loads here --------------------->
+</div>
+<script type="text/javascript">
+ 	var debug = document.getElementById('debugdiv');
+	var dumpText = function(text){
+		debug.innerHTML = debug.innerHTML + '<BR>'+ text;
+	}
+</script>
+
+
+</body></html>
+
+

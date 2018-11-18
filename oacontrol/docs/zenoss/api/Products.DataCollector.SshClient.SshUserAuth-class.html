@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.DataCollector.SshClient.SshUserAuth</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.DataCollector-module.html">Package&nbsp;DataCollector</a> ::
+        <a href="Products.DataCollector.SshClient-module.html">Module&nbsp;SshClient</a> ::
+        Class&nbsp;SshUserAuth
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.DataCollector.SshClient.SshUserAuth-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class SshUserAuth</h1><p class="nomargin-top"><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+           twisted.python.log.Logger --+        
+                                       |        
+    twisted.conch.ssh.service.SSHService --+    
+                                           |    
+twisted.conch.ssh.userauth.SSHUserAuthClient --+
+                                               |
+                                              <strong class="uidshort">SshUserAuth</strong>
+</pre>
+
+<hr />
+<p>Class to gather credentials for use with our SSH connection, and use 
+  them to authenticate against the remote device.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshUserAuth-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">user</span>,
+        <span class="summary-sig-arg">instance</span>,
+        <span class="summary-sig-arg">factory</span>)</span><br />
+      If no username is supplied, defaults to the user running this code 
+      (eg zenoss)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Twisted deferred object</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshUserAuth-class.html#getPassword" class="summary-sig-name">getPassword</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">unused</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Called from conch.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.getPassword">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshUserAuth-class.html#getGenericAnswers" class="summary-sig-name">getGenericAnswers</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">instruction</span>,
+        <span class="summary-sig-arg">prompts</span>)</span><br />
+      Called from conch.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.getGenericAnswers">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshUserAuth-class.html#_getPassword" class="summary-sig-name" onclick="show_private();">_getPassword</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get the password.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth._getPassword">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_handleFailure"></a><span class="summary-sig-name">_handleFailure</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">message</span>)</span><br />
+      Handle a failure by logging a message, sending an event, calling 
+      clientFinished, and returning a failure defered.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth._handleFailure">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_getKey"></a><span class="summary-sig-name">_getKey</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth._getKey">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">string</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshUserAuth-class.html#getPublicKey" class="summary-sig-name">getPublicKey</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return the SSH public key (using the zProperty zKeyPath) or None</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.getPublicKey">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Twisted deferred object</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshUserAuth-class.html#getPrivateKey" class="summary-sig-name">getPrivateKey</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return a deferred with the SSH private key (using the zProperty 
+      zKeyPath)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.getPrivateKey">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshUserAuth-class.html#ssh_USERAUTH_FAILURE" class="summary-sig-name">ssh_USERAUTH_FAILURE</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">packet</span>)</span><br />
+      Called when the SSH session can't authenticate.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.ssh_USERAUTH_FAILURE">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.userauth.SSHUserAuthClient</code></b>:
+      <code>askForAuth</code>,
+      <code>auth_keyboard_interactive</code>,
+      <code>auth_password</code>,
+      <code>auth_publickey</code>,
+      <code>serviceStarted</code>,
+      <code>signData</code>,
+      <code>ssh_USERAUTH_PK_OK</code>,
+      <code>ssh_USERAUTH_SUCCESS</code>,
+      <code>tryAuth</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.userauth.SSHUserAuthClient</code></b> (private):
+      <code>_cbGenericAnswers</code>,
+      <code>_cbPassword</code>,
+      <code>_cbSignData</code>,
+      <code>_cbSignedData</code>,
+      <code>_ebAuth</code>,
+      <code>_setNewPass</code>,
+      <code>_setOldPass</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.service.SSHService</code></b>:
+      <code>logPrefix</code>,
+      <code>packetReceived</code>,
+      <code>serviceStopped</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.userauth.SSHUserAuthClient</code></b>:
+      <code>name</code>,
+      <code>preferredOrder</code>,
+      <code>protocolMessages</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.service.SSHService</code></b>:
+      <code>transport</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">user</span>,
+        <span class="sig-arg">instance</span>,
+        <span class="sig-arg">factory</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>If no username is supplied, defaults to the user running this code (eg
+  zenoss)</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>user</code></strong> (string) - username</li>
+        <li><strong class="pname"><code>instance</code></strong> (object) - instance object</li>
+        <li><strong class="pname"><code>factory</code></strong> (Twisted factory object) - factory info</li>
+    </ul></dd>
+    <dt>Overrides:
+        twisted.conch.ssh.userauth.SSHUserAuthClient.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getPassword"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getPassword</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">unused</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.getPassword">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called from conch.</p>
+  <p>Return a deferred object of success if there's a password or return 
+  fail (ie no zCommandPassword specified)</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>unused</code></strong> (string) - unused (unused)</li>
+    </ul></dd>
+    <dt>Returns: Twisted deferred object</dt>
+        <dd>Twisted deferred object (defer.succeed or defer.fail)</dd>
+    <dt>Overrides:
+        twisted.conch.ssh.userauth.SSHUserAuthClient.getPassword
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getGenericAnswers"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getGenericAnswers</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>,
+        <span class="sig-arg">instruction</span>,
+        <span class="sig-arg">prompts</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.getGenericAnswers">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called from conch.</p>
+  <p>Returns a <code class="link">Deferred</code> with the responses to the
+  prompts.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> - The name of the authentication currently in progress.</li>
+        <li><strong class="pname"><code>instruction</code></strong> - Describes what the authentication wants.</li>
+        <li><strong class="pname"><code>prompts</code></strong> - A list of (prompt, echo) pairs, where prompt is a string to 
+          display and echo is a boolean indicating whether the user's 
+          response should be echoed as they type it.</li>
+    </ul></dd>
+    <dt>Overrides:
+        twisted.conch.ssh.userauth.SSHUserAuthClient.getGenericAnswers
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_getPassword"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_getPassword</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth._getPassword">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get the password. Raise an exception if it is not set.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getPublicKey"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getPublicKey</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.getPublicKey">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the SSH public key (using the zProperty zKeyPath) or None</p>
+  <dl class="fields">
+    <dt>Returns: string</dt>
+        <dd>SSH public key</dd>
+    <dt>Overrides:
+        twisted.conch.ssh.userauth.SSHUserAuthClient.getPublicKey
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getPrivateKey"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getPrivateKey</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.getPrivateKey">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return a deferred with the SSH private key (using the zProperty 
+  zKeyPath)</p>
+  <dl class="fields">
+    <dt>Returns: Twisted deferred object</dt>
+        <dd>Twisted deferred object (defer.succeed)</dd>
+    <dt>Overrides:
+        twisted.conch.ssh.userauth.SSHUserAuthClient.getPrivateKey
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="ssh_USERAUTH_FAILURE"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">ssh_USERAUTH_FAILURE</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">packet</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshUserAuth.ssh_USERAUTH_FAILURE">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Called when the SSH session can't authenticate.
+NB: This function is also called as an initializer
+    to start the connections.
+
+@param packet: returned packet from the host
+@type packet: object
+
+</pre>
+  <dl class="fields">
+    <dt>Overrides:
+        twisted.conch.ssh.userauth.SSHUserAuthClient.ssh_USERAUTH_FAILURE
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:22 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

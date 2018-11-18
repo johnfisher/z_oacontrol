@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenModel.NagiosTemplate</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenModel-module.html">Package&nbsp;ZenModel</a> ::
+        Module&nbsp;NagiosTemplate
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenModel.NagiosTemplate-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenModel.NagiosTemplate-module.html">Module Products.ZenModel.NagiosTemplate</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Globals</tt> <tt class="py-keyword">import</tt> <tt class="py-name">InitializeClass</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package Products.ZenRelations=Products.ZenRelations-module.html"><a title="Products.ZenRelations" class="py-name" href="#" onclick="return doclink('link-0', 'ZenRelations', 'link-0');">ZenRelations</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module Products.ZenRelations.RelSchema=Products.ZenRelations.RelSchema-module.html,Class Products.ZenRelations.RelSchema.RelSchema=Products.ZenRelations.RelSchema.RelSchema-class.html"><a title="Products.ZenRelations.RelSchema
+Products.ZenRelations.RelSchema.RelSchema" class="py-name" href="#" onclick="return doclink('link-1', 'RelSchema', 'link-1');">RelSchema</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module Products.ZenModel.ZenModelRM=Products.ZenModel.ZenModelRM-module.html,Class Products.ZenModel.ZenModelRM.ZenModelRM=Products.ZenModel.ZenModelRM.ZenModelRM-class.html"><a title="Products.ZenModel.ZenModelRM
+Products.ZenModel.ZenModelRM.ZenModelRM" class="py-name" href="#" onclick="return doclink('link-2', 'ZenModelRM', 'link-2');">ZenModelRM</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name"><a title="Products.ZenModel.ZenModelRM
+Products.ZenModel.ZenModelRM.ZenModelRM" class="py-name" href="#" onclick="return doclink('link-3', 'ZenModelRM', 'link-2');">ZenModelRM</a></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">warnings</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-name">warnings</tt><tt class="py-op">.</tt><tt class="py-name">warn</tt><tt class="py-op">(</tt><tt class="py-string">"NagiosTemplate is deprecated"</tt><tt class="py-op">,</tt> <tt class="py-name">DeprecationWarning</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="NagiosTemplate"></a><div id="NagiosTemplate-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="NagiosTemplate-toggle" onclick="return toggle('NagiosTemplate');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenModel.NagiosTemplate.NagiosTemplate-class.html">NagiosTemplate</a><tt class="py-op">(</tt><tt class="py-base-class">ZenModelRM</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NagiosTemplate-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="NagiosTemplate-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Method Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description()=Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress-class.html#description,Method Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description()=Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware-class.html#description,Method Products.DataCollector.CommandParsers.CommandParser.CommandParser.description()=Products.DataCollector.CommandParsers.CommandParser.CommandParser-class.html#description,Method Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description()=Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an-class.html#description,Method Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description()=Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn-class.html#description,Method Products.DataCollector.CommandParsers.Uname_A.Uname_A.description()=Products.DataCollector.CommandParsers.Uname_A.Uname_A-class.html#description,Method Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description()=Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k-class.html#description,Variable Products.ZenModel.HardDisk.HardDisk.description=Products.ZenModel.HardDisk.HardDisk-class.html#description,Variable Products.ZenModel.IpInterface.IpInterface.description=Products.ZenModel.IpInterface.IpInterface-class.html#description,Variable Products.ZenModel.MibBase.MibBase.description=Products.ZenModel.MibBase.MibBase-class.html#description,Variable Products.ZenModel.MibModule.MibModule.description=Products.ZenModel.MibModule.MibModule-class.html#description,Variable Products.ZenModel.NagiosTemplate.NagiosTemplate.description=Products.ZenModel.NagiosTemplate.NagiosTemplate-class.html#description,Variable Products.ZenModel.OSProcessClass.OSProcessClass.description=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#description,Variable Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description=Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer-class.html#description,Variable Products.ZenModel.RRDTemplate.RRDTemplate.description=Products.ZenModel.RRDTemplate.RRDTemplate-class.html#description,Variable Products.ZenModel.Report.Report.description=Products.ZenModel.Report.Report-class.html#description,Variable Products.ZenModel.ServiceClass.ServiceClass.description=Products.ZenModel.ServiceClass.ServiceClass-class.html#description,Variable Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description=Products.ZenModel.ServiceOrganizer.ServiceOrganizer-class.html#description,Variable Products.ZenModel.UserCommand.UserCommand.description=Products.ZenModel.UserCommand.UserCommand-class.html#description,Variable Products.ZenModel.ZenMenu.ZenMenu.description=Products.ZenModel.ZenMenu.ZenMenu-class.html#description,Variable Products.ZenModel.ZenMenuItem.ZenMenuItem.description=Products.ZenModel.ZenMenuItem.ZenMenuItem-class.html#description,Variable Products.ZenModel.ZentinelPortal.ZentinelPortal.description=Products.ZenModel.ZentinelPortal.ZentinelPortal-class.html#description"><a title="Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description
+Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description
+Products.DataCollector.CommandParsers.CommandParser.CommandParser.description
+Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description
+Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description
+Products.DataCollector.CommandParsers.Uname_A.Uname_A.description
+Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description
+Products.ZenModel.HardDisk.HardDisk.description
+Products.ZenModel.IpInterface.IpInterface.description
+Products.ZenModel.MibBase.MibBase.description
+Products.ZenModel.MibModule.MibModule.description
+Products.ZenModel.NagiosTemplate.NagiosTemplate.description
+Products.ZenModel.OSProcessClass.OSProcessClass.description
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description
+Products.ZenModel.RRDTemplate.RRDTemplate.description
+Products.ZenModel.Report.Report.description
+Products.ZenModel.ServiceClass.ServiceClass.description
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description
+Products.ZenModel.UserCommand.UserCommand.description
+Products.ZenModel.ZenMenu.ZenMenu.description
+Products.ZenModel.ZenMenuItem.ZenMenuItem.description
+Products.ZenModel.ZentinelPortal.ZentinelPortal.description" class="py-name" href="#" onclick="return doclink('link-4', 'description', 'link-4');">description</a></tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable Products.ZenEvents.ActionRule.ActionRule._relations=Products.ZenEvents.ActionRule.ActionRule-class.html#_relations,Variable Products.ZenEvents.ActionRuleWindow.ActionRuleWindow._relations=Products.ZenEvents.ActionRuleWindow.ActionRuleWindow-class.html#_relations,Variable Products.ZenEvents.EventClass.EventClass._relations=Products.ZenEvents.EventClass.EventClass-class.html#_relations,Variable Products.ZenEvents.EventClassInst.EventClassInst._relations=Products.ZenEvents.EventClassInst.EventClassInst-class.html#_relations,Variable Products.ZenEvents.EventCommand.EventCommand._relations=Products.ZenEvents.EventCommand.EventCommand-class.html#_relations,Variable Products.ZenEvents.EventManagerBase.EventManagerBase._relations=Products.ZenEvents.EventManagerBase.EventManagerBase-class.html#_relations,Variable Products.ZenModel.AdministrativeRole.AdministrativeRole._relations=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#_relations,Variable Products.ZenModel.BasicDataSource.BasicDataSource._relations=Products.ZenModel.BasicDataSource.BasicDataSource-class.html#_relations,Variable Products.ZenModel.CPU.CPU._relations=Products.ZenModel.CPU.CPU-class.html#_relations,Variable Products.ZenModel.Collection.Collection._relations=Products.ZenModel.Collection.Collection-class.html#_relations,Variable Products.ZenModel.CollectionItem.CollectionItem._relations=Products.ZenModel.CollectionItem.CollectionItem-class.html#_relations,Variable Products.ZenModel.DataRoot.DataRoot._relations=Products.ZenModel.DataRoot.DataRoot-class.html#_relations,Variable Products.ZenModel.Device.Device._relations=Products.ZenModel.Device.Device-class.html#_relations,Variable Products.ZenModel.DeviceClass.DeviceClass._relations=Products.ZenModel.DeviceClass.DeviceClass-class.html#_relations,Variable Products.ZenModel.DeviceGroup.DeviceGroup._relations=Products.ZenModel.DeviceGroup.DeviceGroup-class.html#_relations,Variable Products.ZenModel.DeviceHW.DeviceHW._relations=Products.ZenModel.DeviceHW.DeviceHW-class.html#_relations,Variable Products.ZenModel.DeviceOrganizer.DeviceOrganizer._relations=Products.ZenModel.DeviceOrganizer.DeviceOrganizer-class.html#_relations,Variable Products.ZenModel.ExpansionCard.ExpansionCard._relations=Products.ZenModel.ExpansionCard.ExpansionCard-class.html#_relations,Variable Products.ZenModel.Fan.Fan._relations=Products.ZenModel.Fan.Fan-class.html#_relations,Variable Products.ZenModel.FileSystem.FileSystem._relations=Products.ZenModel.FileSystem.FileSystem-class.html#_relations,Variable Products.ZenModel.GraphDefinition.GraphDefinition._relations=Products.ZenModel.GraphDefinition.GraphDefinition-class.html#_relations,Variable Products.ZenModel.GraphGroup.GraphGroup._relations=Products.ZenModel.GraphGroup.GraphGroup-class.html#_relations,Variable Products.ZenModel.GraphPoint.GraphPoint._relations=Products.ZenModel.GraphPoint.GraphPoint-class.html#_relations,Variable Products.ZenModel.GraphReport.GraphReport._relations=Products.ZenModel.GraphReport.GraphReport-class.html#_relations,Variable Products.ZenModel.GraphReportElement.GraphReportElement._relations=Products.ZenModel.GraphReportElement.GraphReportElement-class.html#_relations,Variable Products.ZenModel.HardDisk.HardDisk._relations=Products.ZenModel.HardDisk.HardDisk-class.html#_relations,Variable Products.ZenModel.IpAddress.IpAddress._relations=Products.ZenModel.IpAddress.IpAddress-class.html#_relations,Variable Products.ZenModel.IpInterface.IpInterface._relations=Products.ZenModel.IpInterface.IpInterface-class.html#_relations,Variable Products.ZenModel.IpNetwork.IpNetwork._relations=Products.ZenModel.IpNetwork.IpNetwork-class.html#_relations,Variable Products.ZenModel.IpRouteEntry.IpRouteEntry._relations=Products.ZenModel.IpRouteEntry.IpRouteEntry-class.html#_relations,Variable Products.ZenModel.IpService.IpService._relations=Products.ZenModel.IpService.IpService-class.html#_relations,Variable Products.ZenModel.Link.Link._relations=Products.ZenModel.Link.Link-class.html#_relations,Variable Products.ZenModel.Location.Location._relations=Products.ZenModel.Location.Location-class.html#_relations,Variable Products.ZenModel.MEProduct.MEProduct._relations=Products.ZenModel.MEProduct.MEProduct-class.html#_relations,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow._relations=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#_relations,Variable Products.ZenModel.ManagedEntity.ManagedEntity._relations=Products.ZenModel.ManagedEntity.ManagedEntity-class.html#_relations,Variable Products.ZenModel.Manufacturer.Manufacturer._relations=Products.ZenModel.Manufacturer.Manufacturer-class.html#_relations,Variable Products.ZenModel.MibBase.MibBase._relations=Products.ZenModel.MibBase.MibBase-class.html#_relations,Variable Products.ZenModel.MibModule.MibModule._relations=Products.ZenModel.MibModule.MibModule-class.html#_relations,Variable Products.ZenModel.MibNode.MibNode._relations=Products.ZenModel.MibNode.MibNode-class.html#_relations,Variable Products.ZenModel.MibNotification.MibNotification._relations=Products.ZenModel.MibNotification.MibNotification-class.html#_relations,Variable Products.ZenModel.MibOrganizer.MibOrganizer._relations=Products.ZenModel.MibOrganizer.MibOrganizer-class.html#_relations,Variable Products.ZenModel.MonitorClass.MonitorClass._relations=Products.ZenModel.MonitorClass.MonitorClass-class.html#_relations,Variable Products.ZenModel.MultiGraphReport.MultiGraphReport._relations=Products.ZenModel.MultiGraphReport.MultiGraphReport-class.html#_relations,Variable Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass._relations=Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass-class.html#_relations,Variable Products.ZenModel.NagiosCmd.NagiosCmd._relations=Products.ZenModel.NagiosCmd.NagiosCmd-class.html#_relations,Variable Products.ZenModel.NagiosTemplate.NagiosTemplate._relations=Products.ZenModel.NagiosTemplate.NagiosTemplate-class.html#_relations,Variable Products.ZenModel.OSComponent.OSComponent._relations=Products.ZenModel.OSComponent.OSComponent-class.html#_relations,Variable Products.ZenModel.OSProcess.OSProcess._relations=Products.ZenModel.OSProcess.OSProcess-class.html#_relations,Variable Products.ZenModel.OSProcessClass.OSProcessClass._relations=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#_relations,Variable Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer._relations=Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer-class.html#_relations,Variable Products.ZenModel.OperatingSystem.OperatingSystem._relations=Products.ZenModel.OperatingSystem.OperatingSystem-class.html#_relations,Variable Products.ZenModel.Organizer.Organizer._relations=Products.ZenModel.Organizer.Organizer-class.html#_relations,Variable Products.ZenModel.PerformanceConf.PerformanceConf._relations=Products.ZenModel.PerformanceConf.PerformanceConf-class.html#_relations,Variable Products.ZenModel.PowerSupply.PowerSupply._relations=Products.ZenModel.PowerSupply.PowerSupply-class.html#_relations,Variable Products.ZenModel.ProductClass.ProductClass._relations=Products.ZenModel.ProductClass.ProductClass-class.html#_relations,Variable Products.ZenModel.RRDDataPoint.RRDDataPoint._relations=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#_relations,Variable Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias._relations=Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias-class.html#_relations,Variable Products.ZenModel.RRDDataSource.RRDDataSource._relations=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#_relations,Variable Products.ZenModel.RRDGraph.RRDGraph._relations=Products.ZenModel.RRDGraph.RRDGraph-class.html#_relations,Variable Products.ZenModel.RRDTemplate.RRDTemplate._relations=Products.ZenModel.RRDTemplate.RRDTemplate-class.html#_relations,Variable Products.ZenModel.Report.Report._relations=Products.ZenModel.Report.Report-class.html#_relations,Variable Products.ZenModel.ReportClass.ReportClass._relations=Products.ZenModel.ReportClass.ReportClass-class.html#_relations,Variable Products.ZenModel.Service.Service._relations=Products.ZenModel.Service.Service-class.html#_relations,Variable Products.ZenModel.ServiceClass.ServiceClass._relations=Products.ZenModel.ServiceClass.ServiceClass-class.html#_relations,Variable Products.ZenModel.ServiceOrganizer.ServiceOrganizer._relations=Products.ZenModel.ServiceOrganizer.ServiceOrganizer-class.html#_relations,Variable Products.ZenModel.Software.Software._relations=Products.ZenModel.Software.Software-class.html#_relations,Variable Products.ZenModel.StatusMonitorConf.StatusMonitorConf._relations=Products.ZenModel.StatusMonitorConf.StatusMonitorConf-class.html#_relations,Variable Products.ZenModel.System.System._relations=Products.ZenModel.System.System-class.html#_relations,Variable Products.ZenModel.TemperatureSensor.TemperatureSensor._relations=Products.ZenModel.TemperatureSensor.TemperatureSensor-class.html#_relations,Variable Products.ZenModel.TemplateContainer.TemplateContainer._relations=Products.ZenModel.TemplateContainer.TemplateContainer-class.html#_relations,Variable Products.ZenModel.ThresholdClass.ThresholdClass._relations=Products.ZenModel.ThresholdClass.ThresholdClass-class.html#_relations,Variable Products.ZenModel.UserCommand.UserCommand._relations=Products.ZenModel.UserCommand.UserCommand-class.html#_relations,Variable Products.ZenModel.UserSettings.UserSettings._relations=Products.ZenModel.UserSettings.UserSettings-class.html#_relations,Variable Products.ZenModel.WinService.WinService._relations=Products.ZenModel.WinService.WinService-class.html#_relations,Variable Products.ZenModel.ZenMenu.ZenMenu._relations=Products.ZenModel.ZenMenu.ZenMenu-class.html#_relations,Variable Products.ZenModel.ZenMenuItem.ZenMenuItem._relations=Products.ZenModel.ZenMenuItem.ZenMenuItem-class.html#_relations,Variable Products.ZenModel.ZenPack.ZenPack._relations=Products.ZenModel.ZenPack.ZenPack-class.html#_relations,Variable Products.ZenModel.ZenPackManager.ZenPackManager._relations=Products.ZenModel.ZenPackManager.ZenPackManager-class.html#_relations,Variable Products.ZenModel.ZenPackable.ZenPackable._relations=Products.ZenModel.ZenPackable.ZenPackable-class.html#_relations,Variable Products.ZenRelations.RelationshipManager.RelationshipManager._relations=Products.ZenRelations.RelationshipManager.RelationshipManager-class.html#_relations,Variable Products.ZenWidgets.PersistentMessage.PersistentMessage._relations=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#_relations,Variable Products.ZenWidgets.Portlet.Portlet._relations=Products.ZenWidgets.Portlet.Portlet-class.html#_relations,Variable Products.ZenWidgets.PortletManager.PortletManager._relations=Products.ZenWidgets.PortletManager.PortletManager-class.html#_relations"><a title="Products.ZenEvents.ActionRule.ActionRule._relations
+Products.ZenEvents.ActionRuleWindow.ActionRuleWindow._relations
+Products.ZenEvents.EventClass.EventClass._relations
+Products.ZenEvents.EventClassInst.EventClassInst._relations
+Products.ZenEvents.EventCommand.EventCommand._relations
+Products.ZenEvents.EventManagerBase.EventManagerBase._relations
+Products.ZenModel.AdministrativeRole.AdministrativeRole._relations
+Products.ZenModel.BasicDataSource.BasicDataSource._relations
+Products.ZenModel.CPU.CPU._relations
+Products.ZenModel.Collection.Collection._relations
+Products.ZenModel.CollectionItem.CollectionItem._relations
+Products.ZenModel.DataRoot.DataRoot._relations
+Products.ZenModel.Device.Device._relations
+Products.ZenModel.DeviceClass.DeviceClass._relations
+Products.ZenModel.DeviceGroup.DeviceGroup._relations
+Products.ZenModel.DeviceHW.DeviceHW._relations
+Products.ZenModel.DeviceOrganizer.DeviceOrganizer._relations
+Products.ZenModel.ExpansionCard.ExpansionCard._relations
+Products.ZenModel.Fan.Fan._relations
+Products.ZenModel.FileSystem.FileSystem._relations
+Products.ZenModel.GraphDefinition.GraphDefinition._relations
+Products.ZenModel.GraphGroup.GraphGroup._relations
+Products.ZenModel.GraphPoint.GraphPoint._relations
+Products.ZenModel.GraphReport.GraphReport._relations
+Products.ZenModel.GraphReportElement.GraphReportElement._relations
+Products.ZenModel.HardDisk.HardDisk._relations
+Products.ZenModel.IpAddress.IpAddress._relations
+Products.ZenModel.IpInterface.IpInterface._relations
+Products.ZenModel.IpNetwork.IpNetwork._relations
+Products.ZenModel.IpRouteEntry.IpRouteEntry._relations
+Products.ZenModel.IpService.IpService._relations
+Products.ZenModel.Link.Link._relations
+Products.ZenModel.Location.Location._relations
+Products.ZenModel.MEProduct.MEProduct._relations
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow._relations
+Products.ZenModel.ManagedEntity.ManagedEntity._relations
+Products.ZenModel.Manufacturer.Manufacturer._relations
+Products.ZenModel.MibBase.MibBase._relations
+Products.ZenModel.MibModule.MibModule._relations
+Products.ZenModel.MibNode.MibNode._relations
+Products.ZenModel.MibNotification.MibNotification._relations
+Products.ZenModel.MibOrganizer.MibOrganizer._relations
+Products.ZenModel.MonitorClass.MonitorClass._relations
+Products.ZenModel.MultiGraphReport.MultiGraphReport._relations
+Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass._relations
+Products.ZenModel.NagiosCmd.NagiosCmd._relations
+Products.ZenModel.NagiosTemplate.NagiosTemplate._relations
+Products.ZenModel.OSComponent.OSComponent._relations
+Products.ZenModel.OSProcess.OSProcess._relations
+Products.ZenModel.OSProcessClass.OSProcessClass._relations
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer._relations
+Products.ZenModel.OperatingSystem.OperatingSystem._relations
+Products.ZenModel.Organizer.Organizer._relations
+Products.ZenModel.PerformanceConf.PerformanceConf._relations
+Products.ZenModel.PowerSupply.PowerSupply._relations
+Products.ZenModel.ProductClass.ProductClass._relations
+Products.ZenModel.RRDDataPoint.RRDDataPoint._relations
+Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias._relations
+Products.ZenModel.RRDDataSource.RRDDataSource._relations
+Products.ZenModel.RRDGraph.RRDGraph._relations
+Products.ZenModel.RRDTemplate.RRDTemplate._relations
+Products.ZenModel.Report.Report._relations
+Products.ZenModel.ReportClass.ReportClass._relations
+Products.ZenModel.Service.Service._relations
+Products.ZenModel.ServiceClass.ServiceClass._relations
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer._relations
+Products.ZenModel.Software.Software._relations
+Products.ZenModel.StatusMonitorConf.StatusMonitorConf._relations
+Products.ZenModel.System.System._relations
+Products.ZenModel.TemperatureSensor.TemperatureSensor._relations
+Products.ZenModel.TemplateContainer.TemplateContainer._relations
+Products.ZenModel.ThresholdClass.ThresholdClass._relations
+Products.ZenModel.UserCommand.UserCommand._relations
+Products.ZenModel.UserSettings.UserSettings._relations
+Products.ZenModel.WinService.WinService._relations
+Products.ZenModel.ZenMenu.ZenMenu._relations
+Products.ZenModel.ZenMenuItem.ZenMenuItem._relations
+Products.ZenModel.ZenPack.ZenPack._relations
+Products.ZenModel.ZenPackManager.ZenPackManager._relations
+Products.ZenModel.ZenPackable.ZenPackable._relations
+Products.ZenRelations.RelationshipManager.RelationshipManager._relations
+Products.ZenWidgets.PersistentMessage.PersistentMessage._relations
+Products.ZenWidgets.Portlet.Portlet._relations
+Products.ZenWidgets.PortletManager.PortletManager._relations" class="py-name" href="#" onclick="return doclink('link-5', '_relations', 'link-5');">_relations</a></tt> <tt class="py-op">=</tt>  <tt class="py-op">(</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">"deviceClass"</tt><tt class="py-op">,</tt> <tt id="link-6" class="py-name" targets="Class Products.ZenRelations.RelSchema.ToOne=Products.ZenRelations.RelSchema.ToOne-class.html"><a title="Products.ZenRelations.RelSchema.ToOne" class="py-name" href="#" onclick="return doclink('link-6', 'ToOne', 'link-6');">ToOne</a></tt><tt class="py-op">(</tt><tt id="link-7" class="py-name" targets="Class Products.ZenRelations.RelSchema.ToManyCont=Products.ZenRelations.RelSchema.ToManyCont-class.html"><a title="Products.ZenRelations.RelSchema.ToManyCont" class="py-name" href="#" onclick="return doclink('link-7', 'ToManyCont', 'link-7');">ToManyCont</a></tt><tt class="py-op">,</tt> <tt class="py-string">"Products.ZenModel.DeviceClass"</tt><tt class="py-op">,</tt> <tt class="py-string">"nagiosTemplates"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">"nagiosCmds"</tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name"><a title="Products.ZenRelations.RelSchema.ToManyCont" class="py-name" href="#" onclick="return doclink('link-8', 'ToManyCont', 'link-7');">ToManyCont</a></tt><tt class="py-op">(</tt><tt id="link-9" class="py-name"><a title="Products.ZenRelations.RelSchema.ToOne" class="py-name" href="#" onclick="return doclink('link-9', 'ToOne', 'link-6');">ToOne</a></tt><tt class="py-op">,</tt> <tt class="py-string">"Products.ZenModel.NagiosCmd"</tt><tt class="py-op">,</tt> <tt class="py-string">"nagiosTemplate"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-op">)</tt>     </tt>
+</div><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-name">InitializeClass</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name" targets="Module Products.ZenModel.NagiosTemplate=Products.ZenModel.NagiosTemplate-module.html,Class Products.ZenModel.NagiosTemplate.NagiosTemplate=Products.ZenModel.NagiosTemplate.NagiosTemplate-class.html"><a title="Products.ZenModel.NagiosTemplate
+Products.ZenModel.NagiosTemplate.NagiosTemplate" class="py-name" href="#" onclick="return doclink('link-10', 'NagiosTemplate', 'link-10');">NagiosTemplate</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:51 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

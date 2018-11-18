@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Transfer Effect</title>
+		<link rel="stylesheet" href="css/transfer.css">
+	</head>
+	<body>
+    	<div id="install">
+        	<div id="firefox"><!-- --></div>
+            <div id="apps"><!-- --></div>
+        </div>
+        <p>To install the application, drag its icon over to the apps folder icon.</p>
+        <button id="show">Show me</button>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$("#show").click(function() {
+					$("#firefox").effect("transfer", { to: "#apps", className: "ui-effect-transfer" }, 1000);
+				});				
+			})(jQuery);
+		</script>
+	</body>
+</html>

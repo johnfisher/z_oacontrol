@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery animate() Position</title>
+		<link rel="stylesheet" href="css/animate-position.css">
+	</head>
+	<body>
+    	<div id="slider">
+        	<div id="viewer">
+            	<img id="image1" src="img/amstrad.jpg" alt="Amstrad CPC 472">
+                <img id="image2" src="img/atari.jpg" alt="Atari TT030">
+                <img id="image3" src="img/commodore16.jpg" alt="Commodore 64">
+                <img id="image4" src="img/commodore128.jpg" alt="Commodore 128">
+                <img id="image5" src="img/spectrum.jpg" alt="Sinclair ZX Spectrum +2">
+            </div>            
+            <ul id="ui">
+            	<li class="hidden" id="prev"><a href="" title="Previous">&laquo;</a></li>
+            	<li><a href="#image1" title="Image 1" class="active">Image 1</a></li>
+                <li><a href="#image2" title="Image 2">Image 2</a></li>
+                <li><a href="#image3" title="Image 3">Image 3</a></li>
+                <li><a href="#image4" title="Image 4">Image 4</a></li>
+                <li><a href="#image5" title="Image 5">Image 5</a></li>
+                <li class="hidden" id="next"><a href="" title="Next">&raquo;</a></li>
+            </ul>
+        </div>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+		<script>
+			(function($){
+				
+				//add slideshow wrapper and class
+				$("#viewer").wrapInner("<div id=\"slide\"></div>");
+												
+				//cache selectors
+				var prev = $("#prev"),
+					prevChild = prev.find("a"),
+					next = $("#next"),
+					nextChild = next.find("a"),
+					slide = $("#slide"),
+					
+					//init counter and key
+					clicks = 0,
+					key = "image1",
+					
+					//store details in an object
+					details = {
+						image1: { position: 0, title: slide.children().eq(0).attr("alt") },
+						image2: { position: -400, title: slide.children().eq(1).attr("alt") },
+						image3: { position: -800, title: slide.children().eq(2).attr("alt") },
+						image4: { position: -1200, title: slide.children().eq(3).attr("alt") },
+						image5: { position: -1600, title: slide.children().eq(4).attr("alt") }
+					};
+					
+				//add title
+				$("<h2>").attr("id", "title").text(details.image1.title).prependTo("#slider");	
+								
+				//remove hidden class from next
+				next.removeClass("hidden");				
+										
+				//post-anim tasks
+				function postAnim(dir) {
+					
+					//parse panel number
+					var keyMatch = parseInt(key.match(/\d+$/));
+					
+					//show/hide prev
+					(parseInt(slide.css("left")) < 0) ? prev.show(300) : prev.hide(300);
+						
+					//show/hide next
+					(parseInt(slide.css("left")) === -1600) ? next.hide(300) : next.show(300);	
+																				
+					//reset counter
+					clicks = 0;
+										
+					//update key if prev/next used
+					if (dir) {
+						var titleKey = (dir === "back") ? keyMatch - 1 : keyMatch + 1;
+						key = "image" + titleKey;
+					}
+					
+					//update title
+					$("#title").text(details[key].title);
+					
+					//set active state on active panel link
+					$(".active").removeClass("active");
+					$("a[href=#" + key + "]").addClass("active");
+				};
+				
+				//intercept click on slide links
+				$("#ui li a").not(prevChild).not(nextChild).click(function(e){
+					e.preventDefault();
+					
+					key = $(this).attr("href").split("#")[1];
+				
+					//show selected image
+					slide.animate({
+						left: details[key].position
+					}, "slow", "easeOutBack", postAnim);					
+				});
+				
+				//click handler for prev/next links
+				nextChild.add(prevChild).click(function(e){
+					e.preventDefault();
+					
+					//increment counter
+					clicks++;
+					
+					//cache reference to clicked link
+					var arrow = $(this).parent();
+					
+					//show selected image
+					if(clicks <= 1) {	
+						slide.animate({
+							left: (arrow.attr("id") === "prev") ? "+=400" : "-=400"
+						}, "slow", "easeOutBack", function(){
+							
+							(arrow.attr("id") === "prev") ? postAnim("back") : postAnim("forward");
+						});
+					}
+				});
+				
+				//click handler for prev link
+				//prev.find("a").click(function(e){
+//					e.preventDefault();
+//					
+//					//increment counter
+//					clicks++;
+//					
+//					if(clicks <= 1) {	
+//						slide.animate({
+//							left: "+=400"
+//						}, "slow", "easeOutBack", function(){
+//							
+//							postAnim("back");
+//						});
+//					}
+//				});
+//				
+//				//click handler for next link
+//				next.find("a").click(function(e){
+//					e.preventDefault();
+//					
+//					//increment counter
+//					clicks++;
+//					
+//					if(clicks <= 1) {
+//						slide.animate({
+//							left: "-=400"
+//						}, "slow", "easeOutBack", function(){
+//							
+//							postAnim("forward");
+//						});
+//					}	
+//				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

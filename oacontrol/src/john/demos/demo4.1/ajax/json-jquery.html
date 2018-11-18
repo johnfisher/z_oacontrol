@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+<script type="text/javascript" src="js/hoverIntent.js"></script>
+<script type="text/javascript" src="js/zsuperfish.js"></script>
+<script type="text/javascript" src="functions4.1.js"></script>
+
+
+
+
+
+<link rel="stylesheet" media="screen" href="css/oac.css" /> 
+<link rel="stylesheet" media="screen" href="styles4.1.css" /> 
+
+<script type="text/javascript">
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg" ;
+
+
+$(document).ready(function(){
+  alert("ready");  
+         //attach a jQuery live event to the button
+    $('#getdata-button').live('click', function(){
+        $.getJSON('json-data.php', function(data) {
+            //alert(data); //uncomment this for debug
+            //alert (data.item1+" "+data.item2+" "+data.item3); //further debug
+            $('#debugdiv').html("<p>item1="+data.item1+" item2="+data.item2+" item3="+data.item3+"</p>");
+        });
+    });
+
+});
+
+
+/////////////////////////////////////////////////
+</script>
+
+</head><body>
+
+<div id="debugdiv"></div>
+
+<a href="#" id="getdata-button">Get JSON Data</a>
+
+
+
+</body></html>
+
+

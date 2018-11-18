@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenEvents.zenpop3.POPProtocol</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenEvents-module.html">Package&nbsp;ZenEvents</a> ::
+        <a href="Products.ZenEvents.zenpop3-module.html">Module&nbsp;zenpop3</a> ::
+        Class&nbsp;POPProtocol
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenEvents.zenpop3.POPProtocol-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class POPProtocol</h1><p class="nomargin-top"><span class="codelink"><a href="Products.ZenEvents.zenpop3-pysrc.html#POPProtocol">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+twisted.internet.protocol.BaseProtocol --+            
+                                         |            
+        twisted.internet.protocol.Protocol --+        
+                                             |        
+      twisted.protocols.basic.LineOnlyReceiver --+    
+                                                 |    
+       twisted.protocols.policies.TimeoutMixin --+    
+                                                 |    
+                twisted.mail.pop3client.POP3Client --+
+                                                     |
+                                                    <strong class="uidshort">POPProtocol</strong>
+</pre>
+
+<hr />
+<p>protocol that is responsible for conversing with a pop server after a 
+  connection has been established.  downloads messages (and deletes them by
+  default), and passes the messages back up to the factory to process (and 
+  turn into events)</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenEvents.zenpop3.POPProtocol-class.html#serverGreeting" class="summary-sig-name">serverGreeting</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">unused</span>)</span><br />
+      Called when the server has sent us a greeting.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.zenpop3-pysrc.html#POPProtocol.serverGreeting">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_loggedIn"></a><span class="summary-sig-name">_loggedIn</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">unused</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.zenpop3-pysrc.html#POPProtocol._loggedIn">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="retrieveAndParse"></a><span class="summary-sig-name">retrieveAndParse</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.zenpop3-pysrc.html#POPProtocol.retrieveAndParse">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_gotMessageSizes"></a><span class="summary-sig-name">_gotMessageSizes</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">sizes</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.zenpop3-pysrc.html#POPProtocol._gotMessageSizes">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_gotMessageLines"></a><span class="summary-sig-name">_gotMessageLines</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">messageLines</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.zenpop3-pysrc.html#POPProtocol._gotMessageLines">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_delete"></a><span class="summary-sig-name">_delete</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">unused</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.zenpop3-pysrc.html#POPProtocol._delete">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="scanComplete"></a><span class="summary-sig-name">scanComplete</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">unused</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.zenpop3-pysrc.html#POPProtocol.scanComplete">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.mail.pop3client.POP3Client</code></b>:
+      <code>apop</code>,
+      <code>capabilities</code>,
+      <code>connectionLost</code>,
+      <code>connectionMade</code>,
+      <code>delete</code>,
+      <code>lineLengthExceeded</code>,
+      <code>lineReceived</code>,
+      <code>listSize</code>,
+      <code>listUID</code>,
+      <code>login</code>,
+      <code>noop</code>,
+      <code>password</code>,
+      <code>quit</code>,
+      <code>reset</code>,
+      <code>retrieve</code>,
+      <code>sendLong</code>,
+      <code>sendShort</code>,
+      <code>startTLS</code>,
+      <code>stat</code>,
+      <code>state_LONG</code>,
+      <code>state_LONG_INITIAL</code>,
+      <code>state_SHORT</code>,
+      <code>state_WAITING</code>,
+      <code>state_WELCOME</code>,
+      <code>timeoutConnection</code>,
+      <code>user</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.mail.pop3client.POP3Client</code></b> (private):
+      <code>_apop</code>,
+      <code>_blocked</code>,
+      <code>_consumeOrAppend</code>,
+      <code>_consumeOrSetItem</code>,
+      <code>_getContextFactory</code>,
+      <code>_login</code>,
+      <code>_loginTLS</code>,
+      <code>_plaintext</code>,
+      <code>_startTLS</code>,
+      <code>_startedTLS</code>,
+      <code>_unblock</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.protocols.basic.LineOnlyReceiver</code></b>:
+      <code>dataReceived</code>,
+      <code>sendLine</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.internet.protocol.BaseProtocol</code></b>:
+      <code>makeConnection</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.protocols.policies.TimeoutMixin</code></b>:
+      <code>callLater</code>,
+      <code>resetTimeout</code>,
+      <code>setTimeout</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>bool</code></span>
+    </td><td class="summary">
+        <a name="allowInsecureLogin"></a><span class="summary-name">allowInsecureLogin</span> = <code title="True">True</code><br />
+      Indicate whether login() should be allowed if the server offers no 
+      authentication challenge and if our transport does not offer any 
+      protection via encryption.
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type"><code>int</code></span>
+    </td><td class="summary">
+        <a name="timeout"></a><span class="summary-name">timeout</span> = <code title="15">15</code><br />
+      Number of seconds to wait before timing out a connection.
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.mail.pop3client.POP3Client</code></b> (private):
+      <code>_blockedQueue</code>,
+      <code>_capCache</code>,
+      <code>_challengeMagicRe</code>,
+      <code>_greetingError</code>,
+      <code>_timedOut</code>,
+      <code>_waiting</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.protocols.basic.LineOnlyReceiver</code></b>:
+      <code>MAX_LENGTH</code>,
+      <code>delimiter</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.protocols.basic.LineOnlyReceiver</code></b> (private):
+      <code>_buffer</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.internet.protocol.BaseProtocol</code></b>:
+      <code>connected</code>,
+      <code>transport</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.protocols.policies.TimeoutMixin</code></b>:
+      <code>timeOut</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.mail.pop3client.POP3Client</code></b>:
+      <code>serverChallenge</code>,
+      <code>startedTLS</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="serverGreeting"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">serverGreeting</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">unused</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenEvents.zenpop3-pysrc.html#POPProtocol.serverGreeting">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called when the server has sent us a greeting.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>greeting</code></strong> - The status message sent with the server greeting.  For servers 
+          implementing APOP authentication, this will be a challenge 
+          string.  .</li>
+    </ul></dd>
+    <dt>Overrides:
+        twisted.mail.pop3client.POP3Client.serverGreeting
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:24 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

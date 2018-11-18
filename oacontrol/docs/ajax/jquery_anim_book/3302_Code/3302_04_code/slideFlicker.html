@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery slideDown() with flicker effect</title>
+        <link rel="stylesheet" href="css/fadeIn.css">
+		<link rel="stylesheet" href="css/slideFlicker.css">
+        <!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<nav>
+            <ul class="purecss">
+				<li class="first"><a href="#" title="Home">Home</a></li>
+				<li>
+                	<a href="#" title="Articles">Articles</a>
+                    <div class="subnav">
+                    	<ul class="left">
+                        	<li><h2>JavaScript</h2></li>
+                            <li><a href="#" title="JS Article 1">JS Article 1</a></li>
+                            <li><a href="#" title="JS Article 2">JS Article 2</a></li>
+                            <li class="last"><a href="#" title="JS Article 3">JS Article 3</a></li>
+                        </ul>
+                        <ul class="right">
+                        	<li><h2>jQuery</h2></li>
+                            <li><a href="#" title="jQuery Article 1">jQuery Article 1</a></li>
+                            <li><a href="#" title="jQuery Article 2">jQuery Article 2</a></li>
+                            <li class="last"><a href="#" title="jQuery Article 3">jQuery Article 3</a></li>
+                        </ul>
+                    </div>
+                </li>
+				<li><a href="#" title="Code">Code</a></li>
+				<li>
+                	<a href="#" title="Demos">Demos</a>
+                    <ul class="subnav">
+                    	<li class="first"><a href="#" title="The first demo">The first demo</a></li>
+                        <li><a href="#" title="Another demo">Another demo</a></li>
+                        <li class="last"><a href="#" title="The third demo">The third demo</a></li>
+                    </ul>
+                </li>
+				<li class="last"><a href="#" title="Portfolio">Portfolio</a></li>
+			</ul>
+   		</nav>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//cache list
+				var ul = $("nav ul");
+				
+				//remove purecss class to disable css hovers
+				ul.removeClass("purecss");
+				
+				//add spans inside every link
+				ul.find("a").each(function(){
+					if (!$(this).closest(".subnav").length) {
+						var a = $(this);
+						a.append("<span>" + a.text() + "</span>");
+					}
+				});
+				
+				//animate spans
+				ul.find("a").hover(function() {
+					$(this).find("span").fadeIn("slow");
+				}, function() {
+					$(this).find("span").hide();
+				});
+				
+				//show subnavs
+				$(".subnav", ul).parent().mouseenter(function() {
+					$(this).find(".subnav").stop(true, true).slideDown("fast");
+				});
+				
+				//hide subnavs
+				$(".subnav", ul).parent().mouseleave(function() {
+					$(this).find(".subnav").stop(true, true).slideUp("fast");
+				});
+				
+			})(jQuery);
+		</script>
+	</body>
+</html>

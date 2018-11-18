@@ -1,0 +1,95 @@
+#
+# needs all zres up for Kathy's snmp stuff
+#
+[ZX1900base-OA3.4.0c]# ifconfig
+
+
+zhp0      Link encap:Ethernet  HWaddr 00:11:65:71:90:1A  
+          inet addr:10.1.7.211  Bcast:10.1.7.255  Mask:255.255.255.0
+          inet6 addr: fe80::211:65ff:fe71:901a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:208714 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:184345 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:18195697 (17.3 Mb)  TX bytes:36050529 (34.3 Mb)
+          Base address:0xd000 
+
+
+zre0      Link encap:Ethernet  HWaddr 00:11:65:71:90:00  
+          inet6 addr: fe80::211:65ff:fe71:9000/64 Scope:Link
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+          Base address:0xd000 
+
+zre1      Link encap:Ethernet  HWaddr 00:11:65:71:90:01  
+          inet6 addr: fe80::211:65ff:fe71:9001/64 Scope:Link
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:0 (0.0 b)  TX bytes:0 (0.0 b)
+          Base address:0xd000 
+
+zre23     Link encap:Ethernet  HWaddr 00:11:65:71:90:17  
+          inet6 addr: fe80::211:65ff:fe71:9017/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:6458 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:56122 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:3783310 (3.6 Mb)  TX bytes:7998340 (7.6 Mb)
+          Base address:0xd000 
+#
+#[ZX1900base-OA3.4.0c]# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.1.0.0        0.0.0.0         255.255.0.0     U     0      0        0 zhp0
+
+#
+[ZX1900base-OA3.4.0c]# zlc zre0..25 query 
+ zre0:  <EKEY_DISABLED, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+ zre1:  <EKEY_DISABLED, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+ zre2:  <UP, 1000FD, PAUSE ENABLE ON, OK ON>
+ zre3:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+ zre4:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+ zre5:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+ zre6:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+ zre7:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+ zre8:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+ zre9:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre10:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre11:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre12:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre13:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre14:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre15:  <UP, 100HD, PAUSE ENABLE OFF, OK ON>
+zre16:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre17:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre18:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre19:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre20:  <DOWN, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre21:  <UP, 1000FD, PAUSE ENABLE OFF, OK ON>
+zre22:  <EKEY_DISABLED, AUTO, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre23:  <UP, 100FD, PAUSE ENABLE OFF, OK ON>
+zre24:  <NOT_INITED, 10GFD, PAUSE ENABLE, EXT_FLT ON, OK ON>
+zre25:  <NOT_INITED, 10GFD, PAUSE ENABLE, EXT_FLT ON, OK ON>
+
+#
+
+
+from S50layer2....
+
+ifconfig zre0..25 up
+
+
+                # Assign the ZNYX default IP address 10.0.0.43 to the
+                # zhp0 interface and start it
+                #
+ifconfig zhp0 up 10.1.7.211 netmask 255.255.255.0 broadcast 10.1.7.255
+                #
+                # At this point the system will act as a Layer 2 switch
+                # across all ports. Also, the system will accept telnet()
+                # connections on 10.0.0.43 on any port.  Script(s) may then
+

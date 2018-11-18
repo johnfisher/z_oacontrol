@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Mouse Pointer Proxmimity</title>
+		<link rel="stylesheet" href="css/proximity.css">
+	</head>
+	<body>
+    	<div id="proximity">
+            <img src="img/proximity1.jpg" alt="CH-47 Chinook">
+            <img src="img/proximity2.jpg" alt="Mi-24W">
+            <img src="img/proximity3.jpg" alt="Mil Mi-24A">
+            <img src="img/proximity4.jpg" alt="AH-1J Cobra">
+            <img src="img/proximity5.jpg" alt="Mi-24P">
+            <img src="img/proximity6.jpg" alt="AH-1Z Viper">
+            <img src="img/proximity7.jpg" alt="AH-1W">
+            <img src="img/proximity8.jpg" alt="UH-1Y Huey">
+            <img src="img/proximity9.jpg" alt="AH-64 Apache">
+            <img src="img/proximity10.jpg" alt="AH-1W Super Cobra">
+            <img src="img/proximity11.jpg" alt="MI-28 Havoc">
+            <img src="img/proximity12.jpg" alt="AH-1W Super Cobra">
+            <img src="img/proximity13.jpg" alt="AH-1W Cobra">
+            <img src="img/proximity14.jpg" alt="Mi-24 HIND E">
+            <img src="img/proximity15.jpg" alt="AH-1W Super Cobra">
+            <img src="img/proximity16.jpg" alt="UH-1N Huey">
+            <img src="img/proximity17.jpg" alt="AH-64D Apache">
+            <img src="img/proximity18.jpg" alt="UH-1N Huey">
+            <img src="img/proximity19.jpg" alt="Lempira Bell 412">
+            <img src="img/proximity20.jpg" alt="UH-60L Blackhawk">
+        </div>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//set some vars
+				var prox = $("#proximity"),
+					scroller = $("<div></div>", { 
+						id: "scroller"
+					}),
+					
+					//advice messages
+					pointerText = "Use your pointer to scroll, moving to the edge scrolls faster!",
+					keyboardMessage = "Use your arrow keys to scroll the images!",
+					message = $("<p></p>", {
+						id: "message",
+						text: keyboardMessage
+					});
+				
+				//add class and append scroller
+				prox.addClass("slider").wrapInner(scroller).append(message);
+
+				var middle = prox.width() / 2;
+				
+				//re-cache scroller
+				scroller = $("#scroller");
+				
+				//set width of scroller based on width/margin of items
+				scroller.width(function() {
+					var total = 0;
+					scroller.children().each(function(i, val) {
+						var el = $(this);
+						total = total + (el.outerWidth() + parseInt(el.css("marginLeft")));
+					});
+					return total;
+				
+				//center scroller
+				}).css("left", "-" + (scroller.width() / 2 - middle) + "px");
+				
+				//function to set anim duration and init anim
+				function goAnim(e) {
+					
+					//reset pointer postion to be relative to proximity container		
+					var offset = prox.offset(),
+						resetOffset = e.pageX - offset.left - middle,
+						
+						//speed based on distance from center (further == slower)
+						normalizedDuration = (resetOffset > 0) ? resetOffset : -resetOffset,
+						duration = (middle - normalizedDuration) * 50;
+
+					//start animating scroller
+					scroller.stop().animate({
+						left: (resetOffset < 0) ? 0 : "-" + (parseInt(scroller.width()) - parseInt(prox.width()))
+					}, duration, "linear");
+				}
+								
+				//track mouse pointer
+				prox.mouseenter(function(e) {
+					
+					//show pointer message
+					message.text(pointerText).delay(1000).fadeOut("slow");
+					
+					goAnim(e);
+					
+					//record pointer movements inside proximity element
+					prox.mousemove(function(ev) {
+						
+						goAnim(ev);
+					});
+				});
+				
+				//stop animating
+				prox.mouseleave(function() {
+					scroller.stop();
+					prox.unbind("mousemove");
+				});
+				
+				//provide keyboard navigability
+				$(document).keydown(function(e) {
+										
+					//only react to arrow keys
+					if (e.keyCode === 37 || e.keyCode === 39) {
+												
+						//hide message
+						message.fadeOut("slow");
+						
+						//scroll on left or right arrow keys
+						if (!scroller.is(":animated")) {
+							scroller.stop().animate({
+								left: (e.keyCode === 37) ? 0 : -(scroller.width() - prox.width())
+							}, 6000, "linear");
+						}
+					}
+				}).keyup(function() {
+					scroller.stop();
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Parallax Effect</title>
+		<link rel="stylesheet" href="css/parallax.css">
+	</head>
+	<body>
+    	<div id="background"><!-- --></div>
+        <div id="midground"><!-- --></div>
+        <div id="foreground"><!-- --></div>
+        <div id="ground"></div>
+		<script src="js/jquery.js"></script>
+        <script src="js/bgpos.js"></script>        
+		<script>
+			(function($){
+				
+				//cache selectors
+				var bg = $("#background"),
+					mg = $("#midground"),
+					fg = $("#foreground");
+					
+				//add handler for right arrow key
+				$(document).keydown(function(e) {
+					
+					//move character when right arrow key pressed/held
+					if (e.which === 39) { 
+												
+						//animate background-positions
+						bg.animate({ "backgroundPosition": "-=1px" }, 0, "linear");
+						mg.animate({ "backgroundPosition": "-=10px" }, 0, "linear" );
+						fg.animate({ "backgroundPosition": "-=20px" }, 0, "linear" );						
+					}
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+# fab switch configuration
+
+zhp0      Link encap:Ethernet  HWaddr 00:11:65:71:92:14  
+          inet addr:192.168.100.210  Bcast:192.168.100.255  Mask:255.255.255.0
+          inet6 addr: fe80::211:65ff:fe71:9214/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:858312 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:854797 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:74714565 (71.2 Mb)  TX bytes:131317022 (125.2 Mb)
+          Base address:0x5000 
+
+zre0      Link encap:Ethernet  HWaddr 00:11:65:71:92:00  
+          inet6 addr: fe80::211:65ff:fe71:9200/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:60 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3457 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:100 
+          RX bytes:3840 (3.7 Kb)  TX bytes:221808 (216.6 Kb)
+          Base address:0x5000 
+.... same for all zres
+
+
+
+
+
+[ZX1900fab-OA3.4.0c]# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.100.0   *               255.255.255.0   U     0      0        0 zhp0
+[ZX1900fab-OA3.4.0c]# 
+
+
+from S50layer2....
+
+		# ifconfig up the zres
+
+                if [ $? = 0 ]
+                then
+                        /usr/sbin/zconfig zhp0: vlan1=zre0..19
+                        /usr/sbin/zconfig zre0..19=untag1
+                        ifconfig zre0..19 up
+
+
+                # Assign the ZNYX default IP address 10.0.0.44 to the
+                # zhp0 interface and start it
+                #
+                ifconfig zhp0 192.168.100.210 netmask 255.255.255.0 broadcast 192.168.100.255 up
+                #
+                # At this point the system will act as a Layer 2 switch
+                # across all ports. Also, the system will accept telnet()

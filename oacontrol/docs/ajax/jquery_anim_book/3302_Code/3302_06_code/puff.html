@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Puff Effect</title>
+		<link rel="stylesheet" href="css/puff.css">
+	</head>
+	<body>
+    	<div id="confirm">
+        	<img src="img/help.png" alt="Help Icon">
+        	<p>Are you sure you want to do that?</p>
+            <button>Ok</button><button>Cancel</button>
+        </div>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				
+				//position the dialog center screen
+				$("#confirm").css({
+					left: $(window).width() / 2 - $("#confirm").width() / 2, 
+					top: $(window).height() / 2 - $("#confirm").height() / 2
+				});
+								
+				$("button", $("#confirm")).click(function() {
+					$("#confirm").effect("puff");
+				});
+				
+			})(jQuery);
+		</script>
+	</body>
+</html>

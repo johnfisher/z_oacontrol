@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery stop()</title>
+        <style>
+			#fader { width:100px; height:100px; background-color:#000; }
+		</style>
+	</head>
+	<body>
+		<div id="fader"><!-- --></div>
+        <button id="stop">Stop</button>
+        <button id="stopClear">Stop and clear queue</button>
+        <button id="stopEnd">Stop and jump to final state</button>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				$("#fader").fadeOut(5000).fadeIn().fadeOut().fadeIn();
+				
+				//stop the current effect with no arguments
+				$("#stop").click(function() {
+					$("#fader").stop();
+				});
+				
+				//stop the current effect and clear queue
+				$("#stopClear").click(function() {
+					$("#fader").stop(true);
+				});
+				
+				//stop the current effect, clear queue and jump to end
+				$("#stopEnd").click(function() {
+					$("#fader").stop(true, true);
+				});
+								
+			})(jQuery);
+		</script>
+	</body>
+</html>

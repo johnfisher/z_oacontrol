@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<objects>
+<!-- ('', 'zport', 'dmd', 'Devices', 'Network', 'OASwitch') -->
+<object id='/zport/dmd/Devices/Network/OASwitch' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="string" id="zCommandPath" >
+$ZENHOME/common/libexec
+</property>
+<object id='ZX1900BaseDevice' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="lines" id="zCollectorPlugins" >
+['zenoss.snmp.DeviceMap', 'zenoss.snmp.NewDeviceMap', 'ZX1900BaseDeviceMib', 'zenoss.snmp.InterfaceMap', 'zenoss.snmp.RouteMap', 'zenoss.snmp.PhysicalEntityMap', 'zenoss.snmp.NewRouteMap', 'zenoss.cmd.linux.ifconfig']
+</property>
+</object>
+<object id='ZX1900FabricDevice' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="lines" id="zCollectorPlugins" >
+['zenoss.snmp.DeviceMap', 'zenoss.snmp.NewDeviceMap', 'ZX1900FabricDeviceMib', 'zenoss.snmp.InterfaceMap', 'zenoss.snmp.RouteMap', 'zenoss.snmp.PhysicalEntityMap', 'zenoss.snmp.NewRouteMap', 'zenoss.cmd.linux.ifconfig']
+</property>
+</object>
+<object id='ZX7300' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="lines" id="zCollectorPlugins" >
+['zenoss.snmp.DeviceMap', 'zenoss.snmp.NewDeviceMap', 'ZX7300DeviceMib', 'zenoss.snmp.InterfaceMap', 'zenoss.snmp.RouteMap', 'zenoss.snmp.PhysicalEntityMap', 'zenoss.snmp.NewRouteMap', 'zenoss.cmd.linux.ifconfig']
+</property>
+</object>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'Network', 'ShelfMgr') -->
+<object id='/zport/dmd/Devices/Network/ShelfMgr' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'Network', 'ZXSBC') -->
+<object id='/zport/dmd/Devices/Network/ZXSBC' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+</object>
+<!-- ('', 'zport', 'dmd', 'userCommands', 'check_links') -->
+<object id='/zport/dmd/userCommands/check_links' module='Products.ZenModel.UserCommand' class='UserCommand'>
+<property id='zendoc' type='string'>
+check whether links are up or down
+</property>
+<property type="text" id="description" mode="w" >
+check whether links are up or down
+</property>
+<property type="text" id="command" mode="w" >
+python check_links.py -h  ${here/manageIp}
+</property>
+</object>
+<!-- ('', 'zport', 'dmd', 'userCommands', 'check_zconfig') -->
+<object id='/zport/dmd/userCommands/check_zconfig' module='Products.ZenModel.UserCommand' class='UserCommand'>
+<property id='zendoc' type='string'>
+check switch configuration
+</property>
+<property type="text" id="description" mode="w" >
+check switch configuration
+</property>
+<property type="text" id="command" mode="w" >
+python /usr/local/zenoss/common/libexec/check_zconfig.py -h  ${here/manageIp}
+</property>
+</object>
+</objects>

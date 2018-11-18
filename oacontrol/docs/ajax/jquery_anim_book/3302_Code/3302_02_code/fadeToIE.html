@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery fadeTo()</title>
+		<link rel="stylesheet" href="css/fadeTo.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+    	<div id="messageList">
+			<header>Private Messages</header>
+            <table summary="This table lists the personal messages you have received">
+                <tr><th class="rec">Recieved</th><th class="sub">Subject</th><th class="from">From</th><th class="del">Delete</th></tr>
+                <tr><td class="rec">Today</td><td class="sub">Re: tomorrow</td><td class="from">Bob</td><td class="del"><a href="#" title="Delete Message">x</a></td></tr>
+                <tr><td class="rec">Today</td><td class="sub">Re: tomorrow</td><td class="from">Bill</td><td class="del"><a href="#" title="Delete Message">x</a></td></tr>
+                <tr><td class="rec">Today</td><td class="sub">Re: tomorrow</td><td class="from"></td><td class="del"><a href="#" title="Delete Message">x</a></td></tr>
+                <tr><td class="rec">Yesterday</td><td class="sub">Re: tomorrow</td><td class="from"></td><td class="del"><a href="#" title="Delete Message">x</a></td></tr>
+                <tr><td class="rec">Yesterday</td><td class="sub">Re: tomorrow</td><td class="from"></td><td class="del"><a href="#" title="Delete Message">x</a></td></tr>
+            </table>
+        </div>        
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//get element references for contexts
+				var messageList = document.getElementById("messageList"),
+					messages = $("table", messageList),
+					
+					//create some elements
+					confirmDiv = $("<div></div>", {
+						"class": "confirm",
+						text: "Really delete?"
+					}),
+					remove = $("<button></button>", {
+						id: "delete",
+						text: "Yes"
+					}).appendTo(confirmDiv),
+					cancel = $("<a></a>", {
+						href: "#",
+						id: "cancel",
+						text: "Cancel",
+						title: "Cancel"
+					}).appendTo(confirmDiv),
+				
+					//function to handle delete link clicks
+					deleteRow = function(e) {
+				
+						var selector = (window.ActiveXObject) ? $(this).closest("tr").children() : $(this).closest("tr");
+						
+						//fade row
+						selector.fadeTo(400, 0.5, function() {
+							
+							//add marker to faded row
+							$(this).addClass("pre-delete");
+						
+							//insert confirmation panel
+							if(!$(".confirm").length) {
+								confirmDiv.clone().insertAfter(messages);
+							}
+						
+							//temporarily disable delete links
+							messages.find("a").unbind();
+						});
+					};
+				
+				//add click handler to delete icons
+				messages.find("a").click(deleteRow);
+								
+				//add click handler to delete buttons
+				$("#delete, #cancel").live("click", function(e) {					
+					
+					if (this.id === "delete") {
+						//remove selected row
+						messages.find(".pre-delete").fadeTo(400, 0, function() {
+							$(this).remove(); 
+							
+							if (window.ActiveXObject) {
+								messages.find("tr").each(function() {
+									var row = $(this);
+									
+									if(!row.children().length) {
+										row.remove();
+									}
+								});
+							}
+						});
+					} else {
+						e.preventDefault();
+						//revert faded table row back to normal
+						messages.find(".pre-delete").removeClass("pre-delete").fadeTo(400, 1, function() {
+							var el = $(this);
+							if (el.css("filter")) {
+								el[0].style.removeAttribute("filter");;
+							}
+						});
+					}
+						
+					//remove confirmation
+					$(".confirm", messageList).remove();
+						
+					//re-add click handler to delete icons
+					messages.find("a").click(deleteRow);				
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

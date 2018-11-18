@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenWidgets.interfaces</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenWidgets-module.html">Package&nbsp;ZenWidgets</a> ::
+        Module&nbsp;interfaces
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenWidgets.interfaces-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenWidgets.interfaces-module.html">Module Products.ZenWidgets.interfaces</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Products.ZenUtils.extdirect.zope=Products.ZenUtils.extdirect.zope-module.html"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-0', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">interface</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Interface</tt><tt class="py-op">,</tt> <tt class="py-name">Attribute</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-1', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">app</tt><tt class="py-op">.</tt><tt class="py-name">container</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module Products.ZenEvents.interfaces=Products.ZenEvents.interfaces-module.html,Module Products.ZenModel.interfaces=Products.ZenModel.interfaces-module.html,Module Products.ZenUtils.extdirect.zope.interfaces=Products.ZenUtils.extdirect.zope.interfaces-module.html,Module Products.ZenWidgets.interfaces=Products.ZenWidgets.interfaces-module.html"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-2', 'interfaces', 'link-2');">interfaces</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">IContained</tt><tt class="py-op">,</tt> <tt class="py-name">IContainer</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="IMessage"></a><div id="IMessage-def"><a name="L18"></a><tt class="py-lineno">18</tt> <a class="py-toggle" href="#" id="IMessage-toggle" onclick="return toggle('IMessage');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessage-class.html">IMessage</a><tt class="py-op">(</tt><tt class="py-base-class">IContained</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessage-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="IMessage-expanded"><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">    A single message. Messages are stored in user-specific MessageQueue objects</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">    and in the session object.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable Products.ZenModel.ZentinelPortal.ZentinelPortal.title=Products.ZenModel.ZentinelPortal.ZentinelPortal-class.html#title,Variable Products.ZenRelations.ZItem.ZItem.title=Products.ZenRelations.ZItem.ZItem-class.html#title,Variable Products.ZenWidgets.PersistentMessage.PersistentMessage.title=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#title,Variable Products.ZenWidgets.interfaces.IMessage.title=Products.ZenWidgets.interfaces.IMessage-class.html#title,Variable Products.ZenWidgets.messaging.BrowserMessage.title=Products.ZenWidgets.messaging.BrowserMessage-class.html#title"><a title="Products.ZenModel.ZentinelPortal.ZentinelPortal.title
+Products.ZenRelations.ZItem.ZItem.title
+Products.ZenWidgets.PersistentMessage.PersistentMessage.title
+Products.ZenWidgets.interfaces.IMessage.title
+Products.ZenWidgets.messaging.BrowserMessage.title" class="py-name" href="#" onclick="return doclink('link-3', 'title', 'link-3');">title</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Attribute</tt><tt class="py-op">(</tt><tt class="py-string">"Title of the message"</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable Products.ZenEvents.ActionRule.ActionRule.body=Products.ZenEvents.ActionRule.ActionRule-class.html#body,Variable Products.ZenWidgets.PersistentMessage.PersistentMessage.body=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#body,Variable Products.ZenWidgets.interfaces.IMessage.body=Products.ZenWidgets.interfaces.IMessage-class.html#body,Variable Products.ZenWidgets.messaging.BrowserMessage.body=Products.ZenWidgets.messaging.BrowserMessage-class.html#body"><a title="Products.ZenEvents.ActionRule.ActionRule.body
+Products.ZenWidgets.PersistentMessage.PersistentMessage.body
+Products.ZenWidgets.interfaces.IMessage.body
+Products.ZenWidgets.messaging.BrowserMessage.body" class="py-name" href="#" onclick="return doclink('link-4', 'body', 'link-4');">body</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Attribute</tt><tt class="py-op">(</tt><tt class="py-string">"Body of the message"</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt id="link-5" class="py-name" targets="Variable Products.ZenWidgets.interfaces.IMessage.image=Products.ZenWidgets.interfaces.IMessage-class.html#image"><a title="Products.ZenWidgets.interfaces.IMessage.image" class="py-name" href="#" onclick="return doclink('link-5', 'image', 'link-5');">image</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Attribute</tt><tt class="py-op">(</tt><tt class="py-string">"Optional path to image to be displayed"</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable Products.ZenModel.Device.Device.priority=Products.ZenModel.Device.Device-class.html#priority,Variable Products.ZenWidgets.PersistentMessage.PersistentMessage.priority=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#priority,Variable Products.ZenWidgets.interfaces.IMessage.priority=Products.ZenWidgets.interfaces.IMessage-class.html#priority,Variable Products.ZenWidgets.messaging.BrowserMessage.priority=Products.ZenWidgets.messaging.BrowserMessage-class.html#priority"><a title="Products.ZenModel.Device.Device.priority
+Products.ZenWidgets.PersistentMessage.PersistentMessage.priority
+Products.ZenWidgets.interfaces.IMessage.priority
+Products.ZenWidgets.messaging.BrowserMessage.priority" class="py-name" href="#" onclick="return doclink('link-6', 'priority', 'link-6');">priority</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Attribute</tt><tt class="py-op">(</tt><tt class="py-string">"Priority of the message"</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable Products.ZenWidgets.PersistentMessage.PersistentMessage.timestamp=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#timestamp,Variable Products.ZenWidgets.interfaces.IMessage.timestamp=Products.ZenWidgets.interfaces.IMessage-class.html#timestamp,Variable Products.ZenWidgets.messaging.BrowserMessage.timestamp=Products.ZenWidgets.messaging.BrowserMessage-class.html#timestamp"><a title="Products.ZenWidgets.PersistentMessage.PersistentMessage.timestamp
+Products.ZenWidgets.interfaces.IMessage.timestamp
+Products.ZenWidgets.messaging.BrowserMessage.timestamp" class="py-name" href="#" onclick="return doclink('link-7', 'timestamp', 'link-7');">timestamp</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Attribute</tt><tt class="py-op">(</tt><tt class="py-string">"Time the message was sent"</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="IMessage.delete"></a><div id="IMessage.delete-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="IMessage.delete-toggle" onclick="return toggle('IMessage.delete');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessage-class.html#delete">delete</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessage.delete-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IMessage.delete-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">        Delete this message from any queues in which it exists.</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+</div><a name="IMessage.mark_as_read"></a><div id="IMessage.mark_as_read-def"><a name="L33"></a><tt class="py-lineno">33</tt> <a class="py-toggle" href="#" id="IMessage.mark_as_read-toggle" onclick="return toggle('IMessage.mark_as_read');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessage-class.html#mark_as_read">mark_as_read</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessage.mark_as_read-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IMessage.mark_as_read-expanded"><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">        Mark this message as read.</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+</div></div><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="IMessageSender"></a><div id="IMessageSender-def"><a name="L39"></a><tt class="py-lineno">39</tt> <a class="py-toggle" href="#" id="IMessageSender-toggle" onclick="return toggle('IMessageSender');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessageSender-class.html">IMessageSender</a><tt class="py-op">(</tt><tt class="py-base-class">Interface</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessageSender-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="IMessageSender-expanded"><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring">    Something able to send messages.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="IMessageSender.sendToBrowser"></a><div id="IMessageSender.sendToBrowser-def"><a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="IMessageSender.sendToBrowser-toggle" onclick="return toggle('IMessageSender.sendToBrowser');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessageSender-class.html#sendToBrowser">sendToBrowser</a><tt class="py-op">(</tt><tt class="py-param">title</tt><tt class="py-op">,</tt> <tt class="py-param">body</tt><tt class="py-op">,</tt> <tt class="py-param">priority</tt><tt class="py-op">,</tt> <tt class="py-param">image</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessageSender.sendToBrowser-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IMessageSender.sendToBrowser-expanded"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-docstring">        Create a message and store it on the request object.</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+</div><a name="IMessageSender.sendToUser"></a><div id="IMessageSender.sendToUser-def"><a name="L47"></a><tt class="py-lineno">47</tt> <a class="py-toggle" href="#" id="IMessageSender.sendToUser-toggle" onclick="return toggle('IMessageSender.sendToUser');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessageSender-class.html#sendToUser">sendToUser</a><tt class="py-op">(</tt><tt class="py-param">title</tt><tt class="py-op">,</tt> <tt class="py-param">body</tt><tt class="py-op">,</tt> <tt class="py-param">priority</tt><tt class="py-op">,</tt> <tt class="py-param">image</tt><tt class="py-op">,</tt> <tt class="py-param">user</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessageSender.sendToUser-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IMessageSender.sendToUser-expanded"><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-docstring">        Create a message and store it in the L{IMessageQueue} of the user</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"><tt class="py-docstring">        specified. If no user is specified, use the queue of the current user.</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+</div><a name="IMessageSender.sendToAll"></a><div id="IMessageSender.sendToAll-def"><a name="L52"></a><tt class="py-lineno">52</tt> <a class="py-toggle" href="#" id="IMessageSender.sendToAll-toggle" onclick="return toggle('IMessageSender.sendToAll');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessageSender-class.html#sendToAll">sendToAll</a><tt class="py-op">(</tt><tt class="py-param">title</tt><tt class="py-op">,</tt> <tt class="py-param">body</tt><tt class="py-op">,</tt> <tt class="py-param">priority</tt><tt class="py-op">,</tt> <tt class="py-param">image</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessageSender.sendToAll-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IMessageSender.sendToAll-expanded"><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"><tt class="py-docstring">        For eash user in the system, create an identical message and store it</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt class="py-docstring">        in the user's L{IMessageQueue}.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+</div></div><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"> </tt>
+<a name="IMessageQueue"></a><div id="IMessageQueue-def"><a name="L59"></a><tt class="py-lineno">59</tt> <a class="py-toggle" href="#" id="IMessageQueue-toggle" onclick="return toggle('IMessageQueue');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessageQueue-class.html">IMessageQueue</a><tt class="py-op">(</tt><tt class="py-base-class">IContainer</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessageQueue-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="IMessageQueue-expanded"><a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"><tt class="py-docstring">    Marker interface for a message container.</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+</div><a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt>
+<a name="IMessageBox"></a><div id="IMessageBox-def"><a name="L65"></a><tt class="py-lineno">65</tt> <a class="py-toggle" href="#" id="IMessageBox-toggle" onclick="return toggle('IMessageBox');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessageBox-class.html">IMessageBox</a><tt class="py-op">(</tt><tt class="py-base-class">Interface</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessageBox-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="IMessageBox-expanded"><a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"><tt class="py-docstring">    Something that can provide messages.</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable Products.ZenWidgets.interfaces.IMessageBox.messagebox=Products.ZenWidgets.interfaces.IMessageBox-class.html#messagebox,Variable Products.ZenWidgets.messaging.MessageBox.messagebox=Products.ZenWidgets.messaging.MessageBox-class.html#messagebox"><a title="Products.ZenWidgets.interfaces.IMessageBox.messagebox
+Products.ZenWidgets.messaging.MessageBox.messagebox" class="py-name" href="#" onclick="return doclink('link-8', 'messagebox', 'link-8');">messagebox</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Attribute</tt><tt class="py-op">(</tt><tt class="py-string">"The source of IMessage objects."</tt><tt class="py-op">)</tt> </tt>
+<a name="IMessageBox.get_messages"></a><div id="IMessageBox.get_messages-def"><a name="L70"></a><tt class="py-lineno">70</tt> <a class="py-toggle" href="#" id="IMessageBox.get_messages-toggle" onclick="return toggle('IMessageBox.get_messages');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessageBox-class.html#get_messages">get_messages</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessageBox.get_messages-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IMessageBox.get_messages-expanded"><a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"><tt class="py-docstring">        Return all messages.</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+</div><a name="IMessageBox.get_unread"></a><div id="IMessageBox.get_unread-def"><a name="L74"></a><tt class="py-lineno">74</tt> <a class="py-toggle" href="#" id="IMessageBox.get_unread-toggle" onclick="return toggle('IMessageBox.get_unread');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IMessageBox-class.html#get_unread">get_unread</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IMessageBox.get_unread-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="IMessageBox.get_unread-expanded"><a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"><tt class="py-docstring">        Return all messages that have not been marked as read.</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+</div></div><a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line"> </tt>
+<a name="IUserMessages"></a><div id="IUserMessages-def"><a name="L80"></a><tt class="py-lineno">80</tt> <a class="py-toggle" href="#" id="IUserMessages-toggle" onclick="return toggle('IUserMessages');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IUserMessages-class.html">IUserMessages</a><tt class="py-op">(</tt><tt class="py-base-class">IMessageBox</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IUserMessages-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="IUserMessages-expanded"><a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line"><tt class="py-docstring">    Object that is able to provide IMessage objects from a user queue.</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+</div><a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line"> </tt>
+<a name="IBrowserMessages"></a><div id="IBrowserMessages-def"><a name="L86"></a><tt class="py-lineno">86</tt> <a class="py-toggle" href="#" id="IBrowserMessages-toggle" onclick="return toggle('IBrowserMessages');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenWidgets.interfaces.IBrowserMessages-class.html">IBrowserMessages</a><tt class="py-op">(</tt><tt class="py-base-class">IMessageBox</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IBrowserMessages-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="IBrowserMessages-expanded"><a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line"><tt class="py-docstring">    Object that is able to provide IMessage objects from the request.</tt> </tt>
+<a name="L89"></a><tt class="py-lineno">89</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+</div><a name="L90"></a><tt class="py-lineno">90</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:23 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

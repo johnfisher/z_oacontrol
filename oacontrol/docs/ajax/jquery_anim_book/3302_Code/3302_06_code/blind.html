@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Blind Effect</title>
+		<link rel="stylesheet" href="css/blind.css">
+	</head>
+	<body>
+    	<div id="window">
+        	<div id="blind"><!-- --></div>
+        </div>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$("#window").click(function() {
+					$("#blind").toggle("blind");
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

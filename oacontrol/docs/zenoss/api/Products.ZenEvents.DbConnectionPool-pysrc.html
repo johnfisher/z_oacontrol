@@ -1,0 +1,777 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenEvents.DbConnectionPool</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenEvents-module.html">Package&nbsp;ZenEvents</a> ::
+        Module&nbsp;DbConnectionPool
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenEvents.DbConnectionPool-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenEvents.DbConnectionPool-module.html">Module Products.ZenEvents.DbConnectionPool</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module Products.DataCollector.Exceptions=Products.DataCollector.Exceptions-module.html,Module Products.ZenEvents.Exceptions=Products.ZenEvents.Exceptions-module.html,Module Products.ZenModel.Exceptions=Products.ZenModel.Exceptions-module.html,Module Products.ZenRRD.Exceptions=Products.ZenRRD.Exceptions-module.html,Module Products.ZenRelations.Exceptions=Products.ZenRelations.Exceptions-module.html,Module Products.ZenUtils.Exceptions=Products.ZenUtils.Exceptions-module.html"><a title="Products.DataCollector.Exceptions
+Products.ZenEvents.Exceptions
+Products.ZenModel.Exceptions
+Products.ZenRRD.Exceptions
+Products.ZenRelations.Exceptions
+Products.ZenUtils.Exceptions" class="py-name" href="#" onclick="return doclink('link-0', 'Exceptions', 'link-0');">Exceptions</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Class Products.ZenEvents.Exceptions.MySQLConnectionError=Products.ZenEvents.Exceptions.MySQLConnectionError-class.html"><a title="Products.ZenEvents.Exceptions.MySQLConnectionError" class="py-name" href="#" onclick="return doclink('link-1', 'MySQLConnectionError', 'link-1');">MySQLConnectionError</a></tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Variable Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time=Products.ZenModel.VruleGraphPoint.VruleGraphPoint-class.html#time"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-2', 'time', 'link-2');">time</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">DateTime</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Package Products.ZenUtils=Products.ZenUtils-module.html"><a title="Products.ZenUtils" class="py-name" href="#" onclick="return doclink('link-3', 'ZenUtils', 'link-3');">ZenUtils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Module Products.ZenUtils.Time=Products.ZenUtils.Time-module.html"><a title="Products.ZenUtils.Time" class="py-name" href="#" onclick="return doclink('link-4', 'Time', 'link-4');">Time</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">timeutils</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Queue</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Queue</tt><tt class="py-op">,</tt> <tt class="py-name">Empty</tt><tt class="py-op">,</tt> <tt class="py-name">Full</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable Products.DataCollector.ApplyDataMap.log=Products.DataCollector.ApplyDataMap-module.html#log,Variable Products.DataCollector.Classifier.log=Products.DataCollector.Classifier-module.html#log,Variable Products.DataCollector.CollectorClient.log=Products.DataCollector.CollectorClient-module.html#log,Variable Products.DataCollector.Plugins.log=Products.DataCollector.Plugins-module.html#log,Variable Products.DataCollector.PortscanClient.log=Products.DataCollector.PortscanClient-module.html#log,Variable Products.DataCollector.PythonClient.log=Products.DataCollector.PythonClient-module.html#log,Variable Products.DataCollector.SnmpClient.log=Products.DataCollector.SnmpClient-module.html#log,Variable Products.DataCollector.SshClient.log=Products.DataCollector.SshClient-module.html#log,Variable Products.DataCollector.TelnetClient.log=Products.DataCollector.TelnetClient-module.html#log,Variable Products.ZenEvents.ActionRule.log=Products.ZenEvents.ActionRule-module.html#log,Variable Products.ZenEvents.ActionRuleWindow.log=Products.ZenEvents.ActionRuleWindow-module.html#log,Variable Products.ZenEvents.CustomEventView.log=Products.ZenEvents.CustomEventView-module.html#log,Variable Products.ZenEvents.DbConnectionPool.log=Products.ZenEvents.DbConnectionPool-module.html#log,Variable Products.ZenEvents.EventClass.log=Products.ZenEvents.EventClass-module.html#log,Variable Products.ZenEvents.EventClassInst.log=Products.ZenEvents.EventClassInst-module.html#log,Variable Products.ZenEvents.EventManagerBase.log=Products.ZenEvents.EventManagerBase-module.html#log,Variable Products.ZenEvents.MailProcessor.log=Products.ZenEvents.MailProcessor-module.html#log,Variable Products.ZenEvents.MySqlEventManager.log=Products.ZenEvents.MySqlEventManager-module.html#log,Variable Products.ZenEvents.MySqlSendEvent.log=Products.ZenEvents.MySqlSendEvent-module.html#log,Variable Products.ZenEvents.zenmail.log=Products.ZenEvents.zenmail-module.html#log,Variable Products.ZenEvents.zenpop3.log=Products.ZenEvents.zenpop3-module.html#log,Variable Products.ZenHub.services.CommandConfig.log=Products.ZenHub.services.CommandConfig-module.html#log,Variable Products.ZenHub.services.DiscoverService.log=Products.ZenHub.services.DiscoverService-module.html#log,Variable Products.ZenHub.services.ModelerService.log=Products.ZenHub.services.ModelerService-module.html#log,Variable Products.ZenHub.services.RRDImpl.log=Products.ZenHub.services.RRDImpl-module.html#log,Variable Products.ZenHub.services.RRDService.log=Products.ZenHub.services.RRDService-module.html#log,Variable Products.ZenHub.services.SnmpPerfConfig.log=Products.ZenHub.services.SnmpPerfConfig-module.html#log,Variable Products.ZenHub.services.ZenRender.log=Products.ZenHub.services.ZenRender-module.html#log,Variable Products.ZenModel.Commandable.log=Products.ZenModel.Commandable-module.html#log,Variable Products.ZenModel.Device.log=Products.ZenModel.Device-module.html#log,Variable Products.ZenModel.DeviceClass.log=Products.ZenModel.DeviceClass-module.html#log,Variable Products.ZenModel.EventView.log=Products.ZenModel.EventView-module.html#log,Variable Products.ZenModel.GraphDefinition.GraphDefinition.log=Products.ZenModel.GraphDefinition.GraphDefinition-class.html#log,Variable Products.ZenModel.GraphDefinition.log=Products.ZenModel.GraphDefinition-module.html#log,Variable Products.ZenModel.IpAddress.log=Products.ZenModel.IpAddress-module.html#log,Variable Products.ZenModel.IpInterface.log=Products.ZenModel.IpInterface-module.html#log,Variable Products.ZenModel.IpNetwork.log=Products.ZenModel.IpNetwork-module.html#log,Variable Products.ZenModel.IpRouteEntry.log=Products.ZenModel.IpRouteEntry-module.html#log,Variable Products.ZenModel.MaintenanceWindow.log=Products.ZenModel.MaintenanceWindow-module.html#log,Variable Products.ZenModel.MaintenanceWindowable.log=Products.ZenModel.MaintenanceWindowable-module.html#log,Variable Products.ZenModel.ManagedEntity.log=Products.ZenModel.ManagedEntity-module.html#log,Variable Products.ZenModel.ManufacturerRoot.log=Products.ZenModel.ManufacturerRoot-module.html#log,Variable Products.ZenModel.MinMaxThreshold.log=Products.ZenModel.MinMaxThreshold-module.html#log,Variable Products.ZenModel.OSProcessOrganizer.log=Products.ZenModel.OSProcessOrganizer-module.html#log,Variable Products.ZenModel.OperatingSystem.log=Products.ZenModel.OperatingSystem-module.html#log,Variable Products.ZenModel.PerformanceConf.log=Products.ZenModel.PerformanceConf-module.html#log,Variable Products.ZenModel.RRDGraph.RRDGraph.log=Products.ZenModel.RRDGraph.RRDGraph-class.html#log,Variable Products.ZenModel.RRDTemplate.log=Products.ZenModel.RRDTemplate-module.html#log,Variable Products.ZenModel.RRDView.log=Products.ZenModel.RRDView-module.html#log,Variable Products.ZenModel.ServiceOrganizer.log=Products.ZenModel.ServiceOrganizer-module.html#log,Variable Products.ZenModel.UserSettings.log=Products.ZenModel.UserSettings-module.html#log,Variable Products.ZenModel.ZDeviceLoader.log=Products.ZenModel.ZDeviceLoader-module.html#log,Variable Products.ZenModel.ZenMenu.log=Products.ZenModel.ZenMenu-module.html#log,Variable Products.ZenModel.ZenMenuItem.log=Products.ZenModel.ZenMenuItem-module.html#log,Variable Products.ZenModel.ZenPackLoader.log=Products.ZenModel.ZenPackLoader-module.html#log,Variable Products.ZenModel.ZenPackPersistence.log=Products.ZenModel.ZenPackPersistence-module.html#log,Variable Products.ZenModel.ZenossInfo.log=Products.ZenModel.ZenossInfo-module.html#log,Variable Products.ZenModel.log=Products.ZenModel-module.html#log,Variable Products.ZenRRD.CommandParser.log=Products.ZenRRD.CommandParser-module.html#log,Variable Products.ZenRRD.ComponentCommandParser.log=Products.ZenRRD.ComponentCommandParser-module.html#log,Variable Products.ZenRRD.RRDUtil.log=Products.ZenRRD.RRDUtil-module.html#log,Variable Products.ZenRRD.RenderServer.log=Products.ZenRRD.RenderServer-module.html#log,Variable Products.ZenRRD.Thresholds.log=Products.ZenRRD.Thresholds-module.html#log,Variable Products.ZenRRD.parsers.ps.log=Products.ZenRRD.parsers.ps-module.html#log,Variable Products.ZenRRD.parsers.uptime.log=Products.ZenRRD.parsers.uptime-module.html#log,Variable Products.ZenRRD.zencommand.log=Products.ZenRRD.zencommand-module.html#log,Variable Products.ZenRRD.zenperfsnmp.log=Products.ZenRRD.zenperfsnmp-module.html#log,Variable Products.ZenRRD.zenprocess.log=Products.ZenRRD.zenprocess-module.html#log,Variable Products.ZenRRD.zenstep.log=Products.ZenRRD.zenstep-module.html#log,Variable Products.ZenRRD.zentestcommand.log=Products.ZenRRD.zentestcommand-module.html#log,Variable Products.ZenRelations.PrimaryPathObjectManager.log=Products.ZenRelations.PrimaryPathObjectManager-module.html#log,Variable Products.ZenRelations.RelationshipBase.log=Products.ZenRelations.RelationshipBase-module.html#log,Variable Products.ZenRelations.RelationshipManager.log=Products.ZenRelations.RelationshipManager-module.html#log,Variable Products.ZenRelations.ToManyContRelationship.log=Products.ZenRelations.ToManyContRelationship-module.html#log,Variable Products.ZenRelations.ToManyRelationship.log=Products.ZenRelations.ToManyRelationship-module.html#log,Variable Products.ZenRelations.ToManyRelationshipBase.log=Products.ZenRelations.ToManyRelationshipBase-module.html#log,Variable Products.ZenRelations.ToOneRelationship.log=Products.ZenRelations.ToOneRelationship-module.html#log,Variable Products.ZenRelations.ZenPropertyManager.log=Products.ZenRelations.ZenPropertyManager-module.html#log,Variable Products.ZenRelations.log=Products.ZenRelations-module.html#log,Variable Products.ZenStatus.AsyncPing.log=Products.ZenStatus.AsyncPing-module.html#log,Variable Products.ZenStatus.ZenTcpClient.log=Products.ZenStatus.ZenTcpClient-module.html#log,Variable Products.ZenStatus.pingtree.log=Products.ZenStatus.pingtree-module.html#log,Variable Products.ZenUtils.DaemonStats.log=Products.ZenUtils.DaemonStats-module.html#log,Variable Products.ZenUtils.PortScan.log=Products.ZenUtils.PortScan-module.html#log,Variable Products.ZenUtils.ProcessQueue.log=Products.ZenUtils.ProcessQueue-module.html#log,Variable Products.ZenUtils.Utils.log=Products.ZenUtils.Utils-module.html#log,Variable Products.ZenUtils.Watchdog.log=Products.ZenUtils.Watchdog-module.html#log,Variable Products.ZenUtils.ZenCheckRRD.log=Products.ZenUtils.ZenCheckRRD-module.html#log,Variable Products.ZenUtils.ZenDeleteHistory.log=Products.ZenUtils.ZenDeleteHistory-module.html#log,Variable Products.ZenUtils.ZenPackCmd.log=Products.ZenUtils.ZenPackCmd-module.html#log,Variable Products.ZenUtils.extdirect.router.log=Products.ZenUtils.extdirect.router-module.html#log,Variable Products.ZenUtils.zencatalog.log=Products.ZenUtils.zencatalog-module.html#log,Variable Products.ZenWin.WMIClient.log=Products.ZenWin.WMIClient-module.html#log,Variable Products.ZenWin.Watcher.log=Products.ZenWin.Watcher-module.html#log,Variable Products.ZenWin.services.EventLogConfig.log=Products.ZenWin.services.EventLogConfig-module.html#log,Variable Products.ZenWin.services.WinServiceConfig.log=Products.ZenWin.services.WinServiceConfig-module.html#log,Variable Products.ZenWin.zeneventlog.log=Products.ZenWin.zeneventlog-module.html#log,Variable Products.ZenWin.zenwin.log=Products.ZenWin.zenwin-module.html#log"><a title="Products.DataCollector.ApplyDataMap.log
+Products.DataCollector.Classifier.log
+Products.DataCollector.CollectorClient.log
+Products.DataCollector.Plugins.log
+Products.DataCollector.PortscanClient.log
+Products.DataCollector.PythonClient.log
+Products.DataCollector.SnmpClient.log
+Products.DataCollector.SshClient.log
+Products.DataCollector.TelnetClient.log
+Products.ZenEvents.ActionRule.log
+Products.ZenEvents.ActionRuleWindow.log
+Products.ZenEvents.CustomEventView.log
+Products.ZenEvents.DbConnectionPool.log
+Products.ZenEvents.EventClass.log
+Products.ZenEvents.EventClassInst.log
+Products.ZenEvents.EventManagerBase.log
+Products.ZenEvents.MailProcessor.log
+Products.ZenEvents.MySqlEventManager.log
+Products.ZenEvents.MySqlSendEvent.log
+Products.ZenEvents.zenmail.log
+Products.ZenEvents.zenpop3.log
+Products.ZenHub.services.CommandConfig.log
+Products.ZenHub.services.DiscoverService.log
+Products.ZenHub.services.ModelerService.log
+Products.ZenHub.services.RRDImpl.log
+Products.ZenHub.services.RRDService.log
+Products.ZenHub.services.SnmpPerfConfig.log
+Products.ZenHub.services.ZenRender.log
+Products.ZenModel.Commandable.log
+Products.ZenModel.Device.log
+Products.ZenModel.DeviceClass.log
+Products.ZenModel.EventView.log
+Products.ZenModel.GraphDefinition.GraphDefinition.log
+Products.ZenModel.GraphDefinition.log
+Products.ZenModel.IpAddress.log
+Products.ZenModel.IpInterface.log
+Products.ZenModel.IpNetwork.log
+Products.ZenModel.IpRouteEntry.log
+Products.ZenModel.MaintenanceWindow.log
+Products.ZenModel.MaintenanceWindowable.log
+Products.ZenModel.ManagedEntity.log
+Products.ZenModel.ManufacturerRoot.log
+Products.ZenModel.MinMaxThreshold.log
+Products.ZenModel.OSProcessOrganizer.log
+Products.ZenModel.OperatingSystem.log
+Products.ZenModel.PerformanceConf.log
+Products.ZenModel.RRDGraph.RRDGraph.log
+Products.ZenModel.RRDTemplate.log
+Products.ZenModel.RRDView.log
+Products.ZenModel.ServiceOrganizer.log
+Products.ZenModel.UserSettings.log
+Products.ZenModel.ZDeviceLoader.log
+Products.ZenModel.ZenMenu.log
+Products.ZenModel.ZenMenuItem.log
+Products.ZenModel.ZenPackLoader.log
+Products.ZenModel.ZenPackPersistence.log
+Products.ZenModel.ZenossInfo.log
+Products.ZenModel.log
+Products.ZenRRD.CommandParser.log
+Products.ZenRRD.ComponentCommandParser.log
+Products.ZenRRD.RRDUtil.log
+Products.ZenRRD.RenderServer.log
+Products.ZenRRD.Thresholds.log
+Products.ZenRRD.parsers.ps.log
+Products.ZenRRD.parsers.uptime.log
+Products.ZenRRD.zencommand.log
+Products.ZenRRD.zenperfsnmp.log
+Products.ZenRRD.zenprocess.log
+Products.ZenRRD.zenstep.log
+Products.ZenRRD.zentestcommand.log
+Products.ZenRelations.PrimaryPathObjectManager.log
+Products.ZenRelations.RelationshipBase.log
+Products.ZenRelations.RelationshipManager.log
+Products.ZenRelations.ToManyContRelationship.log
+Products.ZenRelations.ToManyRelationship.log
+Products.ZenRelations.ToManyRelationshipBase.log
+Products.ZenRelations.ToOneRelationship.log
+Products.ZenRelations.ZenPropertyManager.log
+Products.ZenRelations.log
+Products.ZenStatus.AsyncPing.log
+Products.ZenStatus.ZenTcpClient.log
+Products.ZenStatus.pingtree.log
+Products.ZenUtils.DaemonStats.log
+Products.ZenUtils.PortScan.log
+Products.ZenUtils.ProcessQueue.log
+Products.ZenUtils.Utils.log
+Products.ZenUtils.Watchdog.log
+Products.ZenUtils.ZenCheckRRD.log
+Products.ZenUtils.ZenDeleteHistory.log
+Products.ZenUtils.ZenPackCmd.log
+Products.ZenUtils.extdirect.router.log
+Products.ZenUtils.zencatalog.log
+Products.ZenWin.WMIClient.log
+Products.ZenWin.Watcher.log
+Products.ZenWin.services.EventLogConfig.log
+Products.ZenWin.services.WinServiceConfig.log
+Products.ZenWin.zeneventlog.log
+Products.ZenWin.zenwin.log" class="py-name" href="#" onclick="return doclink('link-5', 'log', 'link-5');">log</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">getLogger</tt><tt class="py-op">(</tt><tt class="py-string">"zen.DbConnectionPool"</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable Products.ZenEvents.DbConnectionPool.POOL_SIZE=Products.ZenEvents.DbConnectionPool-module.html#POOL_SIZE"><a title="Products.ZenEvents.DbConnectionPool.POOL_SIZE" class="py-name" href="#" onclick="return doclink('link-6', 'POOL_SIZE', 'link-6');">POOL_SIZE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">5</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt id="link-7" class="py-name" targets="Variable Products.ZenEvents.DbConnectionPool.KEEP_ALIVE=Products.ZenEvents.DbConnectionPool-module.html#KEEP_ALIVE"><a title="Products.ZenEvents.DbConnectionPool.KEEP_ALIVE" class="py-name" href="#" onclick="return doclink('link-7', 'KEEP_ALIVE', 'link-7');">KEEP_ALIVE</a></tt> <tt class="py-op">=</tt> <tt class="py-number">28800</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="timestamp_conv"></a><div id="timestamp_conv-def"><a name="L28"></a><tt class="py-lineno"> 28</tt> <a class="py-toggle" href="#" id="timestamp_conv-toggle" onclick="return toggle('timestamp_conv');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenEvents.DbConnectionPool-module.html#timestamp_conv">timestamp_conv</a><tt class="py-op">(</tt><tt class="py-param">s</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="timestamp_conv-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="timestamp_conv-expanded"><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-comment">#timestamps from mysql are passed in as iso dates in the server's timezone</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-comment">#but do not contain timezone information.  Convert iso time to a timestamp</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-comment">#using the system timezone. We need to do this because the Zope DateTime</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-comment">#will use GMT+0 when converting iso times that do not contain tz info.</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Variable Products.ZenWidgets.PersistentMessage.PersistentMessage.timestamp=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#timestamp,Variable Products.ZenWidgets.interfaces.IMessage.timestamp=Products.ZenWidgets.interfaces.IMessage-class.html#timestamp,Variable Products.ZenWidgets.messaging.BrowserMessage.timestamp=Products.ZenWidgets.messaging.BrowserMessage-class.html#timestamp"><a title="Products.ZenWidgets.PersistentMessage.PersistentMessage.timestamp
+Products.ZenWidgets.interfaces.IMessage.timestamp
+Products.ZenWidgets.messaging.BrowserMessage.timestamp" class="py-name" href="#" onclick="return doclink('link-8', 'timestamp', 'link-8');">timestamp</a></tt> <tt class="py-op">=</tt> <tt class="py-name">timeutils</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Function Products.ZenUtils.Time.isoToTimestamp()=Products.ZenUtils.Time-module.html#isoToTimestamp"><a title="Products.ZenUtils.Time.isoToTimestamp" class="py-name" href="#" onclick="return doclink('link-9', 'isoToTimestamp', 'link-9');">isoToTimestamp</a></tt><tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">DateTime</tt><tt class="py-op">.</tt><tt class="py-name">DateTime</tt><tt class="py-op">(</tt><tt id="link-10" class="py-name"><a title="Products.ZenWidgets.PersistentMessage.PersistentMessage.timestamp
+Products.ZenWidgets.interfaces.IMessage.timestamp
+Products.ZenWidgets.messaging.BrowserMessage.timestamp" class="py-name" href="#" onclick="return doclink('link-10', 'timestamp', 'link-8');">timestamp</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="DbConnectionPool"></a><div id="DbConnectionPool-def"><a name="L36"></a><tt class="py-lineno"> 36</tt> <a class="py-toggle" href="#" id="DbConnectionPool-toggle" onclick="return toggle('DbConnectionPool');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html">DbConnectionPool</a><tt class="py-op">:</tt> </tt>
+</div><div id="DbConnectionPool-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="DbConnectionPool-expanded"><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="DbConnectionPool.__new__"></a><div id="DbConnectionPool.__new__-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="DbConnectionPool.__new__-toggle" onclick="return toggle('DbConnectionPool.__new__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#__new__">__new__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>                  <tt class="py-comment"># self is a type</tt> </tt>
+</div><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-string">'_the_instance'</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__dict__</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_the_instance</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name" targets="Class object=object-class.html"><a title="object" class="py-name" href="#" onclick="return doclink('link-11', 'object', 'link-11');">object</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method Products.ZenEvents.DbConnectionPool.DbConnectionPool.__new__()=Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#__new__"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.__new__" class="py-name" href="#" onclick="return doclink('link-12', '__new__', 'link-12');">__new__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_the_instance</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">         </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">    <tt class="py-string">'''</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-string">    instance = None</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-string">    def __new__(cls, *args, **kargs): </tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-string">        if cls.instance is None:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-string">            cls.instance = object.__new__(cls, *args, **kargs)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-string">        log.debug('Returning single instance of DbConnectionPool')</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-string">        return cls.instance</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-string">    '''</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">         </tt>
+<a name="DbConnectionPool.__init__"></a><div id="DbConnectionPool.__init__-def"><a name="L52"></a><tt class="py-lineno"> 52</tt> <a class="py-toggle" href="#" id="DbConnectionPool.__init__-toggle" onclick="return toggle('DbConnectionPool.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DbConnectionPool.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DbConnectionPool.__init__-expanded"><a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Function Products.ZenEvents.WhereClause.q()=Products.ZenEvents.WhereClause-module.html#q"><a title="Products.ZenEvents.WhereClause.q" class="py-name" href="#" onclick="return doclink('link-13', 'q', 'link-13');">q</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Queue</tt><tt class="py-op">(</tt><tt id="link-14" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.POOL_SIZE" class="py-name" href="#" onclick="return doclink('link-14', 'POOL_SIZE', 'link-6');">POOL_SIZE</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="DbConnectionPool.qsize"></a><div id="DbConnectionPool.qsize-def"><a name="L55"></a><tt class="py-lineno"> 55</tt> <a class="py-toggle" href="#" id="DbConnectionPool.qsize-toggle" onclick="return toggle('DbConnectionPool.qsize');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#qsize">qsize</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DbConnectionPool.qsize-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DbConnectionPool.qsize-expanded"><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="Products.ZenEvents.WhereClause.q" class="py-name" href="#" onclick="return doclink('link-15', 'q', 'link-13');">q</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method Products.ZenEvents.DbConnectionPool.DbConnectionPool.qsize()=Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#qsize"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.qsize" class="py-name" href="#" onclick="return doclink('link-16', 'qsize', 'link-16');">qsize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="DbConnectionPool.get"></a><div id="DbConnectionPool.get-def"><a name="L58"></a><tt class="py-lineno"> 58</tt> <a class="py-toggle" href="#" id="DbConnectionPool.get-toggle" onclick="return toggle('DbConnectionPool.get');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">host</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">port</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">username</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt>  </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt class="py-param">password</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">database</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">block</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DbConnectionPool.get-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DbConnectionPool.get-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">            <tt class="py-name">putstamp</tt><tt class="py-op">,</tt><tt class="py-name">obj</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="Products.ZenEvents.WhereClause.q" class="py-name" href="#" onclick="return doclink('link-17', 'q', 'link-13');">q</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method Products.ZenEvents.DbConnectionPool.DbConnectionPool.get()=Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#get,Method Products.ZenRRD.zencommand.SshPool.get()=Products.ZenRRD.zencommand.SshPool-class.html#get,Method Products.ZenUtils.Map.Locked.get()=Products.ZenUtils.Map.Locked-class.html#get,Method Products.ZenUtils.Map.Timed.get()=Products.ZenUtils.Map.Timed-class.html#get"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.get
+Products.ZenRRD.zencommand.SshPool.get
+Products.ZenUtils.Map.Locked.get
+Products.ZenUtils.Map.Timed.get" class="py-name" href="#" onclick="return doclink('link-18', 'get', 'link-18');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">block</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-19" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-19', 'time', 'link-2');">time</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-20', 'time', 'link-2');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-name">putstamp</tt> <tt class="py-op">&gt;=</tt> <tt id="link-21" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.KEEP_ALIVE" class="py-name" href="#" onclick="return doclink('link-21', 'KEEP_ALIVE', 'link-7');">KEEP_ALIVE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                <tt id="link-22" class="py-name"><a title="Products.DataCollector.ApplyDataMap.log
+Products.DataCollector.Classifier.log
+Products.DataCollector.CollectorClient.log
+Products.DataCollector.Plugins.log
+Products.DataCollector.PortscanClient.log
+Products.DataCollector.PythonClient.log
+Products.DataCollector.SnmpClient.log
+Products.DataCollector.SshClient.log
+Products.DataCollector.TelnetClient.log
+Products.ZenEvents.ActionRule.log
+Products.ZenEvents.ActionRuleWindow.log
+Products.ZenEvents.CustomEventView.log
+Products.ZenEvents.DbConnectionPool.log
+Products.ZenEvents.EventClass.log
+Products.ZenEvents.EventClassInst.log
+Products.ZenEvents.EventManagerBase.log
+Products.ZenEvents.MailProcessor.log
+Products.ZenEvents.MySqlEventManager.log
+Products.ZenEvents.MySqlSendEvent.log
+Products.ZenEvents.zenmail.log
+Products.ZenEvents.zenpop3.log
+Products.ZenHub.services.CommandConfig.log
+Products.ZenHub.services.DiscoverService.log
+Products.ZenHub.services.ModelerService.log
+Products.ZenHub.services.RRDImpl.log
+Products.ZenHub.services.RRDService.log
+Products.ZenHub.services.SnmpPerfConfig.log
+Products.ZenHub.services.ZenRender.log
+Products.ZenModel.Commandable.log
+Products.ZenModel.Device.log
+Products.ZenModel.DeviceClass.log
+Products.ZenModel.EventView.log
+Products.ZenModel.GraphDefinition.GraphDefinition.log
+Products.ZenModel.GraphDefinition.log
+Products.ZenModel.IpAddress.log
+Products.ZenModel.IpInterface.log
+Products.ZenModel.IpNetwork.log
+Products.ZenModel.IpRouteEntry.log
+Products.ZenModel.MaintenanceWindow.log
+Products.ZenModel.MaintenanceWindowable.log
+Products.ZenModel.ManagedEntity.log
+Products.ZenModel.ManufacturerRoot.log
+Products.ZenModel.MinMaxThreshold.log
+Products.ZenModel.OSProcessOrganizer.log
+Products.ZenModel.OperatingSystem.log
+Products.ZenModel.PerformanceConf.log
+Products.ZenModel.RRDGraph.RRDGraph.log
+Products.ZenModel.RRDTemplate.log
+Products.ZenModel.RRDView.log
+Products.ZenModel.ServiceOrganizer.log
+Products.ZenModel.UserSettings.log
+Products.ZenModel.ZDeviceLoader.log
+Products.ZenModel.ZenMenu.log
+Products.ZenModel.ZenMenuItem.log
+Products.ZenModel.ZenPackLoader.log
+Products.ZenModel.ZenPackPersistence.log
+Products.ZenModel.ZenossInfo.log
+Products.ZenModel.log
+Products.ZenRRD.CommandParser.log
+Products.ZenRRD.ComponentCommandParser.log
+Products.ZenRRD.RRDUtil.log
+Products.ZenRRD.RenderServer.log
+Products.ZenRRD.Thresholds.log
+Products.ZenRRD.parsers.ps.log
+Products.ZenRRD.parsers.uptime.log
+Products.ZenRRD.zencommand.log
+Products.ZenRRD.zenperfsnmp.log
+Products.ZenRRD.zenprocess.log
+Products.ZenRRD.zenstep.log
+Products.ZenRRD.zentestcommand.log
+Products.ZenRelations.PrimaryPathObjectManager.log
+Products.ZenRelations.RelationshipBase.log
+Products.ZenRelations.RelationshipManager.log
+Products.ZenRelations.ToManyContRelationship.log
+Products.ZenRelations.ToManyRelationship.log
+Products.ZenRelations.ToManyRelationshipBase.log
+Products.ZenRelations.ToOneRelationship.log
+Products.ZenRelations.ZenPropertyManager.log
+Products.ZenRelations.log
+Products.ZenStatus.AsyncPing.log
+Products.ZenStatus.ZenTcpClient.log
+Products.ZenStatus.pingtree.log
+Products.ZenUtils.DaemonStats.log
+Products.ZenUtils.PortScan.log
+Products.ZenUtils.ProcessQueue.log
+Products.ZenUtils.Utils.log
+Products.ZenUtils.Watchdog.log
+Products.ZenUtils.ZenCheckRRD.log
+Products.ZenUtils.ZenDeleteHistory.log
+Products.ZenUtils.ZenPackCmd.log
+Products.ZenUtils.extdirect.router.log
+Products.ZenUtils.zencatalog.log
+Products.ZenWin.WMIClient.log
+Products.ZenWin.Watcher.log
+Products.ZenWin.services.EventLogConfig.log
+Products.ZenWin.services.WinServiceConfig.log
+Products.ZenWin.zeneventlog.log
+Products.ZenWin.zenwin.log" class="py-name" href="#" onclick="return doclink('link-22', 'log', 'link-5');">log</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">'Retrieved a stale connection; Pool size: %s'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.qsize" class="py-name" href="#" onclick="return doclink('link-23', 'qsize', 'link-16');">qsize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-name">obj</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Method Products.ZenEvents.DbAccessBase.DbAccessBase.close()=Products.ZenEvents.DbAccessBase.DbAccessBase-class.html#close,Method Products.ZenRRD.zencommand.SshPool.close()=Products.ZenRRD.zencommand.SshPool-class.html#close,Method Products.ZenUtils.Watchdog.Reporter.close()=Products.ZenUtils.Watchdog.Reporter-class.html#close,Method Products.ZenWin.WMIClient.WMIClient.close()=Products.ZenWin.WMIClient.WMIClient-class.html#close,Method Products.ZenWin.Watcher.Watcher.close()=Products.ZenWin.Watcher.Watcher-class.html#close"><a title="Products.ZenEvents.DbAccessBase.DbAccessBase.close
+Products.ZenRRD.zencommand.SshPool.close
+Products.ZenUtils.Watchdog.Reporter.close
+Products.ZenWin.WMIClient.WMIClient.close
+Products.ZenWin.Watcher.Watcher.close" class="py-name" href="#" onclick="return doclink('link-24', 'close', 'link-24');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method Products.ZenEvents.DbConnectionPool.DbConnectionPool._createConnection()=Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#_createConnection"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool._createConnection" class="py-name" href="#" onclick="return doclink('link-25', '_createConnection', 'link-25');">_createConnection</a></tt><tt class="py-op">(</tt><tt class="py-name">host</tt><tt class="py-op">=</tt><tt class="py-name">host</tt><tt class="py-op">,</tt> <tt id="link-26" class="py-name" targets="Variable Products.ZenModel.IpService.IpService.port=Products.ZenModel.IpService.IpService-class.html#port,Variable Products.ZenModel.ServiceClass.ServiceClass.port=Products.ZenModel.ServiceClass.ServiceClass-class.html#port,Variable Products.ZenRRD.zencommand.DeviceConfig.port=Products.ZenRRD.zencommand.DeviceConfig-class.html#port,Method Products.ZenUtils.snmp.SnmpConfig.port()=Products.ZenUtils.snmp.SnmpConfig-class.html#port"><a title="Products.ZenModel.IpService.IpService.port
+Products.ZenModel.ServiceClass.ServiceClass.port
+Products.ZenRRD.zencommand.DeviceConfig.port
+Products.ZenUtils.snmp.SnmpConfig.port" class="py-name" href="#" onclick="return doclink('link-26', 'port', 'link-26');">port</a></tt><tt class="py-op">=</tt><tt id="link-27" class="py-name"><a title="Products.ZenModel.IpService.IpService.port
+Products.ZenModel.ServiceClass.ServiceClass.port
+Products.ZenRRD.zencommand.DeviceConfig.port
+Products.ZenUtils.snmp.SnmpConfig.port" class="py-name" href="#" onclick="return doclink('link-27', 'port', 'link-26');">port</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                                            <tt id="link-28" class="py-name" targets="Variable Products.ZenRRD.zencommand.DeviceConfig.username=Products.ZenRRD.zencommand.DeviceConfig-class.html#username,Variable twisted.spread.pb.Broker.username=twisted.spread.pb.Broker-class.html#username"><a title="Products.ZenRRD.zencommand.DeviceConfig.username
+twisted.spread.pb.Broker.username" class="py-name" href="#" onclick="return doclink('link-28', 'username', 'link-28');">username</a></tt><tt class="py-op">=</tt><tt id="link-29" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.username
+twisted.spread.pb.Broker.username" class="py-name" href="#" onclick="return doclink('link-29', 'username', 'link-28');">username</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                                            <tt id="link-30" class="py-name" targets="Variable Products.ZenRRD.zencommand.DeviceConfig.password=Products.ZenRRD.zencommand.DeviceConfig-class.html#password"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-30', 'password', 'link-30');">password</a></tt><tt class="py-op">=</tt><tt id="link-31" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-31', 'password', 'link-30');">password</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                                            <tt class="py-name">database</tt><tt class="py-op">=</tt><tt class="py-name">database</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt id="link-32" class="py-name"><a title="Products.DataCollector.ApplyDataMap.log
+Products.DataCollector.Classifier.log
+Products.DataCollector.CollectorClient.log
+Products.DataCollector.Plugins.log
+Products.DataCollector.PortscanClient.log
+Products.DataCollector.PythonClient.log
+Products.DataCollector.SnmpClient.log
+Products.DataCollector.SshClient.log
+Products.DataCollector.TelnetClient.log
+Products.ZenEvents.ActionRule.log
+Products.ZenEvents.ActionRuleWindow.log
+Products.ZenEvents.CustomEventView.log
+Products.ZenEvents.DbConnectionPool.log
+Products.ZenEvents.EventClass.log
+Products.ZenEvents.EventClassInst.log
+Products.ZenEvents.EventManagerBase.log
+Products.ZenEvents.MailProcessor.log
+Products.ZenEvents.MySqlEventManager.log
+Products.ZenEvents.MySqlSendEvent.log
+Products.ZenEvents.zenmail.log
+Products.ZenEvents.zenpop3.log
+Products.ZenHub.services.CommandConfig.log
+Products.ZenHub.services.DiscoverService.log
+Products.ZenHub.services.ModelerService.log
+Products.ZenHub.services.RRDImpl.log
+Products.ZenHub.services.RRDService.log
+Products.ZenHub.services.SnmpPerfConfig.log
+Products.ZenHub.services.ZenRender.log
+Products.ZenModel.Commandable.log
+Products.ZenModel.Device.log
+Products.ZenModel.DeviceClass.log
+Products.ZenModel.EventView.log
+Products.ZenModel.GraphDefinition.GraphDefinition.log
+Products.ZenModel.GraphDefinition.log
+Products.ZenModel.IpAddress.log
+Products.ZenModel.IpInterface.log
+Products.ZenModel.IpNetwork.log
+Products.ZenModel.IpRouteEntry.log
+Products.ZenModel.MaintenanceWindow.log
+Products.ZenModel.MaintenanceWindowable.log
+Products.ZenModel.ManagedEntity.log
+Products.ZenModel.ManufacturerRoot.log
+Products.ZenModel.MinMaxThreshold.log
+Products.ZenModel.OSProcessOrganizer.log
+Products.ZenModel.OperatingSystem.log
+Products.ZenModel.PerformanceConf.log
+Products.ZenModel.RRDGraph.RRDGraph.log
+Products.ZenModel.RRDTemplate.log
+Products.ZenModel.RRDView.log
+Products.ZenModel.ServiceOrganizer.log
+Products.ZenModel.UserSettings.log
+Products.ZenModel.ZDeviceLoader.log
+Products.ZenModel.ZenMenu.log
+Products.ZenModel.ZenMenuItem.log
+Products.ZenModel.ZenPackLoader.log
+Products.ZenModel.ZenPackPersistence.log
+Products.ZenModel.ZenossInfo.log
+Products.ZenModel.log
+Products.ZenRRD.CommandParser.log
+Products.ZenRRD.ComponentCommandParser.log
+Products.ZenRRD.RRDUtil.log
+Products.ZenRRD.RenderServer.log
+Products.ZenRRD.Thresholds.log
+Products.ZenRRD.parsers.ps.log
+Products.ZenRRD.parsers.uptime.log
+Products.ZenRRD.zencommand.log
+Products.ZenRRD.zenperfsnmp.log
+Products.ZenRRD.zenprocess.log
+Products.ZenRRD.zenstep.log
+Products.ZenRRD.zentestcommand.log
+Products.ZenRelations.PrimaryPathObjectManager.log
+Products.ZenRelations.RelationshipBase.log
+Products.ZenRelations.RelationshipManager.log
+Products.ZenRelations.ToManyContRelationship.log
+Products.ZenRelations.ToManyRelationship.log
+Products.ZenRelations.ToManyRelationshipBase.log
+Products.ZenRelations.ToOneRelationship.log
+Products.ZenRelations.ZenPropertyManager.log
+Products.ZenRelations.log
+Products.ZenStatus.AsyncPing.log
+Products.ZenStatus.ZenTcpClient.log
+Products.ZenStatus.pingtree.log
+Products.ZenUtils.DaemonStats.log
+Products.ZenUtils.PortScan.log
+Products.ZenUtils.ProcessQueue.log
+Products.ZenUtils.Utils.log
+Products.ZenUtils.Watchdog.log
+Products.ZenUtils.ZenCheckRRD.log
+Products.ZenUtils.ZenDeleteHistory.log
+Products.ZenUtils.ZenPackCmd.log
+Products.ZenUtils.extdirect.router.log
+Products.ZenUtils.zencatalog.log
+Products.ZenWin.WMIClient.log
+Products.ZenWin.Watcher.log
+Products.ZenWin.services.EventLogConfig.log
+Products.ZenWin.services.WinServiceConfig.log
+Products.ZenWin.zeneventlog.log
+Products.ZenWin.zenwin.log" class="py-name" href="#" onclick="return doclink('link-32', 'log', 'link-5');">log</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">'Retrieved a connection; Pool size: %s'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.qsize" class="py-name" href="#" onclick="return doclink('link-33', 'qsize', 'link-16');">qsize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">obj</tt><tt class="py-op">,</tt> <tt class="py-string">'ping'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                    <tt class="py-comment"># maybe the connection timed out: reconnect if necessary</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                    <tt class="py-name">obj</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Method Products.ZenStatus.AsyncPing.Ping.ping()=Products.ZenStatus.AsyncPing.Ping-class.html#ping,Method Products.ZenStatus.zenping.ZenPing.ping()=Products.ZenStatus.zenping.ZenPing-class.html#ping"><a title="Products.ZenStatus.AsyncPing.Ping.ping
+Products.ZenStatus.zenping.ZenPing.ping" class="py-name" href="#" onclick="return doclink('link-34', 'ping', 'link-34');">ping</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> <tt class="py-name">obj</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">Empty</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool._createConnection" class="py-name" href="#" onclick="return doclink('link-35', '_createConnection', 'link-25');">_createConnection</a></tt><tt class="py-op">(</tt><tt class="py-name">host</tt><tt class="py-op">=</tt><tt class="py-name">host</tt><tt class="py-op">,</tt> <tt id="link-36" class="py-name"><a title="Products.ZenModel.IpService.IpService.port
+Products.ZenModel.ServiceClass.ServiceClass.port
+Products.ZenRRD.zencommand.DeviceConfig.port
+Products.ZenUtils.snmp.SnmpConfig.port" class="py-name" href="#" onclick="return doclink('link-36', 'port', 'link-26');">port</a></tt><tt class="py-op">=</tt><tt id="link-37" class="py-name"><a title="Products.ZenModel.IpService.IpService.port
+Products.ZenModel.ServiceClass.ServiceClass.port
+Products.ZenRRD.zencommand.DeviceConfig.port
+Products.ZenUtils.snmp.SnmpConfig.port" class="py-name" href="#" onclick="return doclink('link-37', 'port', 'link-26');">port</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                                        <tt id="link-38" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.username
+twisted.spread.pb.Broker.username" class="py-name" href="#" onclick="return doclink('link-38', 'username', 'link-28');">username</a></tt><tt class="py-op">=</tt><tt id="link-39" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.username
+twisted.spread.pb.Broker.username" class="py-name" href="#" onclick="return doclink('link-39', 'username', 'link-28');">username</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                                        <tt id="link-40" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-40', 'password', 'link-30');">password</a></tt><tt class="py-op">=</tt><tt id="link-41" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-41', 'password', 'link-30');">password</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                                        <tt class="py-name">database</tt><tt class="py-op">=</tt><tt class="py-name">database</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="DbConnectionPool.put"></a><div id="DbConnectionPool.put-def"><a name="L83"></a><tt class="py-lineno"> 83</tt> <a class="py-toggle" href="#" id="DbConnectionPool.put-toggle" onclick="return toggle('DbConnectionPool.put');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#put">put</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">obj</tt><tt class="py-op">,</tt> <tt class="py-param">block</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DbConnectionPool.put-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DbConnectionPool.put-expanded"><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="Products.ZenEvents.WhereClause.q" class="py-name" href="#" onclick="return doclink('link-42', 'q', 'link-13');">q</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Method Products.ZenEvents.DbConnectionPool.DbConnectionPool.put()=Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#put"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.put" class="py-name" href="#" onclick="return doclink('link-43', 'put', 'link-43');">put</a></tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-44', 'time', 'link-2');">time</a></tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-45', 'time', 'link-2');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">obj</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">block</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt id="link-46" class="py-name"><a title="Products.DataCollector.ApplyDataMap.log
+Products.DataCollector.Classifier.log
+Products.DataCollector.CollectorClient.log
+Products.DataCollector.Plugins.log
+Products.DataCollector.PortscanClient.log
+Products.DataCollector.PythonClient.log
+Products.DataCollector.SnmpClient.log
+Products.DataCollector.SshClient.log
+Products.DataCollector.TelnetClient.log
+Products.ZenEvents.ActionRule.log
+Products.ZenEvents.ActionRuleWindow.log
+Products.ZenEvents.CustomEventView.log
+Products.ZenEvents.DbConnectionPool.log
+Products.ZenEvents.EventClass.log
+Products.ZenEvents.EventClassInst.log
+Products.ZenEvents.EventManagerBase.log
+Products.ZenEvents.MailProcessor.log
+Products.ZenEvents.MySqlEventManager.log
+Products.ZenEvents.MySqlSendEvent.log
+Products.ZenEvents.zenmail.log
+Products.ZenEvents.zenpop3.log
+Products.ZenHub.services.CommandConfig.log
+Products.ZenHub.services.DiscoverService.log
+Products.ZenHub.services.ModelerService.log
+Products.ZenHub.services.RRDImpl.log
+Products.ZenHub.services.RRDService.log
+Products.ZenHub.services.SnmpPerfConfig.log
+Products.ZenHub.services.ZenRender.log
+Products.ZenModel.Commandable.log
+Products.ZenModel.Device.log
+Products.ZenModel.DeviceClass.log
+Products.ZenModel.EventView.log
+Products.ZenModel.GraphDefinition.GraphDefinition.log
+Products.ZenModel.GraphDefinition.log
+Products.ZenModel.IpAddress.log
+Products.ZenModel.IpInterface.log
+Products.ZenModel.IpNetwork.log
+Products.ZenModel.IpRouteEntry.log
+Products.ZenModel.MaintenanceWindow.log
+Products.ZenModel.MaintenanceWindowable.log
+Products.ZenModel.ManagedEntity.log
+Products.ZenModel.ManufacturerRoot.log
+Products.ZenModel.MinMaxThreshold.log
+Products.ZenModel.OSProcessOrganizer.log
+Products.ZenModel.OperatingSystem.log
+Products.ZenModel.PerformanceConf.log
+Products.ZenModel.RRDGraph.RRDGraph.log
+Products.ZenModel.RRDTemplate.log
+Products.ZenModel.RRDView.log
+Products.ZenModel.ServiceOrganizer.log
+Products.ZenModel.UserSettings.log
+Products.ZenModel.ZDeviceLoader.log
+Products.ZenModel.ZenMenu.log
+Products.ZenModel.ZenMenuItem.log
+Products.ZenModel.ZenPackLoader.log
+Products.ZenModel.ZenPackPersistence.log
+Products.ZenModel.ZenossInfo.log
+Products.ZenModel.log
+Products.ZenRRD.CommandParser.log
+Products.ZenRRD.ComponentCommandParser.log
+Products.ZenRRD.RRDUtil.log
+Products.ZenRRD.RenderServer.log
+Products.ZenRRD.Thresholds.log
+Products.ZenRRD.parsers.ps.log
+Products.ZenRRD.parsers.uptime.log
+Products.ZenRRD.zencommand.log
+Products.ZenRRD.zenperfsnmp.log
+Products.ZenRRD.zenprocess.log
+Products.ZenRRD.zenstep.log
+Products.ZenRRD.zentestcommand.log
+Products.ZenRelations.PrimaryPathObjectManager.log
+Products.ZenRelations.RelationshipBase.log
+Products.ZenRelations.RelationshipManager.log
+Products.ZenRelations.ToManyContRelationship.log
+Products.ZenRelations.ToManyRelationship.log
+Products.ZenRelations.ToManyRelationshipBase.log
+Products.ZenRelations.ToOneRelationship.log
+Products.ZenRelations.ZenPropertyManager.log
+Products.ZenRelations.log
+Products.ZenStatus.AsyncPing.log
+Products.ZenStatus.ZenTcpClient.log
+Products.ZenStatus.pingtree.log
+Products.ZenUtils.DaemonStats.log
+Products.ZenUtils.PortScan.log
+Products.ZenUtils.ProcessQueue.log
+Products.ZenUtils.Utils.log
+Products.ZenUtils.Watchdog.log
+Products.ZenUtils.ZenCheckRRD.log
+Products.ZenUtils.ZenDeleteHistory.log
+Products.ZenUtils.ZenPackCmd.log
+Products.ZenUtils.extdirect.router.log
+Products.ZenUtils.zencatalog.log
+Products.ZenWin.WMIClient.log
+Products.ZenWin.Watcher.log
+Products.ZenWin.services.EventLogConfig.log
+Products.ZenWin.services.WinServiceConfig.log
+Products.ZenWin.zeneventlog.log
+Products.ZenWin.zenwin.log" class="py-name" href="#" onclick="return doclink('link-46', 'log', 'link-5');">log</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">'Returned a connection; Pool size: %s'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.qsize" class="py-name" href="#" onclick="return doclink('link-47', 'qsize', 'link-16');">qsize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">Full</tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="DbConnectionPool._createConnection"></a><div id="DbConnectionPool._createConnection-def"><a name="L90"></a><tt class="py-lineno"> 90</tt> <a class="py-toggle" href="#" id="DbConnectionPool._createConnection-toggle" onclick="return toggle('DbConnectionPool._createConnection');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#_createConnection">_createConnection</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">host</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">port</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt>  </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                        <tt class="py-param">username</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">password</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">database</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DbConnectionPool._createConnection-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DbConnectionPool._createConnection-expanded"><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-comment"># These MySQLdb imports were moved from the top of the file to</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-comment"># here to avoid importing MySQLdb libs at startup.  This is</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-comment"># desirable for DistributedCollector where we are usually</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-comment"># executing on a remote box that may not have mysql libs around.</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">MySQLdb</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">MySQLdb</tt><tt class="py-op">.</tt><tt class="py-name">converters</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">MySQLdb</tt><tt class="py-op">.</tt><tt class="py-name">constants</tt> <tt class="py-keyword">import</tt> <tt class="py-name">FIELD_TYPE</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt id="link-48" class="py-name"><a title="Products.DataCollector.ApplyDataMap.log
+Products.DataCollector.Classifier.log
+Products.DataCollector.CollectorClient.log
+Products.DataCollector.Plugins.log
+Products.DataCollector.PortscanClient.log
+Products.DataCollector.PythonClient.log
+Products.DataCollector.SnmpClient.log
+Products.DataCollector.SshClient.log
+Products.DataCollector.TelnetClient.log
+Products.ZenEvents.ActionRule.log
+Products.ZenEvents.ActionRuleWindow.log
+Products.ZenEvents.CustomEventView.log
+Products.ZenEvents.DbConnectionPool.log
+Products.ZenEvents.EventClass.log
+Products.ZenEvents.EventClassInst.log
+Products.ZenEvents.EventManagerBase.log
+Products.ZenEvents.MailProcessor.log
+Products.ZenEvents.MySqlEventManager.log
+Products.ZenEvents.MySqlSendEvent.log
+Products.ZenEvents.zenmail.log
+Products.ZenEvents.zenpop3.log
+Products.ZenHub.services.CommandConfig.log
+Products.ZenHub.services.DiscoverService.log
+Products.ZenHub.services.ModelerService.log
+Products.ZenHub.services.RRDImpl.log
+Products.ZenHub.services.RRDService.log
+Products.ZenHub.services.SnmpPerfConfig.log
+Products.ZenHub.services.ZenRender.log
+Products.ZenModel.Commandable.log
+Products.ZenModel.Device.log
+Products.ZenModel.DeviceClass.log
+Products.ZenModel.EventView.log
+Products.ZenModel.GraphDefinition.GraphDefinition.log
+Products.ZenModel.GraphDefinition.log
+Products.ZenModel.IpAddress.log
+Products.ZenModel.IpInterface.log
+Products.ZenModel.IpNetwork.log
+Products.ZenModel.IpRouteEntry.log
+Products.ZenModel.MaintenanceWindow.log
+Products.ZenModel.MaintenanceWindowable.log
+Products.ZenModel.ManagedEntity.log
+Products.ZenModel.ManufacturerRoot.log
+Products.ZenModel.MinMaxThreshold.log
+Products.ZenModel.OSProcessOrganizer.log
+Products.ZenModel.OperatingSystem.log
+Products.ZenModel.PerformanceConf.log
+Products.ZenModel.RRDGraph.RRDGraph.log
+Products.ZenModel.RRDTemplate.log
+Products.ZenModel.RRDView.log
+Products.ZenModel.ServiceOrganizer.log
+Products.ZenModel.UserSettings.log
+Products.ZenModel.ZDeviceLoader.log
+Products.ZenModel.ZenMenu.log
+Products.ZenModel.ZenMenuItem.log
+Products.ZenModel.ZenPackLoader.log
+Products.ZenModel.ZenPackPersistence.log
+Products.ZenModel.ZenossInfo.log
+Products.ZenModel.log
+Products.ZenRRD.CommandParser.log
+Products.ZenRRD.ComponentCommandParser.log
+Products.ZenRRD.RRDUtil.log
+Products.ZenRRD.RenderServer.log
+Products.ZenRRD.Thresholds.log
+Products.ZenRRD.parsers.ps.log
+Products.ZenRRD.parsers.uptime.log
+Products.ZenRRD.zencommand.log
+Products.ZenRRD.zenperfsnmp.log
+Products.ZenRRD.zenprocess.log
+Products.ZenRRD.zenstep.log
+Products.ZenRRD.zentestcommand.log
+Products.ZenRelations.PrimaryPathObjectManager.log
+Products.ZenRelations.RelationshipBase.log
+Products.ZenRelations.RelationshipManager.log
+Products.ZenRelations.ToManyContRelationship.log
+Products.ZenRelations.ToManyRelationship.log
+Products.ZenRelations.ToManyRelationshipBase.log
+Products.ZenRelations.ToOneRelationship.log
+Products.ZenRelations.ZenPropertyManager.log
+Products.ZenRelations.log
+Products.ZenStatus.AsyncPing.log
+Products.ZenStatus.ZenTcpClient.log
+Products.ZenStatus.pingtree.log
+Products.ZenUtils.DaemonStats.log
+Products.ZenUtils.PortScan.log
+Products.ZenUtils.ProcessQueue.log
+Products.ZenUtils.Utils.log
+Products.ZenUtils.Watchdog.log
+Products.ZenUtils.ZenCheckRRD.log
+Products.ZenUtils.ZenDeleteHistory.log
+Products.ZenUtils.ZenPackCmd.log
+Products.ZenUtils.extdirect.router.log
+Products.ZenUtils.zencatalog.log
+Products.ZenWin.WMIClient.log
+Products.ZenWin.Watcher.log
+Products.ZenWin.services.EventLogConfig.log
+Products.ZenWin.services.WinServiceConfig.log
+Products.ZenWin.zeneventlog.log
+Products.ZenWin.zenwin.log" class="py-name" href="#" onclick="return doclink('link-48', 'log', 'link-5');">log</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">'Creating a new connection; Pool size: %s'</tt> <tt class="py-op">%</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.qsize" class="py-name" href="#" onclick="return doclink('link-49', 'qsize', 'link-16');">qsize</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt id="link-50" class="py-name" targets="Variable Products.DataCollector.SshClient.CommandChannel.conn=Products.DataCollector.SshClient.CommandChannel-class.html#conn,Variable Products.ZenUtils.ZenDocTest.ZenDocTestRunner.conn=Products.ZenUtils.ZenDocTest.ZenDocTestRunner-class.html#conn"><a title="Products.DataCollector.SshClient.CommandChannel.conn
+Products.ZenUtils.ZenDocTest.ZenDocTestRunner.conn" class="py-name" href="#" onclick="return doclink('link-50', 'conn', 'link-50');">conn</a></tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">mysqlconv</tt> <tt class="py-op">=</tt> <tt class="py-name">MySQLdb</tt><tt class="py-op">.</tt><tt class="py-name">converters</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name" targets="Variable Products.ZenModel.ZenStatus.ZenStatus.conversions=Products.ZenModel.ZenStatus.ZenStatus-class.html#conversions"><a title="Products.ZenModel.ZenStatus.ZenStatus.conversions" class="py-name" href="#" onclick="return doclink('link-51', 'conversions', 'link-51');">conversions</a></tt><tt class="py-op">.</tt><tt class="py-name">copy</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-name">mysqlconv</tt><tt class="py-op">[</tt><tt class="py-name">FIELD_TYPE</tt><tt class="py-op">.</tt><tt class="py-name">DATETIME</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">DateTime</tt><tt class="py-op">.</tt><tt class="py-name">DateTime</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">mysqlconv</tt><tt class="py-op">[</tt><tt class="py-name">FIELD_TYPE</tt><tt class="py-op">.</tt><tt class="py-name">TIMESTAMP</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-52" class="py-name" targets="Function Products.ZenEvents.DbConnectionPool.timestamp_conv()=Products.ZenEvents.DbConnectionPool-module.html#timestamp_conv"><a title="Products.ZenEvents.DbConnectionPool.timestamp_conv" class="py-name" href="#" onclick="return doclink('link-52', 'timestamp_conv', 'link-52');">timestamp_conv</a></tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-comment"># FIXME for some reason it thinks my int is a long -EAD</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">mysqlconv</tt><tt class="py-op">[</tt><tt class="py-name">FIELD_TYPE</tt><tt class="py-op">.</tt><tt class="py-name">LONG</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">host</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">            <tt class="py-name">host</tt><tt class="py-op">,</tt> <tt class="py-name">database</tt> <tt class="py-op">=</tt> <tt class="py-name">database</tt><tt class="py-op">,</tt> <tt class="py-string">'events'</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-53" class="py-name"><a title="Products.ZenModel.IpService.IpService.port
+Products.ZenModel.ServiceClass.ServiceClass.port
+Products.ZenRRD.zencommand.DeviceConfig.port
+Products.ZenUtils.snmp.SnmpConfig.port" class="py-name" href="#" onclick="return doclink('link-53', 'port', 'link-26');">port</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">            <tt id="link-54" class="py-name"><a title="Products.ZenModel.IpService.IpService.port
+Products.ZenModel.ServiceClass.ServiceClass.port
+Products.ZenRRD.zencommand.DeviceConfig.port
+Products.ZenUtils.snmp.SnmpConfig.port" class="py-name" href="#" onclick="return doclink('link-54', 'port', 'link-26');">port</a></tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-55" class="py-name"><a title="Products.ZenModel.IpService.IpService.port
+Products.ZenModel.ServiceClass.ServiceClass.port
+Products.ZenRRD.zencommand.DeviceConfig.port
+Products.ZenUtils.snmp.SnmpConfig.port" class="py-name" href="#" onclick="return doclink('link-55', 'port', 'link-26');">port</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">            <tt id="link-56" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.conn
+Products.ZenUtils.ZenDocTest.ZenDocTestRunner.conn" class="py-name" href="#" onclick="return doclink('link-56', 'conn', 'link-50');">conn</a></tt> <tt class="py-op">=</tt> <tt class="py-name">MySQLdb</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name" targets="Method Products.ZenEvents.DbAccessBase.DbAccessBase.connect()=Products.ZenEvents.DbAccessBase.DbAccessBase-class.html#connect,Method Products.ZenEvents.interfaces.IDbAccess.connect()=Products.ZenEvents.interfaces.IDbAccess-class.html#connect,Method Products.ZenHub.PBDaemon.PBDaemon.connect()=Products.ZenHub.PBDaemon.PBDaemon-class.html#connect,Method Products.ZenUtils.ZenScriptBase.ZenScriptBase.connect()=Products.ZenUtils.ZenScriptBase.ZenScriptBase-class.html#connect,Method Products.ZenWin.WMIClient.WMIClient.connect()=Products.ZenWin.WMIClient.WMIClient-class.html#connect,Method Products.ZenWin.Watcher.Watcher.connect()=Products.ZenWin.Watcher.Watcher-class.html#connect"><a title="Products.ZenEvents.DbAccessBase.DbAccessBase.connect
+Products.ZenEvents.interfaces.IDbAccess.connect
+Products.ZenHub.PBDaemon.PBDaemon.connect
+Products.ZenUtils.ZenScriptBase.ZenScriptBase.connect
+Products.ZenWin.WMIClient.WMIClient.connect
+Products.ZenWin.Watcher.Watcher.connect" class="py-name" href="#" onclick="return doclink('link-57', 'connect', 'link-57');">connect</a></tt><tt class="py-op">(</tt><tt class="py-name">host</tt><tt class="py-op">=</tt><tt class="py-name">host</tt><tt class="py-op">,</tt> <tt class="py-name">user</tt><tt class="py-op">=</tt><tt id="link-58" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.username
+twisted.spread.pb.Broker.username" class="py-name" href="#" onclick="return doclink('link-58', 'username', 'link-28');">username</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                                   <tt id="link-59" class="py-name"><a title="Products.ZenModel.IpService.IpService.port
+Products.ZenModel.ServiceClass.ServiceClass.port
+Products.ZenRRD.zencommand.DeviceConfig.port
+Products.ZenUtils.snmp.SnmpConfig.port" class="py-name" href="#" onclick="return doclink('link-59', 'port', 'link-26');">port</a></tt><tt class="py-op">=</tt><tt id="link-60" class="py-name"><a title="Products.ZenModel.IpService.IpService.port
+Products.ZenModel.ServiceClass.ServiceClass.port
+Products.ZenRRD.zencommand.DeviceConfig.port
+Products.ZenUtils.snmp.SnmpConfig.port" class="py-name" href="#" onclick="return doclink('link-60', 'port', 'link-26');">port</a></tt><tt class="py-op">,</tt> <tt class="py-name">passwd</tt><tt class="py-op">=</tt><tt id="link-61" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-61', 'password', 'link-30');">password</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                                   <tt class="py-name">db</tt><tt class="py-op">=</tt><tt class="py-name">database</tt><tt class="py-op">,</tt> <tt class="py-name">conv</tt><tt class="py-op">=</tt><tt class="py-name">mysqlconv</tt><tt class="py-op">,</tt> <tt class="py-name">reconnect</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">            <tt id="link-62" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.conn
+Products.ZenUtils.ZenDocTest.ZenDocTestRunner.conn" class="py-name" href="#" onclick="return doclink('link-62', 'conn', 'link-50');">conn</a></tt><tt class="py-op">.</tt><tt class="py-name">autocommit</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-63" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.conn
+Products.ZenUtils.ZenDocTest.ZenDocTestRunner.conn" class="py-name" href="#" onclick="return doclink('link-63', 'conn', 'link-50');">conn</a></tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">Exception</tt><tt class="py-op">,</tt> <tt class="py-name">e</tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-64" class="py-name"><a title="Products.ZenEvents.Exceptions.MySQLConnectionError" class="py-name" href="#" onclick="return doclink('link-64', 'MySQLConnectionError', 'link-1');">MySQLConnectionError</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">e</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:44 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

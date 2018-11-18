@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+
+
+<!-- ////////////////// jquery-svg REQUIRES SVGVIEWER IN IE8 //////////////////////////////////-->
+<style type="text/css">
+
+
+div.svgbasics { width: 800px; height: 400px; border: 1px solid #484; }
+</style>
+
+<script>
+
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg"
+
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+var dkglow = "#3B2507" ;
+var ltglow = "#FCB83B" ;
+
+// create the blink object. We don't know any leds yet, so just pass ob.proto
+// it may not matter here, but the books aren't sanguine about new() or var x = {};
+var blinklist = Object.create( {"led1-l" :  {color : blue	, blink : true, shape : "rect" } } );
+
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    getsvg();  
+});
+    
+// laod the svg
+function getsvg(){
+
+      $("#svgload").svg({  
+            loadURL: 'zx1900-switch-ftm-3_7300s_master.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+
+}
+
+
+
+function main(){
+    // polling loop that drives everything
+
+
+
+
+
+
+$('#powerglow').mouseover(function(){
+       $('#powerglow').animate({ svgStroke: ltglow },1000);
+    });
+    $('#powerglow').mouseout(function(){
+	$('#powerglow').css("stroke", dkglow);
+    });
+
+
+
+
+}
+
+
+
+
+
+// Returns a random number between min and max
+function getRandomInteger(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function logDebug(newtext){
+    document.getElementById("debug").innerHTML += (" " + newtext) ;
+}
+
+
+
+
+</script></head><body>
+
+
+<br>
+<h3>Click on the chassis, the switch, the FTM, the ZX7300's to get to details on the active ZX1900 components.</h3>
+<div>
+<button id="stop_main" onClick='location.reload();'>Start Watching LEDs</button> 
+<button id="stop_all" onClick='window.clearInterval(short_interval) ; window.clearInterval(main_interval);'>Stop Watching LEDs</button> 
+<br></div>
+
+
+<div id="svgload" class="svgbasics"> If you have a new enough browser, the ZX1900 will load here:</div>
+<div id="svgload2" class="svgbasics"> If you have a new enough browser, the ZX1900 will load here:</div>
+<br>
+<div id="debug"></div>
+
+
+
+</body></html>
+
+

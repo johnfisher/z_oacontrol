@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenModel.browser.DeviceStatus</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenModel-module.html">Package&nbsp;ZenModel</a> ::
+        <a href="Products.ZenModel.browser-module.html">Package&nbsp;browser</a> ::
+        Module&nbsp;DeviceStatus
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenModel.browser.DeviceStatus-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenModel.browser.DeviceStatus-module.html">Module Products.ZenModel.browser.DeviceStatus</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt class="py-name">Five</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package Products.ZenEvents.browser=Products.ZenEvents.browser-module.html,Package Products.ZenModel.browser=Products.ZenModel.browser-module.html,Package Products.ZenWidgets.browser=Products.ZenWidgets.browser-module.html"><a title="Products.ZenEvents.browser
+Products.ZenModel.browser
+Products.ZenWidgets.browser" class="py-name" href="#" onclick="return doclink('link-0', 'browser', 'link-0');">browser</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">BrowserView</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package Products.ZenUtils=Products.ZenUtils-module.html"><a title="Products.ZenUtils" class="py-name" href="#" onclick="return doclink('link-1', 'ZenUtils', 'link-1');">ZenUtils</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module Products.ZenUtils.jsonutils=Products.ZenUtils.jsonutils-module.html"><a title="Products.ZenUtils.jsonutils" class="py-name" href="#" onclick="return doclink('link-2', 'jsonutils', 'link-2');">jsonutils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Function Products.ZenUtils.jsonutils.json()=Products.ZenUtils.jsonutils-module.html#json"><a title="Products.ZenUtils.jsonutils.json" class="py-name" href="#" onclick="return doclink('link-3', 'json', 'link-3');">json</a></tt> </tt>
+<a name="DeviceComponentTable"></a><div id="DeviceComponentTable-def"><a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="DeviceComponentTable-toggle" onclick="return toggle('DeviceComponentTable');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenModel.browser.DeviceStatus.DeviceComponentTable-class.html">DeviceComponentTable</a><tt class="py-op">(</tt><tt class="py-base-class">BrowserView</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DeviceComponentTable-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="DeviceComponentTable-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">    Populates the component table that appears on the device status page.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="DeviceComponentTable.__call__"></a><div id="DeviceComponentTable.__call__-def"><a name="L21"></a><tt class="py-lineno"> 21</tt> <a class="py-toggle" href="#" id="DeviceComponentTable.__call__-toggle" onclick="return toggle('DeviceComponentTable.__call__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenModel.browser.DeviceStatus.DeviceComponentTable-class.html#__call__">__call__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DeviceComponentTable.__call__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DeviceComponentTable.__call__-expanded"><a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method Products.ZenModel.browser.DeviceStatus.DeviceComponentTable.getDeviceComponentEventSummary()=Products.ZenModel.browser.DeviceStatus.DeviceComponentTable-class.html#getDeviceComponentEventSummary"><a title="Products.ZenModel.browser.DeviceStatus.DeviceComponentTable.getDeviceComponentEventSummary" class="py-name" href="#" onclick="return doclink('link-4', 'getDeviceComponentEventSummary', 'link-4');">getDeviceComponentEventSummary</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#context,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.context()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#context,Variable Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context=Products.ZenModel.ZDeviceLoader.BaseDeviceLoader-class.html#context,Method Products.ZenRelations.ImportRM.ImportRM.context()=Products.ZenRelations.ImportRM.ImportRM-class.html#context"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-5', 'context', 'link-5');">context</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">json</tt> </tt>
+<a name="DeviceComponentTable.getDeviceComponentEventSummary"></a><div id="DeviceComponentTable.getDeviceComponentEventSummary-def"><a name="L25"></a><tt class="py-lineno"> 25</tt> <a class="py-toggle" href="#" id="DeviceComponentTable.getDeviceComponentEventSummary-toggle" onclick="return toggle('DeviceComponentTable.getDeviceComponentEventSummary');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenModel.browser.DeviceStatus.DeviceComponentTable-class.html#getDeviceComponentEventSummary">getDeviceComponentEventSummary</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">device</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="DeviceComponentTable.getDeviceComponentEventSummary-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="DeviceComponentTable.getDeviceComponentEventSummary-expanded"><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">        Return a list of categories of components on a device along with event</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">        pills for the maximum severity event on each category in the form of a</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">        JSON object ready for inclusion in a YUI data table. If a category</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">        contains components with events, the component and its associated event</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">        pill are returned as a separate (indented) row.</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">        @param device: The device for which to gather component data</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring">        @type device: L{Device}</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">        @return: A dictionary representation of the columns and rows of the</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">        table</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">        @rtype: dict</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt id="link-6" class="py-name" targets="Method Products.ZenEvents.ZEvent.ZEvent.zem()=Products.ZenEvents.ZEvent.ZEvent-class.html#zem"><a title="Products.ZenEvents.ZEvent.ZEvent.zem" class="py-name" href="#" onclick="return doclink('link-6', 'zem', 'link-6');">zem</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-7', 'context', 'link-5');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">ZenEventManager</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">mydict</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'columns'</tt><tt class="py-op">:</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">'data'</tt><tt class="py-op">:</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">}</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">mydict</tt><tt class="py-op">[</tt><tt class="py-string">'columns'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'Component Type'</tt><tt class="py-op">,</tt> <tt class="py-string">'Status'</tt><tt class="py-op">]</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">devdata</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Function Products.ZenEvents.Availability.query()=Products.ZenEvents.Availability-module.html#query,Method Products.ZenEvents.zenactions.BaseZenActions.query()=Products.ZenEvents.zenactions.BaseZenActions-class.html#query,Method Products.ZenWin.WMIClient.WMIClient.query()=Products.ZenWin.WMIClient.WMIClient-class.html#query"><a title="Products.ZenEvents.Availability.query
+Products.ZenEvents.zenactions.BaseZenActions.query
+Products.ZenWin.WMIClient.WMIClient.query" class="py-name" href="#" onclick="return doclink('link-8', 'query', 'link-8');">query</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> <tt class="py-string">'getParentDeviceName'</tt><tt class="py-op">:</tt><tt id="link-9" class="py-name" targets="Method Products.ZenModel.Device.Device.device()=Products.ZenModel.Device.Device-class.html#device,Method Products.ZenModel.DeviceHW.DeviceHW.device()=Products.ZenModel.DeviceHW.DeviceHW-class.html#device,Method Products.ZenModel.GraphDefinition.FakeContext.device()=Products.ZenModel.GraphDefinition.FakeContext-class.html#device,Method Products.ZenModel.HWComponent.HWComponent.device()=Products.ZenModel.HWComponent.HWComponent-class.html#device,Method Products.ZenModel.IpAddress.IpAddress.device()=Products.ZenModel.IpAddress.IpAddress-class.html#device,Method Products.ZenModel.ManagedEntity.ManagedEntity.device()=Products.ZenModel.ManagedEntity.ManagedEntity-class.html#device,Method Products.ZenModel.OSComponent.OSComponent.device()=Products.ZenModel.OSComponent.OSComponent-class.html#device,Method Products.ZenModel.OperatingSystem.OperatingSystem.device()=Products.ZenModel.OperatingSystem.OperatingSystem-class.html#device,Method Products.ZenModel.Software.Software.device()=Products.ZenModel.Software.Software-class.html#device,Variable Products.ZenRRD.zencommand.DeviceConfig.device=Products.ZenRRD.zencommand.DeviceConfig-class.html#device,Variable Products.ZenRRD.zenperfsnmp.SnmpConfig.device=Products.ZenRRD.zenperfsnmp.SnmpConfig-class.html#device"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-9', 'device', 'link-9');">device</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Variable Products.ZenHub.services.DiscoverService.IpNetProxy.id=Products.ZenHub.services.DiscoverService.IpNetProxy-class.html#id,Method Products.ZenModel.browser.DeviceList.DeviceBatch.id()=Products.ZenModel.browser.DeviceList.DeviceBatch-class.html#id,Variable Products.ZenRRD.zencommand.DataPointConfig.id=Products.ZenRRD.zencommand.DataPointConfig-class.html#id,Variable Products.ZenRelations.ZItem.ZItem.id=Products.ZenRelations.ZItem.ZItem-class.html#id"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-10', 'id', 'link-10');">id</a></tt><tt class="py-op">,</tt><tt class="py-op">}</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">brains</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-11', 'device', 'link-9');">device</a></tt><tt class="py-op">.</tt><tt class="py-name">componentSearch</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name"><a title="Products.ZenEvents.Availability.query
+Products.ZenEvents.zenactions.BaseZenActions.query
+Products.ZenWin.WMIClient.WMIClient.query" class="py-name" href="#" onclick="return doclink('link-12', 'query', 'link-8');">query</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-name">metatypes</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name" targets="Method Products.ZenModel.MaintenanceWindow.MaintenanceWindow.set()=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#set"><a title="Products.ZenModel.MaintenanceWindow.MaintenanceWindow.set" class="py-name" href="#" onclick="return doclink('link-13', 'set', 'link-13');">set</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable Products.ZenEvents.ActionRule.ActionRule.meta_type=Products.ZenEvents.ActionRule.ActionRule-class.html#meta_type,Variable Products.ZenEvents.CustomEventView.CustomEventView.meta_type=Products.ZenEvents.CustomEventView.CustomEventView-class.html#meta_type,Variable Products.ZenEvents.EventClass.EventClass.meta_type=Products.ZenEvents.EventClass.EventClass-class.html#meta_type,Variable Products.ZenEvents.EventClassInst.EventClassInst.meta_type=Products.ZenEvents.EventClassInst.EventClassInst-class.html#meta_type,Variable Products.ZenEvents.MySqlEventManager.MySqlEventManager.meta_type=Products.ZenEvents.MySqlEventManager.MySqlEventManager-class.html#meta_type,Variable Products.ZenModel.AdministrativeRole.AdministrativeRole.meta_type=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#meta_type,Variable Products.ZenModel.AreaGraphPoint.AreaGraphPoint.meta_type=Products.ZenModel.AreaGraphPoint.AreaGraphPoint-class.html#meta_type,Variable Products.ZenModel.CPU.CPU.meta_type=Products.ZenModel.CPU.CPU-class.html#meta_type,Variable Products.ZenModel.CdefGraphPoint.CdefGraphPoint.meta_type=Products.ZenModel.CdefGraphPoint.CdefGraphPoint-class.html#meta_type,Variable Products.ZenModel.Classifier.Classifier.meta_type=Products.ZenModel.Classifier.Classifier-class.html#meta_type,Variable Products.ZenModel.ClassifierEntry.ClassifierEntry.meta_type=Products.ZenModel.ClassifierEntry.ClassifierEntry-class.html#meta_type,Variable Products.ZenModel.Collection.Collection.meta_type=Products.ZenModel.Collection.Collection-class.html#meta_type,Variable Products.ZenModel.CollectionItem.CollectionItem.meta_type=Products.ZenModel.CollectionItem.CollectionItem-class.html#meta_type,Variable Products.ZenModel.CommentGraphPoint.CommentGraphPoint.meta_type=Products.ZenModel.CommentGraphPoint.CommentGraphPoint-class.html#meta_type,Variable Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.meta_type=Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass-class.html#meta_type,Variable Products.ZenModel.DataPointGraphPoint.DataPointGraphPoint.meta_type=Products.ZenModel.DataPointGraphPoint.DataPointGraphPoint-class.html#meta_type,Variable Products.ZenModel.DataRoot.DataRoot.meta_type=Products.ZenModel.DataRoot.DataRoot-class.html#meta_type,Variable Products.ZenModel.DefGraphPoint.DefGraphPoint.meta_type=Products.ZenModel.DefGraphPoint.DefGraphPoint-class.html#meta_type,Variable Products.ZenModel.Device.Device.meta_type=Products.ZenModel.Device.Device-class.html#meta_type,Variable Products.ZenModel.DeviceClass.DeviceClass.meta_type=Products.ZenModel.DeviceClass.DeviceClass-class.html#meta_type,Variable Products.ZenModel.DeviceGroup.DeviceGroup.meta_type=Products.ZenModel.DeviceGroup.DeviceGroup-class.html#meta_type,Variable Products.ZenModel.DeviceHW.DeviceHW.meta_type=Products.ZenModel.DeviceHW.DeviceHW-class.html#meta_type,Variable Products.ZenModel.DeviceReport.DeviceReport.meta_type=Products.ZenModel.DeviceReport.DeviceReport-class.html#meta_type,Variable Products.ZenModel.DeviceReportClass.DeviceReportClass.meta_type=Products.ZenModel.DeviceReportClass.DeviceReportClass-class.html#meta_type,Variable Products.ZenModel.ExpansionCard.ExpansionCard.meta_type=Products.ZenModel.ExpansionCard.ExpansionCard-class.html#meta_type,Variable Products.ZenModel.Fan.Fan.meta_type=Products.ZenModel.Fan.Fan-class.html#meta_type,Variable Products.ZenModel.FileSystem.FileSystem.meta_type=Products.ZenModel.FileSystem.FileSystem-class.html#meta_type,Variable Products.ZenModel.GprintGraphPoint.GprintGraphPoint.meta_type=Products.ZenModel.GprintGraphPoint.GprintGraphPoint-class.html#meta_type,Variable Products.ZenModel.GraphDefinition.GraphDefinition.meta_type=Products.ZenModel.GraphDefinition.GraphDefinition-class.html#meta_type,Variable Products.ZenModel.GraphGroup.GraphGroup.meta_type=Products.ZenModel.GraphGroup.GraphGroup-class.html#meta_type,Variable Products.ZenModel.GraphReport.GraphReport.meta_type=Products.ZenModel.GraphReport.GraphReport-class.html#meta_type,Variable Products.ZenModel.GraphReportClass.GraphReportClass.meta_type=Products.ZenModel.GraphReportClass.GraphReportClass-class.html#meta_type,Variable Products.ZenModel.GraphReportElement.GraphReportElement.meta_type=Products.ZenModel.GraphReportElement.GraphReportElement-class.html#meta_type,Variable Products.ZenModel.HardDisk.HardDisk.meta_type=Products.ZenModel.HardDisk.HardDisk-class.html#meta_type,Variable Products.ZenModel.Hardware.Hardware.meta_type=Products.ZenModel.Hardware.Hardware-class.html#meta_type,Variable Products.ZenModel.HardwareClass.HardwareClass.meta_type=Products.ZenModel.HardwareClass.HardwareClass-class.html#meta_type,Variable Products.ZenModel.HruleGraphPoint.HruleGraphPoint.meta_type=Products.ZenModel.HruleGraphPoint.HruleGraphPoint-class.html#meta_type,Variable Products.ZenModel.IpAddress.IpAddress.meta_type=Products.ZenModel.IpAddress.IpAddress-class.html#meta_type,Variable Products.ZenModel.IpInterface.IpInterface.meta_type=Products.ZenModel.IpInterface.IpInterface-class.html#meta_type,Variable Products.ZenModel.IpNetwork.IpNetwork.meta_type=Products.ZenModel.IpNetwork.IpNetwork-class.html#meta_type,Variable Products.ZenModel.IpRouteEntry.IpRouteEntry.meta_type=Products.ZenModel.IpRouteEntry.IpRouteEntry-class.html#meta_type,Variable Products.ZenModel.IpService.IpService.meta_type=Products.ZenModel.IpService.IpService-class.html#meta_type,Variable Products.ZenModel.IpServiceClass.IpServiceClass.meta_type=Products.ZenModel.IpServiceClass.IpServiceClass-class.html#meta_type,Variable Products.ZenModel.LineGraphPoint.LineGraphPoint.meta_type=Products.ZenModel.LineGraphPoint.LineGraphPoint-class.html#meta_type,Variable Products.ZenModel.Location.Location.meta_type=Products.ZenModel.Location.Location-class.html#meta_type,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.meta_type=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#meta_type,Variable Products.ZenModel.Manufacturer.Manufacturer.meta_type=Products.ZenModel.Manufacturer.Manufacturer-class.html#meta_type,Variable Products.ZenModel.ManufacturerRoot.ManufacturerRoot.meta_type=Products.ZenModel.ManufacturerRoot.ManufacturerRoot-class.html#meta_type,Variable Products.ZenModel.MibOrganizer.MibOrganizer.meta_type=Products.ZenModel.MibOrganizer.MibOrganizer-class.html#meta_type,Variable Products.ZenModel.Monitor.Monitor.meta_type=Products.ZenModel.Monitor.Monitor-class.html#meta_type,Variable Products.ZenModel.MonitorClass.MonitorClass.meta_type=Products.ZenModel.MonitorClass.MonitorClass-class.html#meta_type,Variable Products.ZenModel.MultiGraphReport.MultiGraphReport.meta_type=Products.ZenModel.MultiGraphReport.MultiGraphReport-class.html#meta_type,Variable Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.meta_type=Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass-class.html#meta_type,Variable Products.ZenModel.OSProcess.OSProcess.meta_type=Products.ZenModel.OSProcess.OSProcess-class.html#meta_type,Variable Products.ZenModel.OSProcessClass.OSProcessClass.meta_type=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#meta_type,Variable Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.meta_type=Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer-class.html#meta_type,Variable Products.ZenModel.PerformanceConf.PerformanceConf.meta_type=Products.ZenModel.PerformanceConf.PerformanceConf-class.html#meta_type,Variable Products.ZenModel.PowerSupply.PowerSupply.meta_type=Products.ZenModel.PowerSupply.PowerSupply-class.html#meta_type,Variable Products.ZenModel.PrintGraphPoint.PrintGraphPoint.meta_type=Products.ZenModel.PrintGraphPoint.PrintGraphPoint-class.html#meta_type,Variable Products.ZenModel.ProductClass.ProductClass.meta_type=Products.ZenModel.ProductClass.ProductClass-class.html#meta_type,Variable Products.ZenModel.RRDDataPoint.RRDDataPoint.meta_type=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#meta_type,Variable Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias.meta_type=Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias-class.html#meta_type,Variable Products.ZenModel.RRDDataSource.RRDDataSource.meta_type=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#meta_type,Variable Products.ZenModel.RRDGraph.RRDGraph.meta_type=Products.ZenModel.RRDGraph.RRDGraph-class.html#meta_type,Variable Products.ZenModel.RRDTemplate.RRDTemplate.meta_type=Products.ZenModel.RRDTemplate.RRDTemplate-class.html#meta_type,Variable Products.ZenModel.RRDThreshold.RRDThreshold.meta_type=Products.ZenModel.RRDThreshold.RRDThreshold-class.html#meta_type,Variable Products.ZenModel.Report.Report.meta_type=Products.ZenModel.Report.Report-class.html#meta_type,Variable Products.ZenModel.ReportClass.ReportClass.meta_type=Products.ZenModel.ReportClass.ReportClass-class.html#meta_type,Variable Products.ZenModel.Service.Service.meta_type=Products.ZenModel.Service.Service-class.html#meta_type,Variable Products.ZenModel.ServiceClass.ServiceClass.meta_type=Products.ZenModel.ServiceClass.ServiceClass-class.html#meta_type,Variable Products.ZenModel.ServiceOrganizer.ServiceOrganizer.meta_type=Products.ZenModel.ServiceOrganizer.ServiceOrganizer-class.html#meta_type,Variable Products.ZenModel.ShiftGraphPoint.ShiftGraphPoint.meta_type=Products.ZenModel.ShiftGraphPoint.ShiftGraphPoint-class.html#meta_type,Variable Products.ZenModel.Software.Software.meta_type=Products.ZenModel.Software.Software-class.html#meta_type,Variable Products.ZenModel.SoftwareClass.OSSoftwareClass.meta_type=Products.ZenModel.SoftwareClass.OSSoftwareClass-class.html#meta_type,Variable Products.ZenModel.SoftwareClass.SoftwareClass.meta_type=Products.ZenModel.SoftwareClass.SoftwareClass-class.html#meta_type,Variable Products.ZenModel.StatusMonitorConf.StatusMonitorConf.meta_type=Products.ZenModel.StatusMonitorConf.StatusMonitorConf-class.html#meta_type,Variable Products.ZenModel.System.System.meta_type=Products.ZenModel.System.System-class.html#meta_type,Variable Products.ZenModel.TemperatureSensor.TemperatureSensor.meta_type=Products.ZenModel.TemperatureSensor.TemperatureSensor-class.html#meta_type,Variable Products.ZenModel.TemplateContainer.TemplateContainer.meta_type=Products.ZenModel.TemplateContainer.TemplateContainer-class.html#meta_type,Variable Products.ZenModel.ThresholdClass.ThresholdClass.meta_type=Products.ZenModel.ThresholdClass.ThresholdClass-class.html#meta_type,Variable Products.ZenModel.ThresholdGraphPoint.ThresholdGraphPoint.meta_type=Products.ZenModel.ThresholdGraphPoint.ThresholdGraphPoint-class.html#meta_type,Variable Products.ZenModel.TickGraphPoint.TickGraphPoint.meta_type=Products.ZenModel.TickGraphPoint.TickGraphPoint-class.html#meta_type,Variable Products.ZenModel.UserCommand.UserCommand.meta_type=Products.ZenModel.UserCommand.UserCommand-class.html#meta_type,Variable Products.ZenModel.UserSettings.GroupSettings.meta_type=Products.ZenModel.UserSettings.GroupSettings-class.html#meta_type,Variable Products.ZenModel.UserSettings.UserSettings.meta_type=Products.ZenModel.UserSettings.UserSettings-class.html#meta_type,Variable Products.ZenModel.UserSettings.UserSettingsManager.meta_type=Products.ZenModel.UserSettings.UserSettingsManager-class.html#meta_type,Variable Products.ZenModel.VdefGraphPoint.VdefGraphPoint.meta_type=Products.ZenModel.VdefGraphPoint.VdefGraphPoint-class.html#meta_type,Variable Products.ZenModel.VruleGraphPoint.VruleGraphPoint.meta_type=Products.ZenModel.VruleGraphPoint.VruleGraphPoint-class.html#meta_type,Variable Products.ZenModel.WinService.WinService.meta_type=Products.ZenModel.WinService.WinService-class.html#meta_type,Variable Products.ZenModel.ZDeviceLoader.ZDeviceLoader.meta_type=Products.ZenModel.ZDeviceLoader.ZDeviceLoader-class.html#meta_type,Variable Products.ZenModel.ZenMenu.ZenMenu.meta_type=Products.ZenModel.ZenMenu.ZenMenu-class.html#meta_type,Variable Products.ZenModel.ZenMenuItem.ZenMenuItem.meta_type=Products.ZenModel.ZenMenuItem.ZenMenuItem-class.html#meta_type,Variable Products.ZenModel.ZenModelItem.ZenModelItem.meta_type=Products.ZenModel.ZenModelItem.ZenModelItem-class.html#meta_type,Variable Products.ZenModel.ZenModelRM.ZenModelRM.meta_type=Products.ZenModel.ZenModelRM.ZenModelRM-class.html#meta_type,Variable Products.ZenModel.ZenPackManager.ZenPackManager.meta_type=Products.ZenModel.ZenPackManager.ZenPackManager-class.html#meta_type,Variable Products.ZenModel.ZenPackable.ZenPackable.meta_type=Products.ZenModel.ZenPackable.ZenPackable-class.html#meta_type,Variable Products.ZenModel.ZenossInfo.ZenossInfo.meta_type=Products.ZenModel.ZenossInfo.ZenossInfo-class.html#meta_type,Variable Products.ZenModel.ZentinelPortal.ZentinelPortal.meta_type=Products.ZenModel.ZentinelPortal.ZentinelPortal-class.html#meta_type,Variable Products.ZenRRD.RenderServer.RenderServer.meta_type=Products.ZenRRD.RenderServer.RenderServer-class.html#meta_type,Variable Products.ZenRelations.RelationshipManager.RelationshipManager.meta_type=Products.ZenRelations.RelationshipManager.RelationshipManager-class.html#meta_type,Variable Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.meta_type=Products.ZenRelations.ToManyContRelationship.ToManyContRelationship-class.html#meta_type,Variable Products.ZenRelations.ToManyRelationship.ToManyRelationship.meta_type=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#meta_type,Variable Products.ZenRelations.ToOneRelationship.ToOneRelationship.meta_type=Products.ZenRelations.ToOneRelationship.ToOneRelationship-class.html#meta_type,Variable Products.ZenRelations.ZItem.ZItem.meta_type=Products.ZenRelations.ZItem.ZItem-class.html#meta_type,Variable Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex.meta_type=Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#meta_type,Variable Products.ZenUtils.MultiPathIndex.MultiPathIndex.meta_type=Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html#meta_type,Variable Products.ZenWidgets.Portlet.Portlet.meta_type=Products.ZenWidgets.Portlet.Portlet-class.html#meta_type,Variable Products.ZenWidgets.PortletManager.PortletManager.meta_type=Products.ZenWidgets.PortletManager.PortletManager-class.html#meta_type,Variable Products.ZenWidgets.ZenTableManager.ZenTableManager.meta_type=Products.ZenWidgets.ZenTableManager.ZenTableManager-class.html#meta_type"><a title="Products.ZenEvents.ActionRule.ActionRule.meta_type
+Products.ZenEvents.CustomEventView.CustomEventView.meta_type
+Products.ZenEvents.EventClass.EventClass.meta_type
+Products.ZenEvents.EventClassInst.EventClassInst.meta_type
+Products.ZenEvents.MySqlEventManager.MySqlEventManager.meta_type
+Products.ZenModel.AdministrativeRole.AdministrativeRole.meta_type
+Products.ZenModel.AreaGraphPoint.AreaGraphPoint.meta_type
+Products.ZenModel.CPU.CPU.meta_type
+Products.ZenModel.CdefGraphPoint.CdefGraphPoint.meta_type
+Products.ZenModel.Classifier.Classifier.meta_type
+Products.ZenModel.ClassifierEntry.ClassifierEntry.meta_type
+Products.ZenModel.Collection.Collection.meta_type
+Products.ZenModel.CollectionItem.CollectionItem.meta_type
+Products.ZenModel.CommentGraphPoint.CommentGraphPoint.meta_type
+Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.meta_type
+Products.ZenModel.DataPointGraphPoint.DataPointGraphPoint.meta_type
+Products.ZenModel.DataRoot.DataRoot.meta_type
+Products.ZenModel.DefGraphPoint.DefGraphPoint.meta_type
+Products.ZenModel.Device.Device.meta_type
+Products.ZenModel.DeviceClass.DeviceClass.meta_type
+Products.ZenModel.DeviceGroup.DeviceGroup.meta_type
+Products.ZenModel.DeviceHW.DeviceHW.meta_type
+Products.ZenModel.DeviceReport.DeviceReport.meta_type
+Products.ZenModel.DeviceReportClass.DeviceReportClass.meta_type
+Products.ZenModel.ExpansionCard.ExpansionCard.meta_type
+Products.ZenModel.Fan.Fan.meta_type
+Products.ZenModel.FileSystem.FileSystem.meta_type
+Products.ZenModel.GprintGraphPoint.GprintGraphPoint.meta_type
+Products.ZenModel.GraphDefinition.GraphDefinition.meta_type
+Products.ZenModel.GraphGroup.GraphGroup.meta_type
+Products.ZenModel.GraphReport.GraphReport.meta_type
+Products.ZenModel.GraphReportClass.GraphReportClass.meta_type
+Products.ZenModel.GraphReportElement.GraphReportElement.meta_type
+Products.ZenModel.HardDisk.HardDisk.meta_type
+Products.ZenModel.Hardware.Hardware.meta_type
+Products.ZenModel.HardwareClass.HardwareClass.meta_type
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.meta_type
+Products.ZenModel.IpAddress.IpAddress.meta_type
+Products.ZenModel.IpInterface.IpInterface.meta_type
+Products.ZenModel.IpNetwork.IpNetwork.meta_type
+Products.ZenModel.IpRouteEntry.IpRouteEntry.meta_type
+Products.ZenModel.IpService.IpService.meta_type
+Products.ZenModel.IpServiceClass.IpServiceClass.meta_type
+Products.ZenModel.LineGraphPoint.LineGraphPoint.meta_type
+Products.ZenModel.Location.Location.meta_type
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.meta_type
+Products.ZenModel.Manufacturer.Manufacturer.meta_type
+Products.ZenModel.ManufacturerRoot.ManufacturerRoot.meta_type
+Products.ZenModel.MibOrganizer.MibOrganizer.meta_type
+Products.ZenModel.Monitor.Monitor.meta_type
+Products.ZenModel.MonitorClass.MonitorClass.meta_type
+Products.ZenModel.MultiGraphReport.MultiGraphReport.meta_type
+Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.meta_type
+Products.ZenModel.OSProcess.OSProcess.meta_type
+Products.ZenModel.OSProcessClass.OSProcessClass.meta_type
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.meta_type
+Products.ZenModel.PerformanceConf.PerformanceConf.meta_type
+Products.ZenModel.PowerSupply.PowerSupply.meta_type
+Products.ZenModel.PrintGraphPoint.PrintGraphPoint.meta_type
+Products.ZenModel.ProductClass.ProductClass.meta_type
+Products.ZenModel.RRDDataPoint.RRDDataPoint.meta_type
+Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias.meta_type
+Products.ZenModel.RRDDataSource.RRDDataSource.meta_type
+Products.ZenModel.RRDGraph.RRDGraph.meta_type
+Products.ZenModel.RRDTemplate.RRDTemplate.meta_type
+Products.ZenModel.RRDThreshold.RRDThreshold.meta_type
+Products.ZenModel.Report.Report.meta_type
+Products.ZenModel.ReportClass.ReportClass.meta_type
+Products.ZenModel.Service.Service.meta_type
+Products.ZenModel.ServiceClass.ServiceClass.meta_type
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.meta_type
+Products.ZenModel.ShiftGraphPoint.ShiftGraphPoint.meta_type
+Products.ZenModel.Software.Software.meta_type
+Products.ZenModel.SoftwareClass.OSSoftwareClass.meta_type
+Products.ZenModel.SoftwareClass.SoftwareClass.meta_type
+Products.ZenModel.StatusMonitorConf.StatusMonitorConf.meta_type
+Products.ZenModel.System.System.meta_type
+Products.ZenModel.TemperatureSensor.TemperatureSensor.meta_type
+Products.ZenModel.TemplateContainer.TemplateContainer.meta_type
+Products.ZenModel.ThresholdClass.ThresholdClass.meta_type
+Products.ZenModel.ThresholdGraphPoint.ThresholdGraphPoint.meta_type
+Products.ZenModel.TickGraphPoint.TickGraphPoint.meta_type
+Products.ZenModel.UserCommand.UserCommand.meta_type
+Products.ZenModel.UserSettings.GroupSettings.meta_type
+Products.ZenModel.UserSettings.UserSettings.meta_type
+Products.ZenModel.UserSettings.UserSettingsManager.meta_type
+Products.ZenModel.VdefGraphPoint.VdefGraphPoint.meta_type
+Products.ZenModel.VruleGraphPoint.VruleGraphPoint.meta_type
+Products.ZenModel.WinService.WinService.meta_type
+Products.ZenModel.ZDeviceLoader.ZDeviceLoader.meta_type
+Products.ZenModel.ZenMenu.ZenMenu.meta_type
+Products.ZenModel.ZenMenuItem.ZenMenuItem.meta_type
+Products.ZenModel.ZenModelItem.ZenModelItem.meta_type
+Products.ZenModel.ZenModelRM.ZenModelRM.meta_type
+Products.ZenModel.ZenPackManager.ZenPackManager.meta_type
+Products.ZenModel.ZenPackable.ZenPackable.meta_type
+Products.ZenModel.ZenossInfo.ZenossInfo.meta_type
+Products.ZenModel.ZentinelPortal.ZentinelPortal.meta_type
+Products.ZenRRD.RenderServer.RenderServer.meta_type
+Products.ZenRelations.RelationshipManager.RelationshipManager.meta_type
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.meta_type
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.meta_type
+Products.ZenRelations.ToOneRelationship.ToOneRelationship.meta_type
+Products.ZenRelations.ZItem.ZItem.meta_type
+Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex.meta_type
+Products.ZenUtils.MultiPathIndex.MultiPathIndex.meta_type
+Products.ZenWidgets.Portlet.Portlet.meta_type
+Products.ZenWidgets.PortletManager.PortletManager.meta_type
+Products.ZenWidgets.ZenTableManager.ZenTableManager.meta_type" class="py-name" href="#" onclick="return doclink('link-14', 'meta_type', 'link-14');">meta_type</a></tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-name">brains</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-name">resultdict</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">mt</tt> <tt class="py-keyword">in</tt> <tt class="py-name">metatypes</tt><tt class="py-op">:</tt> <tt class="py-name">resultdict</tt><tt class="py-op">[</tt><tt class="py-name">mt</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">        <tt class="py-name">evpilltemplate</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">'&lt;img src="img/%s_dot.png" '</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                          <tt class="py-string">'width="15" height="15" '</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                          <tt class="py-string">'style="cursor:hand;cursor:pointer" '</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                          <tt class="py-string">'onclick="location.href'</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                          <tt class="py-string">'=\'%s/viewEvents\'"/&gt;'</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-name">linktemplate</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-string">"&lt;a href='%s' class='prettylink'&gt;"</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                        <tt class="py-string">"&lt;div class='device-icon-container'&gt;%s "</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                        <tt class="py-string">"&lt;/div&gt;%s&lt;/a&gt;"</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt id="link-15" class="py-name" targets="Variable Products.ZenModel.GraphPoint.GraphPoint.colors=Products.ZenModel.GraphPoint.GraphPoint-class.html#colors,Variable Products.ZenModel.RRDGraph.RRDGraph.colors=Products.ZenModel.RRDGraph.RRDGraph-class.html#colors"><a title="Products.ZenModel.GraphPoint.GraphPoint.colors
+Products.ZenModel.RRDGraph.RRDGraph.colors" class="py-name" href="#" onclick="return doclink('link-15', 'colors', 'link-15');">colors</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"green grey blue yellow orange red"</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-name">indent</tt> <tt class="py-op">=</tt> <tt class="py-string">"&amp;nbsp;"</tt><tt class="py-op">*</tt><tt class="py-number">8</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">getcompfrombrains</tt><tt class="py-op">(</tt><tt class="py-param">id</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">comp</tt> <tt class="py-keyword">in</tt> <tt class="py-name">brains</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt class="py-name">compid</tt> <tt class="py-op">=</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.getPrimaryId()=Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager-class.html#getPrimaryId"><a title="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.getPrimaryId" class="py-name" href="#" onclick="return doclink('link-16', 'getPrimaryId', 'link-16');">getPrimaryId</a></tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'/'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">compid</tt><tt class="py-op">==</tt><tt id="link-17" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-17', 'id', 'link-10');">id</a></tt><tt class="py-op">:</tt>  </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                    <tt class="py-keyword">return</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.getPrimaryId" class="py-name" href="#" onclick="return doclink('link-18', 'getPrimaryId', 'link-16');">getPrimaryId</a></tt><tt class="py-op">,</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="Products.ZenEvents.ActionRule.ActionRule.meta_type
+Products.ZenEvents.CustomEventView.CustomEventView.meta_type
+Products.ZenEvents.EventClass.EventClass.meta_type
+Products.ZenEvents.EventClassInst.EventClassInst.meta_type
+Products.ZenEvents.MySqlEventManager.MySqlEventManager.meta_type
+Products.ZenModel.AdministrativeRole.AdministrativeRole.meta_type
+Products.ZenModel.AreaGraphPoint.AreaGraphPoint.meta_type
+Products.ZenModel.CPU.CPU.meta_type
+Products.ZenModel.CdefGraphPoint.CdefGraphPoint.meta_type
+Products.ZenModel.Classifier.Classifier.meta_type
+Products.ZenModel.ClassifierEntry.ClassifierEntry.meta_type
+Products.ZenModel.Collection.Collection.meta_type
+Products.ZenModel.CollectionItem.CollectionItem.meta_type
+Products.ZenModel.CommentGraphPoint.CommentGraphPoint.meta_type
+Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.meta_type
+Products.ZenModel.DataPointGraphPoint.DataPointGraphPoint.meta_type
+Products.ZenModel.DataRoot.DataRoot.meta_type
+Products.ZenModel.DefGraphPoint.DefGraphPoint.meta_type
+Products.ZenModel.Device.Device.meta_type
+Products.ZenModel.DeviceClass.DeviceClass.meta_type
+Products.ZenModel.DeviceGroup.DeviceGroup.meta_type
+Products.ZenModel.DeviceHW.DeviceHW.meta_type
+Products.ZenModel.DeviceReport.DeviceReport.meta_type
+Products.ZenModel.DeviceReportClass.DeviceReportClass.meta_type
+Products.ZenModel.ExpansionCard.ExpansionCard.meta_type
+Products.ZenModel.Fan.Fan.meta_type
+Products.ZenModel.FileSystem.FileSystem.meta_type
+Products.ZenModel.GprintGraphPoint.GprintGraphPoint.meta_type
+Products.ZenModel.GraphDefinition.GraphDefinition.meta_type
+Products.ZenModel.GraphGroup.GraphGroup.meta_type
+Products.ZenModel.GraphReport.GraphReport.meta_type
+Products.ZenModel.GraphReportClass.GraphReportClass.meta_type
+Products.ZenModel.GraphReportElement.GraphReportElement.meta_type
+Products.ZenModel.HardDisk.HardDisk.meta_type
+Products.ZenModel.Hardware.Hardware.meta_type
+Products.ZenModel.HardwareClass.HardwareClass.meta_type
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.meta_type
+Products.ZenModel.IpAddress.IpAddress.meta_type
+Products.ZenModel.IpInterface.IpInterface.meta_type
+Products.ZenModel.IpNetwork.IpNetwork.meta_type
+Products.ZenModel.IpRouteEntry.IpRouteEntry.meta_type
+Products.ZenModel.IpService.IpService.meta_type
+Products.ZenModel.IpServiceClass.IpServiceClass.meta_type
+Products.ZenModel.LineGraphPoint.LineGraphPoint.meta_type
+Products.ZenModel.Location.Location.meta_type
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.meta_type
+Products.ZenModel.Manufacturer.Manufacturer.meta_type
+Products.ZenModel.ManufacturerRoot.ManufacturerRoot.meta_type
+Products.ZenModel.MibOrganizer.MibOrganizer.meta_type
+Products.ZenModel.Monitor.Monitor.meta_type
+Products.ZenModel.MonitorClass.MonitorClass.meta_type
+Products.ZenModel.MultiGraphReport.MultiGraphReport.meta_type
+Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.meta_type
+Products.ZenModel.OSProcess.OSProcess.meta_type
+Products.ZenModel.OSProcessClass.OSProcessClass.meta_type
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.meta_type
+Products.ZenModel.PerformanceConf.PerformanceConf.meta_type
+Products.ZenModel.PowerSupply.PowerSupply.meta_type
+Products.ZenModel.PrintGraphPoint.PrintGraphPoint.meta_type
+Products.ZenModel.ProductClass.ProductClass.meta_type
+Products.ZenModel.RRDDataPoint.RRDDataPoint.meta_type
+Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias.meta_type
+Products.ZenModel.RRDDataSource.RRDDataSource.meta_type
+Products.ZenModel.RRDGraph.RRDGraph.meta_type
+Products.ZenModel.RRDTemplate.RRDTemplate.meta_type
+Products.ZenModel.RRDThreshold.RRDThreshold.meta_type
+Products.ZenModel.Report.Report.meta_type
+Products.ZenModel.ReportClass.ReportClass.meta_type
+Products.ZenModel.Service.Service.meta_type
+Products.ZenModel.ServiceClass.ServiceClass.meta_type
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.meta_type
+Products.ZenModel.ShiftGraphPoint.ShiftGraphPoint.meta_type
+Products.ZenModel.Software.Software.meta_type
+Products.ZenModel.SoftwareClass.OSSoftwareClass.meta_type
+Products.ZenModel.SoftwareClass.SoftwareClass.meta_type
+Products.ZenModel.StatusMonitorConf.StatusMonitorConf.meta_type
+Products.ZenModel.System.System.meta_type
+Products.ZenModel.TemperatureSensor.TemperatureSensor.meta_type
+Products.ZenModel.TemplateContainer.TemplateContainer.meta_type
+Products.ZenModel.ThresholdClass.ThresholdClass.meta_type
+Products.ZenModel.ThresholdGraphPoint.ThresholdGraphPoint.meta_type
+Products.ZenModel.TickGraphPoint.TickGraphPoint.meta_type
+Products.ZenModel.UserCommand.UserCommand.meta_type
+Products.ZenModel.UserSettings.GroupSettings.meta_type
+Products.ZenModel.UserSettings.UserSettings.meta_type
+Products.ZenModel.UserSettings.UserSettingsManager.meta_type
+Products.ZenModel.VdefGraphPoint.VdefGraphPoint.meta_type
+Products.ZenModel.VruleGraphPoint.VruleGraphPoint.meta_type
+Products.ZenModel.WinService.WinService.meta_type
+Products.ZenModel.ZDeviceLoader.ZDeviceLoader.meta_type
+Products.ZenModel.ZenMenu.ZenMenu.meta_type
+Products.ZenModel.ZenMenuItem.ZenMenuItem.meta_type
+Products.ZenModel.ZenModelItem.ZenModelItem.meta_type
+Products.ZenModel.ZenModelRM.ZenModelRM.meta_type
+Products.ZenModel.ZenPackManager.ZenPackManager.meta_type
+Products.ZenModel.ZenPackable.ZenPackable.meta_type
+Products.ZenModel.ZenossInfo.ZenossInfo.meta_type
+Products.ZenModel.ZentinelPortal.ZentinelPortal.meta_type
+Products.ZenRRD.RenderServer.RenderServer.meta_type
+Products.ZenRelations.RelationshipManager.RelationshipManager.meta_type
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.meta_type
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.meta_type
+Products.ZenRelations.ToOneRelationship.ToOneRelationship.meta_type
+Products.ZenRelations.ZItem.ZItem.meta_type
+Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex.meta_type
+Products.ZenUtils.MultiPathIndex.MultiPathIndex.meta_type
+Products.ZenWidgets.Portlet.Portlet.meta_type
+Products.ZenWidgets.PortletManager.PortletManager.meta_type
+Products.ZenWidgets.ZenTableManager.ZenTableManager.meta_type" class="py-name" href="#" onclick="return doclink('link-19', 'meta_type', 'link-14');">meta_type</a></tt><tt class="py-op">,</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt class="py-name">getPath</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">devurl</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-20', 'device', 'link-9');">device</a></tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method Products.ZenModel.ZenModelItem.ZenModelItem.getPrimaryUrlPath()=Products.ZenModel.ZenModelItem.ZenModelItem-class.html#getPrimaryUrlPath,Method Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.getPrimaryUrlPath()=Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager-class.html#getPrimaryUrlPath"><a title="Products.ZenModel.ZenModelItem.ZenModelItem.getPrimaryUrlPath
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.getPrimaryUrlPath" class="py-name" href="#" onclick="return doclink('link-21', 'getPrimaryUrlPath', 'link-21');">getPrimaryUrlPath</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">ostab</tt> <tt class="py-op">=</tt> <tt class="py-name">devurl</tt><tt class="py-op">.</tt><tt class="py-name">rstrip</tt><tt class="py-op">(</tt><tt class="py-string">'/'</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'/os'</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">event</tt> <tt class="py-keyword">in</tt> <tt id="link-22" class="py-name"><a title="Products.ZenEvents.ZEvent.ZEvent.zem" class="py-name" href="#" onclick="return doclink('link-22', 'zem', 'link-6');">zem</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method Products.ZenEvents.EventManagerBase.EventManagerBase.getEventListME()=Products.ZenEvents.EventManagerBase.EventManagerBase-class.html#getEventListME"><a title="Products.ZenEvents.EventManagerBase.EventManagerBase.getEventListME" class="py-name" href="#" onclick="return doclink('link-23', 'getEventListME', 'link-23');">getEventListME</a></tt><tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-24', 'device', 'link-9');">device</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Variable Products.ZenModel.RRDDataSource.RRDDataSource.component=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#component,Variable Products.ZenRRD.zencommand.DataPointConfig.component=Products.ZenRRD.zencommand.DataPointConfig-class.html#component"><a title="Products.ZenModel.RRDDataSource.RRDDataSource.component
+Products.ZenRRD.zencommand.DataPointConfig.component" class="py-name" href="#" onclick="return doclink('link-25', 'component', 'link-25');">component</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">continue</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt id="link-26" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-26', 'id', 'link-10');">id</a></tt><tt class="py-op">,</tt> <tt class="py-name">metatype</tt><tt class="py-op">,</tt> <tt id="link-27" class="py-name" targets="Variable Products.ZenModel.Manufacturer.Manufacturer.url=Products.ZenModel.Manufacturer.Manufacturer-class.html#url,Variable Products.ZenModel.ZenPack.ZenPack.url=Products.ZenModel.ZenPack.ZenPack-class.html#url"><a title="Products.ZenModel.Manufacturer.Manufacturer.url
+Products.ZenModel.ZenPack.ZenPack.url" class="py-name" href="#" onclick="return doclink('link-27', 'url', 'link-27');">url</a></tt> <tt class="py-op">=</tt> <tt class="py-name">getcompfrombrains</tt><tt class="py-op">(</tt><tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="Products.ZenModel.RRDDataSource.RRDDataSource.component
+Products.ZenRRD.zencommand.DataPointConfig.component" class="py-name" href="#" onclick="return doclink('link-28', 'component', 'link-25');">component</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-29" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-29', 'id', 'link-10');">id</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">or</tt> <tt class="py-name">metatype</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">or</tt> <tt id="link-30" class="py-name"><a title="Products.ZenModel.Manufacturer.Manufacturer.url
+Products.ZenModel.ZenPack.ZenPack.url" class="py-name" href="#" onclick="return doclink('link-30', 'url', 'link-27');">url</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt>  </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                <tt id="link-31" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-31', 'id', 'link-10');">id</a></tt><tt class="py-op">,</tt> <tt class="py-name">metatype</tt><tt class="py-op">,</tt> <tt id="link-32" class="py-name"><a title="Products.ZenModel.Manufacturer.Manufacturer.url
+Products.ZenModel.ZenPack.ZenPack.url" class="py-name" href="#" onclick="return doclink('link-32', 'url', 'link-27');">url</a></tt> <tt class="py-op">=</tt> <tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="Products.ZenModel.RRDDataSource.RRDDataSource.component
+Products.ZenRRD.zencommand.DataPointConfig.component" class="py-name" href="#" onclick="return doclink('link-33', 'component', 'link-25');">component</a></tt><tt class="py-op">,</tt> <tt class="py-string">'Other'</tt><tt class="py-op">,</tt> <tt class="py-name">devurl</tt> <tt class="py-op">+</tt> <tt class="py-string">'/os'</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-name">tally</tt> <tt class="py-op">=</tt> <tt class="py-name">resultdict</tt><tt class="py-op">.</tt><tt class="py-name">setdefault</tt><tt class="py-op">(</tt><tt class="py-name">metatype</tt><tt class="py-op">,</tt>  </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                            <tt class="py-op">{</tt><tt class="py-string">'sev'</tt><tt class="py-op">:</tt><tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Variable Products.ZenHub.services.ProcessConfig.ProcessProxy.severity=Products.ZenHub.services.ProcessConfig.ProcessProxy-class.html#severity,Variable Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity=Products.ZenModel.MinMaxThreshold.MinMaxThreshold-class.html#severity,Variable Products.ZenModel.RRDDataSource.RRDDataSource.severity=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#severity,Variable Products.ZenModel.RRDThreshold.RRDThreshold.severity=Products.ZenModel.RRDThreshold.RRDThreshold-class.html#severity,Variable Products.ZenRRD.zencommand.Cmd.severity=Products.ZenRRD.zencommand.Cmd-class.html#severity,Method Products.ZenWin.services.WinServiceConfig.SmartService.severity()=Products.ZenWin.services.WinServiceConfig.SmartService-class.html#severity"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-34', 'severity', 'link-34');">severity</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                             <tt class="py-string">'components'</tt><tt class="py-op">:</tt> <tt class="py-op">{</tt><tt id="link-35" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-35', 'id', 'link-10');">id</a></tt><tt class="py-op">:</tt> <tt class="py-op">(</tt><tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-36', 'severity', 'link-34');">severity</a></tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt id="link-37" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-37', 'id', 'link-10');">id</a></tt><tt class="py-op">,</tt> <tt class="py-name">ostab</tt><tt class="py-op">)</tt><tt class="py-op">}</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">            <tt class="py-name">tally</tt><tt class="py-op">.</tt><tt class="py-name">setdefault</tt><tt class="py-op">(</tt><tt class="py-string">'sev'</tt><tt class="py-op">,</tt> <tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-38', 'severity', 'link-34');">severity</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">            <tt class="py-name">tally</tt><tt class="py-op">.</tt><tt class="py-name">setdefault</tt><tt class="py-op">(</tt><tt class="py-string">'components'</tt><tt class="py-op">,</tt> <tt class="py-op">{</tt><tt id="link-39" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-39', 'id', 'link-10');">id</a></tt><tt class="py-op">:</tt> <tt class="py-op">(</tt><tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-40', 'severity', 'link-34');">severity</a></tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt id="link-41" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-41', 'id', 'link-10');">id</a></tt><tt class="py-op">,</tt> <tt class="py-name">ostab</tt><tt class="py-op">)</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">tally</tt><tt class="py-op">[</tt><tt class="py-string">'sev'</tt><tt class="py-op">]</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-42', 'severity', 'link-34');">severity</a></tt><tt class="py-op">:</tt> <tt class="py-name">tally</tt><tt class="py-op">[</tt><tt class="py-string">'sev'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-43', 'severity', 'link-34');">severity</a></tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-name">comp</tt> <tt class="py-op">=</tt> <tt class="py-name">tally</tt><tt class="py-op">[</tt><tt class="py-string">'components'</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">setdefault</tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-44', 'id', 'link-10');">id</a></tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-45', 'severity', 'link-34');">severity</a></tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt>  </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                                                       <tt id="link-46" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-46', 'id', 'link-10');">id</a></tt><tt class="py-op">,</tt> <tt class="py-name">ostab</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-name">comptotal</tt> <tt class="py-op">=</tt> <tt class="py-name">tally</tt><tt class="py-op">[</tt><tt class="py-string">'components'</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt id="link-47" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-47', 'id', 'link-10');">id</a></tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-name">compsev</tt> <tt class="py-op">=</tt> <tt class="py-name">tally</tt><tt class="py-op">[</tt><tt class="py-string">'components'</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt id="link-48" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-48', 'id', 'link-10');">id</a></tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-name">newsev</tt> <tt class="py-op">=</tt> <tt class="py-name">compsev</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-49', 'severity', 'link-34');">severity</a></tt> <tt class="py-op">&gt;</tt> <tt class="py-name">compsev</tt><tt class="py-op">:</tt> <tt class="py-name">newsev</tt> <tt class="py-op">=</tt> <tt class="py-name">event</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-50', 'severity', 'link-34');">severity</a></tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">tally</tt><tt class="py-op">[</tt><tt class="py-string">'components'</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt id="link-51" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-51', 'id', 'link-10');">id</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">newsev</tt><tt class="py-op">,</tt> <tt class="py-name">comptotal</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt id="link-52" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-52', 'id', 'link-10');">id</a></tt><tt class="py-op">,</tt> <tt id="link-53" class="py-name"><a title="Products.ZenModel.Manufacturer.Manufacturer.url
+Products.ZenModel.ZenPack.ZenPack.url" class="py-name" href="#" onclick="return doclink('link-53', 'url', 'link-27');">url</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-name">r</tt> <tt class="py-op">=</tt> <tt class="py-name">resultdict</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">categorysort</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-name">x</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">'sev'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-name">x</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">'components'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">x</tt><tt class="py-op">,</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                         <tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-name">x</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-string">'components'</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Method Products.ZenWidgets.ZenTableState.ZenTableState.values()=Products.ZenWidgets.ZenTableState.ZenTableState-class.html#values"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-54', 'values', 'link-54');">values</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-name">r</tt> <tt class="py-keyword">if</tt> <tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-name">x</tt><tt class="py-op">]</tt><tt class="py-op">]</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-name">categorysort</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">;</tt> <tt class="py-name">categorysort</tt><tt class="py-op">.</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-name">categorysort</tt><tt class="py-op">.</tt><tt class="py-name">extend</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">,</tt> <tt class="py-name">x</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-name">r</tt> <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">r</tt><tt class="py-op">[</tt><tt class="py-name">x</tt><tt class="py-op">]</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">bunch</tt> <tt class="py-keyword">in</tt> <tt class="py-name">categorysort</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">            <tt class="py-name">catsev</tt><tt class="py-op">,</tt> <tt class="py-name">catnum</tt><tt class="py-op">,</tt> <tt class="py-name">catname</tt><tt class="py-op">,</tt> <tt class="py-name">comps</tt> <tt class="py-op">=</tt> <tt class="py-name">bunch</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">            <tt class="py-name">catlink</tt> <tt class="py-op">=</tt> <tt class="py-name">ostab</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">            <tt class="py-name">catcolor</tt> <tt class="py-op">=</tt> <tt id="link-55" class="py-name"><a title="Products.ZenModel.GraphPoint.GraphPoint.colors
+Products.ZenModel.RRDGraph.RRDGraph.colors" class="py-name" href="#" onclick="return doclink('link-55', 'colors', 'link-15');">colors</a></tt><tt class="py-op">[</tt><tt class="py-name">catsev</tt><tt class="py-op">]</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">            <tt class="py-name">evpill</tt> <tt class="py-op">=</tt> <tt class="py-name">evpilltemplate</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">catcolor</tt><tt class="py-op">,</tt> <tt id="link-56" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-56', 'device', 'link-9');">device</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="Products.ZenModel.ZenModelItem.ZenModelItem.getPrimaryUrlPath
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.getPrimaryUrlPath" class="py-name" href="#" onclick="return doclink('link-57', 'getPrimaryUrlPath', 'link-21');">getPrimaryUrlPath</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">catnum</tt><tt class="py-op">:</tt> <tt class="py-name">evpill</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">            <tt class="py-name">devdata</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">linktemplate</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">catlink</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-name">catname</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">evpill</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">            <tt class="py-name">comps</tt><tt class="py-op">.</tt><tt class="py-name">sort</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">comp</tt> <tt class="py-keyword">in</tt> <tt class="py-name">comps</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                <tt class="py-name">compsev</tt><tt class="py-op">,</tt> <tt class="py-name">compnum</tt><tt class="py-op">,</tt> <tt class="py-name">complink</tt><tt class="py-op">,</tt> <tt class="py-name">compurl</tt> <tt class="py-op">=</tt> <tt class="py-name">comp</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                <tt class="py-name">compcolor</tt> <tt class="py-op">=</tt> <tt id="link-58" class="py-name"><a title="Products.ZenModel.GraphPoint.GraphPoint.colors
+Products.ZenModel.RRDGraph.RRDGraph.colors" class="py-name" href="#" onclick="return doclink('link-58', 'colors', 'link-15');">colors</a></tt><tt class="py-op">[</tt><tt class="py-name">compsev</tt><tt class="py-op">]</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">complink</tt><tt class="py-op">.</tt><tt class="py-name">startswith</tt><tt class="py-op">(</tt><tt class="py-string">'/zport'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                    <tt id="link-59" class="py-name" targets="Variable Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig.compname=Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig-class.html#compname,Variable Products.DataCollector.ProcessCommandPlugin.ProcessCommandPlugin.compname=Products.DataCollector.ProcessCommandPlugin.ProcessCommandPlugin-class.html#compname"><a title="Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig.compname
+Products.DataCollector.ProcessCommandPlugin.ProcessCommandPlugin.compname" class="py-name" href="#" onclick="return doclink('link-59', 'compname', 'link-59');">compname</a></tt> <tt class="py-op">=</tt> <tt class="py-name">complink</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                    <tt class="py-name">complink</tt> <tt class="py-op">=</tt> <tt class="py-name">devurl</tt><tt class="py-op">.</tt><tt class="py-name">rstrip</tt><tt class="py-op">(</tt><tt class="py-string">'/'</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'/viewEvents'</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt>  </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                    <tt id="link-60" class="py-name"><a title="Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig.compname
+Products.DataCollector.ProcessCommandPlugin.ProcessCommandPlugin.compname" class="py-name" href="#" onclick="return doclink('link-60', 'compname', 'link-59');">compname</a></tt> <tt class="py-op">=</tt> <tt class="py-name">complink</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'/'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                    <tt class="py-name">complink</tt> <tt class="py-op">=</tt> <tt class="py-name">compurl</tt><tt class="py-op">.</tt><tt class="py-name">rstrip</tt><tt class="py-op">(</tt><tt class="py-string">'/'</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'/viewEvents'</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-61" class="py-name"><a title="Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig.compname
+Products.DataCollector.ProcessCommandPlugin.ProcessCommandPlugin.compname" class="py-name" href="#" onclick="return doclink('link-61', 'compname', 'link-59');">compname</a></tt><tt class="py-op">:</tt> <tt class="py-keyword">continue</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt id="link-62" class="py-name"><a title="Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig.compname
+Products.DataCollector.ProcessCommandPlugin.ProcessCommandPlugin.compname" class="py-name" href="#" onclick="return doclink('link-62', 'compname', 'link-59');">compname</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"&lt;strong&gt;%s&lt;/strong&gt;"</tt> <tt class="py-op">%</tt> <tt id="link-63" class="py-name"><a title="Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig.compname
+Products.DataCollector.ProcessCommandPlugin.ProcessCommandPlugin.compname" class="py-name" href="#" onclick="return doclink('link-63', 'compname', 'link-59');">compname</a></tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                <tt class="py-name">devdata</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                    <tt class="py-op">(</tt><tt class="py-name">linktemplate</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">complink</tt><tt class="py-op">,</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt> <tt class="py-name">indent</tt><tt class="py-op">+</tt><tt id="link-64" class="py-name"><a title="Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig.compname
+Products.DataCollector.ProcessCommandPlugin.ProcessCommandPlugin.compname" class="py-name" href="#" onclick="return doclink('link-64', 'compname', 'link-59');">compname</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                     <tt class="py-name">evpilltemplate</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">compcolor</tt><tt class="py-op">,</tt>  </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                                       <tt id="link-65" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-65', 'device', 'link-9');">device</a></tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="Products.ZenModel.ZenModelItem.ZenModelItem.getPrimaryUrlPath
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.getPrimaryUrlPath" class="py-name" href="#" onclick="return doclink('link-66', 'getPrimaryUrlPath', 'link-21');">getPrimaryUrlPath</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                    <tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                <tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-name">mydict</tt><tt class="py-op">[</tt><tt class="py-string">'data'</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">{</tt><tt class="py-string">'Component Type'</tt><tt class="py-op">:</tt><tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                           <tt class="py-string">'Status'</tt><tt class="py-op">:</tt><tt class="py-name">x</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">}</tt> <tt class="py-keyword">for</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-name">devdata</tt><tt class="py-op">]</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">mydict</tt> </tt>
+</div></div><a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:18 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

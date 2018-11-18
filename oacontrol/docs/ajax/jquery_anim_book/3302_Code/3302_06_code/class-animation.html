@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Class Animations</title>
+		<link rel="stylesheet" href="css/class-animation.css">
+	</head>
+	<body>
+    	<input class="default"><button id="search">Search</button>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$("#search").click(function(e) {
+					e.preventDefault();
+					
+					var input = $(this).prev();
+					
+					if (input.val() == "") {
+						input.switchClass("default", "error", 1200);
+					} else if (input.val() && input.hasClass("error")) {
+						input.removeClass("error", 1200);
+					}
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

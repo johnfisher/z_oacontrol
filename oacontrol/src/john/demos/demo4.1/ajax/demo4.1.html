@@ -1,0 +1,95 @@
+<!--
+STARTING POINT
+All the HTML, like menus and layout
+the svg handling stuff
+the doc ready stuff
+the client comet stuff
+
+-->
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jsdump.js"></script>
+<!--<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+<script type="text/javascript" src="js/hoverIntent.js"></script>
+<script type="text/javascript" src="js/zsuperfish.js"></script>-->
+<script type="text/javascript" src="functions4.1.js"></script>
+
+
+
+
+
+<link rel="stylesheet" media="screen" href="css/oac.css" /> 
+<link rel="stylesheet" media="screen" href="styles4.1.css" /> 
+
+<style>
+ div.zre { width:100px; height:100px; background: red; border: 4px solid #000000 }
+</style>
+
+<script type="text/javascript">
+///////////////////////////////////////////////
+      xmlns="http://www.w3.org/2000/svg" ;
+
+      var last_menu ;
+      var pulseflag = "on";
+      // prepare the dom and then load the svg
+      $(document).ready(function(){
+	alert("ready");  
+	main();
+	   
+
+      });
+
+function main(){
+
+// THIS WORKS but brings the data in as text though firebug sees json...
+ //$('#debugdiv').load('backend4.1.php');
+    // see Jquery get documentation... json_data.error(function(){ alert("json_data error"); });
+    // json_data.complete(function(){ alert("second complete"); });
+    loop_control = window.setInterval(function() {
+
+	$.get("backend4.1.php",  function(data){
+	    var json_data = $.parseJSON(data);
+	    process_Data(json_data);
+	      } );
+
+    }, 1000 );
+
+}
+
+
+function process_Data(json){
+
+    // WORKS $("#debugdiv").append($.dump(json));
+    // NO WORKEE $("#debugdiv").append(json.0);
+    // WORKS  $("#debugdiv").append(json[0]);
+    //for ( var prop in json){
+	//$("#debugdiv").append(json[prop]);  // WORKS
+    //}
+    if ( json[1] == "down" ) {
+	$("#zre1").css("background" , "yellow");
+    }else {
+	$("#zre1").css("background" , "green");
+    }
+
+
+}
+/////////////////////////////////////////////////
+</script>
+
+</head><body>
+
+<div id="debugdiv"></div>
+<div id="zre1"  class="zre" ></div>
+
+
+
+
+</body></html>
+
+

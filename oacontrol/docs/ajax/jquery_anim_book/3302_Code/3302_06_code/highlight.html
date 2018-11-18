@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Highlight Effect</title>
+		<link rel="stylesheet" href="css/highlight.css">
+	</head>
+	<body>
+    	<div id="todo">
+        	<h2>Todo List</h2>
+        	<ul>
+            	<li><label><input type="checkbox">Item 1</label></li>
+                <li><label><input type="checkbox">Item 2</label></li>
+                <li><label><input type="checkbox">Item 3</label></li>
+            </ul>
+            <input type="text" id="new"><button id="add">Add</button>
+        </div>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$("#add").click(function() {
+					var newItem = $("#new"),
+						text = newItem.val();
+					
+					if (text) {
+						var li = $("<li>"),
+							label = $("<label>").html("<input type=\"checkbox\">" + text).appendTo(li);
+					
+						li.appendTo("#todo ul").effect("highlight", 2000);
+						newItem.val("");
+					}
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

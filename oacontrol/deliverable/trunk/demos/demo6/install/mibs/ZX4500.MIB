@@ -1,0 +1,383 @@
+--==========================================================================
+--
+--	zx4500.mib
+--
+--	ZNYX ZX4500 SNMP MIB
+--
+--==========================================================================
+--
+--	(c) Copyright 2001 ZNYX Networks, Inc.
+--	All rights reserved.
+--
+--==========================================================================
+--
+--	Modification History:
+--	jr	02/10/01	This file new.
+--	jr	07/26/01	New zZX4500LinkCtrlLearning,
+--				zZX4500RateCtrlTable
+--
+--==========================================================================
+
+
+	ZX4500-MIB DEFINITIONS ::= BEGIN
+
+	IMPORTS
+		enterprises, NetworkAddress, IpAddress, Counter,
+		Gauge, TimeTicks, OBJECT-TYPE
+			FROM RFC1155-SMI
+		znyxProductSpecificMib
+			FROM ZNYX-MIB;
+
+	-- Conventions
+
+	DisplayString ::= OCTET STRING
+
+
+
+	znyxPsMibZX4500		OBJECT IDENTIFIER ::= { znyxProductSpecificMib 1 }
+
+	zZX4500BootFlashSize OBJECT-TYPE
+		SYNTAX  INTEGER
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"The size of the boot loader flash area in bytes."
+		::= { znyxPsMibZX4500 1 }
+
+	zZX4500ApplicationFlashSize OBJECT-TYPE
+		SYNTAX  INTEGER
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"The size of the application flash area in bytes."
+		::= { znyxPsMibZX4500 2 }
+
+	zZX4500ProcessorDRAMSize OBJECT-TYPE
+		SYNTAX  INTEGER
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"The size of the processor DRAM memory system in bytes."
+		::= { znyxPsMibZX4500 3 }
+
+	zZX4500BufferDRAMSize OBJECT-TYPE
+		SYNTAX  INTEGER
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"The size of the packet buffer DRAM system in bytes."
+		::= { znyxPsMibZX4500 4 }
+
+	zZX4500OemSerialNumber OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  optional
+		DESCRIPTION
+			"An OEM/customer serial number for the switch."
+		::= { znyxPsMibZX4500 5 }
+
+	zZX4500CleiCode OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  optional
+		DESCRIPTION
+			"The CLEI code for the switch."
+		::= { znyxPsMibZX4500 6 }
+
+	zZX4500PecCode OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  optional
+		DESCRIPTION
+			"The PEC code for the switch."
+		::= { znyxPsMibZX4500 7 }
+
+	zZX4500BootLoaderVersion OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"A string describing the version of the
+			 boot loader software."
+		::= { znyxPsMibZX4500 8 }
+
+	zZX4500ApplicationVersion OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"A string describing the version of the
+			 application software."
+		::= { znyxPsMibZX4500 9 }
+
+	zZX4500ChecksumCommand OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to run checksum commands
+			 over parts of the flash area. On writes, a
+			 command string is written to compute a
+			 checksum. On reads, an empty string is
+			 returned if no checksum has been run; the
+			 most recent command string and the appended
+			 checksum result is returned otherwise."
+		::= { znyxPsMibZX4500 10 }
+
+	zZX4500GeoPins OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object returns a string identifying
+			 the shelf and the slot within the shelf
+			 the switch is located in."
+		::= { znyxPsMibZX4500 11 }
+
+	zZX4500Core2914LedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 CORE-2914 LED is driven."
+		::= { znyxPsMibZX4500 12 }
+
+	zZX4500Core2914LedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current CORE-2914 LED status."
+		::= { znyxPsMibZX4500 13 }
+
+	zZX4500InternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 Internal Fault LED is driven."
+		::= { znyxPsMibZX4500 14 }
+
+	zZX4500InternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current Internal Fault LED status."
+		::= { znyxPsMibZX4500 15 }
+
+	zZX4500ExternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 External Fault LED is driven."
+		::= { znyxPsMibZX4500 16 }
+
+	zZX4500ExternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current External Fault LED status."
+		::= { znyxPsMibZX4500 17 }
+
+	zZX4500BootCounter OBJECT-TYPE
+   		SYNTAX INTEGER
+   		ACCESS read-only
+   		 STATUS     mandatory
+    		DESCRIPTION
+       		"The number of times the host has been booted. A value of 0  indicates this counter is not being incremented."
+    		DEFVAL      { 0 }
+    		::= { znyxPsMibZX4500 18 }
+
+	zZX4500OpenArchVersion OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Open Architect software version."
+    		::= { znyxPsMibZX4500 19 }
+
+	zZX4500LinkCtrlTable OBJECT-TYPE
+	    	SYNTAX      SEQUENCE OF ZZX4500LinkCtrlEntry
+  		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      	    	"A table containing link control information for each port
+		       available on the device."
+    		::= { znyxPsMibZX4500 20 }
+
+	zZX4500LinkCtrlEntry OBJECT-TYPE
+ 		SYNTAX      ZZX4500LinkCtrlEntry
+    		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      		"Link control information for each port available on the
+			 device."
+   		INDEX   { zZX4500LinkCtrlPort }
+    		::= { zZX4500LinkCtrlTable 1 }
+
+ 	ZZX4500LinkCtrlEntry ::=
+  		SEQUENCE {
+			zZX4500LinkCtrlPort
+				INTEGER,
+			zZX4500LinkCtrlState
+				INTEGER,
+			zZX4500LinkCtrlSpeed
+				INTEGER,
+			zZX4500LinkCtrlLearning
+				INTEGER
+    		}
+
+	zZX4500LinkCtrlPort OBJECT-TYPE
+    		SYNTAX      INTEGER (1..65535)
+    		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+       		"The port number associated with this Link Control entry."
+    		::= { zZX4500LinkCtrlEntry 1 }
+
+	zZX4500LinkCtrlState OBJECT-TYPE
+    		SYNTAX      INTEGER { up (1), down (2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control state of the port."
+    		::= { zZX4500LinkCtrlEntry 2 }
+
+	zZX4500LinkCtrlSpeed OBJECT-TYPE
+    		SYNTAX      INTEGER  { auto(1), n100fd(2), n100hd(3), n10fd (4), n10hd(5)}
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control speed of the port. Changes to this speed
+			 require the port to be in the down state."
+    		::= { zZX4500LinkCtrlEntry 3 }
+
+	zZX4500LinkCtrlLearning OBJECT-TYPE
+    		SYNTAX      INTEGER  { learning(1), static(2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The learning behavior of the port. The driver will
+			 translate this value into suitable PTABLE CML values.
+			 Other values for this object may be possible in the
+			 future."
+    		::= { zZX4500LinkCtrlEntry 4 }
+
+	zZX4500RateCtrlTable OBJECT-TYPE
+	    	SYNTAX      SEQUENCE OF ZZX4500RateCtrlEntry
+  		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      	    	"A table containing rate control information for each
+		 port group available on the device."
+    		::= { znyxPsMibZX4500 21 }
+
+	zZX4500RateCtrlEntry OBJECT-TYPE
+ 		SYNTAX      ZZX4500RateCtrlEntry
+    		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      		"Rate control information for each port group
+		 available on the device."
+   		INDEX   { zZX4500RateCtrlPortGroup }
+    		::= { zZX4500RateCtrlTable 1 }
+
+ 	ZZX4500RateCtrlEntry ::=
+  		SEQUENCE {
+			zZX4500RateCtrlPortGroup
+				INTEGER,
+			zZX4500RateCtrlLimit
+				INTEGER,
+			zZX4500RateCtrlBroadcast
+				INTEGER,
+			zZX4500RateCtrlMulticast
+				INTEGER,
+			zZX4500RateCtrlDlf
+				INTEGER
+    		}
+
+	zZX4500RateCtrlPortGroup OBJECT-TYPE
+    		SYNTAX      INTEGER (1..5)
+    		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+       		"The port group number associated with this Rate Control
+		 entry. The port group is the BCM5600 block number m plus
+		 1. Port group 1 includes ports 1 through 8, port group 2
+		 includes ports 9 through 16, port group 3 includes ports
+		 17 through 24, port group 4 includes gigabit port 1 (port
+		 25), port group 5 includes gigabit port 2 (port 26)."
+    		::= { zZX4500RateCtrlEntry 1 }
+
+	zZX4500RateCtrlLimit OBJECT-TYPE
+    		SYNTAX      INTEGER (1..262143)
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The rate limit for this port group."
+    		::= { zZX4500RateCtrlEntry 2 }
+
+	zZX4500RateCtrlBroadcast OBJECT-TYPE
+    		SYNTAX      INTEGER  { disable(1), enable(2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"This object controls whether the packets per second
+			 limit for this port group applies to broadcast
+			 packets."
+    		::= { zZX4500RateCtrlEntry 3 }
+
+	zZX4500RateCtrlMulticast OBJECT-TYPE
+    		SYNTAX      INTEGER  { disable(1), enable(2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"This object controls whether the packets per second
+			 limit for this port group applies to multicast
+			 packets."
+    		::= { zZX4500RateCtrlEntry 4 }
+
+	zZX4500RateCtrlDlf OBJECT-TYPE
+    		SYNTAX      INTEGER  { disable(1), enable(2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"This object controls whether the packets per second
+			 limit for this port group applies to packets that
+			 experienced a destination lookup failure."
+    		::= { zZX4500RateCtrlEntry 5 }
+
+
+	END
+
+

@@ -1,0 +1,960 @@
+= OAControl Demo Page =
+
+ * Everything you need to know to set up demos.
+
+------
+
+== Demo 6 ==
+
+ * Required: One ZX1900
+
+    * one ZX1900A
+   
+    * one ZX1900B
+
+    * one ZX7300 ( slot3 )
+
+    * Thermopolis SBC ( slot4) 
+
+    * Thermopolis SBC ( slot 5)
+
+    * ShMC
+
+    * simple ethernet hub or switch for OOB
+
+    * serial cable(s) including special ShMC console cable
+
+    * short ethernet cables
+
+    * laptop/desktop with serial capability and telnet and SSH (plus  external display monitor)
+
+ * OS Software:
+
+    * Fabric and Base 3.4.x OA
+
+    * ZX7300 OA
+
+    * Thermopolis SBC  Debian/Ubuntu Server 11.04 most preferable  64bit
+----
+
+== Essentials ==
+ * Setup ZX1900 with consoles
+
+ * Setup the display machine with tools and FF6/7
+
+ * Setup networking on ZX1900 with external hub and proper IP addresses
+
+ * Get the flash image and install Debian on the SBC on both SBCs
+
+ * Install ftp server, zenoss user, snmp, mibs on slot 5; evrything on slot 4 ( OK to do everything on slot5 too)
+
+ * Get tarball demo6v<n>_install.tgz from this page and download it to /usr/local on the SBC. on slot4
+
+ * Add Apache and other support software on SBC on slot4
+
+ * Unpack tarball and install zenoss on slot4
+
+ * Install webapp on slot4
+
+ * Make sure date is the same on 1900Fabric, 1900Base, 7300, SBC1, SBC2, ShMC
+
+ * User account created on each SBC and on Shelf Manager: zenoss zenoss ( zenoss installation will do this for you or accept an exsitimng user, but you'll have to edit .bashrc)
+
+
+
+----
+== Physical Setup ==
+
+You'll need to connect a serial cable to the consoles. Your display will have to connect ethernet to the OOB side of the Thermopolis boards, the ShMC and the switches, so if they are all run through a little hub/switch you can connect there. Your display machine has to be able to ping each of the slots except the ZX1900B.
+
+Your display machine has to be able to connect via ethernet to the hub, and Firefox 6 or 7 and/or Google Chrome are required.
+
+----
+== Network Setup ==
+
+----
+ * '''NOTE: IP addresses are hard-coded into the demo at various places, especially OOB addresses which you cannot change!'''
+----
+ * Switches - stick to default S50layer2. Ifconfig all the zres up.
+
+ 
+
+   Fabric eth15      Link encap:Ethernet    
+          inet addr:n.n.n.n  Bcast:10.255.255.255  Mask:255.0.0.0
+   Base eth15      Link encap:Ethernet    
+          inet addr:n.n.n.n  Bcast:10.255.255.255  Mask:255.255.0.0 
+
+similarly for thre 7300
+
+
+ * SBC in slot 4: 
+   eth0      Link encap:Ethernet    
+          inet addr:192.168.1.4  Bcast:192.168.1.255  Mask:255.255.255.0
+
+
+   eth2      Link encap:Ethernet    
+          inet addr:192.168.2.4  Bcast:192.168.2.255  Mask:255.255.255.0
+
+
+
+
+
+ * SBC slot 5:
+
+   eth0      Link encap:Ethernet    
+          inet addr:192.168.1.5  Bcast:192.168.1.255  Mask:255.255.255.0
+   
+
+   eth2      Link encap:Ethernet    
+          inet addr:192.168.2.5  Bcast:192.168.2.255  Mask:255.255.255.0
+           
+
+
+
+ * SBCs use eth5 for OOB.  Eth0 is the Base and eth2 is Fabric.
+
+{{{
+#sample /etc/network/interfaces content for SBCs:
+auto eth0
+iface eth0 inet static
+        address 192.168.1.4
+        netmask 255.255.255.0
+       # gateway 192.168.0.254
+
+auto eth2
+iface eth2 inet static
+        address  192.168.2.4
+        netmask 255.255.255.0
+       # gateway 192.168.0.254
+
+auto eth5
+iface eth5 inet static
+        address 10.2.0.233
+        netmask 255.255.255.0
+       # gateway 192.168.0.254
+
+
+}}}
+
+ * Network map:
+
+fab switch 6..14	slot 2 FTM
+fab switch 0,3		slot 3
+fab switch 1,4		slot 4
+fab switch 2,5		slot 5
+
+base switch 3..14	slot 2 ftm
+base switch 0		slot 3
+base switch 1		slot 4
+base switch 2		slot 5
+base switch 22		shmc
+
+ * VLAN: use base zre0, zre1, zre2, zre 22 in a layer 2 untagged VLAN to get to the boards
+
+ * zre15 is temporary outside access, could be used for the display machine too.
+
+
+
+----
+
+
+
+== Sources for Debian ==
+{{{
+zenoss@slot4sbc:~/ftpnetload$ cat /etc/apt/sources.list
+# 
+
+# deb cdrom:[Debian GNU/Linux 6.0.2.1 _Squeeze_ - Official amd64 NETINST Binary-1 20110628-12:58]/ squeeze main
+
+#deb cdrom:[Debian GNU/Linux 6.0.2.1 _Squeeze_ - Official amd64 NETINST Binary-1 20110628-12:58]/ squeeze main
+
+deb http://debian.uchicago.edu/debian/ squeeze main
+deb-src http://debian.uchicago.edu/debian/ squeeze main
+
+deb http://security.debian.org/ squeeze/updates main
+deb-src http://security.debian.org/ squeeze/updates main
+
+# squeeze-updates, previously known as 'volatile'
+deb http://debian.uchicago.edu/debian/ squeeze-updates main
+deb-src http://debian.uchicago.edu/debian/ squeeze-updates main
+
+deb http://debian.uchicago.edu/debian/ squeeze main non-free contrib
+deb-src http://debian.uchicago.edu/debian/ squeeze main non-free contrib
+deb http://debian.uchicago.edu/debian/ squeeze/updates main non-free contrib
+deb-src http://debian.uchicago.edu/debian/ squeeze/updates main non-free contrib
+deb http://debian.uchicago.edu/debian/ squeeze-updates main non-free
+deb-src http://debian.uchicago.edu/debian/ squeeze-updates main non-free
+
+}}}
+# packages we know you must have
+apt-get install php5 php5-cli  php5-common php5-dev php5-gd 
+apt-get install php5-imap php5-mcrypt  php5-mysql  php5-snmp php5-suhosin php5-xmlrpc
+apt-get install apache2 apache2.2-common apache2-doc  apache2-mpm-prefork apache2-utils apache2.2-bin
+apt-get install libapache2-mod-perl2 libapache2-mod-php5 libapache2-mod-python libapache2-reload-perl
+apt-get install snmpd snmp libsnmp15 libsnmp-base snmp-mibs-downloader
+vsftpd telnetd tree 
+
+
+}}}
+
+The whole list just in case....
+
+{{{
+###################################################
+package list from SBC - '''Not all are required'''
+
+{{{
+zenoss@slot4sbc:~/ftpnetload$ dpkg -l
+Desired=Unknown/Install/Remove/Purge/Hold
+| Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+||/ Name                                    Version                                 Description
++++-=======================================-=======================================-==============================================================================================
+ii  acpi                                    1.5-2                                   displays information on ACPI devices
+ii  acpi-support-base                       0.137-5                                 scripts for handling base ACPI events such as the power button
+ii  acpid                                   1:2.0.7-1                               Advanced Configuration and Power Interface event daemon
+ii  adduser                                 3.112+nmu2                              add and remove users and groups
+ii  analog                                  2:6.0-19+b1                             web server log analyzer
+ii  apache2                                 2.2.16-6+squeeze1                       Apache HTTP Server metapackage
+ii  apache2-doc                             2.2.16-6+squeeze1                       Apache HTTP Server documentation
+ii  apache2-mpm-prefork                     2.2.16-6+squeeze1                       Apache HTTP Server - traditional non-threaded model
+ii  apache2-utils                           2.2.16-6+squeeze1                       utility programs for webservers
+ii  apache2.2-bin                           2.2.16-6+squeeze1                       Apache HTTP Server common binary files
+ii  apache2.2-common                        2.2.16-6+squeeze1                       Apache HTTP Server common files
+ii  apt                                     0.8.10.3+squeeze1                       Advanced front-end for dpkg
+ii  apt-listchanges                         2.85.7+squeeze1                         package change history notification tool
+ii  apt-utils                               0.8.10.3+squeeze1                       APT utility programs
+ii  aptitude                                0.6.3-3.2                               terminal-based package manager (terminal interface only)
+ii  at                                      3.1.12-1                                Delayed job execution and batch processing
+ii  autoconf                                2.67-2                                  automatic configure script builder
+ii  automake                                1:1.11.1-1                              A tool for generating GNU Standards-compliant Makefiles
+ii  autotools-dev                           20100122.1                              Update infrastructure for config.{guess,sub} files
+ii  base-files                              6.0squeeze2                             Debian base system miscellaneous files
+ii  base-passwd                             3.5.22                                  Debian base system master password and group files
+ii  bash                                    4.1-3                                   The GNU Bourne Again SHell
+ii  bash-completion                         1:1.2-3                                 programmable completion for the bash shell
+ii  bc                                      1.06.95-2                               The GNU bc arbitrary precision calculator language
+ii  bind9-host                              1:9.7.3.dfsg-1~squeeze3                 Version of 'host' bundled with BIND 9.X
+ii  binutils                                2.20.1-16                               The GNU assembler, linker and binary utilities
+ii  bsd-mailx                               8.1.2-0.20100314cvs-1                   simple mail user agent
+ii  bsdmainutils                            8.0.13                                  collection of more utilities from FreeBSD
+ii  bsdutils                                1:2.17.2-9                              Basic utilities from 4.4BSD-Lite
+ii  busybox                                 1:1.17.1-8                              Tiny utilities for small and embedded systems
+ii  ca-certificates                         20090814+nmu2                           Common CA certificates
+ii  console-setup                           1.68+squeeze2                           console font and keymap setup program
+ii  console-terminus                        4.30-2                                  Fixed-width fonts for fast reading on the Linux console
+ii  coreutils                               8.5-1                                   GNU core utilities
+ii  cpio                                    2.11-4                                  GNU cpio -- a program to manage archives of files
+ii  cpp                                     4:4.4.5-1                               The GNU C preprocessor (cpp)
+ii  cpp-4.4                                 4.4.5-8                                 The GNU C preprocessor
+ii  cron                                    3.0pl1-116                              process scheduling daemon
+ii  dash                                    0.5.5.1-7.4                             POSIX-compliant shell
+ii  dbus                                    1.2.24-4+squeeze1                       simple interprocess messaging system
+ii  dc                                      1.06.95-2                               The GNU dc arbitrary precision reverse-polish calculator
+ii  debconf                                 1.5.36.1                                Debian configuration management system
+ii  debconf-i18n                            1.5.36.1                                full internationalization support for debconf
+ii  debian-archive-keyring                  2010.08.28                              GnuPG archive keys of the Debian archive
+ii  debian-faq                              4.0.4+nmu1                              The Debian FAQ
+ii  debianutils                             3.4                                     Miscellaneous utilities specific to Debian
+ii  defoma                                  0.11.11                                 Debian Font Manager -- automatic font configuration framework
+ii  diffutils                               1:3.0-1                                 File comparison utilities
+ii  discover                                2.1.2-5                                 hardware identification system
+ii  discover-data                           2.2010.10.18                            Data lists for Discover hardware detection system
+ii  dmidecode                               2.9-1.2                                 Dump Desktop Management Interface data
+ii  dmsetup                                 2:1.02.48-5                             The Linux Kernel Device Mapper userspace library
+ii  dnsutils                                1:9.7.3.dfsg-1~squeeze3                 Clients provided with BIND
+ii  doc-debian                              4.0.2                                   Debian Project documentation and other documents
+ii  doc-linux-text                          2008.08-1                               Linux HOWTOs and FAQs in ASCII format
+ii  dpkg                                    1.15.8.11                               Debian package management system
+ii  e2fslibs                                1.41.12-4stable1                        ext2/ext3/ext4 file system libraries
+ii  e2fsprogs                               1.41.12-4stable1                        ext2/ext3/ext4 file system utilities
+ii  exim4                                   4.72-6+squeeze2                         metapackage to ease Exim MTA (v4) installation
+ii  exim4-base                              4.72-6+squeeze2                         support files for all Exim MTA (v4) packages
+ii  exim4-config                            4.72-6+squeeze2                         configuration for the Exim MTA (v4)
+ii  exim4-daemon-light                      4.72-6+squeeze2                         lightweight Exim MTA (v4) daemon
+ii  fancontrol                              1:3.1.2-6                               utilities to read temperature/voltage/fan sensors
+ii  file                                    5.04-5                                  Determines file type using "magic" numbers
+ii  findutils                               4.4.2-1+b1                              utilities for finding files--find, xargs
+rc  flashplugin-nonfree                     1:2.8.2                                 Adobe Flash Player - browser plugin
+ii  fontconfig                              2.8.0-2.1                               generic font configuration library - support binaries
+ii  fontconfig-config                       2.8.0-2.1                               generic font configuration library - configuration
+ii  ftp                                     0.17-23                                 The FTP client
+ii  gcc                                     4:4.4.5-1                               The GNU C compiler
+ii  gcc-4.4                                 4.4.5-8                                 The GNU C compiler
+ii  gcc-4.4-base                            4.4.5-8                                 The GNU Compiler Collection (base package)
+ii  geoip-database                          1.4.7~beta6+dfsg-1                      IP lookup command line tools that use the GeoIP library (country database)
+ii  gettext-base                            0.18.1.1-3                              GNU Internationalization utilities for the base system
+ii  gnupg                                   1.4.10-4                                GNU privacy guard - a free PGP replacement
+ii  gpgv                                    1.4.10-4                                GNU privacy guard - signature verification tool
+ii  grep                                    2.6.3-3                                 GNU grep, egrep and fgrep
+ii  groff-base                              1.20.1-10                               GNU troff text-formatting system (base system components)
+ii  grub-common                             1.98+20100804-14                        GRand Unified Bootloader, version 2 (common files)
+ii  grub-pc                                 1.98+20100804-14                        GRand Unified Bootloader, version 2 (PC/BIOS version)
+ii  gzip                                    1.3.12-9                                GNU compression utilities
+ii  hicolor-icon-theme                      0.12-1                                  default fallback theme for FreeDesktop.org icon themes
+ii  host                                    1:9.7.3.dfsg-1~squeeze3                 Transitional package
+ii  hostname                                3.04                                    utility to set/show the host name or domain name
+ii  ifupdown                                0.6.10                                  high level tools to configure network interfaces
+ii  info                                    4.13a.dfsg.1-6                          Standalone GNU Info documentation browser
+ii  initramfs-tools                         0.98.8                                  tools for generating an initramfs
+ii  initscripts                             2.88dsf-13.1                            scripts for initializing and shutting down the system
+ii  insserv                                 1.14.0-2                                Tool to organize boot sequence using LSB init.d script dependencies
+ii  install-info                            4.13a.dfsg.1-6                          Manage installed documentation in info format
+ii  installation-report                     2.44                                    system installation report
+ii  iproute                                 20100519-3                              networking and traffic control tools
+ii  iptables                                1.4.8-3                                 administration tools for packet filtering and NAT
+ii  iputils-ping                            3:20100418-3                            Tools to test the reachability of network hosts
+ii  isc-dhcp-client                         4.1.1-P1-15+squeeze2                    ISC DHCP client
+ii  isc-dhcp-common                         4.1.1-P1-15+squeeze2                    common files used by all the isc-dhcp* packages
+ii  iso-codes                               3.23-1                                  ISO language, territory, currency, script codes and their translations
+ii  kbd                                     1.15.2-2                                Linux console font and keytable utilities
+ii  keyboard-configuration                  1.68+squeeze2                           system-wide keyboard preferences
+ii  klibc-utils                             1.5.20-1+squeeze1                       small utilities built with klibc for early boot
+ii  laptop-detect                           0.13.7                                  attempt to detect a laptop
+ii  less                                    436-1                                   pager program similar to more
+ii  libacl1                                 2.2.49-4                                Access control list shared library
+ii  libapache2-mod-perl2                    2.0.4-7                                 Integration of perl with the Apache2 web server
+ii  libapache2-mod-php5                     5.3.3-7+squeeze3                        server-side, HTML-embedded scripting language (Apache 2 module)
+ii  libapache2-mod-python                   3.3.1-9+b1                              Python-embedding module for Apache 2
+ii  libapache2-reload-perl                  0.10-2                                  Reload Perl modules when changed on disk
+ii  libapr1                                 1.4.2-6+squeeze3                        The Apache Portable Runtime Library
+ii  libaprutil1                             1.3.9+dfsg-5                            The Apache Portable Runtime Utility Library
+ii  libaprutil1-dbd-sqlite3                 1.3.9+dfsg-5                            The Apache Portable Runtime Utility Library - SQLite3 Driver
+ii  libaprutil1-ldap                        1.3.9+dfsg-5                            The Apache Portable Runtime Utility Library - LDAP Driver
+ii  libatk1.0-0                             1.30.0-1                                The ATK accessibility toolkit
+ii  libatk1.0-data                          1.30.0-1                                Common files for the ATK accessibility toolkit
+ii  libattr1                                1:2.4.44-2                              Extended attribute shared library
+ii  libavahi-client3                        0.6.27-2+squeeze1                       Avahi client library
+ii  libavahi-common-data                    0.6.27-2+squeeze1                       Avahi common data files
+ii  libavahi-common3                        0.6.27-2+squeeze1                       Avahi common library
+ii  libbind9-60                             1:9.7.3.dfsg-1~squeeze3                 BIND9 Shared Library used by BIND
+ii  libblkid1                               2.17.2-9                                block device id library
+ii  libboost-iostreams1.42.0                1.42.0-4                                Boost.Iostreams Library
+ii  libbsd-resource-perl                    1.2904-1                                BSD process resource limit and priority functions
+ii  libbsd0                                 0.2.0-1                                 utility functions from BSD systems - shared library
+ii  libbz2-1.0                              1.0.5-6                                 high-quality block-sorting file compressor library - runtime
+ii  libc-bin                                2.11.2-10                               Embedded GNU C Library: Binaries
+ii  libc-client2007e                        8:2007e~dfsg-3.1                        c-client library for mail protocols - library files
+ii  libc-dev-bin                            2.11.2-10                               Embedded GNU C Library: Development binaries
+ii  libc6                                   2.11.2-10                               Embedded GNU C Library: Shared libraries
+ii  libc6-dev                               2.11.2-10                               Embedded GNU C Library: Development Libraries and Header Files
+ii  libc6-i386                              2.11.2-10                               Embedded GNU C Library: 32-bit shared libraries for AMD64
+ii  libcairo2                               1.8.10-6                                The Cairo 2D vector graphics library
+ii  libcap2                                 1:2.19-3                                support for getting/setting POSIX.1e capabilities
+ii  libcomerr2                              1.41.12-4stable1                        common error description library
+ii  libconfig-inifiles-perl                 2.52-1                                  Read .ini-style configuration files
+ii  libcups2                                1.4.4-7                                 Common UNIX Printing System(tm) - Core library
+ii  libcurl3-gnutls                         7.21.0-2                                Multi-protocol file transfer library (GnuTLS)
+ii  libcwidget3                             0.5.16-3                                high-level terminal interface library for C++ (runtime files)
+ii  libdatrie1                              0.2.4-1                                 Double-array trie library
+ii  libdb4.6                                4.6.21-16                               Berkeley v4.6 Database Libraries [runtime]
+ii  libdb4.7                                4.7.25-9                                Berkeley v4.7 Database Libraries [runtime]
+ii  libdb4.8                                4.8.30-2                                Berkeley v4.8 Database Libraries [runtime]
+ii  libdbus-1-3                             1.2.24-4+squeeze1                       simple interprocess messaging system
+ii  libdevel-symdump-perl                   2.08-3                                  Perl module for inspecting perl's symbol table
+ii  libdevmapper1.02.1                      2:1.02.48-5                             The Linux Kernel Device Mapper userspace library
+ii  libdiscover2                            2.1.2-5                                 hardware identification library
+ii  libdns69                                1:9.7.3.dfsg-1~squeeze3                 DNS Shared Library used by BIND
+ii  libedit2                                2.11-20080614-2                         BSD editline and history libraries
+ii  libept1                                 1.0.4                                   High-level library for managing Debian package information
+ii  libevent-1.4-2                          1.4.13-stable-1                         An asynchronous event notification library
+ii  libexpat1                               2.0.1-7                                 XML parsing C library - runtime library
+ii  libfile-copy-recursive-perl             0.38-1                                  Perl extension for recursively copying files and directories
+ii  libfont-afm-perl                        1.20-1                                  Font::AFM - Interface to Adobe Font Metrics files
+ii  libfont-freetype-perl                   0.03-1                                  Read font files and render glyphs from Perl using FreeType2
+ii  libfontconfig1                          2.8.0-2.1                               generic font configuration library - runtime
+ii  libfontenc1                             1:1.0.5-2                               X11 font encoding library
+ii  libfreetype6                            2.4.2-2.1                               FreeType 2 font engine, shared library files
+ii  libgc1c2                                1:6.8-1.2                               conservative garbage collector for C and C++
+ii  libgcc1                                 1:4.4.5-8                               GCC support library
+ii  libgcrypt11                             1.4.5-2                                 LGPL Crypto library - runtime library
+rc  libgd2-noxpm                            2.0.36~rc1~dfsg-5                       GD Graphics Library version 2 (without XPM support)
+ii  libgd2-xpm                              2.0.36~rc1~dfsg-5                       GD Graphics Library version 2
+ii  libgdbm3                                1.8.3-9                                 GNU dbm database routines (runtime version)
+ii  libgeoip1                               1.4.7~beta6+dfsg-1                      A non-DNS IP-to-country resolver library
+ii  libglib2.0-0                            2.24.2-1                                The GLib library of C routines
+ii  libglib2.0-data                         2.24.2-1                                Common files for GLib library
+ii  libgmp3c2                               2:4.3.2+dfsg-1                          Multiprecision arithmetic library
+ii  libgnutls26                             2.8.6-1                                 the GNU TLS library - runtime library
+ii  libgomp1                                4.4.5-8                                 GCC OpenMP (GOMP) support library
+ii  libgpg-error0                           1.6-1                                   library for common error values and messages in GnuPG components
+ii  libgpgme11                              1.2.0-1.2                               GPGME - GnuPG Made Easy
+ii  libgpm2                                 1.20.4-3.3                              General Purpose Mouse - shared library
+ii  libgssapi-krb5-2                        1.8.3+dfsg-4squeeze1                    MIT Kerberos runtime libraries - krb5 GSS-API Mechanism
+ii  libgssglue1                             0.1-4                                   mechanism-switch gssapi library
+ii  libgssrpc4                              1.8.3+dfsg-4squeeze1                    MIT Kerberos runtime libraries - GSS enabled ONCRPC
+ii  libgtk2.0-0                             2.20.1-2                                The GTK+ graphical user interface library
+ii  libgtk2.0-bin                           2.20.1-2                                The programs for the GTK+ graphical user interface library
+ii  libgtk2.0-common                        2.20.1-2                                Common files for the GTK+ graphical user interface library
+ii  libhtml-format-perl                     2.04-2                                  format HTML syntax trees into text, PostScript or RTF
+ii  libhtml-parser-perl                     3.66-1                                  collection of modules that parse HTML text documents
+ii  libhtml-tagset-perl                     3.20-2                                  Data tables pertaining to HTML
+ii  libhtml-tree-perl                       3.23-2                                  Perl module to represent and create HTML syntax trees
+ii  libice6                                 2:1.0.6-2                               X11 Inter-Client Exchange library
+ii  libidn11                                1.15-2                                  GNU Libidn library, implementation of IETF IDN specifications
+ii  libisc62                                1:9.7.3.dfsg-1~squeeze3                 ISC Shared Library used by BIND
+ii  libisccc60                              1:9.7.3.dfsg-1~squeeze3                 Command Channel Library used by BIND
+ii  libisccfg62                             1:9.7.3.dfsg-1~squeeze3                 Config File Handling Library used by BIND
+ii  libjasper1                              1.900.1-7+b1                            The JasPer JPEG-2000 runtime library
+ii  libjpeg62                               6b1-1                                   The Independent JPEG Group's JPEG runtime library (version 6.2)
+ii  libk5crypto3                            1.8.3+dfsg-4squeeze1                    MIT Kerberos runtime libraries - Crypto Library
+ii  libkadm5clnt-mit7                       1.8.3+dfsg-4squeeze1                    MIT Kerberos runtime libraries - Administration Clients
+ii  libkadm5srv-mit7                        1.8.3+dfsg-4squeeze1                    MIT Kerberos runtime libraries - KDC and Admin Server
+ii  libkdb5-4                               1.8.3+dfsg-4squeeze1                    MIT Kerberos runtime libraries - Kerberos database
+ii  libkeyutils1                            1.4-1                                   Linux Key Management Utilities (library)
+ii  libklibc                                1.5.20-1+squeeze1                       minimal libc subset for use with initramfs
+ii  libkrb5-3                               1.8.3+dfsg-4squeeze1                    MIT Kerberos runtime libraries
+ii  libkrb5support0                         1.8.3+dfsg-4squeeze1                    MIT Kerberos runtime libraries - Support library
+ii  libldap-2.4-2                           2.4.23-7.2                              OpenLDAP libraries
+ii  liblocale-gettext-perl                  1.05-6                                  Using libc functions for internationalization in Perl
+ii  liblockfile1                            1.08-4                                  NFS-safe locking library, includes dotlockfile program
+ii  libltdl-dev                             2.2.6b-2                                A system independent dlopen wrapper for GNU libtool
+ii  libltdl7                                2.2.6b-2                                A system independent dlopen wrapper for GNU libtool
+ii  liblwres60                              1:9.7.3.dfsg-1~squeeze3                 Lightweight Resolver Library used by BIND
+ii  liblzma2                                5.0.0-2                                 XZ-format compression library
+ii  libmagic1                               5.04-5                                  File type determination library using "magic" numbers
+ii  libmailtools-perl                       2.06-1                                  Manipulate email in perl programs
+ii  libmcrypt4                              2.5.8-3.1                               De-/Encryption Library
+ii  libmpfr4                                3.0.0-2                                 multiple precision floating-point computation
+ii  libmysqlclient16                        5.1.49-3                                MySQL database client library
+ii  libncurses5                             5.7+20100313-5                          shared libraries for terminal handling
+ii  libncursesw5                            5.7+20100313-5                          shared libraries for terminal handling (wide character support)
+ii  libneon27-gnutls                        0.29.3-3                                An HTTP and WebDAV client library (GnuTLS enabled)
+ii  libnewt0.52                             0.52.11-1                               Not Erik's Windowing Toolkit - text mode windowing with slang
+ii  libnfnetlink0                           1.0.0-1                                 Netfilter netlink library
+ii  libnfsidmap2                            0.23-2                                  An nfs idmapping library
+ii  libnspr4-0d                             4.8.6-1                                 NetScape Portable Runtime Library
+ii  libnss3-1d                              3.12.8-1+squeeze3                       Network Security Service libraries
+ii  libonig2                                5.9.1-1                                 Oniguruma regular expressions library
+ii  libpam-modules                          1.1.1-6.1                               Pluggable Authentication Modules for PAM
+ii  libpam-runtime                          1.1.1-6.1                               Runtime support for the PAM library
+ii  libpam0g                                1.1.1-6.1                               Pluggable Authentication Modules library
+ii  libpango1.0-0                           1.28.3-1+squeeze2                       Layout and rendering of internationalized text
+ii  libpango1.0-common                      1.28.3-1+squeeze2                       Modules and configuration files for the Pango
+ii  libpcap0.8                              1.1.1-2                                 system interface for user-level packet capture
+ii  libpci3                                 1:3.1.7-6                               Linux PCI Utilities (shared library)
+ii  libpcre3                                8.02-1.1                                Perl 5 Compatible Regular Expression Library - runtime files
+ii  libperl5.10                             5.10.1-17squeeze2                       shared Perl library
+ii  libpixman-1-0                           0.16.4-1                                pixel-manipulation library for X and cairo
+ii  libpng12-0                              1.2.44-1+squeeze1                       PNG library - runtime
+ii  libpopt0                                1.16-1                                  lib for parsing cmdline parameters
+ii  libpth20                                2.0.7-16                                The GNU Portable Threads
+ii  libpython2.6                            2.6.6-8+b1                              Shared Python runtime library (version 2.6)
+ii  libqdbm14                               1.8.77-4                                QDBM Database Libraries [runtime]
+ii  libreadline5                            5.2-7                                   GNU readline and history libraries, run-time libraries
+ii  libreadline6                            6.1-3                                   GNU readline and history libraries, run-time libraries
+ii  librpcsecgss3                           0.19-2                                  allows secure rpc communication using the rpcsec_gss protocol
+ii  libsasl2-2                              2.1.23.dfsg1-7                          Cyrus SASL - authentication abstraction library
+ii  libsasl2-modules                        2.1.23.dfsg1-7                          Cyrus SASL - pluggable authentication modules
+ii  libselinux1                             2.0.96-1                                SELinux runtime shared libraries
+ii  libsensors4                             1:3.1.2-6                               library to read temperature/voltage/fan sensors
+ii  libsepol1                               2.0.41-1                                SELinux library for manipulating binary security policies
+ii  libserf-0-0                             0.3.1-1                                 high-performance asynchronous HTTP client library
+ii  libsigc++-2.0-0c2a                      2.2.4.2-1                               type-safe Signal Framework for C++ - runtime
+ii  libslang2                               2.2.2-4                                 The S-Lang programming library - runtime version
+ii  libsm6                                  2:1.1.1-1                               X11 Session Management library
+ii  libsnmp-base                            5.4.3~dfsg-2                            SNMP (Simple Network Management Protocol) MIBs and documentation
+ii  libsnmp15                               5.4.3~dfsg-2                            SNMP (Simple Network Management Protocol) library
+ii  libsqlite3-0                            3.7.3-1                                 SQLite 3 shared library
+ii  libss2                                  1.41.12-4stable1                        command-line interface parsing library
+ii  libssl-dev                              0.9.8o-4squeeze1                        SSL development libraries, header files and documentation
+ii  libssl0.9.8                             0.9.8o-4squeeze1                        SSL shared libraries
+ii  libstdc++6                              4.4.5-8                                 The GNU Standard C++ Library v3
+ii  libsvn-perl                             1.6.12dfsg-6                            Perl bindings for Subversion
+ii  libsvn1                                 1.6.12dfsg-6                            Shared libraries used by Subversion
+ii  libt1-5                                 5.1.2-3                                 Type 1 font rasterizer library - runtime
+ii  libtasn1-3                              2.7-1                                   Manage ASN.1 structures (runtime)
+ii  libtext-charwidth-perl                  0.04-6                                  get display widths of characters on the terminal
+ii  libtext-iconv-perl                      1.7-2                                   converts between character sets in Perl
+ii  libtext-wrapi18n-perl                   0.06-7                                  internationalized substitute of Text::Wrap
+ii  libthai-data                            0.1.14-2                                Data files for Thai language support library
+ii  libthai0                                0.1.14-2                                Thai language support library
+ii  libtiff4                                3.9.4-5+squeeze3                        Tag Image File Format (TIFF) library
+ii  libtimedate-perl                        1.2000-1                                collection of modules to manipulate date/time information
+ii  libtokyocabinet8                        1.4.37-6                                Tokyo Cabinet Database Libraries [runtime]
+ii  libtool                                 2.2.6b-2                                Generic library support script
+ii  libudev0                                164-3                                   libudev shared library
+ii  liburi-perl                             1.54-2                                  module to manipulate and access URI strings
+ii  libusb-0.1-4                            2:0.1.12-16                             userspace USB programming library
+ii  libuuid-perl                            0.02-4                                  Perl extension for using UUID interfaces as defined in e2fsprogs
+ii  libuuid1                                2.17.2-9                                Universally Unique ID library
+ii  libwrap0                                7.6.q-19                                Wietse Venema's TCP wrappers library
+ii  libwww-perl                             5.836-1                                 Perl HTTP/WWW client/server library
+ii  libx11-6                                2:1.3.3-4                               X11 client-side library
+ii  libx11-data                             2:1.3.3-4                               X11 client-side library
+ii  libxapian22                             1.2.3-2                                 Search engine library
+ii  libxau6                                 1:1.0.6-1                               X11 authorisation library
+ii  libxcb-render-util0                     0.3.6-1                                 utility libraries for X C Binding -- render-util
+ii  libxcb-render0                          1.6-1                                   X C Binding, render extension
+ii  libxcb1                                 1.6-1                                   X C Binding
+ii  libxcomposite1                          1:0.4.2-1                               X11 Composite extension library
+ii  libxcursor1                             1:1.1.10-2                              X cursor management library
+ii  libxdamage1                             1:1.1.3-1                               X11 damaged region extension library
+ii  libxdmcp6                               1:1.0.3-2                               X11 Display Manager Control Protocol library
+ii  libxext6                                2:1.1.2-1                               X11 miscellaneous extension library
+ii  libxfixes3                              1:4.0.5-1                               X11 miscellaneous 'fixes' extension library
+ii  libxfont1                               1:1.4.1-3                               X11 font rasterisation library
+ii  libxft2                                 2.1.14-2                                FreeType-based font drawing library for X
+ii  libxi6                                  2:1.3-6                                 X11 Input extension library
+ii  libxinerama1                            2:1.1-3                                 X11 Xinerama extension library
+ii  libxml2                                 2.7.8.dfsg-2+squeeze1                   GNOME XML library
+ii  libxmuu1                                2:1.0.5-2                               X11 miscellaneous micro-utility library
+ii  libxpm4                                 1:3.5.8-1                               X11 pixmap library
+ii  libxrandr2                              2:1.3.0-3                               X11 RandR extension library
+ii  libxrender1                             1:0.9.6-1                               X Rendering Extension client library
+ii  libxslt1.1                              1.1.26-6                                XSLT 1.0 processing library - runtime library
+ii  libxt6                                  1:1.0.7-1                               X11 toolkit intrinsics library
+ii  linux-base                              2.6.32-35                               Linux image base package
+ii  linux-image-2.6-amd64                   2.6.32+29                               Linux 2.6 for 64-bit PCs (meta-package)
+ii  linux-image-2.6.32-5-amd64              2.6.32-35                               Linux 2.6.32 for 64-bit PCs
+ii  linux-libc-dev                          2.6.32-35                               Linux support headers for userspace development
+ii  lm-sensors                              1:3.1.2-6                               utilities to read temperature/voltage/fan sensors
+ii  locales                                 2.11.2-10                               Embedded GNU C Library: National Language (locale) data [support]
+ii  login                                   1:4.1.4.2+svn3283-2+squeeze1            system login tools
+ii  logrotate                               3.7.8-6                                 Log rotation utility
+ii  lsb-base                                3.2-23.2squeeze1                        Linux Standard Base 3.2 init script functionality
+ii  lsb-release                             3.2-23.2squeeze1                        Linux Standard Base version reporting utility
+ii  lsof                                    4.81.dfsg.1-1                           List open files
+ii  m4                                      1.4.14-3                                a macro processing language
+ii  man-db                                  2.5.7-8                                 on-line manual pager
+ii  manpages                                3.27-1                                  Manual pages about using a GNU/Linux system
+ii  manpages-dev                            3.27-1                                  Manual pages about using GNU/Linux for development
+ii  mawk                                    1.3.3-15                                a pattern scanning and text processing language
+ii  mime-support                            3.48-1                                  MIME files 'mime.types' & 'mailcap', and support programs
+ii  mlocate                                 0.22.2-1                                quickly find files on the filesystem based on their name
+ii  mlock                                   8:2007e~dfsg-3.1                        mailbox locking program
+ii  module-init-tools                       3.12-1                                  tools for managing Linux kernel modules
+ii  mount                                   2.17.2-9                                Tools for mounting and manipulating filesystems
+ii  mutt                                    1.5.20-9+squeeze1                       text-based mailreader supporting MIME, GPG, PGP and threading
+ii  mysql-common                            5.1.49-3                                MySQL database common files, e.g. /etc/mysql/my.cnf
+ii  nano                                    2.2.4-1                                 small, friendly text editor inspired by Pico
+ii  ncurses-base                            5.7+20100313-5                          basic terminal type definitions
+ii  ncurses-bin                             5.7+20100313-5                          terminal-related programs and man pages
+ii  ncurses-term                            5.7+20100313-5                          additional terminal type definitions
+ii  net-tools                               1.60-23                                 The NET-3 networking toolkit
+ii  netbase                                 4.45                                    Basic TCP/IP networking system
+ii  netcat-traditional                      1.10-38                                 TCP/IP swiss army knife
+ii  nfs-common                              1:1.2.2-4                               NFS support files common to client and server
+ii  openbsd-inetd                           0.20080125-6                            The OpenBSD Internet Superserver
+ii  openssh-blacklist                       0.4.1                                   list of default blacklisted OpenSSH RSA and DSA keys
+ii  openssh-blacklist-extra                 0.4.1                                   list of non-default blacklisted OpenSSH RSA and DSA keys
+ii  openssh-client                          1:5.5p1-6                               secure shell (SSH) client, for secure access to remote machines
+ii  openssh-server                          1:5.5p1-6                               secure shell (SSH) server, for secure access from remote machines
+ii  openssl                                 0.9.8o-4squeeze1                        Secure Socket Layer (SSL) binary and related cryptographic tools
+ii  os-prober                               1.42                                    utility to detect other OSes on a set of drives
+ii  passwd                                  1:4.1.4.2+svn3283-2+squeeze1            change and administer password and group data
+ii  patch                                   2.6-2                                   Apply a diff file to an original
+ii  pciutils                                1:3.1.7-6                               Linux PCI Utilities
+ii  perl                                    5.10.1-17squeeze2                       Larry Wall's Practical Extraction and Report Language
+ii  perl-base                               5.10.1-17squeeze2                       minimal Perl system
+ii  perl-modules                            5.10.1-17squeeze2                       Core Perl modules
+ii  php5-cli                                5.3.3-7+squeeze3                        command-line interpreter for the php5 scripting language
+ii  php5-common                             5.3.3-7+squeeze3                        Common files for packages built from the php5 source
+ii  php5-dev                                5.3.3-7+squeeze3                        Files for PHP5 module development
+ii  php5-gd                                 5.3.3-7+squeeze3                        GD module for php5
+ii  php5-imap                               5.3.3-7+squeeze3                        IMAP module for php5
+ii  php5-mcrypt                             5.3.3-7+squeeze3                        MCrypt module for php5
+ii  php5-mysql                              5.3.3-7+squeeze3                        MySQL module for php5
+ii  php5-snmp                               5.3.3-7+squeeze3                        SNMP module for php5
+ii  php5-suhosin                            0.9.32.1-1                              advanced protection module for php5
+ii  php5-xmlrpc                             5.3.3-7+squeeze3                        XML-RPC module for php5
+ii  portmap                                 6.0.0-2                                 RPC port mapper
+ii  procmail                                3.22-19                                 Versatile e-mail processor
+ii  procps                                  1:3.2.8-9                               /proc file system utilities
+ii  psmisc                                  22.11-1                                 utilities that use the proc file system
+ii  python                                  2.6.6-3+squeeze6                        interactive high-level object-oriented language (default version)
+ii  python-apt                              0.7.100.1+squeeze1                      Python interface to libapt-pkg
+ii  python-apt-common                       0.7.100.1+squeeze1                      Python interface to libapt-pkg (locales)
+ii  python-central                          0.6.16+nmu1                             register and build utility for Python packages
+ii  python-minimal                          2.6.6-3+squeeze6                        minimal subset of the Python language (default version)
+ii  python-pexpect                          2.3-1                                   Python module for automating interactive applications
+ii  python-pkg-resources                    0.6.14-4                                Package Discovery and Resource Access using pkg_resources
+ii  python-reportbug                        4.12.6                                  Python modules for interacting with bug tracking systems
+ii  python-subversion                       1.6.12dfsg-6                            Python bindings for Subversion
+ii  python-support                          1.0.10                                  automated rebuilding support for Python modules
+ii  python-yahoo                            3.1-1.1                                 Python module for the Yahoo Search Web Service
+ii  python-zope.interface                   3.5.3-1+b1                              Interfaces for Python
+ii  python2.6                               2.6.6-8+b1                              An interactive high-level object-oriented language (version 2.6)
+ii  python2.6-minimal                       2.6.6-8+b1                              A minimal subset of the Python language (version 2.6)
+ii  readline-common                         6.1-3                                   GNU readline and history libraries, common files
+ii  reportbug                               4.12.6                                  reports bugs in the Debian distribution
+ii  rsync                                   3.0.7-2                                 fast remote file copy program (like rcp)
+ii  rsyslog                                 4.6.4-2                                 enhanced multi-threaded syslogd
+ii  sed                                     4.2.1-7                                 The GNU sed stream editor
+ii  sensible-utils                          0.0.4                                   Utilities for sensible alternative selection
+ii  sgml-base                               1.26+nmu1                               SGML infrastructure and SGML catalog file support
+ii  shared-mime-info                        0.71-4                                  FreeDesktop.org shared MIME database and spec
+ii  shtool                                  2.0.8-6                                 portable shell tool from the GNU project
+ii  smistrip                                0.4.8+dfsg2-3                           extract MIB from text files like RFC
+ii  snmp                                    5.4.3~dfsg-2                            SNMP (Simple Network Management Protocol) applications
+ii  snmp-mibs-downloader                    1.1                                     Install and manage Management Information Base (MIB) files
+ii  snmpd                                   5.4.3~dfsg-2                            SNMP (Simple Network Management Protocol) agents
+ii  ssl-cert                                1.0.28                                  simple debconf wrapper for OpenSSL
+ii  subversion                              1.6.12dfsg-6                            Advanced version control system
+ii  subversion-tools                        1.6.12dfsg-6                            Assorted tools related to Subversion
+ii  sysv-rc                                 2.88dsf-13.1                            System-V-like runlevel change mechanism
+ii  sysvinit                                2.88dsf-13.1                            System-V-like init utilities
+ii  sysvinit-utils                          2.88dsf-13.1                            System-V-like utilities
+ii  tar                                     1.23-3                                  GNU version of the tar archiving utility
+ii  tasksel                                 2.88                                    Tool for selecting tasks for installation on Debian systems
+ii  tasksel-data                            2.88                                    Official tasks used for installation of Debian systems
+ii  tcpd                                    7.6.q-19                                Wietse Venema's TCP wrapper utilities
+ii  tcpdump                                 4.1.1-1                                 A powerful tool for network monitoring and data acquisition
+ii  telnet                                  0.17-36                                 The telnet client
+ii  telnetd                                 0.17-36                                 The telnet server
+ii  texinfo                                 4.13a.dfsg.1-6                          Documentation system for on-line information and printed output
+ii  time                                    1.7-23.1                                The GNU time program for measuring cpu resource usage
+ii  traceroute                              1:2.0.15-1                              Traces the route taken by packets over an IPv4/IPv6 network
+ii  ttf-dejavu-core                         2.31-1                                  Vera font family derivate with additional characters
+ii  tzdata                                  2011d-0squeeze1                         time zone and daylight-saving time data
+ii  ucf                                     3.0025+nmu1                             Update Configuration File: preserve user changes to config files.
+ii  udev                                    164-3                                   /dev/ and hotplug management daemon
+ii  update-inetd                            4.38+nmu1                               inetd configuration file updater
+ii  usbutils                                0.87-5                                  Linux USB utilities
+ii  util-linux                              2.17.2-9                                Miscellaneous system utilities
+ii  vim-common                              2:7.2.445+hg~cb94c42c0e1a-1             Vi IMproved - Common files
+ii  vim-tiny                                2:7.2.445+hg~cb94c42c0e1a-1             Vi IMproved - enhanced vi editor - compact version
+ii  vsftpd                                  2.3.2-3+squeeze2                        lightweight, efficient FTP server written for security
+ii  w3m                                     0.5.2-9                                 WWW browsable pager with excellent tables/frames support
+ii  wamerican                               6-3                                     American English dictionary words for /usr/share/dict
+ii  wget                                    1.12-2.1                                retrieves files from the web
+ii  whiptail                                0.52.11-1                               Displays user-friendly dialog boxes from shell scripts
+ii  whois                                   5.0.10                                  an intelligent whois client
+ii  x-ttcidfont-conf                        32                                      TrueType and CID fonts configuration for X
+ii  x11-common                              1:7.5+8                                 X Window System (X.Org) infrastructure
+ii  xauth                                   1:1.0.4-1                               X authentication utility
+ii  xfonts-encodings                        1:1.0.3-1                               Encodings for X.Org fonts
+ii  xfonts-utils                            1:7.5+2                                 X Window System font utility programs
+ii  xkb-data                                1.8-2                                   X Keyboard Extension (XKB) configuration data
+ii  xml-core                                0.13                                    XML infrastructure and XML catalog file support
+ii  xsltproc                                1.1.26-6                                XSLT 1.0 command line processor
+ii  xz-utils                                5.0.0-2                                 XZ-format compression utilities
+ii  zenoss-stack                            3.1.0-0                                 Zenoss Stack with all requirements.
+ii  zlib1g                                  1:1.2.3.4.dfsg-3                        compression library - runtime
+ii  zlib1g-dev                              1:1.2.3.4.dfsg-3                        compression library - development
+zenoss@slot4sbc:~/ftpnetload$ 
+
+}}}
+----
+== Mibs and SNMPD ==
+
+ * You must include the mibs in various places:
+
+   * the SBCs  in /usr/share/snmp/mibs/  ( you will see mibs in other paths  on other distros, like your display machine maybe). 
+
+   * [opt] include them on the display machine. very helpful for debugging SNMP from command line if a Linux box. probably useless on Windows.
+
+   * There is a mibs directory in the demo6_install.tgz tarball
+
+{{{
+# cd /usr/local/demo6v<n>/install/mibs
+# cp * /usr/share/mibs/netsnmp/
+
+}}}
+
+   * Also on the SBCs you have to install the mibs downloader, the deb file is included or you can download it. I think you need a special source, see the listing here of sources.list
+
+ * Setup SNMPD. Edit /etc/snmp/snmpd.conf and make sure access controls allow public access.
+
+{{{
+#On SBCs
+
+cd /usr/local/dem06v<n>/install
+diff -qr samplesnmpd.conf /etc/snmp/snmpd.conf
+# edit as needed
+
+
+
+#Example:
+
+###############################################################################
+##  AGENT BEHAVIOUR
+#
+
+#  Listen for connections from the local system only
+#agentAddress  udp:127.0.0.1:161
+#  Listen for connections on all interfaces (both IPv4 *and* IPv6)
+agentAddress udp:161,udp6:[::1]:161
+
+###############################################################################
+#
+#  ACCESS CONTROL
+#
+
+                                                 #  system + hrSystem groups only
+#view   systemonly  included   .1.3.6.1.2.1.1
+#view   systemonly  included   .1.3.6.1.2.1.25.1
+
+                                                 #  Full access from the local host
+rocommunity public  localhost
+                                                 #  Default access to basic system info
+# rocommunity public  default    -V systemonly
+rocommunity public
+rocommunity private
+                                                 #  Full access from an example network
+                                                 #     Adjust this network address to match your local
+                                                 #     settings, change the community string,
+                                                 #     and check the 'agentAddress' setting above
+#rocommunity secret  10.0.0.0/16
+
+                                                 #  Full read-only access for SNMPv3
+# rouser   authOnlyUser
+                                                 #  Full write access for encrypted requests
+                                                 #     Remember to activate the 'createUser' lines above
+#rwuser   authPrivUser   priv
+
+#  It's no longer typically necessary to use the full 'com2sec/group/access' configuration
+#  r[ou]user and r[ow]community, together with suitable views, should cover most requirements
+}}}
+
+----
+== SBC Apache Setup ==
+
+
+
+ * check the config files. Samples are in the install tarball.
+{{{
+# check files:
+cd /usr/local/demo6v<n>/install  
+  diff -qr /etc/php5/apache2/php.ini samplephp.ini
+    diff -qr  /etc/apache2/apache2.conf sampleapache2.conf
+    ls -l /etc/apache2/mods-enabled/php5*
+
+}}}
+
+ 
+
+----
+=== SBC extra software ===
+
+ * Use apt-get to install extra utilities - required:  vsftpd, open-sshserver ... suggest tree, tcpdump,  telnet, (see above for entire output of dpkg -l)
+
+ * Make sure you can ssh into the SBCs as root.
+
+ * make sure ftp is working on both SBCs ( for the dummy traffic ) use vsftpd, and change the conf file.
+{{{
+zenoss@slot4sbc:/etc$ cat vsftpd.conf | grep -v '#'
+listen=YES
+anonymous_enable=YES
+local_enable=YES
+write_enable=YES
+dirmessage_enable=YES
+use_localtime=YES
+xferlog_enable=YES
+connect_from_port_20=YES
+secure_chroot_dir=/var/run/vsftpd/empty
+pam_service_name=vsftpd
+rsa_cert_file=/etc/ssl/private/vsftpd.pem
+
+}}}
+
+
+----
+== Zenoss Setup ==
+
+* Zenoss 
+
+    Install the deb file from the tarball you downloaded. This takes a long time ( hour!) and may not finish automatically.
+
+{{{
+# this takes an hour!!!! or more or less. inquiring minds want to know why...
+# use top to see the python chewing away
+# wait for it to finish.
+dpkg -i zenoss-stack_3.1.0_x64.deb
+}}}
+
+    * make sure there is now a Zenoss user with password "zenoss" (required) and check path
+
+    * Dont browse to http://10.2.0.233:8080  or you'll get the wrong favicon in your browser cache and it won't go away for days.
+
+{{{
+$ cd /home/zenoss
+$ cat /home/zenoss/.bashrc
+# look for this, and add if missing:
+PATH="/usr/local/zenoss/zenoss/bin:.:${PATH}"
+. /usr/local/zenoss/scripts/setenv.sh
+
+}}}
+
+    * as root go to /etc/init.d and restart the zenoss stack ( do this once and forget it). Check to make sure the zenoss-based mysql is running.
+{{{
+$ /etc/init.d/zenoss-stack restart
+zenoss@slot4sbc:/etc/init.d$ ps ax | grep mysql
+ 1353 ?        S      0:00 /bin/sh /usr/local/zenoss/mysql/bin/mysqld_safe --defaults-file=/usr/local/zenoss/mysql/my.cnf --port=3307 --socket=/usr/local/zenoss/mysql/tmp/mysql.sock --old-passwords --datadir=/usr/local/zenoss/mysql/data --log-error=/usr/local/zenoss/mysql/data/mysqld.log --pid-file=/usr/local/zenoss/mysql/data/debian.pid --lower-case-table-names=1 --default-table-type=InnoDB
+ 1439 ?        Sl    26:45 /usr/local/zenoss/mysql/bin/mysqld.bin --defaults-file=/usr/local/zenoss/mysql/my.cnf --basedir=/usr/local/zenoss/mysql --datadir=/usr/local/zenoss/mysql/data --user=mysql --pid-file=/usr/local/zenoss/mysql/data/debian.pid --skip-external-locking --port=3307 --socket=/usr/local/zenoss/mysql/tmp/mysql.sock --old-passwords --lower-case-table-names=1 --default-table-type=InnoDB
+21427 pts/2    S+     0:00 grep mysql
+zenoss@slot4sbc:/etc/init.d$ 
+
+}}}
+
+
+
+    * Dont browse to http://10.2.0.233:8080  or you'll get the wrong favicon in your browser cache and it won't go away for days.
+
+
+    * Go to /usr/local/demo6v<n>/install/scipts, as zenoss,  and run the install script to get the znyx logos
+
+{{{
+$ cd /usr/local/demo6v<n>/install/scripts
+$ ./demo6_install.sh
+
+
+}}}
+    * As user zenoss, install the zenpack, then restore the saved database and restart ( if fails to restart, try etc/init.d/z* restart; try zenoss restart if zope won't start). 
+
+{{{
+$  cd /usr/local/zenoss/zenoss
+$   mkdir ZenPacks ; cd Z*
+$  cp -r /usr/local/demo6v1/install/zenpacks/* .
+$  zenpack install <zenpackname>
+$ cd /usr/local/demo6v<n>/install
+$ zenrestore --file=zenbackup_demo6.tgz
+
+
+$ zenoss restart
+}}}
+
+    * Copy the contents of the www directory to the DOCROOT of Apache
+
+{{{
+# cd /usr/local/demo6v<n>/www
+# cp -r * /var/www
+
+}}}
+
+    * Edit the include/functions.php file for the local ip addresses
+
+{{{
+...
+define( 'BASEIP', 'n.n.n.n' );
+define( 'FABIP', 'n.n.n.n' );
+define( 'SLOT3IP', 'n.n.n.n' );
+define( 'SLOT4IP', 'n.n.n.n' );
+define( 'SLOT5IP', 'n.n.n.n' );
+define( 'SHMCIP', 'n.n.n.n' );
+...
+}}}
+
+
+    * Browse to zenoss  http://10.2.0.233:8080/zport/dmd, you should get a login screen. Login as "admin" "admin".
+
+    * [opt] Test by browsing directly to 10.2.0.233/demo6/demo.html and backend.php
+
+    * Go to Zenoss dashboard and reset the source URL for the sitewindow portlet to the correct URL, (probably 10.2.0.233/demo.html). Don't forget to do this for user demo6 too, in case you use that login.
+
+ * Now go into Zenoss as admin and do this:
+
+{{{
+
+SBC & Shelf Managere Configuration Properties 
+(Zenoss->Infrastructure->Devices; Select SBC from Device List; Select “Configuration Properties” from left-hand column)
+zCommandProtocol: 
+telnet
+zCommandUsername: 
+zenoss
+zCommandPassword: 
+zenoss
+zCommandPort:
+23
+zSnmpPort: 
+161
+zSnmpCommunities:
+public
+private
+zSnmpVer:
+v2c
+zTelnetLoginRegex: 
+ogin:.$
+zTelnetPasswordRegex:
+assword:.$
+zTelnetSuccessRegexList:
+\$.$
+\#.$
+
+
+}}}
+
+ * At this point you should have a fully functional system, but with no dummy traffic.
+
+----
+== Dummy Traffic ==
+
+ * We are running a simple ftp script to move files back and forth between the SBCs through both the Fabric and Base switches. If you want to do something else, go ahead, just don't mess with the OOB settings as those are hard coded!
+
+ * The way it works is: There is a directory of numbered files, /usr/local/znyx/ftpnetload and a script ftpnetload.sh. Once your SBCs are set up with eth2 and eth0, then you can edit the script to run in the location of your choice, check the IP addresses in it. It just loops and randomly ftps files from 0-9 at an interface then sleeps a random amount (sort of random). Feel free to improve on it, and check to make sure its really using the zres not the OOB ports. We run the script on both SBCs, one for the Base interface and one for the Fabric.
+
+------
+
+== Debugging ==
+
+ * Web issues: try changing ownership of files under .var/www to apache's user, usually www-data
+
+ * No MYSQL db in zenoss: stop zenoss; restart deb package using /etc/init.d/zenoss* restart ; check for mysql using ps or try the mysql client - but beware if there are two mysqls on the server! zenoss uses port 3307 for the socket.
+
+ * SNMP issues: check the mibs; make sure snmpd is running; test using snmp get/walk on command line; test using browsing to backend.php ( see below)
+
+ * try comparing with this ps ax output from a healthy SBC zenoss server:
+
+{{{
+ 1353 ?        S      0:00 /bin/sh /usr/local/zenoss/mysql/bin/mysqld_safe --defaults-file=/usr/local/zenoss/mysql/my.cnf --port=3307 --socket=/usr/local/zenoss/mysql/tmp/mysql.sock -
+ 1439 ?        Sl    27:58 /usr/local/zenoss/mysql/bin/mysqld.bin --defaults-file=/usr/local/zenoss/mysql/my.cnf --basedir=/usr/local/zenoss/mysql --datadir=/usr/local/zenoss/mysql/da
+ 2059 ?        Ss     0:00 startpar -f -- zenoss-stack
+ 2071 ttyS0    Ss+    0:00 /sbin/getty -L ttyS0 115200 vt102
+ 3456 ?        S      0:00 /usr/sbin/apache2 -k start
+ 7523 ?        S      0:49 /usr/sbin/apache2 -k start
+ 7524 ?        S      0:47 /usr/sbin/apache2 -k start
+ 7525 ?        S      0:49 /usr/sbin/apache2 -k start
+ 8551 ?        Ss     0:03 /usr/lib/openssh/sftp-server
+ 8854 ?        S      0:21 /usr/sbin/vsftpd
+11023 ?        S      0:06 /usr/sbin/apache2 -k start
+11124 ?        S      0:07 /usr/sbin/apache2 -k start
+11125 ?        S      0:06 /usr/sbin/apache2 -k start
+11126 ?        S      0:05 /usr/sbin/apache2 -k start
+15288 ?        Ssl    0:03 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/python/lib/python2.6/site-packages/zdaemon-2.0.4-py2.6.egg/zdaemon/zdrun.py -S /usr/local/zenoss/
+15290 ?        S      0:44 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/python/lib/python2.6/site-packages/ZODB3-3.9.3-py2.6-linux-x86_64.egg/ZEO/runzeo.py -C /usr/local
+15302 ?        Ssl    0:03 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/python/lib/python2.6/site-packages/zdaemon-2.0.4-py2.6.egg/zdaemon/zdrun.py -S /usr/local/zenoss/
+15304 ?        Sl   177:28 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/python/bin/runzope -C /usr/local/zenoss/zenoss/etc/zope.conf
+15358 ?        Sl    20:21 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenHub/zenhub.py --configfile /usr/local/zenoss/zenoss/etc/zenhub.conf --cycle --
+15395 ?        Sl     0:18 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/Jobber/zenjobs.py --configfile /usr/local/zenoss/zenoss/etc/zenjobs.conf --cycle
+15477 ?        Sl     1:27 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenStatus/zenping.py --configfile /usr/local/zenoss/zenoss/etc/zenping.conf --cyc
+15531 ?        Sl     0:46 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenEvents/zensyslog.py --configfile /usr/local/zenoss/zenoss/etc/zensyslog.conf -
+15533 ?        Sl     1:01 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenStatus/zenstatus.py --configfile /usr/local/zenoss/zenoss/etc/zenstatus.conf -
+15571 ?        Sl     0:48 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenEvents/zenactions.py --configfile /usr/local/zenoss/zenoss/etc/zenactions.conf
+15662 ?        S      0:46 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenEvents/zentrap.py --configfile /usr/local/zenoss/zenoss/etc/zentrap.conf --cyc
+15667 ?        Sl     8:48 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/DataCollector/zenmodeler.py --configfile /usr/local/zenoss/zenoss/etc/zenmodeler.
+15706 ?        Sl   178:05 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenRRD/zenperfsnmp.py --configfile /usr/local/zenoss/zenoss/etc/zenperfsnmp.conf
+15736 ?        Sl     0:50 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenRRD/zencommand.py --configfile /usr/local/zenoss/zenoss/etc/zencommand.conf --
+15746 ?        S     40:46 /usr/sbin/snmpd -Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid
+15771 ?        Sl     0:53 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenRRD/zenprocess.py --configfile /usr/local/zenoss/zenoss/etc/zenprocess.conf --
+15816 ?        Sl     1:57 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenWin/zenwin.py --configfile /usr/local/zenoss/zenoss/etc/zenwin.conf --cycle --
+15864 ?        Sl     2:12 /usr/local/zenoss/python/bin/.python.bin /usr/local/zenoss/zenoss/Products/ZenWin/zeneventlog.py --configfile /usr/local/zenoss/zenoss/etc/zeneventlog.conf
+16029 ?        Ss     0:12 sshd: root@pts/0 
+
+}}}
+
+ * if browsing to 10.2.0.233/backend.php seems to fail, compare its output to this normal JSON output ( its snmp data ):
+
+{{{
+{"slot1":{"name":"ZX1900A","M":"M4(4)","fabric ports":{"0":"up","1":"up","2":"up","3":"up","4":"down","5":"down","6":"down","7":"down","8":"down","9":"down","10":"down","11":"down","12":"down","13":"down","14":"down","15":"down","16":"down","17":"down","18":"down","19":"down"},"base ports":{"0":"up","1":"up","2":"up","3":"down","4":"down","5":"down","6":"down","7":"down","8":"down","9":"down","10":"down","11":"down","12":"down","13":"down","14":"down","15":"down","16":"down","17":"down","18":"down","19":"down","20":"down","21":"down","22":"down","23":"up","24":"down","25":"down"},"fabric ext":"on","fabric int":"off","base ext":"on","base int":"off"},"slot2":{"name":"ZX1900B","M":"M4(4)","data":"empty"},"slot3":{"name":"ZX7300","M":"M4(4)","7300 ports":{"0":"down","1":"down","2":"down","3":"down","4":"down","5":"down","6":"down","7":"down","8":"down","9":"down","10":"down","11":"down","12":"down","13":"down","14":"down","15":"down","16":"down","17":"down","18":"down","19":"down","20":"down","21":"down","22":"down","23":"down","24":"down","25":"down","26":"up","27":"up"},"7300 ext":"on","7300 int":"off"},"slot4":{"name":"SBC","M":"M4(4)","2":{"0":"getsnmplinux return","1":"filler"}},"slot5":{"name":"SBC","M":"M4(4)","2":{"0":"getsnmplinux return","1":"filler"}},"shmc":{"0":{"0":"getsnmpshnc return","1":"filler"}},"chassis":{}} 
+}}}
+
+ * If you get zero output from browsing to backend.php, but it runs fine on the command line, then  libapache2-mod-php5 is not installed.
+
+=== Shelf Manager ===
+
+ * Beware Guilfoyle got swap failure - needs paper clip to keep lever shut
+
+ * once on SHMC use clia interface
+
+
+{{{
+clia
+CLI> board -v
+CLI>  help
+# also try "fru"
+
+}}}
+
+
+
+

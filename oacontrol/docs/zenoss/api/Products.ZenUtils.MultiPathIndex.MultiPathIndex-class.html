@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenUtils.MultiPathIndex.MultiPathIndex</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Products ::
+        ZenUtils ::
+        MultiPathIndex ::
+        MultiPathIndex ::
+        Class&nbsp;MultiPathIndex
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class MultiPathIndex</h1><p class="nomargin-top"><span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+PluginIndexes.PathIndex.PathIndex.PathIndex --+    
+                                              |    
+            <a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html">ExtendedPathIndex.ExtendedPathIndex</a> --+
+                                                  |
+                                                 <strong class="uidshort">MultiPathIndex</strong>
+</pre>
+
+<hr />
+<p>A path index that is capable of indexing multiple paths per 
+  object.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html#search" class="summary-sig-name">search</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">path</span>,
+        <span class="summary-sig-arg">default_level</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">depth</span>=<span class="summary-sig-default">-1</span>,
+        <span class="summary-sig-arg">navtree</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">navtree_start</span>=<span class="summary-sig-default">0</span>)</span><br />
+      path is either a string representing a relative URL or a part of a 
+      relative URL or a tuple (path,level).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.search">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html#_pathSanityCheck" class="summary-sig-name" onclick="show_private();">_pathSanityCheck</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">searchPath</span>,
+        <span class="summary-sig-arg">pathset</span>)</span><br />
+      Extended path index uses a series of set &quot;buckets&quot; to store
+      which items belong at which point on the search path, this can 
+      sometimes cause issues if two points on the path have the same name 
+      and thus belong to the same bucket For instance: 
+      /zport/dmd/Devices/Server/Windows/WMI/devices/test-winxp-1.zenoss.loc/os/software/VMware
+      Tools has another path at /zport/dmd/Manfacturers/VMware/...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex._pathSanityCheck">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html#getIndexSourceNames" class="summary-sig-name">getIndexSourceNames</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      return names of indexed attributes</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.getIndexSourceNames">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html#index_object" class="summary-sig-name">index_object</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">docid</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">threshold</span>=<span class="summary-sig-default">100</span>)</span><br />
+      hook for (Z)Catalog</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.index_object">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="index_paths"></a><span class="summary-sig-name">index_paths</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">docid</span>,
+        <span class="summary-sig-arg">paths</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.index_paths">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="unindex_paths"></a><span class="summary-sig-name">unindex_paths</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">docid</span>,
+        <span class="summary-sig-arg">paths</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.unindex_paths">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html#unindex_object" class="summary-sig-name">unindex_object</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">docid</span>)</span><br />
+      hook for (Z)Catalog</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.unindex_object">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html">ExtendedPathIndex.ExtendedPathIndex</a></code></b>:
+      <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#__init__">__init__</a></code>,
+      <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#clear">clear</a></code>,
+      <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#insertEntry">insertEntry</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html">ExtendedPathIndex.ExtendedPathIndex</a></code></b> (private):
+      <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#_apply_index" onclick="show_private();">_apply_index</a></code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="meta_type"></a><span class="summary-name">meta_type</span> = <code title="&quot;MultiPathIndex&quot;">&quot;MultiPathIndex&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="manage_main"></a><span class="summary-name">manage_main</span> = <code title="DTMLFile('dtml/manageMultiPathIndex', globals())">DTMLFile('dtml/manageMultiPathIndex', globals())</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="manage"></a><span class="summary-name">manage</span> = <code title="DTMLFile('dtml/manageMultiPathIndex', globals())">DTMLFile('dtml/manageMultiPathIndex', globals())</code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html">ExtendedPathIndex.ExtendedPathIndex</a></code></b>:
+      <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#index_html">index_html</a></code>,
+      <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#manage_options">manage_options</a></code>,
+      <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#manage_workspace">manage_workspace</a></code>,
+      <code><a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#query_options">query_options</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="search"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">search</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">path</span>,
+        <span class="sig-arg">default_level</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">depth</span>=<span class="sig-default">-1</span>,
+        <span class="sig-arg">navtree</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">navtree_start</span>=<span class="sig-default">0</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.search">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>path is either a string representing a relative URL or a part of a 
+  relative URL or a tuple (path,level).</p>
+  <p>level &gt;= 0  starts searching at the given level level &lt;  0  not 
+  implemented yet</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#search">ExtendedPathIndex.ExtendedPathIndex.search</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_pathSanityCheck"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_pathSanityCheck</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">searchPath</span>,
+        <span class="sig-arg">pathset</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex._pathSanityCheck">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Extended path index uses a series of set &quot;buckets&quot; to store 
+  which items belong at which point on the search path, this can sometimes 
+  cause issues if two points on the path have the same name and thus belong
+  to the same bucket For instance: 
+  /zport/dmd/Devices/Server/Windows/WMI/devices/test-winxp-1.zenoss.loc/os/software/VMware
+  Tools has another path at /zport/dmd/Manfacturers/VMware/...</p>
+  <p>and our search returns a false positive because we search for 
+  /zport/dmd/Devices/VMware</p>
+  <p>because we have the id for that component returned at each point along
+  the path.</p>
+  <p>So this function iterates through all the return paths and makes sure 
+  the path that we are searching for is in the path that is returned</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="getIndexSourceNames"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getIndexSourceNames</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.getIndexSourceNames">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>return names of indexed attributes</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#getIndexSourceNames">ExtendedPathIndex.ExtendedPathIndex.getIndexSourceNames</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="index_object"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">index_object</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">docid</span>,
+        <span class="sig-arg">obj</span>,
+        <span class="sig-arg">threshold</span>=<span class="sig-default">100</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.index_object">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>hook for (Z)Catalog</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#index_object">ExtendedPathIndex.ExtendedPathIndex.index_object</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="unindex_object"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">unindex_object</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">docid</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.MultiPathIndex-pysrc.html#MultiPathIndex.unindex_object">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>hook for (Z)Catalog</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#unindex_object">ExtendedPathIndex.ExtendedPathIndex.unindex_object</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:43 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

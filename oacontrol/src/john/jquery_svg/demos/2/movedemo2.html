@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+
+
+<!-- ////////////////// jquery-svg REQUIRES SVGVIEWER IN IE8 //////////////////////////////////-->
+<style type="text/css">
+    div.svgbasics { width: 800px; height: 800px; border: 1px solid #484; }
+    table.tb { }
+    button.bt {  }
+</style>
+
+<script>
+
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg"
+
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+var dkglow = "#3B2507" ;
+var ltglow = "#FCB83B" ;
+
+var svg;
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    getsvg();  
+});
+    
+// laod the svg
+function getsvg(){
+
+      $("#svgload").svg({  
+            loadURL: 'zx1900_master_exploded.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+
+}
+
+
+
+function main(){
+    
+// hide the 7300's and sbc's
+    $('#7300-4group').css("opacity", 0 );
+    $('#7300-3group').css("opacity", 0 );
+    $('#7300-5group').css("opacity", 0 );
+    $('#sbc-4group').css("opacity", 0 );
+    $('#sbc-3group').css("opacity", 0 );
+    $('#sbc-5group').css("opacity", 0 );
+
+$('#powerglow').mouseover(function(){
+       $('#powerglow').animate({ svgStroke: ltglow },1000);
+    });
+    $('#powerglow').mouseout(function(){
+	$('#powerglow').css("stroke", dkglow);
+    });
+
+
+
+
+}
+//function adjustOpacity(){
+
+
+    //$('#7300-3group').animate({   opacity: '0' }, 'slow'); 
+//}
+function popSlot3_ZX7300(){
+    popSlot3_Empty(); // reset for the seond time you push "SB"
+    $('#7300-3group').animate({svgTransform: 'translate(-16,-297)',svgOpacity: 100}, 2000);
+}
+function popSlot4_ZX7300(){
+    popSlot4_Empty(); // reset for the seond time you push "SB"
+    $('#7300-4group').animate({svgTransform: 'translate(-38,-445)',svgOpacity: 100}, 2000);
+}
+function popSlot5_ZX7300(){
+    popSlot5_Empty(); // reset for the seond time you push "SB"
+    $('#7300-5group').animate({svgTransform: 'translate(-30,-404)',svgOpacity: 100}, 2000);
+}
+function popSlot3_Sbc(){
+    popSlot3_Empty(); // reset for the seond time you push "SB"
+    $('#sbc-3group').animate({svgTransform: 'translate(-120,336)',svgOpacity: 100}, 2000);
+}
+function popSlot4_Sbc(){
+    popSlot4_Empty(); // reset for the seond time you push "SBC"
+    $('#sbc-4group').animate({svgTransform: 'translate(110,-397)',svgOpacity: 100}, 2000);
+}
+function popSlot5_Sbc(){
+    popSlot5_Empty(); // reset for the seond time you push "SBC"
+    $('#sbc-5group').animate({svgTransform: 'translate(-56,385)',svgOpacity: 100}, 2000);
+}
+function popSlot3_Empty(){
+    $('#sbc-3group').css("opacity", 0 );
+    $('#7300-3group').css("opacity", 0 );
+}
+function popSlot4_Empty(){
+    $('#sbc-4group').css("opacity", 0 );
+    $('#7300-4group').css("opacity", 0 );
+}
+function popSlot5_Empty(){
+    $('#sbc-5group').css("opacity", 0 );
+    $('#7300-5group').css("opacity", 0 );
+}
+
+// Returns a random number between min and max
+function getRandomInteger(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function logDebug(newtext){
+    document.getElementById("debug").innerHTML += (" " + newtext) ;
+}
+
+
+
+
+</script></head><body>
+
+
+
+<div>
+<button id="reloadbutton" onClick='location.reload();'>Reload the page</button> 
+<!--<button id="gobutton" onClick='adjustPosition()'>Go</button> -->
+<br></div>
+
+
+<div id="svgload" class="svgbasics">
+
+<table class="tb">
+<tr><th colspan=4 >Press buttons to configure the chassis with boards:</th></tr>
+<tr><td>slot 5</td><td><button class="bt" onClick='popSlot5_ZX7300()' >ZX7300</button></td><td><button class="bt" onClick='popSlot5_Sbc()' >SBC</button></td><td><button class="bt" onClick='popSlot5_Empty()' >empty</button></td></tr>
+<tr><td>slot 4</td><td><button class="bt" onClick='popSlot4_ZX7300()' >ZX7300</button></td><td><button class="bt" onClick='popSlot4_Sbc()' >SBC</button></td><td><button class="bt" onClick='popSlot4_Empty()' >empty</td></tr>
+<tr><td>slot 3</td><td><button class="bt" onClick='popSlot3_ZX7300()' >ZX7300</button></td><td><button class="bt" onClick='popSlot3_Sbc()' >SBC</button></td><td><button class="bt" onClick='popSlot3_Empty()' >empty</button></td></tr>
+</table
+
+
+
+
+</div>
+
+<br>
+<div id="debug"></div>
+
+
+
+</body></html>
+
+

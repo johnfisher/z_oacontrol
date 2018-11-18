@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery and CSS3 Rotate Example</title>
+	</head>
+	<body>
+    	<img src="img/color-wheel.png" id="colorWheel">
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				var img = $("#colorWheel"),
+					offset = img.offset(),
+					origWidth = img.width(),
+					origHeight = img.height(),
+					rotateStrings = [
+						"rotate(",
+						0,
+						"deg)"
+					],
+				
+					//function to return correct prefix
+					getVendor = function() {
+						
+						//init vars						
+						var prefix = null,
+							vendorStrings = {
+								pure: "transform",
+								moz: "-moz-transform",
+								webkit: "-webkit-transform",
+								op: "-o-transform"
+							};
+						
+						//iterate over transform strings
+						for (props in vendorStrings) {
+							//try and read each property
+							if(img.css(vendorStrings[props]) === "none") {
+								prefix = vendorStrings[props];
+							}
+						}
+						
+						//ie
+						if (prefix === null) {
+							prefix = "filter";
+							
+							//init IE CSS
+							img.css({
+								position: "absolute",
+								filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand');"
+							});
+	
+						}
+						
+						return prefix;
+					},
+					vendor = getVendor();
+								
+				//function to animate rotation
+				function doRotate() {
+					
+					//update amount
+					rotateStrings[1]++;
+					
+					//use MS filter in IE
+					if (vendor === "filter") {
+						
+						//determine matrix values						
+						var rad = rotateStrings[1] * (Math.PI * 2 / 360),
+							cos = Math.cos(rad),
+							sin = Math.sin(rad),
+							driftX = (img.width() - origWidth) / 2,
+							driftY = (img.height() - origHeight) / 2,							
+							el = img.get(0);
+							
+						img.css({
+							left: offset.left - driftX,
+							top: offset.top - driftY
+						});
+						
+						el.filters.item("DXImageTransform.Microsoft.Matrix").M11 = cos;
+						el.filters.item("DXImageTransform.Microsoft.Matrix").M12 = -sin;
+						el.filters.item("DXImageTransform.Microsoft.Matrix").M21 = sin;
+						el.filters.item("DXImageTransform.Microsoft.Matrix").M22 = cos;
+																						
+					} else {
+						
+						//rotate
+						img.css(vendor, rotateStrings.join(""));
+					}
+				}
+				
+				setInterval(function() { doRotate() }, 100);			
+			})(jQuery);
+		</script>
+	</body>
+</html>

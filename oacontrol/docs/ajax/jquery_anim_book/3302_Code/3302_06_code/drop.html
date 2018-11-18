@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Drop Effect</title>
+		<link rel="stylesheet" href="css/drop.css">
+	</head>
+	<body>
+    	<div id="confirmation">
+        	<p>Your request has been completed!</p>
+        </div>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				
+				//show confirmation
+				$("#confirmation").effect("drop", { mode: "show", direction: "up" }, function() {
+					window.timer = function() {
+						//hide confirmation
+						$("#confirmation").effect("drop", { mode: "hide", direction: "up"});	
+					}
+					
+					//hide confirmation after 3 seconds
+					window.setTimeout("window.timer()", 3000);
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

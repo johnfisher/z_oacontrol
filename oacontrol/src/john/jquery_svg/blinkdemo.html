@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script>
+
+
+<!-- ////////////////// jquery-svg REQUIRES SVGVIEWER IN IE8 //////////////////////////////////-->
+<style type="text/css">
+
+
+div.svgbasics { width: 800px; height: 400px; border: 1px solid #484; }
+</style>
+
+<script>
+
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg"
+var interval_duration = 5000 ;
+var blink_duration = 966 ;
+var short_interval_duration = 75 ;
+var idarray =[];
+var stop_short_interval = false; // used to stop blink loop
+var stop_main_interval = false;
+var short_interval;
+var main_interval;
+
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+
+// create the blink object. We don't know any leds yet, so just pass ob.proto
+// it may not matter here, but the books aren't sanguine about new() or var x = {};
+var blinklist = Object.create( {"led1-l" :  {color : blue	, blink : true, shape : "rect" } } );
+
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    getsvg();  
+});
+    
+// laod the svg
+function getsvg(){
+      $("#svgload").svg({  
+            loadURL: 'zx1900-switch-ftm-3_7300s_master.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+}
+
+
+function main(){
+    // polling loop that drives everything
+
+    /////////////  we don't want to lose the original state 
+    getOrigLEDState();
+
+    //////// START LOOP  ////////////////////////////////////////////
+    main_interval = window.setInterval(function() {
+
+	getCurrentLEDBlinkState();
+
+
+	// stop short loop
+	clearInterval(short_interval);  // prevent overlapping intervals
+	// restart short loop -set blinking LEDs to blinking
+	shortBlinkLoop();
+
+	// just in case we need a delayed signaling access to clearInterval
+	if (stop_main_interval === true) {
+	  clearInterval(main_interval);
+	}
+
+    // end of the loop
+    }, interval_duration);
+    //////// END LOOP  ////////////////////////////////////////////////
+}
+
+
+
+
+function shortBlinkLoop(){
+    short_interval = window.setInterval(function() {
+
+	for( var name in blinklist){
+		var date = new Date();
+		var time = date.getTime() ;  // getTime translates to total milliseconds
+		var delay = time - blinklist[ name ].timestamp ;
+		// we need to add some randomized number of ms to the timestamps
+		// to prevent a pulsing effect as all LEDs blink together
+		var newtime =  time += getRandomInteger( 100  , blink_duration   );
+		var col = blinklist[ name ].color ;
+
+	    if ( delay > blink_duration ) {
+		    if ( $("#" + name).css("fill") === black ) {
+			$("#" + name).css("fill", col );
+		    }else{
+			$("#" + name).css("fill", black );
+		    }
+		    blinklist[ name ].timestamp  = newtime ;
+	    }
+	}
+	    // for future use as a second way to stop the loop
+	    if (stop_short_interval === true) {
+		clearInterval(short_interval);
+	    }
+    }, short_interval_duration );
+}
+
+function getOrigLEDState(){
+// note: this populates the blinklist object
+// maybe do as a more formal class later?
+    var tags=document.getElementsByTagName("rect");  // note limited to "rect" for now
+    for(var x=0;x<tags.length;x++){
+	var myid = tags[x].id;
+	var date = new Date();
+	var addmin = Math.round( blink_duration/3 );
+	var newtime = date.getTime() + getRandomInteger( addmin  , blink_duration );
+	if( myid.match("led") && !myid.match("power")){
+	    blinklist[ myid ] = { blink : true, color : $("#" + myid).css("fill"), shape : "rect", timestamp : newtime	 } ;
+	    //idarray.push(myid); // need a separate array so we can randomize it
+		//alert( "idarray x =" + x + " " +  idarray[x]);
+	}
+    }
+}
+
+
+function getCurrentLEDBlinkState(){
+// iterate through blinklist, looking for blink = true
+// this is what we'd do if some function was resetting the state of LEDs
+// take the true ones and re-create idarray
+    idarray.length = 0; // clean it out
+    for ( var id in blinklist ) {
+	//alert ( "blink is " + blinklist [ id ].blink ) ;
+	if ( blinklist [ id ].blink === true ) {
+	     idarray.push(id); 
+	}
+    }
+
+}
+
+// Returns a random number between min and max
+function getRandomInteger(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function logDebug(newtext){
+    document.getElementById("debug").innerHTML += (" " + newtext) ;
+}
+
+
+</script></head><body>
+
+
+<br>
+<div>
+<button id="stop_short" onClick='window.clearInterval(short_interval) ;'>Stop the short interval</button> 
+<button id="stop_main" onClick='window.clearInterval(main_interval);'>Stop the main interval</button> 
+<button id="stop_all" onClick='window.clearInterval(short_interval) ; window.clearInterval(main_interval);'>Clear both intervals</button> 
+</div>
+
+<div id="svgload" class="svgbasics"> load svg here</div>
+<div id="debug"></div>
+
+
+
+</body></html>
+
+

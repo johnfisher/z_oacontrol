@@ -1,0 +1,243 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+<script type="text/javascript" src="js/hoverIntent.js"></script>
+<script type="text/javascript" src="js/zsuperfish.js"></script>
+<script type="text/javascript" src="js/oac.js"></script>
+
+
+
+
+<link rel="stylesheet" media="screen" href="css/oac.css" /> 
+<link rel="stylesheet" media="screen" href="css/styles4.2.css" /> 
+
+<script type="text/javascript">
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg" ;
+
+var last_menu ;
+var pulseflag = "on";
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    $("ul.sf-menu").superfish();
+    getsvg();  
+});
+    
+// load the svg
+function getsvg(){
+      $("#svgload").svg({  
+            loadURL: 'images/zx1900_master_exploded.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+}
+
+function main (){
+    setupPage();  // sets up invisible boards; drop-down menus etc
+
+    alert("Start");
+
+    getOrigLEDState();
+    //set_AllLEDs(black);  // just a cute flourish to start from dark
+
+    loop_GetSNMP();
+    //single_GetSNMP();
+    blinkLED(); // set clk to blinking by default
+    
+
+}
+
+
+function single_GetSNMP(){
+	$.get("backend.php",  function(data){
+		//logDebug(data);
+	    var json_data = $.parseJSON(data);
+	    process_1900AData(json_data);
+	    process_1900BData(json_data);
+
+	      } );
+}
+
+
+
+
+/////////////////////////////////////////////////
+</script>
+
+</head><body>
+
+<div id="debugdiv"></div>
+<div id="logodiv"><img src="images/oacontrol_logoB40.png"></div>
+
+
+
+
+<!-- START invisble divs for drop-down menus until raised by mouseover -->
+<div id="menuDiv73003" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 3 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/OASwitch/ZX7300/devices/10.2.0.249/devicedetail#deviceDetailNav:device_overview " target="_blank">ZX7300 Details</a>
+				    </li>
+
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv73004" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 4 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Reports</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv73005" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 5 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Reports</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDivSbc3" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">SBC-Slot 3 <img src="images/arrows-orange-down.png"/></a>
+
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDivSbc4" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/ZXSBC/devices/debian/devicedetail#deviceDetailNav:device_overview " target="_blank">SBC-Slot 4 Zenoss Details<img src="images/arrows-orange-down.png"/></a>
+				
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDivSbc5" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/ZXSBC/devices/10.2.0.124/devicedetail#deviceDetailNav:device_overview"  target="_blank" >SBC-Slot 5 Zenoss Details<img src="images/arrows-orange-down.png"/></a>
+			
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDivShMc1" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">Shelf Manager 1 <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="http://10.2.6.10/" target="_blank">Shelf Manager Controls</a>
+				    </li>
+				    <li>
+					    <a href="#ab">future menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">future</a></li>
+						    <li><a href="#aba">future</a></li>
+					    </ul>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv1900a" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX1900A Switch <img src="images/arrows-orange-down.png"/></a>
+				<ul>
+				    
+				    <li> 
+					    <a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/OASwitch/ZX1900BaseDevice/devices/10.2.0.155/devicedetail#deviceDetailNav:device_overview " target="_blank">ZX1900 Base Switch Details</a>
+				    </li>
+				    <li> 
+					    <a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/OASwitch/ZX1900FabricDevice/devices/10.2.0.215/devicedetail#deviceDetailNav:device_overview " target="_blank">ZX1900 Fabric Switch Details</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="images/arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv1900b" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX1900B FTM <img src="images/arrows-orange-down.png"/></a>
+
+			</li>
+
+		</ul>
+<br></div>
+<!-- END invisble divs for drop-down menus until raised by mouseover -->
+
+<br>
+<div id="svgload" class="svgbasics">
+
+
+<br>
+<table class="tb">
+<tr><th class="notify">Slot 3:</th><th class="notify">Slot 4:</th><th class="notify">Slot 5:</th><th class="notify">Details:</th></tr>
+<tr><td id="slot3notify" class="notify"><td id="slot4notify" class="notify"><td id="slot5notify" class="notify"></td><td id="tempnotify" class="notify"></td></tr>
+</table>
+
+<!------------------------ SVG loads here --------------------->
+</div>
+<script type="text/javascript">
+ 	var debug = document.getElementById('debugdiv');
+	var dumpText = function(text){
+		debug.innerHTML = debug.innerHTML + '<BR>'+ text;
+	}
+</script>
+
+
+</body></html>
+
+

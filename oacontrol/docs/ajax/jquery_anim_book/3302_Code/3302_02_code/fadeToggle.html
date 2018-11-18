@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery fadeToggle()</title>
+		<link rel="stylesheet" href="css/fadeToggle.css">
+	</head>
+	<body>
+		<form>
+        	<label for="name">Enter your name:<input id="name" name="name" type="text"><span id="help"></span><span id="helpText">Your name. You know, the thing that people call you by</span></label>
+        </form>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				$("#help").click(function() {
+					$("#helpText").fadeToggle();
+				});							
+			})(jQuery);
+		</script>
+	</body>
+</html>

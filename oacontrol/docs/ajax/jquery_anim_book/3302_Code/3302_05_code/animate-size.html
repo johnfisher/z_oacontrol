@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery animate() Size</title>
+		<link rel="stylesheet" href="css/animate-size.css">
+        <!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+    	<article>
+        	<h1>The Article Title</h1>
+            <p><img id="image1-thumb" class="expander" alt="An ASCII Zebra" src="img/ascii.gif" width="150" height="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p><img id="image2-thumb" class="expander" alt="An ASCII Zebra" src="img/ascii2.gif" width="100" height="100">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </article>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery.easing.1.3.js"></script>
+		<script>
+			(function($){
+				
+				//define image sizes
+				var dims = {
+					image1: {
+						small: { width: 150, height: 100 },
+						big: { width: 600, height: 400 }
+					},
+					image2: {
+						small: { width: 100, height: 100 },
+						big: { width: 400, height: 400 }
+					}
+				}
+				
+				//add button to expanders
+				$(".expander").each(function(i) {
+										
+					//store size and position of current element
+					var expander = $(this),
+						coords = expander.offset(),
+						copy = $("<img>", {
+							id: expander.attr("id").split("-")[0],
+							src: expander.attr("src"),
+							width: expander.width(),
+							height: expander.height(),
+						});
+					
+					//create container
+					$("<div></div>", {
+						"class": "expander-wrapper",
+						css: {
+							top: coords.top,
+							left: coords.left,
+							direction: (expander.css("float") === "right") ? "rtl" : "ltr"
+						},
+						html: copy,
+						width: expander.width(),
+						click: function() {
+							
+							var img = $(this).find("img"),
+								id = img.attr("id");
+							
+							//expand image
+							if (!img.hasClass("expanded")) {
+								img.addClass("expanded").animate({
+									width: dims[id].big.width,
+									height: dims[id].big.height
+								}, {
+									queue: false	
+								});
+							} else {
+								img.animate({
+									width: dims[id].small.width,
+									height: dims[id].small.height
+								}, {
+									queue: false,
+									complete: function() { $(this).removeClass("expanded") }
+								});
+							}
+						}
+					}).appendTo("body");
+				});
+								
+				//maintain position when window resized
+				$(window).resize(function() {
+					
+					$("div.expander-wrapper").each(function(i) {
+						
+						//get new coords of original image
+						var newCoords = $("#image" + (i + 1) + "-thumb").offset();
+						
+						//realign
+						$(this).css({
+							top: newCoords.top,
+							left: newCoords.left
+						});
+					});
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

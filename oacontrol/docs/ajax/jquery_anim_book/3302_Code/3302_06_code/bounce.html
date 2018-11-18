@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Bounce Effect</title>
+		<link rel="stylesheet" href="css/bounce.css">
+	</head>
+	<body>
+    	<div id="travel">
+	    	<div id="ball"><!-- --></div>
+        </div>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$("#ball").click(function() {
+					$("#travel").animate({ left: "+=300px" }, 2000).find("div").effect("bounce");
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

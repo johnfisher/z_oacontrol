@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+. $ZENHOME/bin/zenfunctions
+
+MYPATH=`python -c "import os.path; print os.path.realpath('$0')"`
+THISDIR=`dirname $MYPATH`
+PRGHOME=`dirname $THISDIR`
+PRGNAME=zxchassisdaemon.py
+CFGFILE=$PRGHOME/conf/zxchassisdaemon.conf
+
+generic "$@"

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery slideToggle()</title>
+		<link rel="stylesheet" href="css/slideToggle.css">
+	</head>
+	<body>
+    	<div id="basket">
+        	<h2>Basket Summary</h2>
+        	<a id="basketToggle" href="#" title="Display basket contents">Show basket contents</a>
+            <div id="contents">
+				<table>
+                	<tr><th class="qty">Qty</th><th class="desc">Description</th><th class="subtotal">Price</th><th class="total">Total</th></tr>
+            	    <tr><td class="qty">2</td><td class="desc"></td><td class="subtotal">£10</td><td class="total">£20</td></tr>
+                	<tr><td class="qty">1</td><td class="desc"></td><td class="subtotal">£5</td><td class="total">£5</td></tr>
+	                <tr><td class="qty">3</td><td class="desc"></td><td class="subtotal">£7</td><td class="total">£21</td></tr>
+                    <tr class="summary"><td colspan="3" class="subtotal">5 Day standard shipping</td><td class="total">£10</td></tr>
+                    <tr class="summary vat"><td colspan="3" class="subtotal">VAT</td><td class="total">£10</td></tr>
+				</table>
+            </div>
+            <table>
+                <tr id="total"><td colspan="3" class="subtotal">6 Items</td><td class="total">£66</td></tr>
+    	    </table>
+        </div>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//cache selectors and define setter function
+				var	toggler = $("#basketToggle"),
+					basketArea = $("#contents"),
+					textSetter = function() {
+						toggler.text(function(i, text) {
+						
+							//store current text
+							var currentText = text.split(" ");
+							
+							//remove first array item
+							currentText.shift();
+							
+							//add new array item
+							currentText.unshift((basketArea.is(":visible")) ? "Hide" : "Show");
+							
+							//set text
+							return currentText.join(" ");
+						});
+					};
+				
+				//click handler for basket toggle link
+				toggler.click(function(e) {
+					
+					e.preventDefault();
+					
+					//toggle basket 
+					if (!basketArea.is(":animated")) {
+						basketArea.slideToggle("slow", function(){
+							//set trigger text
+							textSetter();
+						});
+					}
+				});				
+			})(jQuery);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+- profile_name = @profile.options[:profile_name]
+- page_title(profile_name)
+
+%div#profile
+  %h2#profile_name= profile_name
+  - @profile.graphs.each do |graph|
+    - id       = URI.escape(graph.id)
+    - host     = URI.escape(graph.host)
+    - plugin   = URI.escape(graph.plugin)
+    - instance = URI.escape(graph.instances.join(','))
+    %div{:id => id, :class => 'graph'}
+      %img{:src => link_to("/images/loader.gif")}
+      :javascript
+        window.addEvent('domready', function() {
+          var graph = new visageGraph('#{id}', '#{host}', '#{plugin}', {
+            pluginInstance: '#{instance}',
+            start:          '#{@start}',
+            finish:         '#{@finish}',
+            live:           #{@live},
+            #{ "baseurl: '" + ENV['BASE_URL'].gsub(/^\//, '') if ENV['BASE_URL'] }
+          });
+        });
+  - if @profile.graphs.size == 0
+    %div.graph
+      %h4.error Oops! Looks like there aren't any graphs matching the specified patterns.
+      %p These are the patterns:
+      %pre
+        :preserve
+          Host:    #{@profile.options[:hosts]}
+          Metrics: #{@profile.options[:metrics]}
+
+  %div#bottom_nav
+    %a{:href => link_to("/profiles")} &larr; Back to profiles
+
+
+

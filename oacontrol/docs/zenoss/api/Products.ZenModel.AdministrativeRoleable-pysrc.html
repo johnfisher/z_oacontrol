@@ -1,0 +1,832 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenModel.AdministrativeRoleable</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenModel-module.html">Package&nbsp;ZenModel</a> ::
+        Module&nbsp;AdministrativeRoleable
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenModel.AdministrativeRoleable-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenModel.AdministrativeRoleable-module.html">Module Products.ZenModel.AdministrativeRoleable</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">AdministrativeRoleable.py</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">Created by Marc Irlandez on 2007-04-05.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Variable Products.ZenModel.MibModule.MibModule.types=Products.ZenModel.MibModule.MibModule-class.html#types"><a title="Products.ZenModel.MibModule.MibModule.types" class="py-name" href="#" onclick="return doclink('link-0', 'types', 'link-0');">types</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">AccessControl</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ClassSecurityInfo</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package Products.ZenModel=Products.ZenModel-module.html"><a title="Products.ZenModel" class="py-name" href="#" onclick="return doclink('link-1', 'ZenModel', 'link-1');">ZenModel</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module Products.ZenModel.AdministrativeRole=Products.ZenModel.AdministrativeRole-module.html,Class Products.ZenModel.AdministrativeRole.AdministrativeRole=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html"><a title="Products.ZenModel.AdministrativeRole
+Products.ZenModel.AdministrativeRole.AdministrativeRole" class="py-name" href="#" onclick="return doclink('link-2', 'AdministrativeRole', 'link-2');">AdministrativeRole</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name"><a title="Products.ZenModel.AdministrativeRole
+Products.ZenModel.AdministrativeRole.AdministrativeRole" class="py-name" href="#" onclick="return doclink('link-3', 'AdministrativeRole', 'link-2');">AdministrativeRole</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Globals</tt> <tt class="py-keyword">import</tt> <tt class="py-name">InitializeClass</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Module Products.ZenModel.ZenossSecurity=Products.ZenModel.ZenossSecurity-module.html"><a title="Products.ZenModel.ZenossSecurity" class="py-name" href="#" onclick="return doclink('link-4', 'ZenossSecurity', 'link-4');">ZenossSecurity</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Package Products.ZenWidgets=Products.ZenWidgets-module.html"><a title="Products.ZenWidgets" class="py-name" href="#" onclick="return doclink('link-5', 'ZenWidgets', 'link-5');">ZenWidgets</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Module Products.ZenWidgets.browser.messaging=Products.ZenWidgets.browser.messaging-module.html,Module Products.ZenWidgets.messaging=Products.ZenWidgets.messaging-module.html"><a title="Products.ZenWidgets.browser.messaging
+Products.ZenWidgets.messaging" class="py-name" href="#" onclick="return doclink('link-6', 'messaging', 'link-6');">messaging</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="AdministrativeRoleable"></a><div id="AdministrativeRoleable-def"><a name="L26"></a><tt class="py-lineno"> 26</tt> <a class="py-toggle" href="#" id="AdministrativeRoleable-toggle" onclick="return toggle('AdministrativeRoleable');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html">AdministrativeRoleable</a><tt class="py-op">:</tt> </tt>
+</div><div id="AdministrativeRoleable-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AdministrativeRoleable-expanded"><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">     </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable Products.ZenEvents.ActionRule.ActionRule.security=Products.ZenEvents.ActionRule.ActionRule-class.html#security,Variable Products.ZenEvents.ActionRuleWindow.ActionRuleWindow.security=Products.ZenEvents.ActionRuleWindow.ActionRuleWindow-class.html#security,Variable Products.ZenEvents.Availability.Availability.security=Products.ZenEvents.Availability.Availability-class.html#security,Variable Products.ZenEvents.BetterEventDetail.BetterEventDetail.security=Products.ZenEvents.BetterEventDetail.BetterEventDetail-class.html#security,Variable Products.ZenEvents.CustomEventView.CustomEventView.security=Products.ZenEvents.CustomEventView.CustomEventView-class.html#security,Variable Products.ZenEvents.EventClass.EventClass.security=Products.ZenEvents.EventClass.EventClass-class.html#security,Variable Products.ZenEvents.EventClassInst.EventClassInst.security=Products.ZenEvents.EventClassInst.EventClassInst-class.html#security,Variable Products.ZenEvents.EventCommand.EventCommand.security=Products.ZenEvents.EventCommand.EventCommand-class.html#security,Variable Products.ZenEvents.EventDetail.EventData.security=Products.ZenEvents.EventDetail.EventData-class.html#security,Variable Products.ZenEvents.EventDetail.EventDetail.security=Products.ZenEvents.EventDetail.EventDetail-class.html#security,Variable Products.ZenEvents.EventDetail.EventLog.security=Products.ZenEvents.EventDetail.EventLog-class.html#security,Variable Products.ZenEvents.EventFilter.EventFilter.security=Products.ZenEvents.EventFilter.EventFilter-class.html#security,Variable Products.ZenEvents.EventManagerBase.EventManagerBase.security=Products.ZenEvents.EventManagerBase.EventManagerBase-class.html#security,Variable Products.ZenEvents.MySqlEventManager.MySqlEventManager.security=Products.ZenEvents.MySqlEventManager.MySqlEventManager-class.html#security,Variable Products.ZenEvents.ZEvent.ZEvent.security=Products.ZenEvents.ZEvent.ZEvent-class.html#security,Variable Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.security=Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html#security,Variable Products.ZenModel.BasicDataSource.BasicDataSource.security=Products.ZenModel.BasicDataSource.BasicDataSource-class.html#security,Variable Products.ZenModel.Classifier.Classifier.security=Products.ZenModel.Classifier.Classifier-class.html#security,Variable Products.ZenModel.ClassifierEntry.ClassifierEntry.security=Products.ZenModel.ClassifierEntry.ClassifierEntry-class.html#security,Variable Products.ZenModel.Collection.Collection.security=Products.ZenModel.Collection.Collection-class.html#security,Variable Products.ZenModel.CollectionItem.CollectionItem.security=Products.ZenModel.CollectionItem.CollectionItem-class.html#security,Variable Products.ZenModel.Commandable.Commandable.security=Products.ZenModel.Commandable.Commandable-class.html#security,Variable Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.security=Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass-class.html#security,Variable Products.ZenModel.DataRoot.DataRoot.security=Products.ZenModel.DataRoot.DataRoot-class.html#security,Variable Products.ZenModel.Device.Device.security=Products.ZenModel.Device.Device-class.html#security,Variable Products.ZenModel.DeviceClass.DeviceClass.security=Products.ZenModel.DeviceClass.DeviceClass-class.html#security,Variable Products.ZenModel.DeviceComponent.DeviceComponent.security=Products.ZenModel.DeviceComponent.DeviceComponent-class.html#security,Variable Products.ZenModel.DeviceHW.DeviceHW.security=Products.ZenModel.DeviceHW.DeviceHW-class.html#security,Variable Products.ZenModel.DeviceOrganizer.DeviceOrganizer.security=Products.ZenModel.DeviceOrganizer.DeviceOrganizer-class.html#security,Variable Products.ZenModel.DeviceReport.DeviceReport.security=Products.ZenModel.DeviceReport.DeviceReport-class.html#security,Variable Products.ZenModel.DeviceReportClass.DeviceReportClass.security=Products.ZenModel.DeviceReportClass.DeviceReportClass-class.html#security,Variable Products.ZenModel.DeviceResultInt.DeviceResultInt.security=Products.ZenModel.DeviceResultInt.DeviceResultInt-class.html#security,Variable Products.ZenModel.EventView.EventView.security=Products.ZenModel.EventView.EventView-class.html#security,Variable Products.ZenModel.FileSystem.FileSystem.security=Products.ZenModel.FileSystem.FileSystem-class.html#security,Variable Products.ZenModel.GraphDefinition.GraphDefinition.security=Products.ZenModel.GraphDefinition.GraphDefinition-class.html#security,Variable Products.ZenModel.GraphGroup.GraphGroup.security=Products.ZenModel.GraphGroup.GraphGroup-class.html#security,Variable Products.ZenModel.GraphPoint.GraphPoint.security=Products.ZenModel.GraphPoint.GraphPoint-class.html#security,Variable Products.ZenModel.GraphReport.GraphReport.security=Products.ZenModel.GraphReport.GraphReport-class.html#security,Variable Products.ZenModel.GraphReportClass.GraphReportClass.security=Products.ZenModel.GraphReportClass.GraphReportClass-class.html#security,Variable Products.ZenModel.GraphReportElement.GraphReportElement.security=Products.ZenModel.GraphReportElement.GraphReportElement-class.html#security,Variable Products.ZenModel.Hardware.Hardware.security=Products.ZenModel.Hardware.Hardware-class.html#security,Variable Products.ZenModel.IpAddress.IpAddress.security=Products.ZenModel.IpAddress.IpAddress-class.html#security,Variable Products.ZenModel.IpInterface.IpInterface.security=Products.ZenModel.IpInterface.IpInterface-class.html#security,Variable Products.ZenModel.IpNetwork.IpNetwork.security=Products.ZenModel.IpNetwork.IpNetwork-class.html#security,Variable Products.ZenModel.IpRouteEntry.IpRouteEntry.security=Products.ZenModel.IpRouteEntry.IpRouteEntry-class.html#security,Variable Products.ZenModel.IpService.IpService.security=Products.ZenModel.IpService.IpService-class.html#security,Variable Products.ZenModel.IpServiceClass.IpServiceClass.security=Products.ZenModel.IpServiceClass.IpServiceClass-class.html#security,Variable Products.ZenModel.LinkManager.security=Products.ZenModel.LinkManager-module.html#security,Variable Products.ZenModel.Location.Location.security=Products.ZenModel.Location.Location-class.html#security,Variable Products.ZenModel.MEProduct.MEProduct.security=Products.ZenModel.MEProduct.MEProduct-class.html#security,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.security=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#security,Variable Products.ZenModel.MaintenanceWindowable.MaintenanceWindowable.security=Products.ZenModel.MaintenanceWindowable.MaintenanceWindowable-class.html#security,Variable Products.ZenModel.Manufacturer.Manufacturer.security=Products.ZenModel.Manufacturer.Manufacturer-class.html#security,Variable Products.ZenModel.MibModule.MibModule.security=Products.ZenModel.MibModule.MibModule-class.html#security,Variable Products.ZenModel.MibOrganizer.MibOrganizer.security=Products.ZenModel.MibOrganizer.MibOrganizer-class.html#security,Variable Products.ZenModel.MonitorClass.MonitorClass.security=Products.ZenModel.MonitorClass.MonitorClass-class.html#security,Variable Products.ZenModel.MultiGraphReport.MultiGraphReport.security=Products.ZenModel.MultiGraphReport.MultiGraphReport-class.html#security,Variable Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.security=Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass-class.html#security,Variable Products.ZenModel.NagiosCmd.NagiosCmd.security=Products.ZenModel.NagiosCmd.NagiosCmd-class.html#security,Variable Products.ZenModel.OSProcess.OSProcess.security=Products.ZenModel.OSProcess.OSProcess-class.html#security,Variable Products.ZenModel.OSProcessClass.OSProcessClass.security=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#security,Variable Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.security=Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer-class.html#security,Variable Products.ZenModel.OperatingSystem.OperatingSystem.security=Products.ZenModel.OperatingSystem.OperatingSystem-class.html#security,Variable Products.ZenModel.Organizer.Organizer.security=Products.ZenModel.Organizer.Organizer-class.html#security,Variable Products.ZenModel.PerformanceConf.PerformanceConf.security=Products.ZenModel.PerformanceConf.PerformanceConf-class.html#security,Variable Products.ZenModel.ProductClass.ProductClass.security=Products.ZenModel.ProductClass.ProductClass-class.html#security,Variable Products.ZenModel.RRDDataPoint.RRDDataPoint.security=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#security,Variable Products.ZenModel.RRDDataSource.RRDDataSource.security=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#security,Variable Products.ZenModel.RRDDataSource.SimpleRRDDataSource.security=Products.ZenModel.RRDDataSource.SimpleRRDDataSource-class.html#security,Variable Products.ZenModel.RRDGraph.RRDGraph.security=Products.ZenModel.RRDGraph.RRDGraph-class.html#security,Variable Products.ZenModel.RRDTemplate.RRDTemplate.security=Products.ZenModel.RRDTemplate.RRDTemplate-class.html#security,Variable Products.ZenModel.RRDThreshold.RRDThreshold.security=Products.ZenModel.RRDThreshold.RRDThreshold-class.html#security,Variable Products.ZenModel.Report.Report.security=Products.ZenModel.Report.Report-class.html#security,Variable Products.ZenModel.ReportClass.ReportClass.security=Products.ZenModel.ReportClass.ReportClass-class.html#security,Variable Products.ZenModel.Service.Service.security=Products.ZenModel.Service.Service-class.html#security,Variable Products.ZenModel.ServiceClass.ServiceClass.security=Products.ZenModel.ServiceClass.ServiceClass-class.html#security,Variable Products.ZenModel.ServiceOrganizer.ServiceOrganizer.security=Products.ZenModel.ServiceOrganizer.ServiceOrganizer-class.html#security,Variable Products.ZenModel.Software.Software.security=Products.ZenModel.Software.Software-class.html#security,Variable Products.ZenModel.System.System.security=Products.ZenModel.System.System-class.html#security,Variable Products.ZenModel.ThresholdClass.ThresholdClass.security=Products.ZenModel.ThresholdClass.ThresholdClass-class.html#security,Variable Products.ZenModel.UserCommand.UserCommand.security=Products.ZenModel.UserCommand.UserCommand-class.html#security,Variable Products.ZenModel.UserSettings.GroupSettings.security=Products.ZenModel.UserSettings.GroupSettings-class.html#security,Variable Products.ZenModel.UserSettings.UserSettings.security=Products.ZenModel.UserSettings.UserSettings-class.html#security,Variable Products.ZenModel.UserSettings.UserSettingsManager.security=Products.ZenModel.UserSettings.UserSettingsManager-class.html#security,Variable Products.ZenModel.WinService.WinService.security=Products.ZenModel.WinService.WinService-class.html#security,Variable Products.ZenModel.WinServiceClass.WinServiceClass.security=Products.ZenModel.WinServiceClass.WinServiceClass-class.html#security,Variable Products.ZenModel.ZDeviceLoader.ZDeviceLoader.security=Products.ZenModel.ZDeviceLoader.ZDeviceLoader-class.html#security,Variable Products.ZenModel.ZenMenu.ZenMenu.security=Products.ZenModel.ZenMenu.ZenMenu-class.html#security,Variable Products.ZenModel.ZenMenuItem.ZenMenuItem.security=Products.ZenModel.ZenMenuItem.ZenMenuItem-class.html#security,Variable Products.ZenModel.ZenMenuable.ZenMenuable.security=Products.ZenModel.ZenMenuable.ZenMenuable-class.html#security,Variable Products.ZenModel.ZenModelBase.ZenModelBase.security=Products.ZenModel.ZenModelBase.ZenModelBase-class.html#security,Variable Products.ZenModel.ZenModelItem.ZenModelItem.security=Products.ZenModel.ZenModelItem.ZenModelItem-class.html#security,Variable Products.ZenModel.ZenModelRM.ZenModelRM.security=Products.ZenModel.ZenModelRM.ZenModelRM-class.html#security,Variable Products.ZenModel.ZenPack.ZenPack.security=Products.ZenModel.ZenPack.ZenPack-class.html#security,Variable Products.ZenModel.ZenPackManager.ZenPackManager.security=Products.ZenModel.ZenPackManager.ZenPackManager-class.html#security,Variable Products.ZenModel.ZenPacker.ZenPacker.security=Products.ZenModel.ZenPacker.ZenPacker-class.html#security,Variable Products.ZenModel.ZenossInfo.ZenossInfo.security=Products.ZenModel.ZenossInfo.ZenossInfo-class.html#security,Variable Products.ZenModel.ZentinelPortal.ZentinelPortal.security=Products.ZenModel.ZentinelPortal.ZentinelPortal-class.html#security,Variable Products.ZenRRD.RRDToolItem.RRDToolItem.security=Products.ZenRRD.RRDToolItem.RRDToolItem-class.html#security,Variable Products.ZenRRD.RenderServer.RenderServer.security=Products.ZenRRD.RenderServer.RenderServer-class.html#security,Variable Products.ZenRelations.RelationshipManager.RelationshipManager.security=Products.ZenRelations.RelationshipManager.RelationshipManager-class.html#security,Variable Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.security=Products.ZenRelations.ToManyContRelationship.ToManyContRelationship-class.html#security,Variable Products.ZenRelations.ToManyRelationship.ToManyRelationship.security=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#security,Variable Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase.security=Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#security,Variable Products.ZenRelations.ToOneRelationship.ToOneRelationship.security=Products.ZenRelations.ToOneRelationship.ToOneRelationship-class.html#security,Variable Products.ZenRelations.ZenPropertyManager.ZenPropertyManager.security=Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#security,Variable Products.ZenReports.ReportServer.ReportServer.security=Products.ZenReports.ReportServer.ReportServer-class.html#security,Variable Products.ZenUtils.ObjectCache.ObjectCache.security=Products.ZenUtils.ObjectCache.ObjectCache-class.html#security,Variable Products.ZenUtils.PObjectCache.PObjectCache.security=Products.ZenUtils.PObjectCache.PObjectCache-class.html#security,Variable Products.ZenWidgets.ZenTableState.ZenTableState.security=Products.ZenWidgets.ZenTableState.ZenTableState-class.html#security"><a title="Products.ZenEvents.ActionRule.ActionRule.security
+Products.ZenEvents.ActionRuleWindow.ActionRuleWindow.security
+Products.ZenEvents.Availability.Availability.security
+Products.ZenEvents.BetterEventDetail.BetterEventDetail.security
+Products.ZenEvents.CustomEventView.CustomEventView.security
+Products.ZenEvents.EventClass.EventClass.security
+Products.ZenEvents.EventClassInst.EventClassInst.security
+Products.ZenEvents.EventCommand.EventCommand.security
+Products.ZenEvents.EventDetail.EventData.security
+Products.ZenEvents.EventDetail.EventDetail.security
+Products.ZenEvents.EventDetail.EventLog.security
+Products.ZenEvents.EventFilter.EventFilter.security
+Products.ZenEvents.EventManagerBase.EventManagerBase.security
+Products.ZenEvents.MySqlEventManager.MySqlEventManager.security
+Products.ZenEvents.ZEvent.ZEvent.security
+Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.security
+Products.ZenModel.BasicDataSource.BasicDataSource.security
+Products.ZenModel.Classifier.Classifier.security
+Products.ZenModel.ClassifierEntry.ClassifierEntry.security
+Products.ZenModel.Collection.Collection.security
+Products.ZenModel.CollectionItem.CollectionItem.security
+Products.ZenModel.Commandable.Commandable.security
+Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.security
+Products.ZenModel.DataRoot.DataRoot.security
+Products.ZenModel.Device.Device.security
+Products.ZenModel.DeviceClass.DeviceClass.security
+Products.ZenModel.DeviceComponent.DeviceComponent.security
+Products.ZenModel.DeviceHW.DeviceHW.security
+Products.ZenModel.DeviceOrganizer.DeviceOrganizer.security
+Products.ZenModel.DeviceReport.DeviceReport.security
+Products.ZenModel.DeviceReportClass.DeviceReportClass.security
+Products.ZenModel.DeviceResultInt.DeviceResultInt.security
+Products.ZenModel.EventView.EventView.security
+Products.ZenModel.FileSystem.FileSystem.security
+Products.ZenModel.GraphDefinition.GraphDefinition.security
+Products.ZenModel.GraphGroup.GraphGroup.security
+Products.ZenModel.GraphPoint.GraphPoint.security
+Products.ZenModel.GraphReport.GraphReport.security
+Products.ZenModel.GraphReportClass.GraphReportClass.security
+Products.ZenModel.GraphReportElement.GraphReportElement.security
+Products.ZenModel.Hardware.Hardware.security
+Products.ZenModel.IpAddress.IpAddress.security
+Products.ZenModel.IpInterface.IpInterface.security
+Products.ZenModel.IpNetwork.IpNetwork.security
+Products.ZenModel.IpRouteEntry.IpRouteEntry.security
+Products.ZenModel.IpService.IpService.security
+Products.ZenModel.IpServiceClass.IpServiceClass.security
+Products.ZenModel.LinkManager.security
+Products.ZenModel.Location.Location.security
+Products.ZenModel.MEProduct.MEProduct.security
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.security
+Products.ZenModel.MaintenanceWindowable.MaintenanceWindowable.security
+Products.ZenModel.Manufacturer.Manufacturer.security
+Products.ZenModel.MibModule.MibModule.security
+Products.ZenModel.MibOrganizer.MibOrganizer.security
+Products.ZenModel.MonitorClass.MonitorClass.security
+Products.ZenModel.MultiGraphReport.MultiGraphReport.security
+Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.security
+Products.ZenModel.NagiosCmd.NagiosCmd.security
+Products.ZenModel.OSProcess.OSProcess.security
+Products.ZenModel.OSProcessClass.OSProcessClass.security
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.security
+Products.ZenModel.OperatingSystem.OperatingSystem.security
+Products.ZenModel.Organizer.Organizer.security
+Products.ZenModel.PerformanceConf.PerformanceConf.security
+Products.ZenModel.ProductClass.ProductClass.security
+Products.ZenModel.RRDDataPoint.RRDDataPoint.security
+Products.ZenModel.RRDDataSource.RRDDataSource.security
+Products.ZenModel.RRDDataSource.SimpleRRDDataSource.security
+Products.ZenModel.RRDGraph.RRDGraph.security
+Products.ZenModel.RRDTemplate.RRDTemplate.security
+Products.ZenModel.RRDThreshold.RRDThreshold.security
+Products.ZenModel.Report.Report.security
+Products.ZenModel.ReportClass.ReportClass.security
+Products.ZenModel.Service.Service.security
+Products.ZenModel.ServiceClass.ServiceClass.security
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.security
+Products.ZenModel.Software.Software.security
+Products.ZenModel.System.System.security
+Products.ZenModel.ThresholdClass.ThresholdClass.security
+Products.ZenModel.UserCommand.UserCommand.security
+Products.ZenModel.UserSettings.GroupSettings.security
+Products.ZenModel.UserSettings.UserSettings.security
+Products.ZenModel.UserSettings.UserSettingsManager.security
+Products.ZenModel.WinService.WinService.security
+Products.ZenModel.WinServiceClass.WinServiceClass.security
+Products.ZenModel.ZDeviceLoader.ZDeviceLoader.security
+Products.ZenModel.ZenMenu.ZenMenu.security
+Products.ZenModel.ZenMenuItem.ZenMenuItem.security
+Products.ZenModel.ZenMenuable.ZenMenuable.security
+Products.ZenModel.ZenModelBase.ZenModelBase.security
+Products.ZenModel.ZenModelItem.ZenModelItem.security
+Products.ZenModel.ZenModelRM.ZenModelRM.security
+Products.ZenModel.ZenPack.ZenPack.security
+Products.ZenModel.ZenPackManager.ZenPackManager.security
+Products.ZenModel.ZenPacker.ZenPacker.security
+Products.ZenModel.ZenossInfo.ZenossInfo.security
+Products.ZenModel.ZentinelPortal.ZentinelPortal.security
+Products.ZenRRD.RRDToolItem.RRDToolItem.security
+Products.ZenRRD.RenderServer.RenderServer.security
+Products.ZenRelations.RelationshipManager.RelationshipManager.security
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.security
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.security
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase.security
+Products.ZenRelations.ToOneRelationship.ToOneRelationship.security
+Products.ZenRelations.ZenPropertyManager.ZenPropertyManager.security
+Products.ZenReports.ReportServer.ReportServer.security
+Products.ZenUtils.ObjectCache.ObjectCache.security
+Products.ZenUtils.PObjectCache.PObjectCache.security
+Products.ZenWidgets.ZenTableState.ZenTableState.security" class="py-name" href="#" onclick="return doclink('link-7', 'security', 'link-7');">security</a></tt> <tt class="py-op">=</tt> <tt class="py-name">ClassSecurityInfo</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt id="link-8" class="py-name"><a title="Products.ZenEvents.ActionRule.ActionRule.security
+Products.ZenEvents.ActionRuleWindow.ActionRuleWindow.security
+Products.ZenEvents.Availability.Availability.security
+Products.ZenEvents.BetterEventDetail.BetterEventDetail.security
+Products.ZenEvents.CustomEventView.CustomEventView.security
+Products.ZenEvents.EventClass.EventClass.security
+Products.ZenEvents.EventClassInst.EventClassInst.security
+Products.ZenEvents.EventCommand.EventCommand.security
+Products.ZenEvents.EventDetail.EventData.security
+Products.ZenEvents.EventDetail.EventDetail.security
+Products.ZenEvents.EventDetail.EventLog.security
+Products.ZenEvents.EventFilter.EventFilter.security
+Products.ZenEvents.EventManagerBase.EventManagerBase.security
+Products.ZenEvents.MySqlEventManager.MySqlEventManager.security
+Products.ZenEvents.ZEvent.ZEvent.security
+Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.security
+Products.ZenModel.BasicDataSource.BasicDataSource.security
+Products.ZenModel.Classifier.Classifier.security
+Products.ZenModel.ClassifierEntry.ClassifierEntry.security
+Products.ZenModel.Collection.Collection.security
+Products.ZenModel.CollectionItem.CollectionItem.security
+Products.ZenModel.Commandable.Commandable.security
+Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.security
+Products.ZenModel.DataRoot.DataRoot.security
+Products.ZenModel.Device.Device.security
+Products.ZenModel.DeviceClass.DeviceClass.security
+Products.ZenModel.DeviceComponent.DeviceComponent.security
+Products.ZenModel.DeviceHW.DeviceHW.security
+Products.ZenModel.DeviceOrganizer.DeviceOrganizer.security
+Products.ZenModel.DeviceReport.DeviceReport.security
+Products.ZenModel.DeviceReportClass.DeviceReportClass.security
+Products.ZenModel.DeviceResultInt.DeviceResultInt.security
+Products.ZenModel.EventView.EventView.security
+Products.ZenModel.FileSystem.FileSystem.security
+Products.ZenModel.GraphDefinition.GraphDefinition.security
+Products.ZenModel.GraphGroup.GraphGroup.security
+Products.ZenModel.GraphPoint.GraphPoint.security
+Products.ZenModel.GraphReport.GraphReport.security
+Products.ZenModel.GraphReportClass.GraphReportClass.security
+Products.ZenModel.GraphReportElement.GraphReportElement.security
+Products.ZenModel.Hardware.Hardware.security
+Products.ZenModel.IpAddress.IpAddress.security
+Products.ZenModel.IpInterface.IpInterface.security
+Products.ZenModel.IpNetwork.IpNetwork.security
+Products.ZenModel.IpRouteEntry.IpRouteEntry.security
+Products.ZenModel.IpService.IpService.security
+Products.ZenModel.IpServiceClass.IpServiceClass.security
+Products.ZenModel.LinkManager.security
+Products.ZenModel.Location.Location.security
+Products.ZenModel.MEProduct.MEProduct.security
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.security
+Products.ZenModel.MaintenanceWindowable.MaintenanceWindowable.security
+Products.ZenModel.Manufacturer.Manufacturer.security
+Products.ZenModel.MibModule.MibModule.security
+Products.ZenModel.MibOrganizer.MibOrganizer.security
+Products.ZenModel.MonitorClass.MonitorClass.security
+Products.ZenModel.MultiGraphReport.MultiGraphReport.security
+Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.security
+Products.ZenModel.NagiosCmd.NagiosCmd.security
+Products.ZenModel.OSProcess.OSProcess.security
+Products.ZenModel.OSProcessClass.OSProcessClass.security
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.security
+Products.ZenModel.OperatingSystem.OperatingSystem.security
+Products.ZenModel.Organizer.Organizer.security
+Products.ZenModel.PerformanceConf.PerformanceConf.security
+Products.ZenModel.ProductClass.ProductClass.security
+Products.ZenModel.RRDDataPoint.RRDDataPoint.security
+Products.ZenModel.RRDDataSource.RRDDataSource.security
+Products.ZenModel.RRDDataSource.SimpleRRDDataSource.security
+Products.ZenModel.RRDGraph.RRDGraph.security
+Products.ZenModel.RRDTemplate.RRDTemplate.security
+Products.ZenModel.RRDThreshold.RRDThreshold.security
+Products.ZenModel.Report.Report.security
+Products.ZenModel.ReportClass.ReportClass.security
+Products.ZenModel.Service.Service.security
+Products.ZenModel.ServiceClass.ServiceClass.security
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.security
+Products.ZenModel.Software.Software.security
+Products.ZenModel.System.System.security
+Products.ZenModel.ThresholdClass.ThresholdClass.security
+Products.ZenModel.UserCommand.UserCommand.security
+Products.ZenModel.UserSettings.GroupSettings.security
+Products.ZenModel.UserSettings.UserSettings.security
+Products.ZenModel.UserSettings.UserSettingsManager.security
+Products.ZenModel.WinService.WinService.security
+Products.ZenModel.WinServiceClass.WinServiceClass.security
+Products.ZenModel.ZDeviceLoader.ZDeviceLoader.security
+Products.ZenModel.ZenMenu.ZenMenu.security
+Products.ZenModel.ZenMenuItem.ZenMenuItem.security
+Products.ZenModel.ZenMenuable.ZenMenuable.security
+Products.ZenModel.ZenModelBase.ZenModelBase.security
+Products.ZenModel.ZenModelItem.ZenModelItem.security
+Products.ZenModel.ZenModelRM.ZenModelRM.security
+Products.ZenModel.ZenPack.ZenPack.security
+Products.ZenModel.ZenPackManager.ZenPackManager.security
+Products.ZenModel.ZenPacker.ZenPacker.security
+Products.ZenModel.ZenossInfo.ZenossInfo.security
+Products.ZenModel.ZentinelPortal.ZentinelPortal.security
+Products.ZenRRD.RRDToolItem.RRDToolItem.security
+Products.ZenRRD.RenderServer.RenderServer.security
+Products.ZenRelations.RelationshipManager.RelationshipManager.security
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.security
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.security
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase.security
+Products.ZenRelations.ToOneRelationship.ToOneRelationship.security
+Products.ZenRelations.ZenPropertyManager.ZenPropertyManager.security
+Products.ZenReports.ReportServer.ReportServer.security
+Products.ZenUtils.ObjectCache.ObjectCache.security
+Products.ZenUtils.PObjectCache.PObjectCache.security
+Products.ZenWidgets.ZenTableState.ZenTableState.security" class="py-name" href="#" onclick="return doclink('link-8', 'security', 'link-7');">security</a></tt><tt class="py-op">.</tt><tt class="py-name">declareProtected</tt><tt class="py-op">(</tt><tt id="link-9" class="py-name" targets="Variable Products.ZenModel.ZenossSecurity.ZEN_ADMINISTRATORS_VIEW=Products.ZenModel.ZenossSecurity-module.html#ZEN_ADMINISTRATORS_VIEW"><a title="Products.ZenModel.ZenossSecurity.ZEN_ADMINISTRATORS_VIEW" class="py-name" href="#" onclick="return doclink('link-9', 'ZEN_ADMINISTRATORS_VIEW', 'link-9');">ZEN_ADMINISTRATORS_VIEW</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-string">'getAdministrativeRoles'</tt><tt class="py-op">)</tt> </tt>
+<a name="AdministrativeRoleable.getAdministrativeRoles"></a><div id="AdministrativeRoleable.getAdministrativeRoles-def"><a name="L32"></a><tt class="py-lineno"> 32</tt> <a class="py-toggle" href="#" id="AdministrativeRoleable.getAdministrativeRoles-toggle" onclick="return toggle('AdministrativeRoleable.getAdministrativeRoles');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html#getAdministrativeRoles">getAdministrativeRoles</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AdministrativeRoleable.getAdministrativeRoles-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AdministrativeRoleable.getAdministrativeRoles-expanded"><a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-docstring">"Get the Admin Roles on this device"</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">adminRoles</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method Products.ZenRelations.ToManyRelationship.ToManyRelationship.objectValuesAll()=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#objectValuesAll"><a title="Products.ZenRelations.ToManyRelationship.ToManyRelationship.objectValuesAll" class="py-name" href="#" onclick="return doclink('link-10', 'objectValuesAll', 'link-10');">objectValuesAll</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt id="link-11" class="py-name"><a title="Products.ZenEvents.ActionRule.ActionRule.security
+Products.ZenEvents.ActionRuleWindow.ActionRuleWindow.security
+Products.ZenEvents.Availability.Availability.security
+Products.ZenEvents.BetterEventDetail.BetterEventDetail.security
+Products.ZenEvents.CustomEventView.CustomEventView.security
+Products.ZenEvents.EventClass.EventClass.security
+Products.ZenEvents.EventClassInst.EventClassInst.security
+Products.ZenEvents.EventCommand.EventCommand.security
+Products.ZenEvents.EventDetail.EventData.security
+Products.ZenEvents.EventDetail.EventDetail.security
+Products.ZenEvents.EventDetail.EventLog.security
+Products.ZenEvents.EventFilter.EventFilter.security
+Products.ZenEvents.EventManagerBase.EventManagerBase.security
+Products.ZenEvents.MySqlEventManager.MySqlEventManager.security
+Products.ZenEvents.ZEvent.ZEvent.security
+Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.security
+Products.ZenModel.BasicDataSource.BasicDataSource.security
+Products.ZenModel.Classifier.Classifier.security
+Products.ZenModel.ClassifierEntry.ClassifierEntry.security
+Products.ZenModel.Collection.Collection.security
+Products.ZenModel.CollectionItem.CollectionItem.security
+Products.ZenModel.Commandable.Commandable.security
+Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.security
+Products.ZenModel.DataRoot.DataRoot.security
+Products.ZenModel.Device.Device.security
+Products.ZenModel.DeviceClass.DeviceClass.security
+Products.ZenModel.DeviceComponent.DeviceComponent.security
+Products.ZenModel.DeviceHW.DeviceHW.security
+Products.ZenModel.DeviceOrganizer.DeviceOrganizer.security
+Products.ZenModel.DeviceReport.DeviceReport.security
+Products.ZenModel.DeviceReportClass.DeviceReportClass.security
+Products.ZenModel.DeviceResultInt.DeviceResultInt.security
+Products.ZenModel.EventView.EventView.security
+Products.ZenModel.FileSystem.FileSystem.security
+Products.ZenModel.GraphDefinition.GraphDefinition.security
+Products.ZenModel.GraphGroup.GraphGroup.security
+Products.ZenModel.GraphPoint.GraphPoint.security
+Products.ZenModel.GraphReport.GraphReport.security
+Products.ZenModel.GraphReportClass.GraphReportClass.security
+Products.ZenModel.GraphReportElement.GraphReportElement.security
+Products.ZenModel.Hardware.Hardware.security
+Products.ZenModel.IpAddress.IpAddress.security
+Products.ZenModel.IpInterface.IpInterface.security
+Products.ZenModel.IpNetwork.IpNetwork.security
+Products.ZenModel.IpRouteEntry.IpRouteEntry.security
+Products.ZenModel.IpService.IpService.security
+Products.ZenModel.IpServiceClass.IpServiceClass.security
+Products.ZenModel.LinkManager.security
+Products.ZenModel.Location.Location.security
+Products.ZenModel.MEProduct.MEProduct.security
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.security
+Products.ZenModel.MaintenanceWindowable.MaintenanceWindowable.security
+Products.ZenModel.Manufacturer.Manufacturer.security
+Products.ZenModel.MibModule.MibModule.security
+Products.ZenModel.MibOrganizer.MibOrganizer.security
+Products.ZenModel.MonitorClass.MonitorClass.security
+Products.ZenModel.MultiGraphReport.MultiGraphReport.security
+Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.security
+Products.ZenModel.NagiosCmd.NagiosCmd.security
+Products.ZenModel.OSProcess.OSProcess.security
+Products.ZenModel.OSProcessClass.OSProcessClass.security
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.security
+Products.ZenModel.OperatingSystem.OperatingSystem.security
+Products.ZenModel.Organizer.Organizer.security
+Products.ZenModel.PerformanceConf.PerformanceConf.security
+Products.ZenModel.ProductClass.ProductClass.security
+Products.ZenModel.RRDDataPoint.RRDDataPoint.security
+Products.ZenModel.RRDDataSource.RRDDataSource.security
+Products.ZenModel.RRDDataSource.SimpleRRDDataSource.security
+Products.ZenModel.RRDGraph.RRDGraph.security
+Products.ZenModel.RRDTemplate.RRDTemplate.security
+Products.ZenModel.RRDThreshold.RRDThreshold.security
+Products.ZenModel.Report.Report.security
+Products.ZenModel.ReportClass.ReportClass.security
+Products.ZenModel.Service.Service.security
+Products.ZenModel.ServiceClass.ServiceClass.security
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.security
+Products.ZenModel.Software.Software.security
+Products.ZenModel.System.System.security
+Products.ZenModel.ThresholdClass.ThresholdClass.security
+Products.ZenModel.UserCommand.UserCommand.security
+Products.ZenModel.UserSettings.GroupSettings.security
+Products.ZenModel.UserSettings.UserSettings.security
+Products.ZenModel.UserSettings.UserSettingsManager.security
+Products.ZenModel.WinService.WinService.security
+Products.ZenModel.WinServiceClass.WinServiceClass.security
+Products.ZenModel.ZDeviceLoader.ZDeviceLoader.security
+Products.ZenModel.ZenMenu.ZenMenu.security
+Products.ZenModel.ZenMenuItem.ZenMenuItem.security
+Products.ZenModel.ZenMenuable.ZenMenuable.security
+Products.ZenModel.ZenModelBase.ZenModelBase.security
+Products.ZenModel.ZenModelItem.ZenModelItem.security
+Products.ZenModel.ZenModelRM.ZenModelRM.security
+Products.ZenModel.ZenPack.ZenPack.security
+Products.ZenModel.ZenPackManager.ZenPackManager.security
+Products.ZenModel.ZenPacker.ZenPacker.security
+Products.ZenModel.ZenossInfo.ZenossInfo.security
+Products.ZenModel.ZentinelPortal.ZentinelPortal.security
+Products.ZenRRD.RRDToolItem.RRDToolItem.security
+Products.ZenRRD.RenderServer.RenderServer.security
+Products.ZenRelations.RelationshipManager.RelationshipManager.security
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.security
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.security
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase.security
+Products.ZenRelations.ToOneRelationship.ToOneRelationship.security
+Products.ZenRelations.ZenPropertyManager.ZenPropertyManager.security
+Products.ZenReports.ReportServer.ReportServer.security
+Products.ZenUtils.ObjectCache.ObjectCache.security
+Products.ZenUtils.PObjectCache.PObjectCache.security
+Products.ZenWidgets.ZenTableState.ZenTableState.security" class="py-name" href="#" onclick="return doclink('link-11', 'security', 'link-7');">security</a></tt><tt class="py-op">.</tt><tt class="py-name">declareProtected</tt><tt class="py-op">(</tt><tt id="link-12" class="py-name" targets="Variable Products.ZenModel.ZenossSecurity.ZEN_ADMINISTRATORS_EDIT=Products.ZenModel.ZenossSecurity-module.html#ZEN_ADMINISTRATORS_EDIT"><a title="Products.ZenModel.ZenossSecurity.ZEN_ADMINISTRATORS_EDIT" class="py-name" href="#" onclick="return doclink('link-12', 'ZEN_ADMINISTRATORS_EDIT', 'link-12');">ZEN_ADMINISTRATORS_EDIT</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-string">'manage_addAdministrativeRole'</tt><tt class="py-op">)</tt> </tt>
+<a name="AdministrativeRoleable.manage_addAdministrativeRole"></a><div id="AdministrativeRoleable.manage_addAdministrativeRole-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="AdministrativeRoleable.manage_addAdministrativeRole-toggle" onclick="return toggle('AdministrativeRoleable.manage_addAdministrativeRole');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html#manage_addAdministrativeRole">manage_addAdministrativeRole</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">newId</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">REQUEST</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AdministrativeRoleable.manage_addAdministrativeRole-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AdministrativeRoleable.manage_addAdministrativeRole-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-docstring">"Add a Admin Role to this device"</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">us</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ZenUsers</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Products.ZenModel.UserSettings.UserSettingsManager.getUserSettings()=Products.ZenModel.UserSettings.UserSettingsManager-class.html#getUserSettings"><a title="Products.ZenModel.UserSettings.UserSettingsManager.getUserSettings" class="py-name" href="#" onclick="return doclink('link-13', 'getUserSettings', 'link-13');">getUserSettings</a></tt><tt class="py-op">(</tt><tt class="py-name">newId</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt id="link-14" class="py-name"><a title="Products.ZenModel.AdministrativeRole
+Products.ZenModel.AdministrativeRole.AdministrativeRole" class="py-name" href="#" onclick="return doclink('link-14', 'AdministrativeRole', 'link-2');">AdministrativeRole</a></tt><tt class="py-op">(</tt><tt class="py-name">us</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.setAdminLocalRoles()=Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html#setAdminLocalRoles"><a title="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.setAdminLocalRoles" class="py-name" href="#" onclick="return doclink('link-15', 'setAdminLocalRoles', 'link-15');">setAdminLocalRoles</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-16" class="py-name" targets="Variable Products.ZenRelations.ZItem.ZItem.REQUEST=Products.ZenRelations.ZItem.ZItem-class.html#REQUEST"><a title="Products.ZenRelations.ZItem.ZItem.REQUEST" class="py-name" href="#" onclick="return doclink('link-16', 'REQUEST', 'link-16');">REQUEST</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">us</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">                <tt id="link-17" class="py-name"><a title="Products.ZenWidgets.browser.messaging
+Products.ZenWidgets.messaging" class="py-name" href="#" onclick="return doclink('link-17', 'messaging', 'link-6');">messaging</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Class Products.ZenWidgets.interfaces.IMessageSender=Products.ZenWidgets.interfaces.IMessageSender-class.html"><a title="Products.ZenWidgets.interfaces.IMessageSender" class="py-name" href="#" onclick="return doclink('link-18', 'IMessageSender', 'link-18');">IMessageSender</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method Products.ZenWidgets.interfaces.IMessageSender.sendToBrowser()=Products.ZenWidgets.interfaces.IMessageSender-class.html#sendToBrowser,Method Products.ZenWidgets.messaging.MessageSender.sendToBrowser()=Products.ZenWidgets.messaging.MessageSender-class.html#sendToBrowser,Method Products.ZenWidgets.messaging.ScriptMessageSender.sendToBrowser()=Products.ZenWidgets.messaging.ScriptMessageSender-class.html#sendToBrowser"><a title="Products.ZenWidgets.interfaces.IMessageSender.sendToBrowser
+Products.ZenWidgets.messaging.MessageSender.sendToBrowser
+Products.ZenWidgets.messaging.ScriptMessageSender.sendToBrowser" class="py-name" href="#" onclick="return doclink('link-19', 'sendToBrowser', 'link-19');">sendToBrowser</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                    <tt class="py-string">'Admin Role Added'</tt><tt class="py-op">,</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">                    <tt class="py-string">'The %s administrative role has been added.'</tt> <tt class="py-op">%</tt> <tt class="py-name">newId</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">                <tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method Products.ZenModel.ZenModelBase.ZenModelBase.callZenScreen()=Products.ZenModel.ZenModelBase.ZenModelBase-class.html#callZenScreen"><a title="Products.ZenModel.ZenModelBase.ZenModelBase.callZenScreen" class="py-name" href="#" onclick="return doclink('link-20', 'callZenScreen', 'link-20');">callZenScreen</a></tt><tt class="py-op">(</tt><tt id="link-21" class="py-name"><a title="Products.ZenRelations.ZItem.ZItem.REQUEST" class="py-name" href="#" onclick="return doclink('link-21', 'REQUEST', 'link-16');">REQUEST</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt id="link-22" class="py-name"><a title="Products.ZenEvents.ActionRule.ActionRule.security
+Products.ZenEvents.ActionRuleWindow.ActionRuleWindow.security
+Products.ZenEvents.Availability.Availability.security
+Products.ZenEvents.BetterEventDetail.BetterEventDetail.security
+Products.ZenEvents.CustomEventView.CustomEventView.security
+Products.ZenEvents.EventClass.EventClass.security
+Products.ZenEvents.EventClassInst.EventClassInst.security
+Products.ZenEvents.EventCommand.EventCommand.security
+Products.ZenEvents.EventDetail.EventData.security
+Products.ZenEvents.EventDetail.EventDetail.security
+Products.ZenEvents.EventDetail.EventLog.security
+Products.ZenEvents.EventFilter.EventFilter.security
+Products.ZenEvents.EventManagerBase.EventManagerBase.security
+Products.ZenEvents.MySqlEventManager.MySqlEventManager.security
+Products.ZenEvents.ZEvent.ZEvent.security
+Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.security
+Products.ZenModel.BasicDataSource.BasicDataSource.security
+Products.ZenModel.Classifier.Classifier.security
+Products.ZenModel.ClassifierEntry.ClassifierEntry.security
+Products.ZenModel.Collection.Collection.security
+Products.ZenModel.CollectionItem.CollectionItem.security
+Products.ZenModel.Commandable.Commandable.security
+Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.security
+Products.ZenModel.DataRoot.DataRoot.security
+Products.ZenModel.Device.Device.security
+Products.ZenModel.DeviceClass.DeviceClass.security
+Products.ZenModel.DeviceComponent.DeviceComponent.security
+Products.ZenModel.DeviceHW.DeviceHW.security
+Products.ZenModel.DeviceOrganizer.DeviceOrganizer.security
+Products.ZenModel.DeviceReport.DeviceReport.security
+Products.ZenModel.DeviceReportClass.DeviceReportClass.security
+Products.ZenModel.DeviceResultInt.DeviceResultInt.security
+Products.ZenModel.EventView.EventView.security
+Products.ZenModel.FileSystem.FileSystem.security
+Products.ZenModel.GraphDefinition.GraphDefinition.security
+Products.ZenModel.GraphGroup.GraphGroup.security
+Products.ZenModel.GraphPoint.GraphPoint.security
+Products.ZenModel.GraphReport.GraphReport.security
+Products.ZenModel.GraphReportClass.GraphReportClass.security
+Products.ZenModel.GraphReportElement.GraphReportElement.security
+Products.ZenModel.Hardware.Hardware.security
+Products.ZenModel.IpAddress.IpAddress.security
+Products.ZenModel.IpInterface.IpInterface.security
+Products.ZenModel.IpNetwork.IpNetwork.security
+Products.ZenModel.IpRouteEntry.IpRouteEntry.security
+Products.ZenModel.IpService.IpService.security
+Products.ZenModel.IpServiceClass.IpServiceClass.security
+Products.ZenModel.LinkManager.security
+Products.ZenModel.Location.Location.security
+Products.ZenModel.MEProduct.MEProduct.security
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.security
+Products.ZenModel.MaintenanceWindowable.MaintenanceWindowable.security
+Products.ZenModel.Manufacturer.Manufacturer.security
+Products.ZenModel.MibModule.MibModule.security
+Products.ZenModel.MibOrganizer.MibOrganizer.security
+Products.ZenModel.MonitorClass.MonitorClass.security
+Products.ZenModel.MultiGraphReport.MultiGraphReport.security
+Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.security
+Products.ZenModel.NagiosCmd.NagiosCmd.security
+Products.ZenModel.OSProcess.OSProcess.security
+Products.ZenModel.OSProcessClass.OSProcessClass.security
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.security
+Products.ZenModel.OperatingSystem.OperatingSystem.security
+Products.ZenModel.Organizer.Organizer.security
+Products.ZenModel.PerformanceConf.PerformanceConf.security
+Products.ZenModel.ProductClass.ProductClass.security
+Products.ZenModel.RRDDataPoint.RRDDataPoint.security
+Products.ZenModel.RRDDataSource.RRDDataSource.security
+Products.ZenModel.RRDDataSource.SimpleRRDDataSource.security
+Products.ZenModel.RRDGraph.RRDGraph.security
+Products.ZenModel.RRDTemplate.RRDTemplate.security
+Products.ZenModel.RRDThreshold.RRDThreshold.security
+Products.ZenModel.Report.Report.security
+Products.ZenModel.ReportClass.ReportClass.security
+Products.ZenModel.Service.Service.security
+Products.ZenModel.ServiceClass.ServiceClass.security
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.security
+Products.ZenModel.Software.Software.security
+Products.ZenModel.System.System.security
+Products.ZenModel.ThresholdClass.ThresholdClass.security
+Products.ZenModel.UserCommand.UserCommand.security
+Products.ZenModel.UserSettings.GroupSettings.security
+Products.ZenModel.UserSettings.UserSettings.security
+Products.ZenModel.UserSettings.UserSettingsManager.security
+Products.ZenModel.WinService.WinService.security
+Products.ZenModel.WinServiceClass.WinServiceClass.security
+Products.ZenModel.ZDeviceLoader.ZDeviceLoader.security
+Products.ZenModel.ZenMenu.ZenMenu.security
+Products.ZenModel.ZenMenuItem.ZenMenuItem.security
+Products.ZenModel.ZenMenuable.ZenMenuable.security
+Products.ZenModel.ZenModelBase.ZenModelBase.security
+Products.ZenModel.ZenModelItem.ZenModelItem.security
+Products.ZenModel.ZenModelRM.ZenModelRM.security
+Products.ZenModel.ZenPack.ZenPack.security
+Products.ZenModel.ZenPackManager.ZenPackManager.security
+Products.ZenModel.ZenPacker.ZenPacker.security
+Products.ZenModel.ZenossInfo.ZenossInfo.security
+Products.ZenModel.ZentinelPortal.ZentinelPortal.security
+Products.ZenRRD.RRDToolItem.RRDToolItem.security
+Products.ZenRRD.RenderServer.RenderServer.security
+Products.ZenRelations.RelationshipManager.RelationshipManager.security
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.security
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.security
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase.security
+Products.ZenRelations.ToOneRelationship.ToOneRelationship.security
+Products.ZenRelations.ZenPropertyManager.ZenPropertyManager.security
+Products.ZenReports.ReportServer.ReportServer.security
+Products.ZenUtils.ObjectCache.ObjectCache.security
+Products.ZenUtils.PObjectCache.PObjectCache.security
+Products.ZenWidgets.ZenTableState.ZenTableState.security" class="py-name" href="#" onclick="return doclink('link-22', 'security', 'link-7');">security</a></tt><tt class="py-op">.</tt><tt class="py-name">declareProtected</tt><tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="Products.ZenModel.ZenossSecurity.ZEN_ADMINISTRATORS_EDIT" class="py-name" href="#" onclick="return doclink('link-23', 'ZEN_ADMINISTRATORS_EDIT', 'link-12');">ZEN_ADMINISTRATORS_EDIT</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-string">'manage_editAdministrativeRoles'</tt><tt class="py-op">)</tt> </tt>
+<a name="AdministrativeRoleable.manage_editAdministrativeRoles"></a><div id="AdministrativeRoleable.manage_editAdministrativeRoles-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="AdministrativeRoleable.manage_editAdministrativeRoles-toggle" onclick="return toggle('AdministrativeRoleable.manage_editAdministrativeRoles');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html#manage_editAdministrativeRoles">manage_editAdministrativeRoles</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">ids</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-param">role</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt>  </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                                        <tt class="py-param">level</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-param">REQUEST</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AdministrativeRoleable.manage_editAdministrativeRoles-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AdministrativeRoleable.manage_editAdministrativeRoles-expanded"><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-docstring">"""Edit list of admin roles.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-24" class="py-name" targets="Variable Products.ZenEvents.CustomEventView.CustomEventView.type=Products.ZenEvents.CustomEventView.CustomEventView-class.html#type,Variable Products.ZenEvents.WhereClause.Compare.type=Products.ZenEvents.WhereClause.Compare-class.html#type,Variable Products.ZenEvents.WhereClause.Enumerated.type=Products.ZenEvents.WhereClause.Enumerated-class.html#type,Variable Products.ZenEvents.WhereClause.EventClass.type=Products.ZenEvents.WhereClause.EventClass-class.html#type,Variable Products.ZenEvents.WhereClause.Select.type=Products.ZenEvents.WhereClause.Select-class.html#type,Variable Products.ZenEvents.WhereClause.Text.type=Products.ZenEvents.WhereClause.Text-class.html#type,Variable Products.ZenEvents.WhereClause.WhereJavaScript.type=Products.ZenEvents.WhereClause.WhereJavaScript-class.html#type,Variable Products.ZenModel.Fan.Fan.type=Products.ZenModel.Fan.Fan-class.html#type,Variable Products.ZenModel.FileSystem.FileSystem.type=Products.ZenModel.FileSystem.FileSystem-class.html#type,Variable Products.ZenModel.IpInterface.IpInterface.type=Products.ZenModel.IpInterface.IpInterface-class.html#type,Variable Products.ZenModel.PowerSupply.PowerSupply.type=Products.ZenModel.PowerSupply.PowerSupply-class.html#type,Method Products.ZenModel.ProductClass.ProductClass.type()=Products.ZenModel.ProductClass.ProductClass-class.html#type,Method Products.ZenModel.SoftwareClass.SoftwareClass.type()=Products.ZenModel.SoftwareClass.SoftwareClass-class.html#type"><a title="Products.ZenEvents.CustomEventView.CustomEventView.type
+Products.ZenEvents.WhereClause.Compare.type
+Products.ZenEvents.WhereClause.Enumerated.type
+Products.ZenEvents.WhereClause.EventClass.type
+Products.ZenEvents.WhereClause.Select.type
+Products.ZenEvents.WhereClause.Text.type
+Products.ZenEvents.WhereClause.WhereJavaScript.type
+Products.ZenModel.Fan.Fan.type
+Products.ZenModel.FileSystem.FileSystem.type
+Products.ZenModel.IpInterface.IpInterface.type
+Products.ZenModel.PowerSupply.PowerSupply.type
+Products.ZenModel.ProductClass.ProductClass.type
+Products.ZenModel.SoftwareClass.SoftwareClass.type" class="py-name" href="#" onclick="return doclink('link-24', 'type', 'link-24');">type</a></tt><tt class="py-op">(</tt><tt class="py-name">ids</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt id="link-25" class="py-name"><a title="Products.ZenModel.MibModule.MibModule.types" class="py-name" href="#" onclick="return doclink('link-25', 'types', 'link-0');">types</a></tt><tt class="py-op">.</tt><tt class="py-name">StringTypes</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">            <tt class="py-name">ids</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">ids</tt><tt class="py-op">]</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt id="link-26" class="py-name" targets="Variable Products.ZenModel.AdministrativeRole.AdministrativeRole.role=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#role"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.role" class="py-name" href="#" onclick="return doclink('link-26', 'role', 'link-26');">role</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-27" class="py-name"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.role" class="py-name" href="#" onclick="return doclink('link-27', 'role', 'link-26');">role</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">            <tt id="link-28" class="py-name" targets="Variable Products.ZenModel.AdministrativeRole.AdministrativeRole.level=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#level"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.level" class="py-name" href="#" onclick="return doclink('link-28', 'level', 'link-28');">level</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-29" class="py-name"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.level" class="py-name" href="#" onclick="return doclink('link-29', 'level', 'link-28');">level</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt><tt class="py-op">,</tt> <tt id="link-30" class="py-name" targets="Variable Products.ZenHub.services.DiscoverService.IpNetProxy.id=Products.ZenHub.services.DiscoverService.IpNetProxy-class.html#id,Method Products.ZenModel.browser.DeviceList.DeviceBatch.id()=Products.ZenModel.browser.DeviceList.DeviceBatch-class.html#id,Variable Products.ZenRRD.zencommand.DataPointConfig.id=Products.ZenRRD.zencommand.DataPointConfig-class.html#id,Variable Products.ZenRelations.ZItem.ZItem.id=Products.ZenRelations.ZItem.ZItem-class.html#id"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-30', 'id', 'link-30');">id</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">ids</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">            <tt class="py-name">ar</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">adminRoles</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Method Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._getOb()=Products.ZenRelations.ToManyContRelationship.ToManyContRelationship-class.html#_getOb,Method Products.ZenRelations.ToManyRelationship.ToManyRelationship._getOb()=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_getOb,Method Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._getOb()=Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#_getOb"><a title="Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._getOb
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._getOb
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._getOb" class="py-name" href="#" onclick="return doclink('link-31', '_getOb', 'link-31');">_getOb</a></tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-32', 'id', 'link-30');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-name">ar</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Method Products.ZenHub.HubService.HubService.update()=Products.ZenHub.HubService.HubService-class.html#update,Method Products.ZenHub.services.CommandConfig.CommandConfig.update()=Products.ZenHub.services.CommandConfig.CommandConfig-class.html#update,Method Products.ZenHub.services.PerformanceConfig.PerformanceConfig.update()=Products.ZenHub.services.PerformanceConfig.PerformanceConfig-class.html#update,Method Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.update()=Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#update,Method Products.ZenHub.services.StatusConfig.StatusConfig.update()=Products.ZenHub.services.StatusConfig.StatusConfig-class.html#update,Method Products.ZenHub.zenhub.WorkerInterceptor.update()=Products.ZenHub.zenhub.WorkerInterceptor-class.html#update,Method Products.ZenModel.AdministrativeRole.AdministrativeRole.update()=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#update,Method Products.ZenRRD.Thresholds.Thresholds.update()=Products.ZenRRD.Thresholds.Thresholds-class.html#update,Method Products.ZenRRD.zenperfsnmp.OidData.update()=Products.ZenRRD.zenperfsnmp.OidData-class.html#update,Method Products.ZenRRD.zenprocess.DeviceStats.update()=Products.ZenRRD.zenprocess.DeviceStats-class.html#update,Method Products.ZenRRD.zenprocess.ProcessStats.update()=Products.ZenRRD.zenprocess.ProcessStats-class.html#update,Method Products.ZenUtils.Map.Locked.update()=Products.ZenUtils.Map.Locked-class.html#update,Method Products.ZenUtils.Map.Timed.update()=Products.ZenUtils.Map.Timed-class.html#update"><a title="Products.ZenHub.HubService.HubService.update
+Products.ZenHub.services.CommandConfig.CommandConfig.update
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig.update
+Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.update
+Products.ZenHub.services.StatusConfig.StatusConfig.update
+Products.ZenHub.zenhub.WorkerInterceptor.update
+Products.ZenModel.AdministrativeRole.AdministrativeRole.update
+Products.ZenRRD.Thresholds.Thresholds.update
+Products.ZenRRD.zenperfsnmp.OidData.update
+Products.ZenRRD.zenprocess.DeviceStats.update
+Products.ZenRRD.zenprocess.ProcessStats.update
+Products.ZenUtils.Map.Locked.update
+Products.ZenUtils.Map.Timed.update" class="py-name" href="#" onclick="return doclink('link-33', 'update', 'link-33');">update</a></tt><tt class="py-op">(</tt><tt id="link-34" class="py-name"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.role" class="py-name" href="#" onclick="return doclink('link-34', 'role', 'link-26');">role</a></tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt id="link-35" class="py-name"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.level" class="py-name" href="#" onclick="return doclink('link-35', 'level', 'link-28');">level</a></tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.setAdminLocalRoles" class="py-name" href="#" onclick="return doclink('link-36', 'setAdminLocalRoles', 'link-15');">setAdminLocalRoles</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-37" class="py-name"><a title="Products.ZenRelations.ZItem.ZItem.REQUEST" class="py-name" href="#" onclick="return doclink('link-37', 'REQUEST', 'link-16');">REQUEST</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">            <tt id="link-38" class="py-name"><a title="Products.ZenWidgets.browser.messaging
+Products.ZenWidgets.messaging" class="py-name" href="#" onclick="return doclink('link-38', 'messaging', 'link-6');">messaging</a></tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="Products.ZenWidgets.interfaces.IMessageSender" class="py-name" href="#" onclick="return doclink('link-39', 'IMessageSender', 'link-18');">IMessageSender</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="Products.ZenWidgets.interfaces.IMessageSender.sendToBrowser
+Products.ZenWidgets.messaging.MessageSender.sendToBrowser
+Products.ZenWidgets.messaging.ScriptMessageSender.sendToBrowser" class="py-name" href="#" onclick="return doclink('link-40', 'sendToBrowser', 'link-19');">sendToBrowser</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                <tt class="py-string">'Admin Roles Updated'</tt><tt class="py-op">,</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                <tt class="py-op">(</tt><tt class="py-string">'The following administrative roles have been updated: '</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                 <tt class="py-string">'%s'</tt> <tt class="py-op">%</tt> <tt class="py-string">", "</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">ids</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="Products.ZenModel.ZenModelBase.ZenModelBase.callZenScreen" class="py-name" href="#" onclick="return doclink('link-41', 'callZenScreen', 'link-20');">callZenScreen</a></tt><tt class="py-op">(</tt><tt id="link-42" class="py-name"><a title="Products.ZenRelations.ZItem.ZItem.REQUEST" class="py-name" href="#" onclick="return doclink('link-42', 'REQUEST', 'link-16');">REQUEST</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt id="link-43" class="py-name"><a title="Products.ZenEvents.ActionRule.ActionRule.security
+Products.ZenEvents.ActionRuleWindow.ActionRuleWindow.security
+Products.ZenEvents.Availability.Availability.security
+Products.ZenEvents.BetterEventDetail.BetterEventDetail.security
+Products.ZenEvents.CustomEventView.CustomEventView.security
+Products.ZenEvents.EventClass.EventClass.security
+Products.ZenEvents.EventClassInst.EventClassInst.security
+Products.ZenEvents.EventCommand.EventCommand.security
+Products.ZenEvents.EventDetail.EventData.security
+Products.ZenEvents.EventDetail.EventDetail.security
+Products.ZenEvents.EventDetail.EventLog.security
+Products.ZenEvents.EventFilter.EventFilter.security
+Products.ZenEvents.EventManagerBase.EventManagerBase.security
+Products.ZenEvents.MySqlEventManager.MySqlEventManager.security
+Products.ZenEvents.ZEvent.ZEvent.security
+Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.security
+Products.ZenModel.BasicDataSource.BasicDataSource.security
+Products.ZenModel.Classifier.Classifier.security
+Products.ZenModel.ClassifierEntry.ClassifierEntry.security
+Products.ZenModel.Collection.Collection.security
+Products.ZenModel.CollectionItem.CollectionItem.security
+Products.ZenModel.Commandable.Commandable.security
+Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.security
+Products.ZenModel.DataRoot.DataRoot.security
+Products.ZenModel.Device.Device.security
+Products.ZenModel.DeviceClass.DeviceClass.security
+Products.ZenModel.DeviceComponent.DeviceComponent.security
+Products.ZenModel.DeviceHW.DeviceHW.security
+Products.ZenModel.DeviceOrganizer.DeviceOrganizer.security
+Products.ZenModel.DeviceReport.DeviceReport.security
+Products.ZenModel.DeviceReportClass.DeviceReportClass.security
+Products.ZenModel.DeviceResultInt.DeviceResultInt.security
+Products.ZenModel.EventView.EventView.security
+Products.ZenModel.FileSystem.FileSystem.security
+Products.ZenModel.GraphDefinition.GraphDefinition.security
+Products.ZenModel.GraphGroup.GraphGroup.security
+Products.ZenModel.GraphPoint.GraphPoint.security
+Products.ZenModel.GraphReport.GraphReport.security
+Products.ZenModel.GraphReportClass.GraphReportClass.security
+Products.ZenModel.GraphReportElement.GraphReportElement.security
+Products.ZenModel.Hardware.Hardware.security
+Products.ZenModel.IpAddress.IpAddress.security
+Products.ZenModel.IpInterface.IpInterface.security
+Products.ZenModel.IpNetwork.IpNetwork.security
+Products.ZenModel.IpRouteEntry.IpRouteEntry.security
+Products.ZenModel.IpService.IpService.security
+Products.ZenModel.IpServiceClass.IpServiceClass.security
+Products.ZenModel.LinkManager.security
+Products.ZenModel.Location.Location.security
+Products.ZenModel.MEProduct.MEProduct.security
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.security
+Products.ZenModel.MaintenanceWindowable.MaintenanceWindowable.security
+Products.ZenModel.Manufacturer.Manufacturer.security
+Products.ZenModel.MibModule.MibModule.security
+Products.ZenModel.MibOrganizer.MibOrganizer.security
+Products.ZenModel.MonitorClass.MonitorClass.security
+Products.ZenModel.MultiGraphReport.MultiGraphReport.security
+Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.security
+Products.ZenModel.NagiosCmd.NagiosCmd.security
+Products.ZenModel.OSProcess.OSProcess.security
+Products.ZenModel.OSProcessClass.OSProcessClass.security
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.security
+Products.ZenModel.OperatingSystem.OperatingSystem.security
+Products.ZenModel.Organizer.Organizer.security
+Products.ZenModel.PerformanceConf.PerformanceConf.security
+Products.ZenModel.ProductClass.ProductClass.security
+Products.ZenModel.RRDDataPoint.RRDDataPoint.security
+Products.ZenModel.RRDDataSource.RRDDataSource.security
+Products.ZenModel.RRDDataSource.SimpleRRDDataSource.security
+Products.ZenModel.RRDGraph.RRDGraph.security
+Products.ZenModel.RRDTemplate.RRDTemplate.security
+Products.ZenModel.RRDThreshold.RRDThreshold.security
+Products.ZenModel.Report.Report.security
+Products.ZenModel.ReportClass.ReportClass.security
+Products.ZenModel.Service.Service.security
+Products.ZenModel.ServiceClass.ServiceClass.security
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.security
+Products.ZenModel.Software.Software.security
+Products.ZenModel.System.System.security
+Products.ZenModel.ThresholdClass.ThresholdClass.security
+Products.ZenModel.UserCommand.UserCommand.security
+Products.ZenModel.UserSettings.GroupSettings.security
+Products.ZenModel.UserSettings.UserSettings.security
+Products.ZenModel.UserSettings.UserSettingsManager.security
+Products.ZenModel.WinService.WinService.security
+Products.ZenModel.WinServiceClass.WinServiceClass.security
+Products.ZenModel.ZDeviceLoader.ZDeviceLoader.security
+Products.ZenModel.ZenMenu.ZenMenu.security
+Products.ZenModel.ZenMenuItem.ZenMenuItem.security
+Products.ZenModel.ZenMenuable.ZenMenuable.security
+Products.ZenModel.ZenModelBase.ZenModelBase.security
+Products.ZenModel.ZenModelItem.ZenModelItem.security
+Products.ZenModel.ZenModelRM.ZenModelRM.security
+Products.ZenModel.ZenPack.ZenPack.security
+Products.ZenModel.ZenPackManager.ZenPackManager.security
+Products.ZenModel.ZenPacker.ZenPacker.security
+Products.ZenModel.ZenossInfo.ZenossInfo.security
+Products.ZenModel.ZentinelPortal.ZentinelPortal.security
+Products.ZenRRD.RRDToolItem.RRDToolItem.security
+Products.ZenRRD.RenderServer.RenderServer.security
+Products.ZenRelations.RelationshipManager.RelationshipManager.security
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.security
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.security
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase.security
+Products.ZenRelations.ToOneRelationship.ToOneRelationship.security
+Products.ZenRelations.ZenPropertyManager.ZenPropertyManager.security
+Products.ZenReports.ReportServer.ReportServer.security
+Products.ZenUtils.ObjectCache.ObjectCache.security
+Products.ZenUtils.PObjectCache.PObjectCache.security
+Products.ZenWidgets.ZenTableState.ZenTableState.security" class="py-name" href="#" onclick="return doclink('link-43', 'security', 'link-7');">security</a></tt><tt class="py-op">.</tt><tt class="py-name">declareProtected</tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="Products.ZenModel.ZenossSecurity.ZEN_ADMINISTRATORS_EDIT" class="py-name" href="#" onclick="return doclink('link-44', 'ZEN_ADMINISTRATORS_EDIT', 'link-12');">ZEN_ADMINISTRATORS_EDIT</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-string">'manage_deleteAdministrativeRole'</tt><tt class="py-op">)</tt> </tt>
+<a name="AdministrativeRoleable.manage_deleteAdministrativeRole"></a><div id="AdministrativeRoleable.manage_deleteAdministrativeRole-def"><a name="L76"></a><tt class="py-lineno"> 76</tt> <a class="py-toggle" href="#" id="AdministrativeRoleable.manage_deleteAdministrativeRole-toggle" onclick="return toggle('AdministrativeRoleable.manage_deleteAdministrativeRole');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html#manage_deleteAdministrativeRole">manage_deleteAdministrativeRole</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">delids</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-param">REQUEST</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AdministrativeRoleable.manage_deleteAdministrativeRole-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AdministrativeRoleable.manage_deleteAdministrativeRole-expanded"><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">        <tt class="py-docstring">"Delete a admin role to this device"</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-45" class="py-name"><a title="Products.ZenEvents.CustomEventView.CustomEventView.type
+Products.ZenEvents.WhereClause.Compare.type
+Products.ZenEvents.WhereClause.Enumerated.type
+Products.ZenEvents.WhereClause.EventClass.type
+Products.ZenEvents.WhereClause.Select.type
+Products.ZenEvents.WhereClause.Text.type
+Products.ZenEvents.WhereClause.WhereJavaScript.type
+Products.ZenModel.Fan.Fan.type
+Products.ZenModel.FileSystem.FileSystem.type
+Products.ZenModel.IpInterface.IpInterface.type
+Products.ZenModel.PowerSupply.PowerSupply.type
+Products.ZenModel.ProductClass.ProductClass.type
+Products.ZenModel.SoftwareClass.SoftwareClass.type" class="py-name" href="#" onclick="return doclink('link-45', 'type', 'link-24');">type</a></tt><tt class="py-op">(</tt><tt class="py-name">delids</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt id="link-46" class="py-name"><a title="Products.ZenModel.MibModule.MibModule.types" class="py-name" href="#" onclick="return doclink('link-46', 'types', 'link-0');">types</a></tt><tt class="py-op">.</tt><tt class="py-name">StringTypes</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-name">delids</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">delids</tt><tt class="py-op">]</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">userid</tt> <tt class="py-keyword">in</tt> <tt class="py-name">delids</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-name">ar</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">adminRoles</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._getOb
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._getOb
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._getOb" class="py-name" href="#" onclick="return doclink('link-47', '_getOb', 'link-31');">_getOb</a></tt><tt class="py-op">(</tt><tt class="py-name">userid</tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">ar</tt> <tt class="py-keyword">is</tt> <tt class="py-keyword">not</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> <tt class="py-name">ar</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Method Products.ZenModel.AdministrativeRole.AdministrativeRole.delete()=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#delete,Method Products.ZenWidgets.PersistentMessage.PersistentMessage.delete()=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#delete,Method Products.ZenWidgets.interfaces.IMessage.delete()=Products.ZenWidgets.interfaces.IMessage-class.html#delete,Method Products.ZenWidgets.messaging.BrowserMessage.delete()=Products.ZenWidgets.messaging.BrowserMessage-class.html#delete"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.delete
+Products.ZenWidgets.PersistentMessage.PersistentMessage.delete
+Products.ZenWidgets.interfaces.IMessage.delete
+Products.ZenWidgets.messaging.BrowserMessage.delete" class="py-name" href="#" onclick="return doclink('link-48', 'delete', 'link-48');">delete</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">manage_delLocalRoles</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">userid</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable.setAdminLocalRoles" class="py-name" href="#" onclick="return doclink('link-49', 'setAdminLocalRoles', 'link-15');">setAdminLocalRoles</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-50" class="py-name"><a title="Products.ZenRelations.ZItem.ZItem.REQUEST" class="py-name" href="#" onclick="return doclink('link-50', 'REQUEST', 'link-16');">REQUEST</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">delids</tt><tt class="py-op">:</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                <tt id="link-51" class="py-name"><a title="Products.ZenWidgets.browser.messaging
+Products.ZenWidgets.messaging" class="py-name" href="#" onclick="return doclink('link-51', 'messaging', 'link-6');">messaging</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="Products.ZenWidgets.interfaces.IMessageSender" class="py-name" href="#" onclick="return doclink('link-52', 'IMessageSender', 'link-18');">IMessageSender</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="Products.ZenWidgets.interfaces.IMessageSender.sendToBrowser
+Products.ZenWidgets.messaging.MessageSender.sendToBrowser
+Products.ZenWidgets.messaging.ScriptMessageSender.sendToBrowser" class="py-name" href="#" onclick="return doclink('link-53', 'sendToBrowser', 'link-19');">sendToBrowser</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                    <tt class="py-string">'Admin Roles Deleted'</tt><tt class="py-op">,</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                    <tt class="py-op">(</tt><tt class="py-string">'The following administrative roles have been deleted: '</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">                     <tt class="py-string">'%s'</tt> <tt class="py-op">%</tt> <tt class="py-string">", "</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">delids</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                <tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="Products.ZenModel.ZenModelBase.ZenModelBase.callZenScreen" class="py-name" href="#" onclick="return doclink('link-54', 'callZenScreen', 'link-20');">callZenScreen</a></tt><tt class="py-op">(</tt><tt id="link-55" class="py-name"><a title="Products.ZenRelations.ZItem.ZItem.REQUEST" class="py-name" href="#" onclick="return doclink('link-55', 'REQUEST', 'link-16');">REQUEST</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="AdministrativeRoleable.manage_listAdministrativeRoles"></a><div id="AdministrativeRoleable.manage_listAdministrativeRoles-def"><a name="L94"></a><tt class="py-lineno"> 94</tt> <a class="py-toggle" href="#" id="AdministrativeRoleable.manage_listAdministrativeRoles-toggle" onclick="return toggle('AdministrativeRoleable.manage_listAdministrativeRoles');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html#manage_listAdministrativeRoles">manage_listAdministrativeRoles</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AdministrativeRoleable.manage_listAdministrativeRoles-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AdministrativeRoleable.manage_listAdministrativeRoles-expanded"><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-docstring">"""List the user and their roles on an object"""</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt> <tt class="py-op">(</tt><tt class="py-name">ar</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-56', 'id', 'link-30');">id</a></tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">ar</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.role" class="py-name" href="#" onclick="return doclink('link-57', 'role', 'link-26');">role</a></tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">ar</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">adminRoles</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt> </tt>
+</div><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">     </tt>
+<a name="AdministrativeRoleable.setAdminLocalRoles"></a><div id="AdministrativeRoleable.setAdminLocalRoles-def"><a name="L99"></a><tt class="py-lineno"> 99</tt> <a class="py-toggle" href="#" id="AdministrativeRoleable.setAdminLocalRoles-toggle" onclick="return toggle('AdministrativeRoleable.setAdminLocalRoles');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html#setAdminLocalRoles">setAdminLocalRoles</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AdministrativeRoleable.setAdminLocalRoles-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AdministrativeRoleable.setAdminLocalRoles-expanded"><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-docstring">"""Hook for setting permissions"""</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div></div><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-name">InitializeClass</tt><tt class="py-op">(</tt><tt id="link-58" class="py-name" targets="Module Products.ZenModel.AdministrativeRoleable=Products.ZenModel.AdministrativeRoleable-module.html,Class Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable=Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable-class.html"><a title="Products.ZenModel.AdministrativeRoleable
+Products.ZenModel.AdministrativeRoleable.AdministrativeRoleable" class="py-name" href="#" onclick="return doclink('link-58', 'AdministrativeRoleable', 'link-58');">AdministrativeRoleable</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:25 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

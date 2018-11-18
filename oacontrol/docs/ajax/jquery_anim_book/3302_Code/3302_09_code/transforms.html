@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Matrix Examples</title>
+        <style>
+			div { width:200px; height:200px; border:1px solid #000; }
+			#translate { -moz-transform:matrix(1, 0, 0, 1, 100px, 100px); }
+			#scale { -webkit-transform:matrix(-2, 0, 0, -2, 0, 0); }
+			#skew { -o-transform:matrix(1, 1, 0, 1, 0, 0); }
+			#rotate { -moz-transform:matrix(0.7986355, 0.6018150, -0.6018150, 0.7986355, 0, 0); }
+			#ie { filter:progid:DXImageTransform.Microsoft.Matrix(M11=1.4488887394336025, M12=-0.388228567653781, M21=0.388228567653781, M22=1.4488887394336025, SizingMethod='auto expand'); }
+		</style>
+	</head>
+	<body>
+    	<div id="translate">Translate</div>
+    	<div id="scale">Scale</div>
+        <div id="skew">Skew</div>
+        <div id="rotate">Rotate</div>
+        <div id="get"></div>
+        <div id="ie">IE</div>
+	    <script src="js/jquery.js"></script>
+    	<script>
+			$("#get").css("-moz-transform", "rotate(30deg)");
+			$("#get").text($("#get").css("-moz-transform"));
+		</script>
+    </body>
+</html>

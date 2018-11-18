@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<!--
+    Zenoss Device export completed on 2011-10-20 12:15:20.145783
+    Use ImportDevices to import this file.
+    For more information about Zenoss, go to http://www.zenoss.com
+ -->
+<objects export_date="2011-10-20 12:15:20.145783" version="[Zenoss, version 3.1.0]" zenoss_server="slot5sbc">
+    <object class="DeviceClass" id="/zport/dmd/Devices" module="Products.ZenModel.DeviceClass">
+        <tomanycont id="zenMenus">
+        </tomanycont>
+        <tomanycont id="rrdTemplates">
+        </tomanycont>
+        <object class="DeviceClass" id="Discovered" module="Products.ZenModel.DeviceClass">
+        </object>
+        <object class="DeviceClass" id="Network" module="Products.ZenModel.DeviceClass">
+            <object class="DeviceClass" id="Router" module="Products.ZenModel.DeviceClass">
+                <object class="DeviceClass" id="Firewall" module="Products.ZenModel.DeviceClass">
+                </object>
+                <object class="DeviceClass" id="RSM" module="Products.ZenModel.DeviceClass">
+                </object>
+                <object class="DeviceClass" id="TerminalServer" module="Products.ZenModel.DeviceClass">
+                </object>
+                <object class="DeviceClass" id="Cisco" module="Products.ZenModel.DeviceClass">
+                    <tomanycont id="rrdTemplates">
+                    </tomanycont>
+                </object>
+            </object>
+            <object class="DeviceClass" id="Switch" module="Products.ZenModel.DeviceClass">
+            </object>
+            <object class="DeviceClass" id="OASwitch" module="Products.ZenModel.DeviceClass">
+                <toone id="pack" objid="/zport/dmd/ZenPackManager/packs/ZenPacks.znyx.OAControl"/>
+                <object class="DeviceClass" id="ZX1900BaseDevice" module="Products.ZenModel.DeviceClass">
+                    <toone id="pack" objid="/zport/dmd/ZenPackManager/packs/ZenPacks.znyx.OAControl"/>
+                    <tomanycont id="devices">
+                        <object class="Device" id="10.1.7.211" module="Products.ZenModel.Device">
+                            <toone id="perfServer" objid="/zport/dmd/Monitors/Performance/localhost"/>
+                        </object>
+                    </tomanycont>
+                </object>
+                <object class="DeviceClass" id="ZX1900FabricDevice" module="Products.ZenModel.DeviceClass">
+                    <toone id="pack" objid="/zport/dmd/ZenPackManager/packs/ZenPacks.znyx.OAControl"/>
+                    <tomanycont id="devices">
+                        <object class="Device" id="10.1.2.210" module="Products.ZenModel.Device">
+                            <toone id="perfServer" objid="/zport/dmd/Monitors/Performance/localhost"/>
+                        </object>
+                    </tomanycont>
+                </object>
+                <!--
+		<object class="DeviceClass" id="ZX7300" module="Products.ZenModel.DeviceClass">
+                    <toone id="pack" objid="/zport/dmd/ZenPackManager/packs/ZenPacks.znyx.OAControl"/>
+                    <tomanycont id="devices">
+                        <object class="Device" id="10.2.0.249" module="Products.ZenModel.Device">
+                            <toone id="perfServer" objid="/zport/dmd/Monitors/Performance/localhost"/>
+                        </object>
+                    </tomanycont>
+                </object>
+		-->
+            </object>
+            <object class="DeviceClass" id="ShelfMgr" module="Products.ZenModel.DeviceClass">
+                <toone id="pack" objid="/zport/dmd/ZenPackManager/packs/ZenPacks.znyx.OAControl"/>
+                <tomanycont id="devices">
+                    <object class="Device" id="10.1.7.201" module="Products.ZenModel.Device">
+                        <toone id="perfServer" objid="/zport/dmd/Monitors/Performance/localhost"/>
+                    </object>
+                </tomanycont>
+            </object>
+            <object class="DeviceClass" id="ZXSBC" module="Products.ZenModel.DeviceClass">
+                <toone id="pack" objid="/zport/dmd/ZenPackManager/packs/ZenPacks.znyx.OAControl"/>
+                <tomanycont id="devices">
+                    <object class="Device" id="10.1.7.129" module="Products.ZenModel.Device">
+                        <toone id="perfServer" objid="/zport/dmd/Monitors/Performance/localhost"/>
+                    </object>
+		    <!--
+		    <object class="Device" id="10.2.0.233" module="Products.ZenModel.Device">
+                        <toone id="perfServer" objid="/zport/dmd/Monitors/Performance/localhost"/>
+                    </object>
+		    -->
+                </tomanycont>
+            </object>
+        </object>
+        <object class="DeviceClass" id="Server" module="Products.ZenModel.DeviceClass">
+            <tomanycont id="rrdTemplates">
+            </tomanycont>
+            <object class="DeviceClass" id="Linux" module="Products.ZenModel.DeviceClass">
+                <tomanycont id="rrdTemplates">
+                </tomanycont>
+                <tomanycont id="devices">
+                    <object class="Device" id="localhost" module="Products.ZenModel.Device">
+                        <toone id="perfServer" objid="/zport/dmd/Monitors/Performance/localhost"/>
+                    </object>
+                </tomanycont>
+            </object>
+            <object class="DeviceClass" id="Windows" module="Products.ZenModel.DeviceClass">
+                <tomanycont id="rrdTemplates">
+                </tomanycont>
+            </object>
+            <object class="DeviceClass" id="Solaris" module="Products.ZenModel.DeviceClass">
+                <tomanycont id="rrdTemplates">
+                </tomanycont>
+            </object>
+            <object class="DeviceClass" id="Darwin" module="Products.ZenModel.DeviceClass">
+                <tomanycont id="rrdTemplates">
+                </tomanycont>
+            </object>
+            <object class="DeviceClass" id="Remote" module="Products.ZenModel.DeviceClass">
+            </object>
+            <object class="DeviceClass" id="Scan" module="Products.ZenModel.DeviceClass">
+                <tomanycont id="rrdTemplates">
+                </tomanycont>
+            </object>
+            <object class="DeviceClass" id="Cmd" module="Products.ZenModel.DeviceClass">
+                <tomanycont id="rrdTemplates">
+                </tomanycont>
+            </object>
+            <object class="DeviceClass" id="SSH" module="Products.ZenModel.DeviceClass">
+                <tomanycont id="rrdTemplates">
+                </tomanycont>
+                <object class="DeviceClass" id="Linux" module="Products.ZenModel.DeviceClass">
+                </object>
+            </object>
+        </object>
+        <object class="DeviceClass" id="Printer" module="Products.ZenModel.DeviceClass">
+            <object class="DeviceClass" id="Laser" module="Products.ZenModel.DeviceClass">
+            </object>
+            <object class="DeviceClass" id="InkJet" module="Products.ZenModel.DeviceClass">
+            </object>
+        </object>
+        <object class="DeviceClass" id="Power" module="Products.ZenModel.DeviceClass">
+            <object class="DeviceClass" id="UPS" module="Products.ZenModel.DeviceClass">
+                <object class="DeviceClass" id="APC" module="Products.ZenModel.DeviceClass">
+                    <tomanycont id="rrdTemplates">
+                    </tomanycont>
+                </object>
+            </object>
+        </object>
+        <object class="DeviceClass" id="KVM" module="Products.ZenModel.DeviceClass">
+        </object>
+        <object class="DeviceClass" id="Ping" module="Products.ZenModel.DeviceClass">
+            <tomanycont id="rrdTemplates">
+            </tomanycont>
+        </object>
+    </object>
+</objects>

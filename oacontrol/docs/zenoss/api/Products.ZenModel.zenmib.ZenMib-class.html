@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenModel.zenmib.ZenMib</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenModel-module.html">Package&nbsp;ZenModel</a> ::
+        <a href="Products.ZenModel.zenmib-module.html">Module&nbsp;zenmib</a> ::
+        Class&nbsp;ZenMib
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenModel.zenmib.ZenMib-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ZenMib</h1><p class="nomargin-top"><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+              <a href="object-class.html">object</a> --+            
+                       |            
+<a href="Products.ZenUtils.CmdBase.CmdBase-class.html">ZenUtils.CmdBase.CmdBase</a> --+        
+                           |        
+<a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html">ZenUtils.ZenDaemon.ZenDaemon</a> --+    
+                               |    
+      <a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html">ZenUtils.ZCmdBase.ZCmdBase</a> --+
+                                   |
+                                  <strong class="uidshort">ZenMib</strong>
+</pre>
+
+<hr />
+<p>Wrapper around the smidump utilities used to convert MIB definitions 
+  into python code which is in turn loaded into the DMD tree.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#makeMibFileObj" class="summary-sig-name">makeMibFileObj</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">fileName</span>)</span><br />
+      Scan the MIB file to determine what MIBs are defined in the file and
+what their dependencies are.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.makeMibFileObj">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">MibFile</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#populateDependencyMap" class="summary-sig-name">populateDependencyMap</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">importFileNames</span>,
+        <span class="summary-sig-arg">depFileNames</span>)</span><br />
+      Populates the self.mibToMibFile instance object with data.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.populateDependencyMap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list of strings</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#getDependencyFileNames" class="summary-sig-name">getDependencyFileNames</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">mibFileObj</span>)</span><br />
+      smidump needs to know the list of dependent files for a MIB file in 
+      order to properly resolve external references.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.getDependencyFileNames">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="savePythonCode"></a><span class="summary-sig-name">savePythonCode</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pythonCode</span>,
+        <span class="summary-sig-arg">fileName</span>)</span><br />
+      Stores the smidump-generated Python code to a file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.savePythonCode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#generatePythonFromMib" class="summary-sig-name">generatePythonFromMib</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">fileName</span>,
+        <span class="summary-sig-arg">dependencyFileNames</span>,
+        <span class="summary-sig-arg">mibNamesInFile</span>)</span><br />
+      Use the smidump program to convert a MIB into Python code.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.generatePythonFromMib">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="evalPythonToMibs"></a><span class="summary-sig-name">evalPythonToMibs</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pythonCode</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Evaluate the code and return an array of MIB dictionaries.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.evalPythonToMibs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="evalAddSavedPythonCode"></a><span class="summary-sig-name">evalAddSavedPythonCode</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Read the file named in the command-line option, evaluate it, and add 
+      it to our list of MIBs.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.evalAddSavedPythonCode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#getDmdMibDict" class="summary-sig-name">getDmdMibDict</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dmdMibDict</span>,
+        <span class="summary-sig-arg">mibOrganizer</span>)</span><br />
+      Populate a dictionary containing the MIB definitions that have been
+loaded into the DMD Mibs directory</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.getDmdMibDict">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">int</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#addMibEntries" class="summary-sig-name">addMibEntries</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">leafType</span>,
+        <span class="summary-sig-arg">pythonMib</span>,
+        <span class="summary-sig-arg">mibModule</span>)</span><br />
+      Add the different MIB leaves (ie nodes, notifications) into the DMD.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.addMibEntries">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">boolean</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#loadMibFile" class="summary-sig-name">loadMibFile</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">mibFileObj</span>,
+        <span class="summary-sig-arg">dmdMibDict</span>)</span><br />
+      Attempt to load the MIB definitions in fileName into DMD</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.loadMibFile">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="commit"></a><span class="summary-sig-name">commit</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">message</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.commit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="loadPythonMibs"></a><span class="summary-sig-name">loadPythonMibs</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pythonMibs</span>)</span><br />
+      Walk through the MIB dictionaries and add the MIBs to the DMD.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.loadPythonMibs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">set</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#getAllMibDepFileNames" class="summary-sig-name">getAllMibDepFileNames</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Use command line parameters to create a list of files containing MIB 
+      definitions that will be used as a reference list for the files being
+      loaded into the DMD</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.getAllMibDepFileNames">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#getMibsToImport" class="summary-sig-name">getMibsToImport</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Uses command-line parameters to create a list of files containing MIB
+      definitions that are to be loaded into the DMD</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.getMibsToImport">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="main"></a><span class="summary-sig-name">main</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Main loop of the program</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.main">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.zenmib.ZenMib-class.html#buildOptions" class="summary-sig-name">buildOptions</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Command-line options</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.buildOptions">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html">ZenUtils.ZCmdBase.ZCmdBase</a></code></b>:
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#__init__">__init__</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#closeAll">closeAll</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#closedb">closedb</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#findDevice">findDevice</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#getConnection">getConnection</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#getContext">getContext</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#getDataRoot">getDataRoot</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#getDmdObj">getDmdObj</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#login">login</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#logout">logout</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#opendb">opendb</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#sigTerm">sigTerm</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#syncdb">syncdb</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#zeoConnect">zeoConnect</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html">ZenUtils.ZenDaemon.ZenDaemon</a></code></b>:
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#becomeDaemon">becomeDaemon</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#becomeWatchdog">becomeWatchdog</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#changeUser">changeUser</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#niceDoggie">niceDoggie</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#openPrivilegedPort">openPrivilegedPort</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#setupLogging">setupLogging</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#sighandler_USR1">sighandler_USR1</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#watchdogCycleTime">watchdogCycleTime</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#watchdogMaxRestartTime">watchdogMaxRestartTime</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#watchdogStartTimeout">watchdogStartTimeout</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#writePidFile">writePidFile</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html">ZenUtils.CmdBase.CmdBase</a></code></b>:
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#buildParser">buildParser</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#checkLogpath">checkLogpath</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#generate_configs">generate_configs</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#generate_xml_configs">generate_xml_configs</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#generate_xml_table">generate_xml_table</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#getConfigFileDefaults">getConfigFileDefaults</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#parseOptions">parseOptions</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#pretty_print_config_comment">pretty_print_config_comment</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html">ZenUtils.ZenDaemon.ZenDaemon</a></code></b>:
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#pidfile">pidfile</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html">ZenUtils.CmdBase.CmdBase</a></code></b>:
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#doesLogging">doesLogging</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="makeMibFileObj"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">makeMibFileObj</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">fileName</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.makeMibFileObj">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Scan the MIB file to determine what MIBs are defined in the file and
+what their dependencies are.
+
+@param fileName: MIB fileName
+@type fileName: string
+@return: dependencyDict, indexDict
+    dependencyDict - a dictionary that associates MIB definitions
+        found in fileName with their dependencies
+    indexDict - a dictionary that associates MIB definitions with their
+        ordinal position within fileName}
+@rtype:
+    dependencyDict = {mibName: [string list of MIB definition names
+        that mibName is dependant on]}
+    indexDict = {mibname: number}
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="populateDependencyMap"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">populateDependencyMap</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">importFileNames</span>,
+        <span class="sig-arg">depFileNames</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.populateDependencyMap">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Populates the self.mibToMibFile instance object with data. Exit the 
+  program if we're missing any files.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>importFileNames</code></strong> (list of strings) - fully qualified file names of MIB files to import</li>
+        <li><strong class="pname"><code>depFileNames</code></strong> (list of strings) - fully qualified file names of all MIB files</li>
+    </ul></dd>
+    <dt>Returns: MibFile</dt>
+        <dd>mibFileObjects of files to import</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getDependencyFileNames"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getDependencyFileNames</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">mibFileObj</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.getDependencyFileNames">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>smidump needs to know the list of dependent files for a MIB file in 
+  order to properly resolve external references.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>mibFileObj</code></strong> (MibFile) - MibFile object</li>
+    </ul></dd>
+    <dt>Returns: list of strings</dt>
+        <dd>list of dependency fileNames</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="generatePythonFromMib"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">generatePythonFromMib</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">fileName</span>,
+        <span class="sig-arg">dependencyFileNames</span>,
+        <span class="sig-arg">mibNamesInFile</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.generatePythonFromMib">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Use the smidump program to convert a MIB into Python code.</p>
+  <p>One major caveat: smidump by default only outputs the last MIB 
+  definition in a file. For that matter, it always outputs the last MIB 
+  definition in a file whether it is requested or not. Therefore, if there 
+  are multiple MIB definitions in a file, all but the last must be 
+  explicitly named on the command line. If you name the last, it will come 
+  out twice. We don't want that.</p>
+  <p>OK, so we need to determine if there are multiple MIB definitions in 
+  fileName and then add all but the last to the command line. That works 
+  except the resulting python code will create a dictionary for each MIB 
+  definition, all of them named MIB. Executing the code is equivalent to 
+  running a=1; a=2; a=3. You only wind up with a=3. Therefore, we separate 
+  each dictionary definition into its own string and return a list of 
+  strings so each one can be executed individually.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>fileName</code></strong> (string) - name of the file containing MIB definitions</li>
+        <li><strong class="pname"><code>dependencyFileNames</code></strong> (list of strings) - list of fileNames that fileName is dependent on</li>
+        <li><strong class="pname"><code>mibNamesInFile</code></strong> (list of strings) - names of MIB definitions in file</li>
+    </ul></dd>
+    <dt>Returns: list</dt>
+        <dd>list of dictionaries. Each dictionary containing the contents of 
+          a MIB definition. [ {'mibName': MIB data} ]</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getDmdMibDict"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getDmdMibDict</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dmdMibDict</span>,
+        <span class="sig-arg">mibOrganizer</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.getDmdMibDict">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Populate a dictionary containing the MIB definitions that have been
+loaded into the DMD Mibs directory
+
+@param dmdMibDict: maps a MIB definition to the path where
+        it is located with in the DMD.
+    Format:
+        {'mibName': 'DMD path where mibName is stored'}
+    Example: MIB-Dell-10892 is located in the DMD tree at
+        Mibs/SITE/Dell, Directory entry is
+        {'MIB-Dell-10892': '/SITE/Dell'] }
+@param mibOrganizer: the DMD directory to be searched
+@type mibOrganizer: MibOrganizer
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="addMibEntries"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addMibEntries</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">leafType</span>,
+        <span class="sig-arg">pythonMib</span>,
+        <span class="sig-arg">mibModule</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.addMibEntries">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Add the different MIB leaves (ie nodes, notifications) into the 
+  DMD.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>leafType</code></strong> (string)</li>
+        <li><strong class="pname"><code>mibModule</code></strong> (class)</li>
+        <li><strong class="pname"><code>pythonMib</code></strong> (dictionary)</li>
+    </ul></dd>
+    <dt>Returns: int</dt>
+        <dd>number of leaves added</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="loadMibFile"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">loadMibFile</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">mibFileObj</span>,
+        <span class="sig-arg">dmdMibDict</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.loadMibFile">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Attempt to load the MIB definitions in fileName into DMD</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>fileName</code></strong> (string) - name of the MIB file to be loaded</li>
+    </ul></dd>
+    <dt>Returns: boolean</dt>
+        <dd>whether the MIB load was successful or not</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getAllMibDepFileNames"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getAllMibDepFileNames</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.getAllMibDepFileNames">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Use command line parameters to create a list of files containing MIB 
+  definitions that will be used as a reference list for the files being 
+  loaded into the DMD</p>
+  <dl class="fields">
+    <dt>Returns: set</dt>
+        <dd>set of file names</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getMibsToImport"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getMibsToImport</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.getMibsToImport">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Uses command-line parameters to create a list of files containing MIB 
+  definitions that are to be loaded into the DMD</p>
+  <dl class="fields">
+    <dt>Returns: list</dt>
+        <dd>list of file names that are to be loaded into the DMD</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="buildOptions"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">buildOptions</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.zenmib-pysrc.html#ZenMib.buildOptions">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Command-line options</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenUtils.CmdBase.CmdBase-class.html#buildOptions">ZenUtils.CmdBase.CmdBase.buildOptions</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:41 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

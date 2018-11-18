@@ -1,0 +1,50 @@
+# sbc network config
+
+root@sbcslot5:/var/www/www# ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:0e:0c:80:a1:96  
+          inet addr:10.1.7.129  Bcast:10.1.7.255  Mask:255.255.255.0
+          inet6 addr: fe80::20e:cff:fe80:a196/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:27831237 errors:0 dropped:3484 overruns:0 frame:0
+          TX packets:26665192 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:28602145552 (26.6 GiB)  TX bytes:27424979220 (25.5 GiB)
+          Interrupt:16 Memory:fe5e0000-fe600000 
+
+eth2      Link encap:Ethernet  HWaddr 00:0e:0c:80:a1:98  
+          inet addr:192.168.100.129  Bcast:192.168.100.255  Mask:255.255.255.0
+          inet6 addr: fe80::20e:cff:fe80:a198/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:92 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3502 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:21628 (21.1 KiB)  TX bytes:151336 (147.7 KiB)
+          Interrupt:16 Memory:fe6e0000-fe700000 
+
+
+root@sbcslot5:/var/www/www# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+192.168.100.0   *               255.255.255.0   U     0      0        0 eth2
+10.1.7.0        *               255.255.255.0   U     0      0        0 eth0
+default         10.1.7.1        0.0.0.0         UG    0      0        0 eth0
+
+
+
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The primary network interface
+allow-hotplug eth0
+iface eth0 inet static
+        address 10.1.7.130
+        netmask 255.255.255.0
+        gateway 10.1.7.1
+
+allow-hotplug eth2
+iface eth2 inet static
+        address 192.168.100.129
+        netmask 255.255.255.0
+

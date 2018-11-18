@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Drawing to the canvas in IE</title>
+		<!--[if IE]>
+        	<script src="js/excanvas.compiled.js"></script>
+        <![endif]-->
+	</head>
+	<body>
+    	<canvas id="c" width="500" height="300">
+        	<p>Your browser doesn't support the canvas element!</p>
+        </canvas>
+		<script>				
+					
+			var canvas = document.getElementById("c"),
+				draw = function(context) {
+					
+					//draw blue rectangle
+					context.fillStyle = "#039";
+					context.fillRect(50, 50, 400, 200);
+					
+					//create white crosses
+					context.beginPath();
+					context.strokeStyle = "#fff";
+					context.lineWidth = 50;
+					context.moveTo(250, 50);
+					context.lineTo(250, 250);
+					context.moveTo(50, 150);
+					context.lineTo(450, 150);
+					context.moveTo(50, 50);
+					context.lineTo(450, 250);
+					context.moveTo(50, 250);
+					context.lineTo(450, 50);
+					context.stroke();
+					context.closePath();
+					
+					//add red cross
+					context.strokeStyle = "#C00";
+					context.lineWidth = 30;
+					context.beginPath();
+					context.moveTo(250, 50);
+					context.lineTo(250, 250);
+					context.moveTo(50, 150);
+					context.lineTo(450, 150);
+					context.stroke();
+					
+					//add custom red shapes
+					context.lineWidth = 1;
+					context.fillStyle = "#C00";
+					
+					context.beginPath();
+					context.moveTo(50, 50);
+					context.lineTo(195, 125);
+					context.lineTo(165, 125);
+					context.lineTo(50, 66);
+					context.fill();
+					context.closePath();
+					
+					context.beginPath();
+					context.moveTo(450, 50);
+					context.lineTo(305, 125);
+					context.lineTo(275, 125);
+					context.lineTo(422, 50);
+					context.lineTo(450, 50);
+					context.fill();
+					context.closePath();
+					
+					context.beginPath();
+					context.moveTo(450, 250);
+					context.lineTo(310, 175);
+					context.lineTo(335, 175);
+					context.lineTo(450, 235);
+					context.lineTo(450, 250);
+					context.fill();
+					context.closePath();
+					
+					context.beginPath();
+					context.moveTo(50, 250);
+					context.lineTo(200, 175);
+					context.lineTo(225, 175);
+					context.lineTo(80, 250);
+					context.lineTo(50, 250);
+					context.fill();
+					context.closePath();
+				};
+			
+			//if IE wait for library to finish
+			if (window.ActiveXObject) {
+				window.onload = function() {
+					var context = canvas.getContext("2d");
+					draw(context);
+				}
+			} else {
+				var context = canvas.getContext("2d");
+				draw(context);
+			}
+		</script>
+	</body>
+</html>

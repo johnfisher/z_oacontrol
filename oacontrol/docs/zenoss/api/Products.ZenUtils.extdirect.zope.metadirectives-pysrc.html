@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenUtils.extdirect.zope.metadirectives</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenUtils-module.html">Package&nbsp;ZenUtils</a> ::
+        <a href="Products.ZenUtils.extdirect-module.html">Package&nbsp;extdirect</a> ::
+        <a href="Products.ZenUtils.extdirect.zope-module.html">Package&nbsp;zope</a> ::
+        Module&nbsp;metadirectives
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenUtils.extdirect.zope.metadirectives-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenUtils.extdirect.zope.metadirectives-module.html">Module Products.ZenUtils.extdirect.zope.metadirectives</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2009, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Products.ZenUtils.extdirect.zope=Products.ZenUtils.extdirect.zope-module.html"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-0', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">interface</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Interface</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-1', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">configuration</tt><tt class="py-op">.</tt><tt class="py-name">fields</tt> <tt class="py-keyword">import</tt> <tt class="py-name">GlobalObject</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-2', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">schema</tt> <tt class="py-keyword">import</tt> <tt class="py-name">TextLine</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="IDirectRouter"></a><div id="IDirectRouter-def"><a name="L17"></a><tt class="py-lineno">17</tt> <a class="py-toggle" href="#" id="IDirectRouter-toggle" onclick="return toggle('IDirectRouter');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html">IDirectRouter</a><tt class="py-op">(</tt><tt class="py-base-class">Interface</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="IDirectRouter-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="IDirectRouter-expanded"><a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">    Registers a name and a javascript viewlet for a DirectRouter subclass.</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable Products.DataCollector.SshClient.CommandChannel.name=Products.DataCollector.SshClient.CommandChannel-class.html#name,Variable Products.DataCollector.zendisc.ZenDisc.name=Products.DataCollector.zendisc.ZenDisc-class.html#name,Variable Products.DataCollector.zenmodeler.ZenModeler.name=Products.DataCollector.zenmodeler.ZenModeler-class.html#name,Variable Products.ZenEvents.EventServer.EventServer.name=Products.ZenEvents.EventServer.EventServer-class.html#name,Variable Products.ZenEvents.zenmail.ZenMail.name=Products.ZenEvents.zenmail.ZenMail-class.html#name,Variable Products.ZenEvents.zenpop3.ZenPOP3.name=Products.ZenEvents.zenpop3.ZenPOP3-class.html#name,Variable Products.ZenEvents.zensyslog.ZenSyslog.name=Products.ZenEvents.zensyslog.ZenSyslog-class.html#name,Variable Products.ZenEvents.zentrap.ZenTrap.name=Products.ZenEvents.zentrap.ZenTrap-class.html#name,Method Products.ZenHub.HubService.HubService.name()=Products.ZenHub.HubService.HubService-class.html#name,Variable Products.ZenHub.PBDaemon.PBDaemon.name=Products.ZenHub.PBDaemon.PBDaemon-class.html#name,Variable Products.ZenHub.services.ProcessConfig.ProcessProxy.name=Products.ZenHub.services.ProcessConfig.ProcessProxy-class.html#name,Variable Products.ZenHub.zenhub.ZenHub.name=Products.ZenHub.zenhub.ZenHub-class.html#name,Method Products.ZenModel.Device.Device.name()=Products.ZenModel.Device.Device-class.html#name,Method Products.ZenModel.DeviceComponent.DeviceComponent.name()=Products.ZenModel.DeviceComponent.DeviceComponent-class.html#name,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#name,Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#name,Method Products.ZenModel.OSProcess.OSProcess.name()=Products.ZenModel.OSProcess.OSProcess-class.html#name,Variable Products.ZenModel.OSProcessClass.OSProcessClass.name=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#name,Variable Products.ZenModel.ProductClass.ProductClass.name=Products.ZenModel.ProductClass.ProductClass-class.html#name,Method Products.ZenModel.RRDDataPoint.RRDDataPoint.name()=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#name,Method Products.ZenModel.Service.Service.name()=Products.ZenModel.Service.Service-class.html#name,Variable Products.ZenModel.ServiceClass.ServiceClass.name=Products.ZenModel.ServiceClass.ServiceClass-class.html#name,Method Products.ZenModel.Software.Software.name()=Products.ZenModel.Software.Software-class.html#name,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.name()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#name,Method Products.ZenModel.WinService.WinService.name()=Products.ZenModel.WinService.WinService-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLAbout.name=Products.ZenModel.ZenPackLoader.ZPLAbout-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLBin.name=Products.ZenModel.ZenPackLoader.ZPLBin-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDaemons.name=Products.ZenModel.ZenPackLoader.ZPLDaemons-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDataSources.name=Products.ZenModel.ZenPackLoader.ZPLDataSources-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibExec.name=Products.ZenModel.ZenPackLoader.ZPLLibExec-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibraries.name=Products.ZenModel.ZenPackLoader.ZPLLibraries-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLModelers.name=Products.ZenModel.ZenPackLoader.ZPLModelers-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLObject.name=Products.ZenModel.ZenPackLoader.ZPLObject-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLReport.name=Products.ZenModel.ZenPackLoader.ZPLReport-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLSkins.name=Products.ZenModel.ZenPackLoader.ZPLSkins-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZenPackLoader.name=Products.ZenModel.ZenPackLoader.ZenPackLoader-class.html#name,Method Products.ZenRRD.zencommand.Cmd.name()=Products.ZenRRD.zencommand.Cmd-class.html#name,Variable Products.ZenRRD.zenrender.zenrender.name=Products.ZenRRD.zenrender.zenrender-class.html#name,Variable Products.ZenStatus.zenping.ZenPing.name=Products.ZenStatus.zenping.ZenPing-class.html#name,Variable Products.ZenStatus.zenstatus.ZenStatus.name=Products.ZenStatus.zenstatus.ZenStatus-class.html#name,Variable Products.ZenUtils.DaemonStats.DaemonStats.name=Products.ZenUtils.DaemonStats.DaemonStats-class.html#name,Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#name,Variable Products.ZenUtils.zencatalog.ZenCatalog.name=Products.ZenUtils.zencatalog.ZenCatalog-class.html#name,Method Products.ZenWin.services.WinServiceConfig.SmartService.name()=Products.ZenWin.services.WinServiceConfig.SmartService-class.html#name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-3', 'name', 'link-3');">name</a></tt> <tt class="py-op">=</tt> <tt class="py-name">TextLine</tt><tt class="py-op">(</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">        <tt id="link-4" class="py-name" targets="Variable Products.ZenModel.ZentinelPortal.ZentinelPortal.title=Products.ZenModel.ZentinelPortal.ZentinelPortal-class.html#title,Variable Products.ZenRelations.ZItem.ZItem.title=Products.ZenRelations.ZItem.ZItem-class.html#title,Variable Products.ZenWidgets.PersistentMessage.PersistentMessage.title=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#title,Variable Products.ZenWidgets.interfaces.IMessage.title=Products.ZenWidgets.interfaces.IMessage-class.html#title,Variable Products.ZenWidgets.messaging.BrowserMessage.title=Products.ZenWidgets.messaging.BrowserMessage-class.html#title"><a title="Products.ZenModel.ZentinelPortal.ZentinelPortal.title
+Products.ZenRelations.ZItem.ZItem.title
+Products.ZenWidgets.PersistentMessage.PersistentMessage.title
+Products.ZenWidgets.interfaces.IMessage.title
+Products.ZenWidgets.messaging.BrowserMessage.title" class="py-name" href="#" onclick="return doclink('link-4', 'title', 'link-4');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">u"Name"</tt><tt class="py-op">,</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt id="link-5" class="py-name" targets="Method Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description()=Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress-class.html#description,Method Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description()=Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware-class.html#description,Method Products.DataCollector.CommandParsers.CommandParser.CommandParser.description()=Products.DataCollector.CommandParsers.CommandParser.CommandParser-class.html#description,Method Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description()=Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an-class.html#description,Method Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description()=Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn-class.html#description,Method Products.DataCollector.CommandParsers.Uname_A.Uname_A.description()=Products.DataCollector.CommandParsers.Uname_A.Uname_A-class.html#description,Method Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description()=Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k-class.html#description,Variable Products.ZenModel.HardDisk.HardDisk.description=Products.ZenModel.HardDisk.HardDisk-class.html#description,Variable Products.ZenModel.IpInterface.IpInterface.description=Products.ZenModel.IpInterface.IpInterface-class.html#description,Variable Products.ZenModel.MibBase.MibBase.description=Products.ZenModel.MibBase.MibBase-class.html#description,Variable Products.ZenModel.MibModule.MibModule.description=Products.ZenModel.MibModule.MibModule-class.html#description,Variable Products.ZenModel.NagiosTemplate.NagiosTemplate.description=Products.ZenModel.NagiosTemplate.NagiosTemplate-class.html#description,Variable Products.ZenModel.OSProcessClass.OSProcessClass.description=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#description,Variable Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description=Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer-class.html#description,Variable Products.ZenModel.RRDTemplate.RRDTemplate.description=Products.ZenModel.RRDTemplate.RRDTemplate-class.html#description,Variable Products.ZenModel.Report.Report.description=Products.ZenModel.Report.Report-class.html#description,Variable Products.ZenModel.ServiceClass.ServiceClass.description=Products.ZenModel.ServiceClass.ServiceClass-class.html#description,Variable Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description=Products.ZenModel.ServiceOrganizer.ServiceOrganizer-class.html#description,Variable Products.ZenModel.UserCommand.UserCommand.description=Products.ZenModel.UserCommand.UserCommand-class.html#description,Variable Products.ZenModel.ZenMenu.ZenMenu.description=Products.ZenModel.ZenMenu.ZenMenu-class.html#description,Variable Products.ZenModel.ZenMenuItem.ZenMenuItem.description=Products.ZenModel.ZenMenuItem.ZenMenuItem-class.html#description,Variable Products.ZenModel.ZentinelPortal.ZentinelPortal.description=Products.ZenModel.ZentinelPortal.ZentinelPortal-class.html#description"><a title="Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description
+Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description
+Products.DataCollector.CommandParsers.CommandParser.CommandParser.description
+Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description
+Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description
+Products.DataCollector.CommandParsers.Uname_A.Uname_A.description
+Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description
+Products.ZenModel.HardDisk.HardDisk.description
+Products.ZenModel.IpInterface.IpInterface.description
+Products.ZenModel.MibBase.MibBase.description
+Products.ZenModel.MibModule.MibModule.description
+Products.ZenModel.NagiosTemplate.NagiosTemplate.description
+Products.ZenModel.OSProcessClass.OSProcessClass.description
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description
+Products.ZenModel.RRDTemplate.RRDTemplate.description
+Products.ZenModel.Report.Report.description
+Products.ZenModel.ServiceClass.ServiceClass.description
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description
+Products.ZenModel.UserCommand.UserCommand.description
+Products.ZenModel.ZenMenu.ZenMenu.description
+Products.ZenModel.ZenMenuItem.ZenMenuItem.description
+Products.ZenModel.ZentinelPortal.ZentinelPortal.description" class="py-name" href="#" onclick="return doclink('link-5', 'description', 'link-5');">description</a></tt><tt class="py-op">=</tt><tt class="py-string">u"The name of the requested view."</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt id="link-6" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.for_=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#for_"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.for_" class="py-name" href="#" onclick="return doclink('link-6', 'for_', 'link-6');">for_</a></tt> <tt class="py-op">=</tt> <tt class="py-name">GlobalObject</tt><tt class="py-op">(</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt id="link-7" class="py-name"><a title="Products.ZenModel.ZentinelPortal.ZentinelPortal.title
+Products.ZenRelations.ZItem.ZItem.title
+Products.ZenWidgets.PersistentMessage.PersistentMessage.title
+Products.ZenWidgets.interfaces.IMessage.title
+Products.ZenWidgets.messaging.BrowserMessage.title" class="py-name" href="#" onclick="return doclink('link-7', 'title', 'link-4');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">u"For Interface"</tt><tt class="py-op">,</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt id="link-8" class="py-name"><a title="Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description
+Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description
+Products.DataCollector.CommandParsers.CommandParser.CommandParser.description
+Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description
+Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description
+Products.DataCollector.CommandParsers.Uname_A.Uname_A.description
+Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description
+Products.ZenModel.HardDisk.HardDisk.description
+Products.ZenModel.IpInterface.IpInterface.description
+Products.ZenModel.MibBase.MibBase.description
+Products.ZenModel.MibModule.MibModule.description
+Products.ZenModel.NagiosTemplate.NagiosTemplate.description
+Products.ZenModel.OSProcessClass.OSProcessClass.description
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description
+Products.ZenModel.RRDTemplate.RRDTemplate.description
+Products.ZenModel.Report.Report.description
+Products.ZenModel.ServiceClass.ServiceClass.description
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description
+Products.ZenModel.UserCommand.UserCommand.description
+Products.ZenModel.ZenMenu.ZenMenu.description
+Products.ZenModel.ZenMenuItem.ZenMenuItem.description
+Products.ZenModel.ZentinelPortal.ZentinelPortal.description" class="py-name" href="#" onclick="return doclink('link-8', 'description', 'link-5');">description</a></tt><tt class="py-op">=</tt><tt class="py-string">u"The interface the directive is used for."</tt><tt class="py-op">,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.class_=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#class_"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.class_" class="py-name" href="#" onclick="return doclink('link-9', 'class_', 'link-9');">class_</a></tt> <tt class="py-op">=</tt> <tt class="py-name">GlobalObject</tt><tt class="py-op">(</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt id="link-10" class="py-name"><a title="Products.ZenModel.ZentinelPortal.ZentinelPortal.title
+Products.ZenRelations.ZItem.ZItem.title
+Products.ZenWidgets.PersistentMessage.PersistentMessage.title
+Products.ZenWidgets.interfaces.IMessage.title
+Products.ZenWidgets.messaging.BrowserMessage.title" class="py-name" href="#" onclick="return doclink('link-10', 'title', 'link-4');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">u"Class"</tt><tt class="py-op">,</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt id="link-11" class="py-name"><a title="Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description
+Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description
+Products.DataCollector.CommandParsers.CommandParser.CommandParser.description
+Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description
+Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description
+Products.DataCollector.CommandParsers.Uname_A.Uname_A.description
+Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description
+Products.ZenModel.HardDisk.HardDisk.description
+Products.ZenModel.IpInterface.IpInterface.description
+Products.ZenModel.MibBase.MibBase.description
+Products.ZenModel.MibModule.MibModule.description
+Products.ZenModel.NagiosTemplate.NagiosTemplate.description
+Products.ZenModel.OSProcessClass.OSProcessClass.description
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description
+Products.ZenModel.RRDTemplate.RRDTemplate.description
+Products.ZenModel.Report.Report.description
+Products.ZenModel.ServiceClass.ServiceClass.description
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description
+Products.ZenModel.UserCommand.UserCommand.description
+Products.ZenModel.ZenMenu.ZenMenu.description
+Products.ZenModel.ZenMenuItem.ZenMenuItem.description
+Products.ZenModel.ZentinelPortal.ZentinelPortal.description" class="py-name" href="#" onclick="return doclink('link-11', 'description', 'link-5');">description</a></tt><tt class="py-op">=</tt><tt class="py-string">u"The DirectRouter subclass"</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt id="link-12" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.namespace=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#namespace"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.namespace" class="py-name" href="#" onclick="return doclink('link-12', 'namespace', 'link-12');">namespace</a></tt> <tt class="py-op">=</tt> <tt class="py-name">TextLine</tt><tt class="py-op">(</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt id="link-13" class="py-name"><a title="Products.ZenModel.ZentinelPortal.ZentinelPortal.title
+Products.ZenRelations.ZItem.ZItem.title
+Products.ZenWidgets.PersistentMessage.PersistentMessage.title
+Products.ZenWidgets.interfaces.IMessage.title
+Products.ZenWidgets.messaging.BrowserMessage.title" class="py-name" href="#" onclick="return doclink('link-13', 'title', 'link-4');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">u"Namespace"</tt><tt class="py-op">,</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt id="link-14" class="py-name"><a title="Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description
+Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description
+Products.DataCollector.CommandParsers.CommandParser.CommandParser.description
+Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description
+Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description
+Products.DataCollector.CommandParsers.Uname_A.Uname_A.description
+Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description
+Products.ZenModel.HardDisk.HardDisk.description
+Products.ZenModel.IpInterface.IpInterface.description
+Products.ZenModel.MibBase.MibBase.description
+Products.ZenModel.MibModule.MibModule.description
+Products.ZenModel.NagiosTemplate.NagiosTemplate.description
+Products.ZenModel.OSProcessClass.OSProcessClass.description
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description
+Products.ZenModel.RRDTemplate.RRDTemplate.description
+Products.ZenModel.Report.Report.description
+Products.ZenModel.ServiceClass.ServiceClass.description
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description
+Products.ZenModel.UserCommand.UserCommand.description
+Products.ZenModel.ZenMenu.ZenMenu.description
+Products.ZenModel.ZenMenuItem.ZenMenuItem.description
+Products.ZenModel.ZentinelPortal.ZentinelPortal.description" class="py-name" href="#" onclick="return doclink('link-14', 'description', 'link-5');">description</a></tt><tt class="py-op">=</tt><tt class="py-name">unicode</tt><tt class="py-op">(</tt><tt class="py-string">"The JavaScript namespace under which the"</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">                            <tt class="py-string">" remote methods should be available"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">False</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">    <tt id="link-15" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.layer=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#layer"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.layer" class="py-name" href="#" onclick="return doclink('link-15', 'layer', 'link-15');">layer</a></tt> <tt class="py-op">=</tt> <tt class="py-name">TextLine</tt><tt class="py-op">(</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt id="link-16" class="py-name"><a title="Products.ZenModel.ZentinelPortal.ZentinelPortal.title
+Products.ZenRelations.ZItem.ZItem.title
+Products.ZenWidgets.PersistentMessage.PersistentMessage.title
+Products.ZenWidgets.interfaces.IMessage.title
+Products.ZenWidgets.messaging.BrowserMessage.title" class="py-name" href="#" onclick="return doclink('link-16', 'title', 'link-4');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">u"Layer"</tt><tt class="py-op">,</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt id="link-17" class="py-name"><a title="Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description
+Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description
+Products.DataCollector.CommandParsers.CommandParser.CommandParser.description
+Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description
+Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description
+Products.DataCollector.CommandParsers.Uname_A.Uname_A.description
+Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description
+Products.ZenModel.HardDisk.HardDisk.description
+Products.ZenModel.IpInterface.IpInterface.description
+Products.ZenModel.MibBase.MibBase.description
+Products.ZenModel.MibModule.MibModule.description
+Products.ZenModel.NagiosTemplate.NagiosTemplate.description
+Products.ZenModel.OSProcessClass.OSProcessClass.description
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description
+Products.ZenModel.RRDTemplate.RRDTemplate.description
+Products.ZenModel.Report.Report.description
+Products.ZenModel.ServiceClass.ServiceClass.description
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description
+Products.ZenModel.UserCommand.UserCommand.description
+Products.ZenModel.ZenMenu.ZenMenu.description
+Products.ZenModel.ZenMenuItem.ZenMenuItem.description
+Products.ZenModel.ZentinelPortal.ZentinelPortal.description" class="py-name" href="#" onclick="return doclink('link-17', 'description', 'link-5');">description</a></tt><tt class="py-op">=</tt><tt class="py-string">u"The layer"</tt><tt class="py-op">,</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">False</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt id="link-18" class="py-name" targets="Variable Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout=Products.DataCollector.TelnetClient.TelnetClientProtocol-class.html#timeout,Variable Products.ZenEvents.zenpop3.POPProtocol.timeout=Products.ZenEvents.zenpop3.POPProtocol-class.html#timeout,Method Products.ZenRRD.zencommand.ProcessRunner.timeout()=Products.ZenRRD.zencommand.ProcessRunner-class.html#timeout,Method Products.ZenRRD.zencommand.SshRunner.timeout()=Products.ZenRRD.zencommand.SshRunner-class.html#timeout,Function Products.ZenUtils.Timeout.timeout()=Products.ZenUtils.Timeout-module.html#timeout,Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#timeout"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout
+Products.ZenEvents.zenpop3.POPProtocol.timeout
+Products.ZenRRD.zencommand.ProcessRunner.timeout
+Products.ZenRRD.zencommand.SshRunner.timeout
+Products.ZenUtils.Timeout.timeout
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout" class="py-name" href="#" onclick="return doclink('link-18', 'timeout', 'link-18');">timeout</a></tt> <tt class="py-op">=</tt> <tt class="py-name">TextLine</tt><tt class="py-op">(</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt id="link-19" class="py-name"><a title="Products.ZenModel.ZentinelPortal.ZentinelPortal.title
+Products.ZenRelations.ZItem.ZItem.title
+Products.ZenWidgets.PersistentMessage.PersistentMessage.title
+Products.ZenWidgets.interfaces.IMessage.title
+Products.ZenWidgets.messaging.BrowserMessage.title" class="py-name" href="#" onclick="return doclink('link-19', 'title', 'link-4');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">u"Timeout"</tt><tt class="py-op">,</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt id="link-20" class="py-name"><a title="Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description
+Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description
+Products.DataCollector.CommandParsers.CommandParser.CommandParser.description
+Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description
+Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description
+Products.DataCollector.CommandParsers.Uname_A.Uname_A.description
+Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description
+Products.ZenModel.HardDisk.HardDisk.description
+Products.ZenModel.IpInterface.IpInterface.description
+Products.ZenModel.MibBase.MibBase.description
+Products.ZenModel.MibModule.MibModule.description
+Products.ZenModel.NagiosTemplate.NagiosTemplate.description
+Products.ZenModel.OSProcessClass.OSProcessClass.description
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description
+Products.ZenModel.RRDTemplate.RRDTemplate.description
+Products.ZenModel.Report.Report.description
+Products.ZenModel.ServiceClass.ServiceClass.description
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description
+Products.ZenModel.UserCommand.UserCommand.description
+Products.ZenModel.ZenMenu.ZenMenu.description
+Products.ZenModel.ZenMenuItem.ZenMenuItem.description
+Products.ZenModel.ZentinelPortal.ZentinelPortal.description" class="py-name" href="#" onclick="return doclink('link-20', 'description', 'link-5');">description</a></tt><tt class="py-op">=</tt><tt class="py-name">unicode</tt><tt class="py-op">(</tt><tt class="py-string">"Override the default timeout (in milliseconds)"</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">                            <tt class="py-string">" for the calls"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">,</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt id="link-21" class="py-name" targets="Method Products.ZenUtils.jsonutils.JavaScriptEncoder.default()=Products.ZenUtils.jsonutils.JavaScriptEncoder-class.html#default"><a title="Products.ZenUtils.jsonutils.JavaScriptEncoder.default" class="py-name" href="#" onclick="return doclink('link-21', 'default', 'link-21');">default</a></tt><tt class="py-op">=</tt><tt class="py-string">u"30000"</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">    <tt id="link-22" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.permission=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#permission"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.permission" class="py-name" href="#" onclick="return doclink('link-22', 'permission', 'link-22');">permission</a></tt> <tt class="py-op">=</tt> <tt class="py-name">TextLine</tt><tt class="py-op">(</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt id="link-23" class="py-name"><a title="Products.ZenModel.ZentinelPortal.ZentinelPortal.title
+Products.ZenRelations.ZItem.ZItem.title
+Products.ZenWidgets.PersistentMessage.PersistentMessage.title
+Products.ZenWidgets.interfaces.IMessage.title
+Products.ZenWidgets.messaging.BrowserMessage.title" class="py-name" href="#" onclick="return doclink('link-23', 'title', 'link-4');">title</a></tt><tt class="py-op">=</tt><tt class="py-string">u"Permission"</tt><tt class="py-op">,</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt id="link-24" class="py-name"><a title="Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.description
+Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.description
+Products.DataCollector.CommandParsers.CommandParser.CommandParser.description
+Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.description
+Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.description
+Products.DataCollector.CommandParsers.Uname_A.Uname_A.description
+Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.description
+Products.ZenModel.HardDisk.HardDisk.description
+Products.ZenModel.IpInterface.IpInterface.description
+Products.ZenModel.MibBase.MibBase.description
+Products.ZenModel.MibModule.MibModule.description
+Products.ZenModel.NagiosTemplate.NagiosTemplate.description
+Products.ZenModel.OSProcessClass.OSProcessClass.description
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.description
+Products.ZenModel.RRDTemplate.RRDTemplate.description
+Products.ZenModel.Report.Report.description
+Products.ZenModel.ServiceClass.ServiceClass.description
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.description
+Products.ZenModel.UserCommand.UserCommand.description
+Products.ZenModel.ZenMenu.ZenMenu.description
+Products.ZenModel.ZenMenuItem.ZenMenuItem.description
+Products.ZenModel.ZentinelPortal.ZentinelPortal.description" class="py-name" href="#" onclick="return doclink('link-24', 'description', 'link-5');">description</a></tt><tt class="py-op">=</tt><tt class="py-name">unicode</tt><tt class="py-op">(</tt><tt class="py-string">"The base permission required to access methods"</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">                            <tt class="py-string">" on this router. Individual methods can override"</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">                            <tt class="py-string">" this setting using the require decorator"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-name">required</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt id="link-25" class="py-name"><a title="Products.ZenUtils.jsonutils.JavaScriptEncoder.default" class="py-name" href="#" onclick="return doclink('link-25', 'default', 'link-21');">default</a></tt><tt class="py-op">=</tt><tt class="py-string">u"zope.Public"</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:30 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

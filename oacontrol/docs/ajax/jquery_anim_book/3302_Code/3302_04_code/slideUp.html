@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery slideUp()</title>
+		<link rel="stylesheet" href="css/slideUp.css">
+        <!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header>
+            <ul>
+            	<li>Already registered?</li>
+                <li>
+                	<a id="login" href="login.html" title="Login">Login</a>
+                    <form>
+                    	<fieldset>
+                        	<legend>Login Form</legend>
+	                    	<label for="username">Username:<input name="username" id="username"></label>
+    	                    <label for="password">Password:<input name="password" id="password" type="password"></label>
+        	                <input name="remember" id="remember" type="checkbox"><label for="remember">Remember me:</label>
+                            <a id="cancel" href="#" title="Cancel">Cancel</a>
+            	            <button type="submit">Login</button>
+                        </fieldset>
+                    </form>
+           	  </li>
+            </ul>
+   	</header>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//remove href of login link and add click handler
+				$("#login").attr("href", "#").click(function(e) {
+					
+					e.preventDefault();
+					
+					//show hidden form					
+					$(this).addClass("on").next().slideDown();
+										
+				});
+				
+				$("#cancel").click(function(e) {
+				
+					e.preventDefault();
+					
+					//hide form
+					$(this).closest("form").slideUp(function() {
+						
+						//remove on class
+						$(this).prev().removeClass("on");
+						
+					});
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

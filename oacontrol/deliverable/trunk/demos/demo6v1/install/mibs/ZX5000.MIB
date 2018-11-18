@@ -1,0 +1,164 @@
+--==========================================================================
+--
+--	zx5000.mib
+--
+--	ZNYX ZX5000 SNMP MIB
+--
+--==========================================================================
+--
+--	(c) Copyright 2001 ZNYX Networks, Inc.
+--	All rights reserved.
+--
+--==========================================================================
+
+
+	ZX5000-MIB DEFINITIONS ::= BEGIN
+
+	IMPORTS
+		enterprises, NetworkAddress, IpAddress, Counter,
+		Gauge, TimeTicks, OBJECT-TYPE
+			FROM RFC1155-SMI
+		znyx, znyxProductSpecificMib
+			FROM ZNYX-MIB
+		TRAP-TYPE
+			FROM RFC-1215;
+
+	-- Conventions
+
+	DisplayString ::= OCTET STRING
+
+
+
+	znyxPsMibZX5000		OBJECT IDENTIFIER ::= { znyxProductSpecificMib 3 }
+
+	zZX5000GeoPins OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object returns a string identifying
+			 the shelf and the slot within the shelf
+			 the switch is located in."
+		::= { znyxPsMibZX5000 1 }
+
+	zZX5000InternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 Internal Fault LED is driven."
+		::= { znyxPsMibZX5000 2 }
+
+	zZX5000InternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current Internal Fault LED status."
+		::= { znyxPsMibZX5000 3 }
+
+	zZX5000ExternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 External Fault LED is driven."
+		::= { znyxPsMibZX5000 4 }
+
+	zZX5000ExternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current External Fault LED status."
+		::= { znyxPsMibZX5000 5 }
+
+	zZX5000OpenArchVersion OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Open Architect software version."
+    		::= { znyxPsMibZX5000 6 }
+
+	zZX5000LinkCtrlTable OBJECT-TYPE
+	    	SYNTAX      SEQUENCE OF ZZX5000LinkCtrlEntry
+  		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      	    	"A table containing link control information for each port
+		       available on the device."
+    		::= { znyxPsMibZX5000 7 }
+
+	zZX5000LinkCtrlEntry OBJECT-TYPE
+ 		SYNTAX      ZZX5000LinkCtrlEntry
+    		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      		"Link control information for each port available on the
+			 device."
+   		INDEX   { zZX5000LinkCtrlPort }
+    		::= { zZX5000LinkCtrlTable 1 }
+
+ 	ZZX5000LinkCtrlEntry ::=
+  		SEQUENCE {
+			zZX5000LinkCtrlPort
+				INTEGER,
+			zZX5000LinkCtrlState
+				INTEGER,
+			zZX5000LinkCtrlSpeed
+				INTEGER
+    		}
+
+	zZX5000LinkCtrlPort OBJECT-TYPE
+		SYNTAX      INTEGER (1..65535)
+		ACCESS  not-accessible
+		STATUS      mandatory
+		DESCRIPTION
+		"The port number associated with this Link Control entry."
+		::= { zZX5000LinkCtrlEntry 1 }
+
+	zZX5000LinkCtrlState OBJECT-TYPE
+    		SYNTAX      INTEGER { up (1), down (2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control state of the port."
+    		::= { zZX5000LinkCtrlEntry 2 }
+
+	zZX5000LinkCtrlSpeed OBJECT-TYPE
+    		SYNTAX      INTEGER  { auto(1), n100fd(2), n100hd(3), n10fd (4), n10hd(5), n1000fd(6), n1000hd(7) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control speed of the port. Changes to this speed
+			 require the port to be in the down state."
+    		::= { zZX5000LinkCtrlEntry 3 }
+
+	-- Traps for the ZX5000
+
+		zZX5000L2Full TRAP-TYPE
+		ENTERPRISE znyx
+		DESCRIPTION
+			"The L2Full trap indicates that the L2 table has transitioned
+			 to/from full."
+		::= 1
+	END

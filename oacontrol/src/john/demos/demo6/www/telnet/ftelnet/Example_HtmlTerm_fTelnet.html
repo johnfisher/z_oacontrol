@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>fTelnet &amp; HtmlTerm by Rick Parrish of R&amp;M Software</title>
+        <meta http-equiv="Content-Language" content="English" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="top"></div>
+
+            <div id="content">
+                <div class="header">
+                    <h1>fTelnet &amp; HtmlTerm</h1>
+                    <h2>by Rick Parrish of R&amp;M Software</h2>
+                </div>
+
+                <div class="breadcrumbs">
+                    <a href="Example_fTelnet.html">fTelnet</a> &nbsp; &middot; &nbsp; 
+                    <a href="Example_HtmlTerm.html">HtmlTerm</a> &nbsp; &middot; &nbsp; 
+                    <a href="Example_fTelnet_HtmlTerm.html">fTelnet + HtmlTerm</a> &nbsp; &middot; &nbsp; 
+                    HtmlTerm + fTelnet &nbsp; &middot; &nbsp; 
+                    <a href="WBA.html">Web BBS Assistant</a>
+                </div>
+
+                <div class="middle">
+                    <h2>HtmlTerm with fTelnet fall-back</h2>
+			
+                    <!-- IMPORTANT -->
+                    <p style="text-align: center;"><span id="ClientContainer"></span></p> <!-- You can use any id= value you want, just make sure if you rename it here, you rename it below.  You can also use a div or whatever instead of a p if you'd like. -->
+                    
+                    <script type="text/javascript" src="ClientVars.js"></script>
+                    <script type="text/javascript" src="ClientFuncs.js"></script>
+                    <script type="text/javascript" src="HtmlTerm.compiled.js"></script>
+                    <script type="text/javascript" src="HtmlTerm.font2.js"></script> <!-- This is optional, and can be commented out if you only want codepage 437 at 9x16 size -->
+                    <script type="text/javascript" src="HtmlTerm.fontamiga.js"></script> <!-- This is optional, and can be commented out if you don't need the amiga fonts -->
+                    <script type="text/javascript" src="HtmlTerm.fontatari.js"></script> <!-- This is optional, and can be commented out if you don't need the atari fonts -->
+                    <script type="text/javascript" src="swfobject.js"></script>
+                    <script type="text/javascript">
+                        // Try to use HtmlTerm
+                        if (!HtmlTerm.Init("ClientContainer", ClientVars)) { // Must match the id= value above
+                            // Failed to use HtmlTerm, so try to use fTelnet
+                            swfobject.embedSWF(
+                                "fTelnet.swf",
+                                "ClientContainer", // Must match the id= value above
+                                (location.href.indexOf("file:") === 0) ? 740 : "100%", // NOTE: This is just a hack to make sure the display works locally, in a web environment you'd only use "100%"
+                                (location.href.indexOf("file:") === 0) ? 442 : "100%", // NOTE: This is just a hack to make sure the display works locally, in a web environment you'd only use "100%"
+                                "10.0.0",
+                                "playerProductInstall.swf",
+                                ClientVars,
+                                { allowfullscreen: "true", allowscriptaccess: "sameDomain", bgcolor: "#ffffff", quality: "high" },
+                                { align: "middle", id: "fTelnet", name: "fTelnet", swliveconnect: "true" },
+                                function (callbackObj) {
+                                    if (!callbackObj.success) {
+                                        // Failed to use fTelnet too
+                                        alert("Sorry, I wasn't able to load either HtmlTerm or fTelnet\n\nTry again with an HTML5 capable browser (for HtmlTerm), or with Flash 10+ installed (for fTelnet)");
+                                    }
+                                }
+                            );
+                        }
+                    </script>
+                    <!-- END IMPORTANT -->
+                </div>
+
+                <div id="clear"></div>
+            </div>
+
+            <div id="bottom"></div>
+        </div>
+
+        <div id="footer">
+            Design by <a href="http://www.minimalistic-design.net" target="_blank">Minimalistic Design</a>
+        </div>
+    </body>
+</html>

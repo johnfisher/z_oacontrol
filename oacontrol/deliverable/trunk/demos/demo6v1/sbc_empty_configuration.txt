@@ -1,0 +1,27 @@
+eth0      Link encap:Ethernet  HWaddr 00:0e:0c:80:94:46  
+          inet addr:10.1.7.130  Bcast:10.1.7.255  Mask:255.255.255.0
+          inet6 addr: fe80::20e:cff:fe80:9446/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:34783056 errors:0 dropped:16 overruns:0 frame:0
+          TX packets:34931626 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:36843664712 (34.3 GiB)  TX bytes:34781576469 (32.3 GiB)
+          Interrupt:16 Memory:fe5e0000-fe600000 
+
+
+
+root@sbcslot4:/etc/init.d# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.1.7.0        *               255.255.255.0   U     0      0        0 eth0
+default         10.1.7.1        0.0.0.0         UG    0      0        0 eth0
+root@sbcslot4:/etc/init.d# 
+
+
+
+# The primary network interface
+allow-hotplug eth0
+iface eth0 inet static
+        address 10.1.7.130
+        netmask 255.255.255.0
+        gateway 10.1.7.1

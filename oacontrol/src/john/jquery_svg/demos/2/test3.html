@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+
+
+<!-- ////////////////// jquery-svg REQUIRES SVGVIEWER IN IE8 //////////////////////////////////-->
+<style type="text/css">
+    td.svgbox {width: 100px; height: 50px;  }
+    div.svgbox {width: 200px; height: 100px;  border: 1px solid #484;}
+    div.svgbasics { width: 800px; height: 400px; border: 1px solid #484; }
+</style>
+
+<script>
+
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg"
+
+
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+var dkglow = "#3B2507" ;
+var ltglow = "#FCB83B" ;
+
+
+
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    getsvg();  
+});
+    
+// laod the svg
+function getsvg(){
+
+      $("#svgblue").svg({  
+            loadURL: 'grouptest1.svg',  
+            onLoad: loadYellow,  
+            settings: {}  
+          } );
+
+}
+function loadYellow(){
+      $("#svgyellow").svg({  
+            loadURL: 'yellow.svg',  
+            onLoad: loadGreen,  
+            settings: {}  
+          } );
+}
+function loadGreen(){
+      $("#svggreen").svg({  
+            loadURL: 'green.svg',  
+            onLoad: loadRed,  
+            settings: {}  
+          } );
+}
+function loadRed(){
+      $("#svgred").svg({  
+            loadURL: 'red.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+}
+
+
+
+function main(){
+    // polling loop that drives everything
+//$('#rect2816').css("fill", red );
+
+    $('#svgblue').click(function(){
+	     //var gr = svg.group({transform: 'translate(100, 100)'});  
+
+  
+
+      $('#group1').animate({svgTransform: 'translate(0,50)'}, 2000);
+     });
+
+
+
+
+
+
+
+}
+
+
+
+function logDebug(newtext){
+    document.getElementById("debug").innerHTML += (" " + newtext) ;
+}
+
+
+
+
+</script></head><body>
+
+
+<br>
+<h3>test of arranging svgs by div</h3>
+<br>
+<div id="svgblue" class="svgbox"></div><div id="svgred" class="svgbox"></div>
+<div id="svgyellow" class="svgbox"></div><div id="svggreen" class="svgbox"></div>
+
+
+<br>
+<div id="debug"></div>
+
+
+
+</body></html>
+
+

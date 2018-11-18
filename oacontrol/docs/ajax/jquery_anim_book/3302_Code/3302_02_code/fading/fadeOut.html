@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery fadeOut()</title>
+		<link rel="stylesheet" href="css/fadeOut.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div id="overlay">
+			<header>A dialog box of some description</header>
+            <section>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</section>
+            <footer><button>Ok</button></footer>
+		</div>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			(function($){
+				
+				//add click handler to button
+				$("#overlay button").click(function() {
+
+					//fade dialog out
+					$("#overlay").fadeOut(500, function() {
+						
+						//remove dialog from page
+						$(this).remove();
+					});				
+				});
+				
+			})(jQuery);
+		</script>
+	</body>
+</html>

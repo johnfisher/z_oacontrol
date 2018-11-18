@@ -1,0 +1,192 @@
+/* iPEC Default Skin for BlackBerries */
+
+/* BlackBerry Viewport is 320*240 */
+
+body, div { margin: 0px; padding: 0px; font-size: 8pt; font-family: Trebuchet MS, Calibri, Sans-Serif; }
+img { margin: 0px; border: 0px; }
+div { margin: 0px; padding: 0px; border: 0px solid #000000; }
+p { font-size: 7pt ; margin: 0px; float: none;}
+
+/* This container fills the entire user viewport */
+.container { 	width: 320px; height: 310px; background-image: url('img/bg.gif'); background-repeat: repeat; } 
+
+/* Header height is 43px */
+.header, .headerOverlay {
+		width: 320px; height: 43px;  position: absolute; top: 0px;
+}
+
+/* This contains the logo provided by the skin */
+.header { 	 
+		z-index: 0;
+		background-color: #666666;		
+		background-image: url('img/zenoss.png');
+		background-repeat: no-repeat; 
+}
+/* This contains the glossy effect that overlays the logo */
+.headerOverlay {
+	 	display: none ; /* required for Blackberries to correctly position the glossy layer */
+		z-index: 10;
+		background-color: transparent;		
+		background-image: url('img/overlay.png');
+		background-repeat: no-repeat;
+		border-bottom: 1px solid #CCCCCC;
+}
+.statusBar { 
+		width: 320px; height: 17px;  position: absolute; top: 43px;
+		background-color: #999999;
+		border-top : 1px solid #6F6F6F;
+		border-bottom: 1px solid #333333;
+		color: #000000;
+		font-size: 7pt;
+		text-shadow: 0px 1px 0px #CCCCCC;	
+		text-align: center;
+}
+		
+#list { 	width: 312px; height: 300px; position: absolute; top: 62px; overflow: auto; padding: 4px; text-align: center; }
+.event { 	border: 1px solid #000000; padding: 4px; margin-top: 2px; line-height: 14pt; text-align: left; }
+.visibleifpressed {
+		margin-top: 4px;
+		background-color: #FFFFFF;
+		border: 1px solid #666666; 
+		padding: 3px; font-size: 8pt; line-height: 12pt;
+		font-style: normal;
+}
+.toolbar {	width: 320px; height: 44px; position: absolute; top: 280px; 
+		background-image: url('img/toolbar_bg.png'); background-repeat: repeat-x; 
+		border-top: 1px solid #333333;
+}
+
+/* Events text elements */
+.device { font-weight: bold; color: #333333; }
+.info { font-size: 8pt; }
+.message { font-size: 8pt; }
+.count { }
+.location { font-size: 8pt; }
+
+
+.hide {
+	display: none;
+}
+.show {
+	display: block ; 
+}
+
+
+
+/* Messages Formating */
+.error_msg {
+	color: #FF0000;
+	font-weight: bold;
+}
+.noalarm {
+	padding-top: 30px;
+	height: 50px;
+	color: #000000;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* EVENT SEVERITIES - the following is taken/adapted from zenoss code */
+.acked, .acked a, .acked a:visited, .acked a:link {
+	color: #333;
+	font-style:italic;
+}
+
+.noack, .noack a, .noack a:visited, .noack a:link {
+	color: #000;
+}
+
+.zenevents_5_acked {
+	background-color: #f88880;
+	border: 2px solid #C85850;
+}
+
+
+.zenevents_5_noack {
+	background-color: #e00;
+	border: 2px solid #B00;
+}
+
+.zenevents_4_acked {
+	background-color: #ffba75;
+	border: 2px solid #CF8a45;
+}
+
+.zenevents_4_noack {
+	background-color: #f82;
+	border: 2px solid #C50;
+}
+
+.zenevents_3_acked {
+	background-color: #fff280;
+	border: 2px solid #CFC250;
+}
+
+.zenevents_3_noack {
+	background-color: #ffda00;
+	border: 2px solid #CF9A00;
+}
+
+.zenevents_2_acked {
+	background-color: #b3b3ff;
+	border: 2px solid #9393CF;
+}
+
+.zenevents_2_noack {
+	background-color: #56f;
+	border: 2px solid #2030C0;
+}
+
+.zenevents_1_acked {
+	background-color: #C8C8C8;
+	border: 2px solid #989898;
+}
+
+.zenevents_1_noack {
+	background-color: #AFAFAF;
+	border: 2px solid #7F7F7F;
+}
+
+.zenevents_0_acked {
+	background-color: #00CD00;
+	border: 2px solid #009D00;
+	
+}
+
+.zenevents_0_noack {
+	background-color: #00FF00;
+	border: 2px solid #00CF00; 
+}
+
+.zenevents_unknown_acked {
+	background-color: #CD00CD;
+}
+
+.zenevents_unknown_noack {
+	background-color: #D02090;
+}
+
+.zenstatus_3 {
+	color: #000000;
+	background-color: #FF0000;
+}
+
+.zenstatus_2 {
+	color: #000000;
+	background-color: #ffb329;
+}
+
+.zenstatus_1 {
+	color: #000000;
+	background-color: #e2e200;
+}
+
+.zenstatus_0 {
+	background-color: #00FF00;
+}
+
+.zenstatus_unknown {
+	color: #000000;
+	background-color: #D02090;
+}
+

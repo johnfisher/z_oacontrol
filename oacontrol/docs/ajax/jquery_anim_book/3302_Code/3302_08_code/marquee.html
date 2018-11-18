@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Marquee Effect</title>
+		<link rel="stylesheet" href="css/marquee.css">
+        <!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+    	<div id="outer">
+            <header>
+                <hgroup>
+                    <h1>Site Title</h1>
+                    <h2>Site Description</h2>
+                </hgroup>
+                <nav>Main site navigation along here</nav>
+            </header>
+            <article>
+                <h1>A Blog Post Title</h1>
+                <p>The post copy</p>
+            </article>
+            <aside>
+            	<div>
+                	<h2>Ads</h2>
+                    <p>Probably a bunch of ads here that take up a reasonable section of this aside vertically</p>
+                </div>
+            	<div>
+	            	<h2>Popular Posts</h2>
+    	            <p>Some links here to other posts, which may or may not be related to the current post, but are deemed popular based on the number of comments</p>
+                </div>
+                <div>
+                	<h2>Related Posts</h2>
+                    <p>Some links here to other posts that are definitely related to this post, based on post tags</p>
+                </div>
+                <div>
+                	<h2>Twitter Feed</h2>
+                    <p>Maybe a twitter feed here that displays recent tweets or something. Aside could be quite long by now</p>
+                </div>
+            </aside>
+        </div>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//request posts				
+				$.getJSON("http://danwellman.co.uk?json=1&count=10&callback=?", function(data) {
+					
+					//create marquee elements
+					var marquee = $("<div></div>", {
+							id: "marquee"
+						}),
+						h2 = $("<h2></h2>", {
+							text: "Recent Posts:"
+						}),
+						fadeLeft = $("<div></div>", {
+							id: "fadeLeft"
+						}),
+						fadeRight = $("<div></div>", {
+							id: "fadeRight"
+						});
+					
+					//cycle through results
+					for(var x = 0, y = data.count; x < y; x++) {
+						
+						//create links
+						$("<a></a>", {
+							href: data.posts[x].url,
+							title: data.posts[x].title,
+							html: data.posts[x].title
+						}).appendTo(marquee);
+					}
+										
+					//add to page
+					marquee.wrapInner("<div></div>").prepend(h2).append(fadeLeft).append(fadeRight).insertAfter("header").slideDown("slow");
+					
+					//set width of inner div
+					$("#marquee").find("div").eq(0).width(function() {
+						
+						var width = 0;
+						
+						$(this).children().each(function() {
+							var el = $(this);
+							width += el.width() + parseInt(el.css("marginRight"));
+							
+						});
+						
+						return width;
+					});
+					
+					//trigger marquee-loaded event
+					marquee.trigger("marquee-ready");					
+				});
+				
+				//animate the links
+				$("body").delegate("#marquee", "marquee-ready", function() {
+										
+					//select first link and get width
+					var marquee = $(this),
+						postLink = marquee.find("a").eq(0);
+						width = postLink.width() + parseInt(postLink.css("marginRight")),
+						time = 15 * width;
+
+					postLink.animate({
+						marginLeft: "-=" + width	
+					}, time, "linear", function() {
+						$(this).css({
+							marginLeft: 0
+						}).appendTo(marquee.find("div").eq(0));
+						marquee.trigger("marquee-ready");
+					});
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

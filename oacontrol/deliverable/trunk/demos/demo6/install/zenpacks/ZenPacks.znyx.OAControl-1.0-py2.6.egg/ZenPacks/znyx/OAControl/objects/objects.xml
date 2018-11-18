@@ -1,0 +1,3617 @@
+<?xml version="1.0"?>
+<objects>
+<!-- ('', 'zport', 'dmd', 'Devices', 'Network', 'OASwitch') -->
+<object id='/zport/dmd/Devices/Network/OASwitch' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="string" id="zCommandPath" >
+$ZENHOME/common/libexec
+</property>
+<object id='ZX1900BaseDevice' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="lines" id="zCollectorPlugins" >
+['zenoss.snmp.DeviceMap', 'zenoss.snmp.NewDeviceMap', 'ZX1900BaseDeviceMib', 'zenoss.snmp.InterfaceMap', 'zenoss.snmp.RouteMap', 'zenoss.snmp.PhysicalEntityMap', 'zenoss.snmp.NewRouteMap', 'zenoss.cmd.linux.ifconfig']
+</property>
+</object>
+<object id='ZX1900FabricDevice' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="lines" id="zCollectorPlugins" >
+['zenoss.snmp.DeviceMap', 'zenoss.snmp.NewDeviceMap', 'ZX1900FabricDeviceMib', 'zenoss.snmp.InterfaceMap', 'zenoss.snmp.RouteMap', 'zenoss.snmp.PhysicalEntityMap', 'zenoss.snmp.NewRouteMap', 'zenoss.cmd.linux.ifconfig']
+</property>
+</object>
+<object id='ZX7300' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="lines" id="zCollectorPlugins" >
+['zenoss.snmp.DeviceMap', 'zenoss.snmp.NewDeviceMap', 'ZX7300DeviceMib', 'zenoss.snmp.InterfaceMap', 'zenoss.snmp.RouteMap', 'zenoss.snmp.PhysicalEntityMap', 'zenoss.snmp.NewRouteMap', 'zenoss.cmd.linux.ifconfig']
+</property>
+</object>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'Network', 'ShelfMgr') -->
+<object id='/zport/dmd/Devices/Network/ShelfMgr' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'Network', 'ZXSBC') -->
+<object id='/zport/dmd/Devices/Network/ZXSBC' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+</object>
+<!-- ('', 'zport', 'dmd', 'Mibs', 'mibs', 'ZNYX-MIB') -->
+<object id='/zport/dmd/Mibs/mibs/ZNYX-MIB' module='Products.ZenModel.MibModule' class='MibModule'>
+<property type="string" id="language" mode="w" >
+SMIv1
+</property>
+<tomanycont id='nodes'>
+<object id='zctrlPassword' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to change system passwords. On
+reads, the object returns nothing meaningful.
+If written with a currently valid account and password,
+separated by one whitespace character, this password
+will become once-writable by the specific agent for
+20 seconds. No indication is returned as to whether the                                                                   supplied account/password combination was valid.
+To change the password, once this object has become
+writable, write the account and new password,
+separated by one whitespace character. The password
+gets stored in the system if it satisfies system
+password policies.
+If writable, this object becomes non-writable again
+immediately after being written to.
+Beware: this mechanism is about as safe as a cleartext
+telnet session.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.4.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to change system passwords. On
+reads, the object returns nothing meaningful.
+If written with a currently valid account and password,
+separated by one whitespace character, this password
+will become once-writable by the specific agent for
+20 seconds. No indication is returned as to whether the                                                                   supplied account/password combination was valid.
+To change the password, once this object has become
+writable, write the account and new password,
+separated by one whitespace character. The password
+gets stored in the system if it satisfies system
+password policies.
+If writable, this object becomes non-writable again
+immediately after being written to.
+Beware: this mechanism is about as safe as a cleartext
+telnet session.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zctrlReset' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This variable always returns running on reads. If
+softreset is written, the unit will perform a
+software-only reset if possible, or a hardware
+reset otherwise. If hardreset is written, the unit
+will perform a hardware reset if possible, or
+a software-only reset otherwise.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.4.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This variable always returns running on reads. If
+softreset is written, the unit will perform a
+software-only reset if possible, or a hardware
+reset otherwise. If hardreset is written, the unit
+will perform a hardware reset if possible, or
+a software-only reset otherwise.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zctrlState' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The systems state. A state of okay indicates
+the system functions to spec. A state of
+problematic indicates compromised functionality.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.4.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The systems state. A state of okay indicates
+the system functions to spec. A state of
+problematic indicates compromised functionality.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zctrlSystemDate' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The host's notion of the local date and time of day. 
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.4.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The host's notion of the local date and time of day. 
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zctrlSystemProcedureTrigger' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Writing a name to this object will start the
+system procedure identified by the name. No
+action is taken if no system procedure matching
+name is defined. The name written may be followed
+by arguments, separated by whitespace. For
+instance, system procedures may be looked up in
+the file /etc/procedures.conf. Each line of this
+file will list a procedure name, minimum interval
+in seconds, uid, gid, working directory, and the
+command to be executed, including required arguments.
+If the minimum interval has passed since the procedure
+last was triggered, or the procedure has not been
+triggered since last system boot, the snmp agent will
+perform a chroot to the working directory if it is
+not the root directory, change the user id and group
+id to uid and gid, respectively, and then execute the
+specified command. Any arguments supplied with the
+procedure name will get appended, not overriding
+required arguments from the procedures file. This
+mechanism should not use the system() call.
+Care should be taken that supplied arguments like
+';/bin/rm -rf /*' do not have the intended effect.
+On reads, the object will return the last value
+written, or the empty string if no value has been
+written yet.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.4.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Writing a name to this object will start the
+system procedure identified by the name. No
+action is taken if no system procedure matching
+name is defined. The name written may be followed
+by arguments, separated by whitespace. For
+instance, system procedures may be looked up in
+the file /etc/procedures.conf. Each line of this
+file will list a procedure name, minimum interval
+in seconds, uid, gid, working directory, and the
+command to be executed, including required arguments.
+If the minimum interval has passed since the procedure
+last was triggered, or the procedure has not been
+triggered since last system boot, the snmp agent will
+perform a chroot to the working directory if it is
+not the root directory, change the user id and group
+id to uid and gid, respectively, and then execute the
+specified command. Any arguments supplied with the
+procedure name will get appended, not overriding
+required arguments from the procedures file. This
+mechanism should not use the system() call.
+Care should be taken that supplied arguments like
+';/bin/rm -rf /*' do not have the intended effect.
+On reads, the object will return the last value
+written, or the empty string if no value has been
+written yet.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zctrlSystemUptime' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The amount of time since this host was last
+initialized.  Note that this is different from
+sysUpTime in the SNMPv2-MIB [RFC1907] because
+sysUpTime is the uptime of the network management
+portion of the system.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.4.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The amount of time since this host was last
+initialized.  Note that this is different from
+sysUpTime in the SNMPv2-MIB [RFC1907] because
+sysUpTime is the uptime of the network management
+portion of the system.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zhwCompDescr' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Component description.  Present if hardware
+provides Vital Product Data.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.1.2.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Component description.  Present if hardware
+provides Vital Product Data.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zhwCompEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+A component table entry.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.1.2.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+A component table entry.
+</property>
+</object>
+<object id='zhwCompIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Component index.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.1.2.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Component index.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zhwCompNumber' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The number of hardware components in this system.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The number of hardware components in this system.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zhwCompOid' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Component OID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.1.2.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Component OID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zhwCompSerial' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Component serial number.  Present if hardware
+provides Vital Product Data.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.1.2.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Component serial number.  Present if hardware
+provides Vital Product Data.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zhwCompTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+A list of hardware components.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+A list of hardware components.
+</property>
+</object>
+<object id='zhwCompType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Component type.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.1.2.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Component type.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='znyx' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688
+</property>
+</object>
+<object id='znyxAdapters' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.3
+</property>
+</object>
+<object id='znyxBridges' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.1
+</property>
+</object>
+<object id='znyxExperimentalIds' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.1
+</property>
+</object>
+<object id='znyxExperimentalMib' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.1
+</property>
+</object>
+<object id='znyxIds' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1
+</property>
+</object>
+<object id='znyxMibOne' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2
+</property>
+</object>
+<object id='znyxMibs' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2
+</property>
+</object>
+<object id='znyxOpenArchitect' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1
+</property>
+</object>
+<object id='znyxProductSpecificMib' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3
+</property>
+</object>
+<object id='znyxProducts' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2
+</property>
+</object>
+<object id='znyxRainACS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.3.1.2
+</property>
+</object>
+<object id='znyxRainARS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.3.1.1
+</property>
+</object>
+<object id='znyxRainAdapters' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.3.1
+</property>
+</object>
+<object id='znyxSwitches' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2
+</property>
+</object>
+<object id='znyxSystemMib' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1
+</property>
+</object>
+<object id='znyxZX1900BASE' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.14
+</property>
+</object>
+<object id='znyxZX1900FABRIC' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.15
+</property>
+</object>
+<object id='znyxZX4500' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.1
+</property>
+</object>
+<object id='znyxZX4900' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.2
+</property>
+</object>
+<object id='znyxZX4920' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.4
+</property>
+</object>
+<object id='znyxZX5000' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.3
+</property>
+</object>
+<object id='znyxZX6000' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.5
+</property>
+</object>
+<object id='znyxZX6150' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.9
+</property>
+</object>
+<object id='znyxZX6200' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.16
+</property>
+</object>
+<object id='znyxZX7000' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.6
+</property>
+</object>
+<object id='znyxZX7100BASE' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.7
+</property>
+</object>
+<object id='znyxZX7100FABRIC' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.8
+</property>
+</object>
+<object id='znyxZX7200BASE' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.10
+</property>
+</object>
+<object id='znyxZX7200FABRIC' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.11
+</property>
+</object>
+<object id='znyxZX7250BASE' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.12
+</property>
+</object>
+<object id='znyxZX7250FABRIC' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.2.1.13
+</property>
+</object>
+<object id='zsysControl' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.4
+</property>
+</object>
+<object id='zsysEventLog' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.5
+</property>
+</object>
+<object id='zsysHardware' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.1
+</property>
+</object>
+<object id='zsysLicenses' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.3
+</property>
+</object>
+<object id='zsysSoftware' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.2.1.2
+</property>
+</object>
+<object id='zx100' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.1.1
+</property>
+</object>
+<object id='zx110' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.1.2.1.2
+</property>
+</object>
+</tomanycont>
+<tomanycont id='notifications'>
+<object id='zsysTrapVrrpd' module='Products.ZenModel.MibNotification' class='MibNotification'>
+<property id='zendoc' type='string'>
+The trap indicates that the Znyx process, vrrpd, has restarted.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+notification
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.0.1003
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The trap indicates that the Znyx process, vrrpd, has restarted.
+</property>
+</object>
+<object id='zsysTrapZlmd' module='Products.ZenModel.MibNotification' class='MibNotification'>
+<property id='zendoc' type='string'>
+The trap indicates that the Znyx process, zlmd, has restarted.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+notification
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.0.1002
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The trap indicates that the Znyx process, zlmd, has restarted.
+</property>
+</object>
+<object id='zsysTrapZrld' module='Products.ZenModel.MibNotification' class='MibNotification'>
+<property id='zendoc' type='string'>
+The trap indicates that the Znyx process, zrld, has restarted.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZNYX-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+notification
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.0.1001
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The trap indicates that the Znyx process, zrld, has restarted.
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Mibs', 'mibs', 'ZX1900BASE-MIB') -->
+<object id='/zport/dmd/Mibs/mibs/ZX1900BASE-MIB' module='Products.ZenModel.MibModule' class='MibModule'>
+<property type="string" id="language" mode="w" >
+SMIv1
+</property>
+<tomanycont id='nodes'>
+<object id='zZX1900BASEExternalFaultLedControl' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine how the
+External Fault LED is driven.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine how the
+External Fault LED is driven.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX1900BASEExternalFaultLedStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine the
+current External Fault LED status.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine the
+current External Fault LED status.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEGeoPins' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object returns a string identifying
+the shelf and the slot within the shelf
+the switch is located in.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object returns a string identifying
+the shelf and the slot within the shelf
+the switch is located in.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEInternalFaultLedControl' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine how the
+Internal Fault LED is driven.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine how the
+Internal Fault LED is driven.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX1900BASEInternalFaultLedStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine the
+current Internal Fault LED status.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine the
+current Internal Fault LED status.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASELinkCtrlEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Link control information for each port available on the
+device.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.7.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Link control information for each port available on the
+device.
+</property>
+</object>
+<object id='zZX1900BASELinkCtrlPort' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The port number associated with this Link Control entry.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.7.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The port number associated with this Link Control entry.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='zZX1900BASELinkCtrlSpeed' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The link control speed of the port. Changes to this speed
+require the port to be in the down state.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.7.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The link control speed of the port. Changes to this speed
+require the port to be in the down state.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX1900BASELinkCtrlState' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The link control state of the port.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.7.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The link control state of the port.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX1900BASELinkCtrlTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+A table containing link control information for each port
+available on the device.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+A table containing link control information for each port
+available on the device.
+</property>
+</object>
+<object id='zZX1900BASEOpenArchVersion' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Open Architect software version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Open Architect software version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDPN' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Part Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Part Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDSN' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Serial Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Serial Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV0' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Mac Address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.10
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Mac Address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV1' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Mac Address Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.11
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Mac Address Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV2' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The PPC 82xx Memory Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.12
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The PPC 82xx Memory Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV3' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The BCM 56xx Memory Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.13
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The BCM 56xx Memory Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV4' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Boot Flash Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.14
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Boot Flash Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV5' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Application Flash Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.15
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Application Flash Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV6' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Firmware Revision.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.16
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Firmware Revision.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV7' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Reset Counter.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.17
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Reset Counter.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV8' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Kernel Runtime.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.18
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Kernel Runtime.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDV9' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Revision.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.19
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Revision.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDVA' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Adapter ID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.20
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Adapter ID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDVB' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Model Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.21
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Model Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDVL' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The LED CPLD Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.27
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The LED CPLD Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDVM' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Main CPLD Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.25
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Main CPLD Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDVP' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The IPMC Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.24
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The IPMC Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDVR' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Reset CPLD Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.26
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Reset CPLD Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDVS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Logical Slot Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.22
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Logical Slot Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDVT' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Geographical Shelf Address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.23
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Geographical Shelf Address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDVZ' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The ZMON Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.28
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The ZMON Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDY1' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Manufacturer ID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.29
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Manufacturer ID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDY2' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Board ID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.30
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Board ID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDY3' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Data CLEI.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.31
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Data CLEI.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDY4' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Data PEC.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.32
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Data PEC.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900BASEVPDY5' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Release Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14.33
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Release Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='znyxPsMibZX1900BASE' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZX1900BASE-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.14
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Mibs', 'mibs', 'ZX1900FABRIC-MIB') -->
+<object id='/zport/dmd/Mibs/mibs/ZX1900FABRIC-MIB' module='Products.ZenModel.MibModule' class='MibModule'>
+<property type="string" id="language" mode="w" >
+SMIv1
+</property>
+<tomanycont id='nodes'>
+<object id='zZX1900FABRICExternalFaultLedControl' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine how the
+External Fault LED is driven.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine how the
+External Fault LED is driven.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX1900FABRICExternalFaultLedStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine the
+current External Fault LED status.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine the
+current External Fault LED status.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICGeoPins' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object returns a string identifying
+the shelf and the slot within the shelf
+the switch is located in.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object returns a string identifying
+the shelf and the slot within the shelf
+the switch is located in.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICInternalFaultLedControl' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine how the
+Internal Fault LED is driven.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine how the
+Internal Fault LED is driven.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX1900FABRICInternalFaultLedStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine the
+current Internal Fault LED status.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine the
+current Internal Fault LED status.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICLinkCtrlEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Link control information for each port available on the
+device.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.7.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Link control information for each port available on the
+device.
+</property>
+</object>
+<object id='zZX1900FABRICLinkCtrlPort' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The port number associated with this Link Control entry.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.7.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The port number associated with this Link Control entry.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='zZX1900FABRICLinkCtrlSpeed' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The link control speed of the port. Changes to this speed
+require the port to be in the down state.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.7.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The link control speed of the port. Changes to this speed
+require the port to be in the down state.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX1900FABRICLinkCtrlState' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The link control state of the port.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.7.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The link control state of the port.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX1900FABRICLinkCtrlTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+A table containing link control information for each port
+available on the device.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+A table containing link control information for each port
+available on the device.
+</property>
+</object>
+<object id='zZX1900FABRICOpenArchVersion' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Open Architect software version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Open Architect software version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDPN' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Part Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Part Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDSN' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Serial Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Serial Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV0' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Mac Address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.10
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Mac Address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV1' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Mac Address Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.11
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Mac Address Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV2' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The PPC 82xx Memory Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.12
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The PPC 82xx Memory Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV3' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The BCM 56xx Memory Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.13
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The BCM 56xx Memory Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV4' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Boot Flash Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.14
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Boot Flash Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV5' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Application Flash Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.15
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Application Flash Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV6' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Firmware Revision.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.16
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Firmware Revision.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV7' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Reset Counter.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.17
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Reset Counter.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV8' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Kernel Runtime.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.18
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Kernel Runtime.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDV9' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Revision.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.19
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Revision.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDVA' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Adapter ID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.20
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Adapter ID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDVB' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Model Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.21
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Model Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDVL' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The LED CPLD Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.27
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The LED CPLD Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDVM' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Main CPLD Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.25
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Main CPLD Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDVP' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The IPMC Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.24
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The IPMC Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDVR' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Reset CPLD Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.26
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Reset CPLD Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDVS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Logical Slot Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.22
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Logical Slot Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDVT' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Geographical Shelf Address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.23
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Geographical Shelf Address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDVZ' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The ZMON Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.28
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The ZMON Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDY1' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Manufacturer ID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.29
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Manufacturer ID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDY2' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Board ID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.30
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Board ID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDY3' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Data CLEI.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.31
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Data CLEI.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDY4' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Data PEC.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.32
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Data PEC.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX1900FABRICVPDY5' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Release Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15.33
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Release Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='znyxPsMibZX1900FABRIC' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZX1900FABRIC-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.15
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Mibs', 'mibs', 'ZX7300-MIB') -->
+<object id='/zport/dmd/Mibs/mibs/ZX7300-MIB' module='Products.ZenModel.MibModule' class='MibModule'>
+<property type="string" id="language" mode="w" >
+SMIv1
+</property>
+<tomanycont id='nodes'>
+<object id='zZX7300ExternalFaultLedControl' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine how the
+External Fault LED is driven.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine how the
+External Fault LED is driven.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX7300ExternalFaultLedStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine the
+current External Fault LED status.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine the
+current External Fault LED status.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300GeoPins' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object returns a string identifying
+the shelf and the slot within the shelf
+the switch is located in.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object returns a string identifying
+the shelf and the slot within the shelf
+the switch is located in.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300InternalFaultLedControl' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine how the
+Internal Fault LED is driven.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine how the
+Internal Fault LED is driven.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX7300InternalFaultLedStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+This object is used to determine the
+current Internal Fault LED status.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This object is used to determine the
+current Internal Fault LED status.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300LinkCtrlEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Link control information for each port available on the
+device.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.7.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Link control information for each port available on the
+device.
+</property>
+</object>
+<object id='zZX7300LinkCtrlPort' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The port number associated with this Link Control entry.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.7.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The port number associated with this Link Control entry.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='zZX7300LinkCtrlSpeed' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The link control speed of the port. Changes to this speed
+require the port to be in the down state.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.7.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The link control speed of the port. Changes to this speed
+require the port to be in the down state.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX7300LinkCtrlState' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The link control state of the port.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.7.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The link control state of the port.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='zZX7300LinkCtrlTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+A table containing link control information for each port
+available on the device.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+A table containing link control information for each port
+available on the device.
+</property>
+</object>
+<object id='zZX7300OpenArchVersion' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Open Architect software version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Open Architect software version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDPN' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Part Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Part Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDSN' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Serial Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Serial Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV0' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Mac Address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.10
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Mac Address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV1' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Mac Address Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.11
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Mac Address Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV2' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The PPC 82xx Memory Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.12
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The PPC 82xx Memory Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV3' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The BCM 56xx Memory Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.13
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The BCM 56xx Memory Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV4' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Boot Flash Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.14
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Boot Flash Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV5' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Application Flash Subsystem.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.15
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Application Flash Subsystem.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV6' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Firmware Revision.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.16
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Firmware Revision.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV7' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Reset Counter.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.17
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Reset Counter.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV8' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Kernel Runtime.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.18
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Kernel Runtime.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDV9' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The VPD Revision.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.19
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The VPD Revision.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDVA' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Adapter ID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.20
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Adapter ID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDVB' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Model Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.21
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Model Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDVL' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The LED CPLD Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.27
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The LED CPLD Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDVM' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Main CPLD Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.25
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Main CPLD Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDVP' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The IPMC Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.24
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The IPMC Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDVR' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Reset CPLD Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.26
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Reset CPLD Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDVS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Logical Slot Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.22
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Logical Slot Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDVT' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Geographical Shelf Address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.23
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Geographical Shelf Address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDVZ' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The ZMON Version.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.28
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The ZMON Version.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDY1' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Manufacturer ID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.29
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Manufacturer ID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDY2' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Board ID.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.30
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Board ID.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDY3' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Data CLEI.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.31
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Data CLEI.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDY4' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Data PEC.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.32
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Data PEC.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='zZX7300VPDY5' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+The Release Number.
+</property>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17.33
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+The Release Number.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='znyxPsMibZX7300' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+ZX7300-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.688.2.3.17
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'userCommands', 'check_links') -->
+<object id='/zport/dmd/userCommands/check_links' module='Products.ZenModel.UserCommand' class='UserCommand'>
+<property id='zendoc' type='string'>
+check whether links are up or down
+</property>
+<property type="text" id="description" mode="w" >
+check whether links are up or down
+</property>
+<property type="text" id="command" mode="w" >
+python check_links.py -h  ${here/manageIp}
+</property>
+</object>
+<!-- ('', 'zport', 'dmd', 'userCommands', 'check_zconfig') -->
+<object id='/zport/dmd/userCommands/check_zconfig' module='Products.ZenModel.UserCommand' class='UserCommand'>
+<property id='zendoc' type='string'>
+check switch configuration
+</property>
+<property type="text" id="description" mode="w" >
+check switch configuration
+</property>
+<property type="text" id="command" mode="w" >
+python /usr/local/zenoss/common/libexec/check_zconfig.py -h  ${here/manageIp}
+</property>
+</object>
+</objects>

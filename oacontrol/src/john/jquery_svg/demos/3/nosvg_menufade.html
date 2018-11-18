@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+<script type="text/javascript" src="js/hoverIntent.js"></script>
+<script type="text/javascript" src="js/superfish.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.svgdom.js	"></script> -->
+
+<link rel="stylesheet" media="screen" href="css/superfish.css" /> 
+<link rel="stylesheet" media="screen" href="css/superfish-vertical.css" /> 
+ 
+  
+
+
+
+<!-- ////////////////// jquery-svg REQUIRES SVGVIEWER IN IE8 //////////////////////////////////-->
+<style type="text/css">
+    div.svgbasics { width: 800px; height: 400px; border: 1px solid #484; }
+    div.yourdiv { width: 800px; height: 200px;}
+    table.tb { }
+    button.bt {  }
+#floatMenu {  
+    display:none; 
+    position:absolute;  
+    top:150px;  
+    left:20%;  
+    margin-left:35px;  
+    width:200px;  
+}  
+#floatMenu ul {  
+    margin-bottom:20px;  
+}  
+#floatMenu ul li a {  
+    display:block;  
+    border:1px solid #999;  
+    background-color:#222;  
+    border-left:6px solid #999;  
+    text-decoration:none;  
+    color:#ccc;  
+    padding:5px 5px 5px 25px;  
+}
+
+
+</style>
+
+<script>
+
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg"
+
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+var dkglow = "#3B2507" ;
+var ltglow = "#FCB83B" ;
+
+var svg;
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    //getsvg();  
+
+// superfish initialise plugins
+		jQuery(function(){
+			jQuery('ul.sf-menu').superfish();
+		});
+	
+       
+
+        $('#svgload').hover(function() {
+                //$('#floatMenu').animate({top:75,left:100},{duration:100,queue:false});
+		$("#floatMenu").fadeIn( 400);
+            }, function() {
+                //$('#floatMenu').animate({top:375,left:100},{duration:100,queue:false});
+		$("#floatMenu").fadeOut( 400);
+            });
+
+
+
+});
+
+
+
+/////////////////////////////////
+function main(){
+
+     logDebug("test debug");
+
+
+ 
+
+}
+/////////////////////////////////////////
+
+function logDebug(newtext){
+    document.getElementById("debug").innerHTML += (".... " + newtext) ;
+}
+
+
+
+
+</script></head><body>
+
+
+<br>
+<h3 >Test of mouseover mouseout on an svg.</h3>
+
+
+
+<div id="svgload" class="svgbasics">
+
+
+
+
+
+
+</div>
+
+
+<div id="floatMenu" class ="yourdiv">
+<ul class="sf-menu">
+			<li class="floatMenu">
+				<a href="#a">menu itemA</a>
+				<ul>
+					<li>
+						<a href="#aa">menu item that is quite long</a>
+					</li>
+					<li class="floatMenu">
+						<a href="#ab">menu itemA1</a>
+						<ul>
+							<li class="current"><a href="#">menu item</a></li>
+							<li><a href="#aba">menu itemA1.1</a></li>
+							<li><a href="#abb">menu itemA1.2</a></li>
+							<li><a href="#abc">menu itemA1.3</a></li>
+							<li><a href="#abd">menu itemA1.4</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">menu itemA2</a>
+						<ul>
+							<li><a href="#">menu itemA2.1</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">menu itemA3</a>
+						<ul>
+							<li><a href="#">menu itemA3.1</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+
+<br>
+<div id="debug"></div>
+
+
+
+</body></html>
+
+

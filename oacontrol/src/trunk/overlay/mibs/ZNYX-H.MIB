@@ -1,0 +1,341 @@
+--==========================================================================
+--
+--	znyx.mib
+--
+--	ZNYX SNMP MIB
+--
+--==========================================================================
+--
+--	(c) Copyright 1993 ZNYX Advanced Systems Division, Inc.
+--	(c) Copyright 1994-1998 ZNYX Corporation
+--	(c) Copyright 2001 ZNYX Networks, Inc.
+--	All rights reserved.
+--
+--==========================================================================
+--
+--	Modification History:
+--	jr	04/18/97	This file new.
+--	jr	07/26/01	New zctrlSystemProcedureTrigger
+--
+--==========================================================================
+
+
+	ZNYX-MIB DEFINITIONS ::= BEGIN
+
+	IMPORTS
+		enterprises, NetworkAddress, IpAddress, Counter,
+		Gauge, TimeTicks, OBJECT-TYPE FROM RFC1155-SMI
+		DateAndTime   FROM	SNMPv2-TC
+		TRAP-TYPE
+			FROM RFC-1215;
+
+	-- Conventions
+
+	DisplayString ::= OCTET STRING
+
+
+	znyx			OBJECT IDENTIFIER ::= { enterprises 688 }
+
+
+	-- ZNYX Identifiers
+
+	znyxIds			OBJECT IDENTIFIER ::= { znyx 1 }
+	znyxExperimentalIds	OBJECT IDENTIFIER ::= { znyxIds 1 }
+	znyxProducts		OBJECT IDENTIFIER ::= { znyxIds 2 }
+
+
+	-- znyxProducts
+
+	znyxBridges		OBJECT IDENTIFIER ::= { znyxProducts 1 }
+	znyxSwitches		OBJECT IDENTIFIER ::= { znyxProducts 2 }
+	znyxAdapters		OBJECT IDENTIFIER ::= { znyxProducts 3 }
+
+
+	-- znyxBridges
+
+	zx100			OBJECT IDENTIFIER ::= { znyxBridges 1 }
+	zx110			OBJECT IDENTIFIER ::= { znyxBridges 2 }
+
+
+	-- znyxSwitches
+
+	znyxOpenArchitect	OBJECT IDENTIFIER ::= { znyxSwitches 1 }
+	znyxZX4500		OBJECT IDENTIFIER ::= { znyxOpenArchitect 1 }
+	znyxZX4900		OBJECT IDENTIFIER ::= { znyxOpenArchitect 2 }
+	znyxZX5000		OBJECT IDENTIFIER ::= { znyxOpenArchitect 3 }
+	znyxZX4920		OBJECT IDENTIFIER ::= { znyxOpenArchitect 4 }
+	znyxZX6000		OBJECT IDENTIFIER ::= { znyxOpenArchitect 5 }
+	znyxZX7000		OBJECT IDENTIFIER ::= { znyxOpenArchitect 6 }
+	znyxZX7100BASE		OBJECT IDENTIFIER ::= { znyxOpenArchitect 7 }
+	znyxZX7100FABRIC	OBJECT IDENTIFIER ::= { znyxOpenArchitect 8 }
+	znyxZX6150		OBJECT IDENTIFIER ::= { znyxOpenArchitect 9 }
+	znyxZX7200BASE		OBJECT IDENTIFIER ::= { znyxOpenArchitect 10 }
+	znyxZX7200FABRIC	OBJECT IDENTIFIER ::= { znyxOpenArchitect 11 }
+	znyxZX7250BASE		OBJECT IDENTIFIER ::= { znyxOpenArchitect 12 }
+	znyxZX7250FABRIC	OBJECT IDENTIFIER ::= { znyxOpenArchitect 13 }
+	znyxZX1900BASE		OBJECT IDENTIFIER ::= { znyxOpenArchitect 14 }
+	znyxZX1900FABRIC	OBJECT IDENTIFIER ::= { znyxOpenArchitect 15 }
+	znyxZX6200		OBJECT IDENTIFIER ::= { znyxOpenArchitect 16 }
+
+
+	-- znyxAdapters
+
+	znyxRainAdapters	OBJECT IDENTIFIER ::= { znyxAdapters 1 }
+	znyxRainARS		OBJECT IDENTIFIER ::= { znyxRainAdapters 1 }
+	znyxRainACS		OBJECT IDENTIFIER ::= { znyxRainAdapters 2 }
+
+
+	-- ZNYX MIBs
+
+	znyxMibs		OBJECT IDENTIFIER ::= { znyx 2 }
+	znyxExperimentalMib	OBJECT IDENTIFIER ::= { znyxMibs 1 }
+	znyxMibOne		OBJECT IDENTIFIER ::= { znyxMibs 2 }
+	znyxProductSpecificMib	OBJECT IDENTIFIER ::= { znyxMibs 3 }
+
+
+	-- znyxSystemMib
+	-- The system mib describes objects commonly found in most products.
+
+	znyxSystemMib		OBJECT IDENTIFIER ::= { znyxMibOne 1 }
+
+	zsysHardware		OBJECT IDENTIFIER ::= { znyxSystemMib 1 }
+	zsysSoftware		OBJECT IDENTIFIER ::= { znyxSystemMib 2 }
+	zsysLicenses		OBJECT IDENTIFIER ::= { znyxSystemMib 3 }
+	zsysControl		OBJECT IDENTIFIER ::= { znyxSystemMib 4 }
+	zsysEventLog		OBJECT IDENTIFIER ::= { znyxSystemMib 5 }
+
+	-- Hardware group
+
+	zhwCompNumber OBJECT-TYPE
+		SYNTAX  INTEGER
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"The number of hardware components in this system."
+		::= { zsysHardware 1 }
+
+	zhwCompTable OBJECT-TYPE
+		SYNTAX  SEQUENCE OF ZhwCompEntry
+		ACCESS  not-accessible
+		STATUS  mandatory
+		DESCRIPTION
+			"A list of hardware components."
+		::= { zsysHardware 2 }
+
+	zhwCompEntry OBJECT-TYPE
+		SYNTAX  ZhwCompEntry
+		ACCESS  not-accessible
+		STATUS  mandatory
+		DESCRIPTION
+			"A component table entry."
+		INDEX   { zhwCompIndex }
+		::= { zhwCompTable 1 }
+
+	ZhwCompEntry ::=
+		SEQUENCE {
+			zhwCompIndex
+				INTEGER,
+			zhwCompType
+				INTEGER,
+			zhwCompOid
+				OBJECT IDENTIFIER,
+			zhwCompDescr
+				DisplayString,
+			zhwCompSerial
+				DisplayString
+		}
+
+	zhwCompIndex OBJECT-TYPE
+		SYNTAX  INTEGER
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"Component index."
+		::= { zhwCompEntry 1 }
+
+	zhwCompType OBJECT-TYPE
+		SYNTAX  INTEGER {
+			other(1),          -- none of the following
+			rack(2),
+			chassis(3),
+			module(4),
+			baseboard(5),
+			extender(6),
+			port(7),
+			mau(8)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"Component type."
+		::= { zhwCompEntry 2 }
+
+	zhwCompOid OBJECT-TYPE
+		SYNTAX  OBJECT IDENTIFIER
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"Component OID."
+		::= { zhwCompEntry 3 }
+
+	zhwCompDescr OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  optional
+		DESCRIPTION
+			"Component description.  Present if hardware
+			provides Vital Product Data."
+		::= { zhwCompEntry 4 }
+
+	zhwCompSerial OBJECT-TYPE
+            SYNTAX  DisplayString (SIZE (0..255))
+            ACCESS  read-only
+            STATUS  optional
+            DESCRIPTION
+                   "Component serial number.  Present if hardware
+			provides Vital Product Data."
+            ::= { zhwCompEntry 5 }
+
+	-- Control group
+
+	zctrlState OBJECT-TYPE
+		SYNTAX  INTEGER { okay(1), problematic(2) }
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"The systems state. A state of okay indicates
+			the system functions to spec. A state of
+			problematic indicates compromised functionality."
+		::= { zsysControl 1 }
+
+	zctrlReset OBJECT-TYPE
+		SYNTAX  INTEGER { running(1), softreset(2), hardreset(3) }
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This variable always returns running on reads. If
+			softreset is written, the unit will perform a
+			software-only reset if possible, or a hardware
+			reset otherwise. If hardreset is written, the unit
+			will perform a hardware reset if possible, or
+			a software-only reset otherwise."
+		::= { zsysControl 2 }
+
+      zctrlPassword OBJECT-TYPE
+            SYNTAX  DisplayString (SIZE (1..255))
+            ACCESS  read-write
+            STATUS  optional
+            DESCRIPTION
+                  "This object is used to change system passwords. On
+                  reads, the object returns nothing meaningful.
+                  If written with a currently valid account and password,
+                  separated by one whitespace character, this password
+                  will become once-writable by the specific agent for
+                  20 seconds. No indication is returned as to whether the                                                                   supplied account/password combination was valid.
+                  To change the password, once this object has become
+                  writable, write the account and new password,
+                  separated by one whitespace character. The password
+                  gets stored in the system if it satisfies system
+                  password policies.
+                  If writable, this object becomes non-writable again
+                  immediately after being written to.
+                  Beware: this mechanism is about as safe as a cleartext
+                  telnet session."
+            ::= { zsysControl 3 }
+
+	zctrlSystemUptime OBJECT-TYPE
+    		SYNTAX     TimeTicks
+    		ACCESS read-only
+    		STATUS     mandatory
+    		DESCRIPTION
+        			"The amount of time since this host was last
+        			initialized.  Note that this is different from
+        			sysUpTime in the SNMPv2-MIB [RFC1907] because
+        			sysUpTime is the uptime of the network management
+        			portion of the system."
+    		::= { zsysControl 4 }
+
+	zctrlSystemDate OBJECT-TYPE
+    		SYNTAX     DateAndTime
+    		ACCESS read-write
+    		STATUS     mandatory
+    		DESCRIPTION
+       			"The host's notion of the local date and time of day. "
+   		::= { zsysControl 5 }
+
+	zctrlSystemProcedureTrigger OBJECT-TYPE
+            SYNTAX  DisplayString (SIZE (0..255))
+            ACCESS  read-write
+            STATUS  mandatory
+            DESCRIPTION
+                         "Writing a name to this object will start the
+                         system procedure identified by the name. No
+                         action is taken if no system procedure matching
+                         name is defined. The name written may be followed
+                         by arguments, separated by whitespace. For
+                         instance, system procedures may be looked up in
+                         the file /etc/procedures.conf. Each line of this
+                         file will list a procedure name, minimum interval
+                         in seconds, uid, gid, working directory, and the
+                         command to be executed, including required arguments.
+                         If the minimum interval has passed since the procedure
+                         last was triggered, or the procedure has not been
+                         triggered since last system boot, the snmp agent will
+                         perform a chroot to the working directory if it is
+                         not the root directory, change the user id and group
+                         id to uid and gid, respectively, and then execute the
+                         specified command. Any arguments supplied with the
+                         procedure name will get appended, not overriding
+                         required arguments from the procedures file. This
+                         mechanism should not use the system() call.
+                         Care should be taken that supplied arguments like
+                         ';/bin/rm -rf /*' do not have the intended effect.
+                         On reads, the object will return the last value
+                         written, or the empty string if no value has been
+                         written yet."
+            ::= { zsysControl 6 }
+
+	-- Product specific MIBs
+
+	-- znyxPsMibZX4500 OBJECT IDENTIFIER ::= { znyxProductSpecificMib 1 }
+	-- znyxPsMibZX4900 OBJECT IDENTIFIER ::= { znyxProductSpecificMib 2 }
+	-- znyxPsMibZX5000 OBJECT IDENTIFIER ::= { znyxProductSpecificMib 3 }
+	-- znyxPsMibZX4920 OBJECT IDENTIFIER ::= { znyxProductSpecificMib 4 }
+	-- znyxPsMibZX6000 OBJECT IDENTIFIER ::= { znyxProductSpecificMib 5 }
+	-- znyxPsMibZX7000 OBJECT IDENTIFIER ::= { znyxProductSpecificMib 6 }
+	-- znyxPsMibZX7100BASE OBJECT IDENTIFIER ::= { znyxProductSpecificMib 7 }
+	-- znyxPsMibZX7100FABRIC OBJECT IDENTIFIER ::= { znyxProductSpecificMib 8 }
+	-- znyxPsMibZX6150 OBJECT IDENTIFIER ::= { znyxProductSpecificMib 9 }
+	-- znyxPsMibZX7200BASE OBJECT IDENTIFIER ::= { znyxProductSpecificMib 10 }
+	-- znyxPsMibZX7200FABRIC OBJECT IDENTIFIER ::= { znyxProductSpecificMib 11 }
+	-- znyxPsMibZX7250BASE OBJECT IDENTIFIER ::= { znyxProductSpecificMib 12 }
+	-- znyxPsMibZX7250FABRIC OBJECT IDENTIFIER ::= { znyxProductSpecificMib 13 }
+	-- znyxPsMibZX1900BASE OBJECT IDENTIFIER ::= { znyxProductSpecificMib 14 }
+	-- znyxPsMibZX1900FABRIC OBJECT IDENTIFIER ::= { znyxProductSpecificMib 15 }
+	-- znyxPsMibZX6200 OBJECT IDENTIFIER ::= { znyxProductSpecificMib 16 }
+
+
+	-- ZNYX System Traps v1
+
+                zsysTrapZrld TRAP-TYPE
+                ENTERPRISE znyx
+                DESCRIPTION
+                        "The trap indicates that the Znyx process, zrld, has restarted."
+                ::= 1001
+
+                zsysTrapZlmd TRAP-TYPE
+                ENTERPRISE znyx
+                DESCRIPTION
+                        "The trap indicates that the Znyx process, zlmd, has restarted."
+                ::= 1002
+
+                zsysTrapVrrpd TRAP-TYPE
+                ENTERPRISE znyx
+                DESCRIPTION
+                        "The trap indicates that the Znyx process, vrrpd, has restarted."
+                ::= 1003
+
+
+	END
+
+

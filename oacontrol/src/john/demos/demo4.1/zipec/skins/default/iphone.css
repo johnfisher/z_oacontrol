@@ -1,0 +1,231 @@
+/* iPEC Default Skin for iPhone / iPod Touch */
+
+/* iPhone Viewport is 320*480  Status bar : 20px -> iPEC UI is 320*460 */
+
+body, div { margin: 0px; padding: 0px; font-family: Trebuchet MS, Calibri, Sans-Serif; }
+img { margin: 0px; border: 0px; }
+div { margin: 0px; padding: 0px; border: 0px solid #000000; }
+p { margin: 0px; }
+
+/* This container fills the entire user viewport */
+.container { 	width: 100%; height: 460px; background-image: url('img/bg.gif'); background-repeat: repeat; } 
+
+/* Header height is 43px */
+.header, .headerOverlay {
+		width: 100%; height: 43px;  position: absolute; top: 0px;
+}
+
+/* This contains the logo provided by the skin */
+.header { 	 
+		z-index: 5;
+		background-color: #000;		
+		background-image: url('img/zenoss.png') ;
+		background-position: center;
+		background-repeat: no-repeat; 
+}
+/* This contains the Glossy effect that overlays the logo */
+.headerOverlay {
+	/* Uncomment the following statement if you don't want a glossy effect over your logo */
+	/* 	display: none ; */  	
+		z-index: 10;
+		background-color: transparent;		
+		background-image: url('img/overlay.png');
+		background-repeat: repeat-x;
+		border-bottom: 1px solid #CCCCCC;
+}
+.statusBar {
+		z-index: 5 ; 
+		width: 100%; height: 17px;  position: absolute; top: 43px;
+		background-color: #999999;
+		border-top : 1px solid #6F6F6F;
+		border-bottom: 1px solid #333333;
+		color: #000000;
+		font-size: 9pt;
+		text-shadow: 0px 1px 0px #CCCCCC;	
+		text-align: center;
+}
+#reload { z-index: 10; width: 250px; background-color: #F3C73D; border: 2px solid #B59229; -webkit-border-radius: 8px; padding: 20px; padding-top:10px; margin: auto; margin-top: 2px; line-height: 50px; }
+#list {
+	margin-left: auto; margin-right:auto ;
+	width: 96%;
+	min-height:350px;
+	text-align:center;
+	padding:4px;
+	overflow:auto;
+}
+#list_container {
+	position:absolute;
+	width: 100%;
+	height: 356px;
+	overflow-y:scroll;
+	top:62px;
+}
+.event { 	border: 1px solid #000000; -webkit-border-radius: 8px; padding: 4px; margin-top: 2px; line-height: 14pt; text-align: left; }
+.event dl { margin-top: 0px; }
+.event dt { font-weight: bold; }
+.event dd { font-style: italic; margin-left: 30px; overflow: hidden; text-overflow: ellipsis; }
+.visibleifpressed {
+		margin-top: 4px;
+		background-color: #FFFFFF;
+		border: 1px solid #666666; -webkit-border-radius: 5px; 
+		padding: 3px; font-size: 10pt; line-height: 12pt;
+		font-style: normal;
+/*		background-image: url('img/bg.gif'); background-repeat: repeat;*/
+}
+.toolbar {	
+		z-index: 5;
+		width: 100%; height: 44px; position: absolute; top: 416px; 
+		background-image: url('img/toolbar_bg.png'); background-repeat: repeat-x; 
+		border-top: 1px solid #333333;
+}
+.toolbar img {
+	margin-left: 20px;
+}
+/* Events text elements */
+.device { font-weight: bold; color: #333333; }
+.info { font-size: 10pt; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.message { font-size: 8pt; }
+.count { }
+.location { font-size: 8pt; }
+
+
+.hide {
+	display: none;
+}
+.show {
+	display: block ; 
+}
+
+
+
+/* Messages Formating */
+.error_msg {
+	color: #FF0000;
+	font-weight: bold;
+}
+.noalarm {
+	padding-top: 30px;
+	height: 50px;
+	color: #000000;
+	font-weight: bold;
+	text-align: center;
+}
+
+/* EVENT SEVERITIES - the following is taken/adapted from zenoss code */
+.acked, .acked a, .acked a:visited, .acked a:link {
+	color: #333;
+	font-style:italic;
+}
+
+.noack, .noack a, .noack a:visited, .noack a:link {
+	color: #000;
+}
+
+.zenevents_5_acked {
+	background-color: #f88880;
+	border: 2px solid #C85850;
+}
+.zenevents_5_acked * {
+	color: #fee;
+}
+.zenevents_5_noack {
+	background-color: #e00;
+	border: 2px solid #B00;
+}
+.zenevents_5_noack * {
+	color: #fff;
+}
+.zenevents_5_noack dd,
+.zenevents_5_noack dt,
+.zenevents_5_acked dt,
+.zenevents_5_acked dd {
+	 color: #000;
+}
+.zenevents_4_acked {
+	background-color: #ffba75;
+	border: 2px solid #CF8a45;
+}
+
+.zenevents_4_noack {
+	background-color: #f82;
+	border: 2px solid #C50;
+}
+
+.zenevents_3_acked {
+	background-color: #fff280;
+	border: 2px solid #CFC250;
+}
+
+.zenevents_3_noack {
+	background-color: #ffda00;
+	border: 2px solid #CF9A00;
+}
+
+.zenevents_2_acked {
+	background-color: #b3b3ff;
+	border: 2px solid #9393CF;
+}
+
+.zenevents_2_noack {
+	background-color: #56f;
+	border: 2px solid #2030C0;
+}
+
+.zenevents_1_acked {
+	background-color: #C8C8C8;
+	border: 2px solid #989898;
+}
+
+.zenevents_1_noack {
+	background-color: #AFAFAF;
+	border: 2px solid #7F7F7F;
+}
+
+.zenevents_0_acked {
+	background-color: #00CD00;
+	border: 2px solid #009D00;
+	
+}
+
+.zenevents_0_noack {
+	background-color: #00FF00;
+	border: 2px solid #00CF00; 
+}
+
+.zenevents_unknown_acked {
+	background-color: #CD00CD;
+}
+
+.zenevents_unknown_noack {
+	background-color: #D02090;
+}
+
+.zenstatus_3 {
+	color: #000000;
+	background-color: #FF0000;
+}
+
+.zenstatus_2 {
+	color: #000000;
+	background-color: #ffb329;
+}
+
+.zenstatus_1 {
+	color: #000000;
+	background-color: #e2e200;
+}
+
+.zenstatus_0 {
+	background-color: #00FF00;
+}
+
+.zenstatus_unknown {
+	color: #000000;
+	background-color: #D02090;
+}
+
+/* Setup section */
+#setup_page input { font-size: 19pt;}
+#setup_page label { font-weight: bold; display: block; text-align: left; margin-top: 3px; width: 90%; }
+#setup_page input[type=text], #setup_page input[type=password] { height: 40px; width: 90%; border: 1px solid #999999; -webkit-border-radius: 8px; padding: 2px; margin-top: 2px; }
+#setup_page input[type=submit] { font-weight: bold; width: 240px; -webkit-border-radius: 12px; margin-top: 20px; }

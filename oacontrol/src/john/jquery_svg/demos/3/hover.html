@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+<script type="text/javascript" src="js/hoverIntent.js"></script>
+<script type="text/javascript" src="js/superfish.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.svgdom.js	"></script> -->
+
+<link rel="stylesheet" media="screen" href="css/superfish.css" /> 
+<link rel="stylesheet" media="screen" href="css/superfish-vertical.css" /> 
+ 
+  
+
+
+
+<!-- ////////////////// jquery-svg REQUIRES SVGVIEWER IN IE8 //////////////////////////////////-->
+<style type="text/css">
+    div.svgbasics { width: 800px; height: 400px; border: 1px solid #484; }
+    div.yourdiv { width: 800px; height: 200px;}
+    table.tb { }
+    button.bt {  }
+
+
+</style>
+
+<script>
+
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg"
+
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+var dkglow = "#3B2507" ;
+var ltglow = "#FCB83B" ;
+
+var svg;
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    //getsvg();  
+$('#svgload').svg({onLoad: drawIt});
+});
+
+
+  
+// laod the svg
+function getsvg(){
+
+      $("#svgload").svg({  
+            loadURL: 'red.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+
+}
+
+   function drawIt(svg) {
+	var mycirc = svg.circle('10%', '43%', 52, {fill: amber, stroke: '#000000', strokeWidth: 0.75});
+        var hc = svg.circle('50%', '43%', 152, {fill: '#c91010', stroke: '#000000', strokeWidth: 0.75});
+        $(hc).hover(function() {
+                $(mycirc).animate({svgR: 70}, 300);
+            }, function() {
+                $(mycirc).animate({svgR: 52}, 300);
+            });
+    }
+/////////////////////////////////
+function main(){
+
+     logDebug("test debug");
+
+
+ 
+
+}
+/////////////////////////////////////////
+
+function logDebug(newtext){
+    document.getElementById("debug").innerHTML += (".... " + newtext) ;
+}
+
+
+
+
+</script></head><body>
+
+
+<br>
+<h3 >Test of mouseover mouseout on an svg.</h3>
+
+
+
+<div id="svgload" class="svgbasics">
+
+
+
+
+
+
+</div>
+
+<br>
+<div id="debug"></div>
+
+
+
+</body></html>
+
+

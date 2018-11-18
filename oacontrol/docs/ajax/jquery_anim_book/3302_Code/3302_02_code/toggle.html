@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery toggle()</title>
+		<link rel="stylesheet" href="css/showHide.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<nav>
+        	<ul>
+            	<li><a href="#" title="Top Level Link">Top Level</a></li>
+                <li><a href="#" title="Top Level Link">Top Level &raquo;</a>
+                	<ul>
+                    	<li><a href="#" title="2nd Level Link">2nd Level Link</a></li>
+                        <li><a href="#" title="2nd Level Link">2nd Level Link</a></li>
+                        <li><a href="#" title="2nd Level Link">2nd Level Link</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="Top Level Link">Top Level</a></li>
+                <li><a href="#" title="Top Level Link">Top Level &raquo;</a>
+                	<ul>
+                    	<li><a href="#" title="2nd Level Link">2nd Level Link</a></li>
+                        <li><a href="#" title="2nd Level Link">2nd Level Link</a></li>
+                        <li><a href="#" title="2nd Level Link">2nd Level Link</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+			
+				//cache selector
+				var subMenuParent = $("nav ul li ul").parent();
+				
+				//add mouseenter to all top-level items containing a submenu
+				subMenuParent.mouseenter(function() {
+				
+					$(this).find("ul").toggle("fast");
+				
+				});
+				
+				//add mouseleave to all top-level items containing a submenu
+				subMenuParent.mouseleave(function() {
+				
+					$(this).find("ul").toggle("fast");
+				
+				});			
+			})(jQuery);
+		</script>
+	</body>
+</html>

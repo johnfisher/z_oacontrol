@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>IE Black Border Problem</title>
+        <style>
+			img { background:#fff; }
+		</style>
+	</head>
+	<body>
+    	<div>
+	        <img src="img/ie-logo.png">
+        </div>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				$("img").click(function() {
+					$(this).parent().fadeOut(2000);
+				});
+				
+			})(jQuery);
+		</script>
+	</body>
+</html>

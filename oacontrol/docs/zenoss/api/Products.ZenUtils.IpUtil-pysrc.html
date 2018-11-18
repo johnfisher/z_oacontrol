@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenUtils.IpUtil</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenUtils-module.html">Package&nbsp;ZenUtils</a> ::
+        Module&nbsp;IpUtil
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenUtils.IpUtil-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenUtils.IpUtil-module.html">Module Products.ZenUtils.IpUtil</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, 2009 Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Products.DataCollector.BaseClient.__doc__=Products.DataCollector.BaseClient-module.html#__doc__,Variable Products.DataCollector.CollectorClient.__doc__=Products.DataCollector.CollectorClient-module.html#__doc__,Variable Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.__doc__=Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress-module.html#__doc__,Variable Products.DataCollector.CommandParsers.CiscoShowHardware.__doc__=Products.DataCollector.CommandParsers.CiscoShowHardware-module.html#__doc__,Variable Products.DataCollector.CommandParsers.CommandParser.__doc__=Products.DataCollector.CommandParsers.CommandParser-module.html#__doc__,Variable Products.DataCollector.CommandParsers.Linux_netstat_an.__doc__=Products.DataCollector.CommandParsers.Linux_netstat_an-module.html#__doc__,Variable Products.DataCollector.CommandParsers.Linux_netstat_rn.__doc__=Products.DataCollector.CommandParsers.Linux_netstat_rn-module.html#__doc__,Variable Products.DataCollector.CommandParsers.Uname_A.__doc__=Products.DataCollector.CommandParsers.Uname_A-module.html#__doc__,Variable Products.DataCollector.CommandParsers.Unix_df_k.__doc__=Products.DataCollector.CommandParsers.Unix_df_k-module.html#__doc__,Variable Products.DataCollector.DeviceProxy.__doc__=Products.DataCollector.DeviceProxy-module.html#__doc__,Variable Products.DataCollector.Exceptions.__doc__=Products.DataCollector.Exceptions-module.html#__doc__,Variable Products.DataCollector.PortscanClient.__doc__=Products.DataCollector.PortscanClient-module.html#__doc__,Variable Products.DataCollector.PythonClient.__doc__=Products.DataCollector.PythonClient-module.html#__doc__,Variable Products.DataCollector.SshClient.__doc__=Products.DataCollector.SshClient-module.html#__doc__,Variable Products.DataCollector.TelnetClient.__doc__=Products.DataCollector.TelnetClient-module.html#__doc__,Variable Products.DataCollector.zendisc.__doc__=Products.DataCollector.zendisc-module.html#__doc__,Variable Products.DataCollector.zenmodeler.__doc__=Products.DataCollector.zenmodeler-module.html#__doc__,Variable Products.ZenEvents.EventClass.__doc__=Products.ZenEvents.EventClass-module.html#__doc__,Variable Products.ZenEvents.EventClassifier.__doc__=Products.ZenEvents.EventClassifier-module.html#__doc__,Variable Products.ZenEvents.EventManagerBase.__doc__=Products.ZenEvents.EventManagerBase-module.html#__doc__,Variable Products.ZenEvents.EventServer.__doc__=Products.ZenEvents.EventServer-module.html#__doc__,Variable Products.ZenEvents.Exceptions.__doc__=Products.ZenEvents.Exceptions-module.html#__doc__,Variable Products.ZenEvents.MailProcessor.__doc__=Products.ZenEvents.MailProcessor-module.html#__doc__,Variable Products.ZenEvents.MySqlSendEvent.__doc__=Products.ZenEvents.MySqlSendEvent-module.html#__doc__,Variable Products.ZenEvents.Schedule.__doc__=Products.ZenEvents.Schedule-module.html#__doc__,Variable Products.ZenEvents.SyslogProcessing.__doc__=Products.ZenEvents.SyslogProcessing-module.html#__doc__,Variable Products.ZenEvents.UpdateCheck.__doc__=Products.ZenEvents.UpdateCheck-module.html#__doc__,Variable Products.ZenEvents.xtest.__doc__=Products.ZenEvents.xtest-module.html#__doc__,Variable Products.ZenEvents.zenactions.__doc__=Products.ZenEvents.zenactions-module.html#__doc__,Variable Products.ZenEvents.zenmail.__doc__=Products.ZenEvents.zenmail-module.html#__doc__,Variable Products.ZenEvents.zenpop3.__doc__=Products.ZenEvents.zenpop3-module.html#__doc__,Variable Products.ZenEvents.zensyslog.__doc__=Products.ZenEvents.zensyslog-module.html#__doc__,Variable Products.ZenEvents.zentrap.__doc__=Products.ZenEvents.zentrap-module.html#__doc__,Variable Products.ZenHub.PBDaemon.__doc__=Products.ZenHub.PBDaemon-module.html#__doc__,Variable Products.ZenHub.services.RRDImpl.__doc__=Products.ZenHub.services.RRDImpl-module.html#__doc__,Variable Products.ZenHub.services.RRDService.__doc__=Products.ZenHub.services.RRDService-module.html#__doc__,Variable Products.ZenHub.services.ZenRender.__doc__=Products.ZenHub.services.ZenRender-module.html#__doc__,Variable Products.ZenHub.zenhub.__doc__=Products.ZenHub.zenhub-module.html#__doc__,Variable Products.ZenModel.AreaGraphPoint.__doc__=Products.ZenModel.AreaGraphPoint-module.html#__doc__,Variable Products.ZenModel.BasicDataSource.__doc__=Products.ZenModel.BasicDataSource-module.html#__doc__,Variable Products.ZenModel.BasicDeviceLoader.__doc__=Products.ZenModel.BasicDeviceLoader-module.html#__doc__,Variable Products.ZenModel.BatchDeviceLoader.__doc__=Products.ZenModel.BatchDeviceLoader-module.html#__doc__,Variable Products.ZenModel.BuiltInDS.__doc__=Products.ZenModel.BuiltInDS-module.html#__doc__,Variable Products.ZenModel.CPU.__doc__=Products.ZenModel.CPU-module.html#__doc__,Variable Products.ZenModel.CdefGraphPoint.__doc__=Products.ZenModel.CdefGraphPoint-module.html#__doc__,Variable Products.ZenModel.CiscoLoader.__doc__=Products.ZenModel.CiscoLoader-module.html#__doc__,Variable Products.ZenModel.Classifier.__doc__=Products.ZenModel.Classifier-module.html#__doc__,Variable Products.ZenModel.ClassifierEntry.__doc__=Products.ZenModel.ClassifierEntry-module.html#__doc__,Variable Products.ZenModel.Collection.__doc__=Products.ZenModel.Collection-module.html#__doc__,Variable Products.ZenModel.CollectionItem.__doc__=Products.ZenModel.CollectionItem-module.html#__doc__,Variable Products.ZenModel.Commandable.__doc__=Products.ZenModel.Commandable-module.html#__doc__,Variable Products.ZenModel.CommentGraphPoint.__doc__=Products.ZenModel.CommentGraphPoint-module.html#__doc__,Variable Products.ZenModel.ComplexGraphPoint.__doc__=Products.ZenModel.ComplexGraphPoint-module.html#__doc__,Variable Products.ZenModel.ConfmonPropManager.__doc__=Products.ZenModel.ConfmonPropManager-module.html#__doc__,Variable Products.ZenModel.CustomDeviceReportClass.__doc__=Products.ZenModel.CustomDeviceReportClass-module.html#__doc__,Variable Products.ZenModel.DataPointGraphPoint.__doc__=Products.ZenModel.DataPointGraphPoint-module.html#__doc__,Variable Products.ZenModel.DataRoot.__doc__=Products.ZenModel.DataRoot-module.html#__doc__,Variable Products.ZenModel.DefGraphPoint.__doc__=Products.ZenModel.DefGraphPoint-module.html#__doc__,Variable Products.ZenModel.Device.__doc__=Products.ZenModel.Device-module.html#__doc__,Variable Products.ZenModel.DeviceClass.__doc__=Products.ZenModel.DeviceClass-module.html#__doc__,Variable Products.ZenModel.DeviceComponent.__doc__=Products.ZenModel.DeviceComponent-module.html#__doc__,Variable Products.ZenModel.DeviceGroup.__doc__=Products.ZenModel.DeviceGroup-module.html#__doc__,Variable Products.ZenModel.DeviceOrganizer.__doc__=Products.ZenModel.DeviceOrganizer-module.html#__doc__,Variable Products.ZenModel.DeviceReportClass.__doc__=Products.ZenModel.DeviceReportClass-module.html#__doc__,Variable Products.ZenModel.DeviceResultInt.__doc__=Products.ZenModel.DeviceResultInt-module.html#__doc__,Variable Products.ZenModel.DmdBuilder.__doc__=Products.ZenModel.DmdBuilder-module.html#__doc__,Variable Products.ZenModel.Exceptions.__doc__=Products.ZenModel.Exceptions-module.html#__doc__,Variable Products.ZenModel.ExpansionCard.__doc__=Products.ZenModel.ExpansionCard-module.html#__doc__,Variable Products.ZenModel.Fan.__doc__=Products.ZenModel.Fan-module.html#__doc__,Variable Products.ZenModel.FileSystem.__doc__=Products.ZenModel.FileSystem-module.html#__doc__,Variable Products.ZenModel.GprintGraphPoint.__doc__=Products.ZenModel.GprintGraphPoint-module.html#__doc__,Variable Products.ZenModel.GraphDefinition.__doc__=Products.ZenModel.GraphDefinition-module.html#__doc__,Variable Products.ZenModel.GraphGroup.__doc__=Products.ZenModel.GraphGroup-module.html#__doc__,Variable Products.ZenModel.GraphPoint.__doc__=Products.ZenModel.GraphPoint-module.html#__doc__,Variable Products.ZenModel.GraphReportClass.__doc__=Products.ZenModel.GraphReportClass-module.html#__doc__,Variable Products.ZenModel.HardDisk.__doc__=Products.ZenModel.HardDisk-module.html#__doc__,Variable Products.ZenModel.Hardware.__doc__=Products.ZenModel.Hardware-module.html#__doc__,Variable Products.ZenModel.HardwareClass.__doc__=Products.ZenModel.HardwareClass-module.html#__doc__,Variable Products.ZenModel.HruleGraphPoint.__doc__=Products.ZenModel.HruleGraphPoint-module.html#__doc__,Variable Products.ZenModel.IpAddress.__doc__=Products.ZenModel.IpAddress-module.html#__doc__,Variable Products.ZenModel.IpInterface.__doc__=Products.ZenModel.IpInterface-module.html#__doc__,Variable Products.ZenModel.IpNetwork.__doc__=Products.ZenModel.IpNetwork-module.html#__doc__,Variable Products.ZenModel.IpRouteEntry.__doc__=Products.ZenModel.IpRouteEntry-module.html#__doc__,Variable Products.ZenModel.IpService.__doc__=Products.ZenModel.IpService-module.html#__doc__,Variable Products.ZenModel.IpServiceLoader.__doc__=Products.ZenModel.IpServiceLoader-module.html#__doc__,Variable Products.ZenModel.LineGraphPoint.__doc__=Products.ZenModel.LineGraphPoint-module.html#__doc__,Variable Products.ZenModel.Location.__doc__=Products.ZenModel.Location-module.html#__doc__,Variable Products.ZenModel.MaintenanceWindow.__doc__=Products.ZenModel.MaintenanceWindow-module.html#__doc__,Variable Products.ZenModel.MaintenanceWindowable.__doc__=Products.ZenModel.MaintenanceWindowable-module.html#__doc__,Variable Products.ZenModel.ManagedEntity.__doc__=Products.ZenModel.ManagedEntity-module.html#__doc__,Variable Products.ZenModel.Manufacturer.__doc__=Products.ZenModel.Manufacturer-module.html#__doc__,Variable Products.ZenModel.ManufacturerRoot.__doc__=Products.ZenModel.ManufacturerRoot-module.html#__doc__,Variable Products.ZenModel.MinMaxThreshold.__doc__=Products.ZenModel.MinMaxThreshold-module.html#__doc__,Variable Products.ZenModel.Monitor.__doc__=Products.ZenModel.Monitor-module.html#__doc__,Variable Products.ZenModel.MonitorClass.__doc__=Products.ZenModel.MonitorClass-module.html#__doc__,Variable Products.ZenModel.MultiGraphReportClass.__doc__=Products.ZenModel.MultiGraphReportClass-module.html#__doc__,Variable Products.ZenModel.Organizer.__doc__=Products.ZenModel.Organizer-module.html#__doc__,Variable Products.ZenModel.PerformanceConf.__doc__=Products.ZenModel.PerformanceConf-module.html#__doc__,Variable Products.ZenModel.PerformanceView.__doc__=Products.ZenModel.PerformanceView-module.html#__doc__,Variable Products.ZenModel.PowerSupply.__doc__=Products.ZenModel.PowerSupply-module.html#__doc__,Variable Products.ZenModel.PrintGraphPoint.__doc__=Products.ZenModel.PrintGraphPoint-module.html#__doc__,Variable Products.ZenModel.ProductClass.__doc__=Products.ZenModel.ProductClass-module.html#__doc__,Variable Products.ZenModel.RRDDataPoint.__doc__=Products.ZenModel.RRDDataPoint-module.html#__doc__,Variable Products.ZenModel.RRDDataPointAlias.__doc__=Products.ZenModel.RRDDataPointAlias-module.html#__doc__,Variable Products.ZenModel.RRDDataSource.__doc__=Products.ZenModel.RRDDataSource-module.html#__doc__,Variable Products.ZenModel.RRDGraph.__doc__=Products.ZenModel.RRDGraph-module.html#__doc__,Variable Products.ZenModel.Report.__doc__=Products.ZenModel.Report-module.html#__doc__,Variable Products.ZenModel.ReportClass.__doc__=Products.ZenModel.ReportClass-module.html#__doc__,Variable Products.ZenModel.Service.__doc__=Products.ZenModel.Service-module.html#__doc__,Variable Products.ZenModel.ServiceClass.__doc__=Products.ZenModel.ServiceClass-module.html#__doc__,Variable Products.ZenModel.ShiftGraphPoint.__doc__=Products.ZenModel.ShiftGraphPoint-module.html#__doc__,Variable Products.ZenModel.SiteError.__doc__=Products.ZenModel.SiteError-module.html#__doc__,Variable Products.ZenModel.Software.__doc__=Products.ZenModel.Software-module.html#__doc__,Variable Products.ZenModel.SoftwareClass.__doc__=Products.ZenModel.SoftwareClass-module.html#__doc__,Variable Products.ZenModel.StatusColor.__doc__=Products.ZenModel.StatusColor-module.html#__doc__,Variable Products.ZenModel.StatusMonitorConf.__doc__=Products.ZenModel.StatusMonitorConf-module.html#__doc__,Variable Products.ZenModel.System.__doc__=Products.ZenModel.System-module.html#__doc__,Variable Products.ZenModel.TemperatureSensor.__doc__=Products.ZenModel.TemperatureSensor-module.html#__doc__,Variable Products.ZenModel.ThresholdGraphPoint.__doc__=Products.ZenModel.ThresholdGraphPoint-module.html#__doc__,Variable Products.ZenModel.TickGraphPoint.__doc__=Products.ZenModel.TickGraphPoint-module.html#__doc__,Variable Products.ZenModel.VdefGraphPoint.__doc__=Products.ZenModel.VdefGraphPoint-module.html#__doc__,Variable Products.ZenModel.VruleGraphPoint.__doc__=Products.ZenModel.VruleGraphPoint-module.html#__doc__,Variable Products.ZenModel.ZDeviceLoader.__doc__=Products.ZenModel.ZDeviceLoader-module.html#__doc__,Variable Products.ZenModel.ZenModelBase.__doc__=Products.ZenModel.ZenModelBase-module.html#__doc__,Variable Products.ZenModel.ZenModelItem.__doc__=Products.ZenModel.ZenModelItem-module.html#__doc__,Variable Products.ZenModel.ZenModelRM.__doc__=Products.ZenModel.ZenModelRM-module.html#__doc__,Variable Products.ZenModel.ZenPack.__doc__=Products.ZenModel.ZenPack-module.html#__doc__,Variable Products.ZenModel.ZenPackLoader.__doc__=Products.ZenModel.ZenPackLoader-module.html#__doc__,Variable Products.ZenModel.ZenPackManager.__doc__=Products.ZenModel.ZenPackManager-module.html#__doc__,Variable Products.ZenModel.ZenPackPersistence.__doc__=Products.ZenModel.ZenPackPersistence-module.html#__doc__,Variable Products.ZenModel.ZenStatus.__doc__=Products.ZenModel.ZenStatus-module.html#__doc__,Variable Products.ZenModel.__doc__=Products.ZenModel-module.html#__doc__,Variable Products.ZenModel.zenbuild.__doc__=Products.ZenModel.zenbuild-module.html#__doc__,Variable Products.ZenModel.zenmib.__doc__=Products.ZenModel.zenmib-module.html#__doc__,Variable Products.ZenRRD.FileCleanup.__doc__=Products.ZenRRD.FileCleanup-module.html#__doc__,Variable Products.ZenRRD.RRDDaemon.__doc__=Products.ZenRRD.RRDDaemon-module.html#__doc__,Variable Products.ZenRRD.RRDMGraph.__doc__=Products.ZenRRD.RRDMGraph-module.html#__doc__,Variable Products.ZenRRD.RRDUtil.__doc__=Products.ZenRRD.RRDUtil-module.html#__doc__,Variable Products.ZenRRD.RenderServer.__doc__=Products.ZenRRD.RenderServer-module.html#__doc__,Variable Products.ZenRRD.SnmpDaemon.__doc__=Products.ZenRRD.SnmpDaemon-module.html#__doc__,Variable Products.ZenRRD.__doc__=Products.ZenRRD-module.html#__doc__,Variable Products.ZenRRD.parsers.Nagios.__doc__=Products.ZenRRD.parsers.Nagios-module.html#__doc__,Variable Products.ZenRRD.parsers.ps.__doc__=Products.ZenRRD.parsers.ps-module.html#__doc__,Variable Products.ZenRRD.utils.__doc__=Products.ZenRRD.utils-module.html#__doc__,Variable Products.ZenRRD.zencommand.__doc__=Products.ZenRRD.zencommand-module.html#__doc__,Variable Products.ZenRRD.zenperfsnmp.__doc__=Products.ZenRRD.zenperfsnmp-module.html#__doc__,Variable Products.ZenRRD.zenprocess.__doc__=Products.ZenRRD.zenprocess-module.html#__doc__,Variable Products.ZenRRD.zenstep.__doc__=Products.ZenRRD.zenstep-module.html#__doc__,Variable Products.ZenRRD.zentestcommand.__doc__=Products.ZenRRD.zentestcommand-module.html#__doc__,Variable Products.ZenRelations.Exceptions.__doc__=Products.ZenRelations.Exceptions-module.html#__doc__,Variable Products.ZenRelations.ExportDevices.__doc__=Products.ZenRelations.ExportDevices-module.html#__doc__,Variable Products.ZenRelations.ExportRM.__doc__=Products.ZenRelations.ExportRM-module.html#__doc__,Variable Products.ZenRelations.ImportDevices.__doc__=Products.ZenRelations.ImportDevices-module.html#__doc__,Variable Products.ZenRelations.ImportRM.__doc__=Products.ZenRelations.ImportRM-module.html#__doc__,Variable Products.ZenRelations.PrimaryPathObjectManager.__doc__=Products.ZenRelations.PrimaryPathObjectManager-module.html#__doc__,Variable Products.ZenRelations.RelSchema.__doc__=Products.ZenRelations.RelSchema-module.html#__doc__,Variable Products.ZenRelations.RelationshipBase.__doc__=Products.ZenRelations.RelationshipBase-module.html#__doc__,Variable Products.ZenRelations.RelationshipManager.__doc__=Products.ZenRelations.RelationshipManager-module.html#__doc__,Variable Products.ZenRelations.ToManyContRelationship.__doc__=Products.ZenRelations.ToManyContRelationship-module.html#__doc__,Variable Products.ZenRelations.ToManyRelationship.__doc__=Products.ZenRelations.ToManyRelationship-module.html#__doc__,Variable Products.ZenRelations.ToManyRelationshipBase.__doc__=Products.ZenRelations.ToManyRelationshipBase-module.html#__doc__,Variable Products.ZenRelations.ToOneRelationship.__doc__=Products.ZenRelations.ToOneRelationship-module.html#__doc__,Variable Products.ZenRelations.__doc__=Products.ZenRelations-module.html#__doc__,Variable Products.ZenReports.AliasPlugin.__doc__=Products.ZenReports.AliasPlugin-module.html#__doc__,Variable Products.ZenReports.ReportServer.__doc__=Products.ZenReports.ReportServer-module.html#__doc__,Variable Products.ZenStatus.ZenTcpClient.__doc__=Products.ZenStatus.ZenTcpClient-module.html#__doc__,Variable Products.ZenStatus.zenping.__doc__=Products.ZenStatus.zenping-module.html#__doc__,Variable Products.ZenStatus.zenstatus.__doc__=Products.ZenStatus.zenstatus-module.html#__doc__,Variable Products.ZenUtils.BasicLoader.__doc__=Products.ZenUtils.BasicLoader-module.html#__doc__,Variable Products.ZenUtils.Chain.__doc__=Products.ZenUtils.Chain-module.html#__doc__,Variable Products.ZenUtils.CheckBasicInstall.__doc__=Products.ZenUtils.CheckBasicInstall-module.html#__doc__,Variable Products.ZenUtils.CheckRelations.__doc__=Products.ZenUtils.CheckRelations-module.html#__doc__,Variable Products.ZenUtils.CmdBase.__doc__=Products.ZenUtils.CmdBase-module.html#__doc__,Variable Products.ZenUtils.ConfDaemon.__doc__=Products.ZenUtils.ConfDaemon-module.html#__doc__,Variable Products.ZenUtils.Driver.__doc__=Products.ZenUtils.Driver-module.html#__doc__,Variable Products.ZenUtils.EggifyZenPack.__doc__=Products.ZenUtils.EggifyZenPack-module.html#__doc__,Variable Products.ZenUtils.IpUtil.__doc__=Products.ZenUtils.IpUtil-module.html#__doc__,Variable Products.ZenUtils.LocationDump.__doc__=Products.ZenUtils.LocationDump-module.html#__doc__,Variable Products.ZenUtils.NJobs.__doc__=Products.ZenUtils.NJobs-module.html#__doc__,Variable Products.ZenUtils.PBUtil.__doc__=Products.ZenUtils.PBUtil-module.html#__doc__,Variable Products.ZenUtils.Search.__doc__=Products.ZenUtils.Search-module.html#__doc__,Variable Products.ZenUtils.Step.__doc__=Products.ZenUtils.Step-module.html#__doc__,Variable Products.ZenUtils.ToManyRebuildKeys.__doc__=Products.ZenUtils.ToManyRebuildKeys-module.html#__doc__,Variable Products.ZenUtils.Utils.__doc__=Products.ZenUtils.Utils-module.html#__doc__,Variable Products.ZenUtils.Watchdog.__doc__=Products.ZenUtils.Watchdog-module.html#__doc__,Variable Products.ZenUtils.ZCmdBase.__doc__=Products.ZenUtils.ZCmdBase-module.html#__doc__,Variable Products.ZenUtils.ZenBackup.__doc__=Products.ZenUtils.ZenBackup-module.html#__doc__,Variable Products.ZenUtils.ZenBackupBase.__doc__=Products.ZenUtils.ZenBackupBase-module.html#__doc__,Variable Products.ZenUtils.ZenDaemon.__doc__=Products.ZenUtils.ZenDaemon-module.html#__doc__,Variable Products.ZenUtils.ZenDeleteHistory.__doc__=Products.ZenUtils.ZenDeleteHistory-module.html#__doc__,Variable Products.ZenUtils.ZenPackCmd.__doc__=Products.ZenUtils.ZenPackCmd-module.html#__doc__,Variable Products.ZenUtils.ZenPackDaemons.__doc__=Products.ZenUtils.ZenPackDaemons-module.html#__doc__,Variable Products.ZenUtils.ZenRestore.__doc__=Products.ZenUtils.ZenRestore-module.html#__doc__,Variable Products.ZenUtils.ZenScriptBase.__doc__=Products.ZenUtils.ZenScriptBase-module.html#__doc__,Variable Products.ZenUtils.ZeoPoolBase.__doc__=Products.ZenUtils.ZeoPoolBase-module.html#__doc__,Variable Products.ZenUtils.captureReplay.__doc__=Products.ZenUtils.captureReplay-module.html#__doc__,Variable Products.ZenUtils.guid.__doc__=Products.ZenUtils.guid-module.html#__doc__,Variable Products.ZenUtils.zenpack.__doc__=Products.ZenUtils.zenpack-module.html#__doc__,Variable Products.ZenUtils.zproprmlocal.__doc__=Products.ZenUtils.zproprmlocal-module.html#__doc__,Variable Products.ZenWidgets.PersistentMessage.__doc__=Products.ZenWidgets.PersistentMessage-module.html#__doc__,Variable Products.ZenWidgets.ZenTableManager.__doc__=Products.ZenWidgets.ZenTableManager-module.html#__doc__,Variable Products.ZenWidgets.ZenTableState.__doc__=Products.ZenWidgets.ZenTableState-module.html#__doc__,Variable Products.ZenWin.services.EventLogConfig.__doc__=Products.ZenWin.services.EventLogConfig-module.html#__doc__"><a title="Products.DataCollector.BaseClient.__doc__
+Products.DataCollector.CollectorClient.__doc__
+Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.__doc__
+Products.DataCollector.CommandParsers.CiscoShowHardware.__doc__
+Products.DataCollector.CommandParsers.CommandParser.__doc__
+Products.DataCollector.CommandParsers.Linux_netstat_an.__doc__
+Products.DataCollector.CommandParsers.Linux_netstat_rn.__doc__
+Products.DataCollector.CommandParsers.Uname_A.__doc__
+Products.DataCollector.CommandParsers.Unix_df_k.__doc__
+Products.DataCollector.DeviceProxy.__doc__
+Products.DataCollector.Exceptions.__doc__
+Products.DataCollector.PortscanClient.__doc__
+Products.DataCollector.PythonClient.__doc__
+Products.DataCollector.SshClient.__doc__
+Products.DataCollector.TelnetClient.__doc__
+Products.DataCollector.zendisc.__doc__
+Products.DataCollector.zenmodeler.__doc__
+Products.ZenEvents.EventClass.__doc__
+Products.ZenEvents.EventClassifier.__doc__
+Products.ZenEvents.EventManagerBase.__doc__
+Products.ZenEvents.EventServer.__doc__
+Products.ZenEvents.Exceptions.__doc__
+Products.ZenEvents.MailProcessor.__doc__
+Products.ZenEvents.MySqlSendEvent.__doc__
+Products.ZenEvents.Schedule.__doc__
+Products.ZenEvents.SyslogProcessing.__doc__
+Products.ZenEvents.UpdateCheck.__doc__
+Products.ZenEvents.xtest.__doc__
+Products.ZenEvents.zenactions.__doc__
+Products.ZenEvents.zenmail.__doc__
+Products.ZenEvents.zenpop3.__doc__
+Products.ZenEvents.zensyslog.__doc__
+Products.ZenEvents.zentrap.__doc__
+Products.ZenHub.PBDaemon.__doc__
+Products.ZenHub.services.RRDImpl.__doc__
+Products.ZenHub.services.RRDService.__doc__
+Products.ZenHub.services.ZenRender.__doc__
+Products.ZenHub.zenhub.__doc__
+Products.ZenModel.AreaGraphPoint.__doc__
+Products.ZenModel.BasicDataSource.__doc__
+Products.ZenModel.BasicDeviceLoader.__doc__
+Products.ZenModel.BatchDeviceLoader.__doc__
+Products.ZenModel.BuiltInDS.__doc__
+Products.ZenModel.CPU.__doc__
+Products.ZenModel.CdefGraphPoint.__doc__
+Products.ZenModel.CiscoLoader.__doc__
+Products.ZenModel.Classifier.__doc__
+Products.ZenModel.ClassifierEntry.__doc__
+Products.ZenModel.Collection.__doc__
+Products.ZenModel.CollectionItem.__doc__
+Products.ZenModel.Commandable.__doc__
+Products.ZenModel.CommentGraphPoint.__doc__
+Products.ZenModel.ComplexGraphPoint.__doc__
+Products.ZenModel.ConfmonPropManager.__doc__
+Products.ZenModel.CustomDeviceReportClass.__doc__
+Products.ZenModel.DataPointGraphPoint.__doc__
+Products.ZenModel.DataRoot.__doc__
+Products.ZenModel.DefGraphPoint.__doc__
+Products.ZenModel.Device.__doc__
+Products.ZenModel.DeviceClass.__doc__
+Products.ZenModel.DeviceComponent.__doc__
+Products.ZenModel.DeviceGroup.__doc__
+Products.ZenModel.DeviceOrganizer.__doc__
+Products.ZenModel.DeviceReportClass.__doc__
+Products.ZenModel.DeviceResultInt.__doc__
+Products.ZenModel.DmdBuilder.__doc__
+Products.ZenModel.Exceptions.__doc__
+Products.ZenModel.ExpansionCard.__doc__
+Products.ZenModel.Fan.__doc__
+Products.ZenModel.FileSystem.__doc__
+Products.ZenModel.GprintGraphPoint.__doc__
+Products.ZenModel.GraphDefinition.__doc__
+Products.ZenModel.GraphGroup.__doc__
+Products.ZenModel.GraphPoint.__doc__
+Products.ZenModel.GraphReportClass.__doc__
+Products.ZenModel.HardDisk.__doc__
+Products.ZenModel.Hardware.__doc__
+Products.ZenModel.HardwareClass.__doc__
+Products.ZenModel.HruleGraphPoint.__doc__
+Products.ZenModel.IpAddress.__doc__
+Products.ZenModel.IpInterface.__doc__
+Products.ZenModel.IpNetwork.__doc__
+Products.ZenModel.IpRouteEntry.__doc__
+Products.ZenModel.IpService.__doc__
+Products.ZenModel.IpServiceLoader.__doc__
+Products.ZenModel.LineGraphPoint.__doc__
+Products.ZenModel.Location.__doc__
+Products.ZenModel.MaintenanceWindow.__doc__
+Products.ZenModel.MaintenanceWindowable.__doc__
+Products.ZenModel.ManagedEntity.__doc__
+Products.ZenModel.Manufacturer.__doc__
+Products.ZenModel.ManufacturerRoot.__doc__
+Products.ZenModel.MinMaxThreshold.__doc__
+Products.ZenModel.Monitor.__doc__
+Products.ZenModel.MonitorClass.__doc__
+Products.ZenModel.MultiGraphReportClass.__doc__
+Products.ZenModel.Organizer.__doc__
+Products.ZenModel.PerformanceConf.__doc__
+Products.ZenModel.PerformanceView.__doc__
+Products.ZenModel.PowerSupply.__doc__
+Products.ZenModel.PrintGraphPoint.__doc__
+Products.ZenModel.ProductClass.__doc__
+Products.ZenModel.RRDDataPoint.__doc__
+Products.ZenModel.RRDDataPointAlias.__doc__
+Products.ZenModel.RRDDataSource.__doc__
+Products.ZenModel.RRDGraph.__doc__
+Products.ZenModel.Report.__doc__
+Products.ZenModel.ReportClass.__doc__
+Products.ZenModel.Service.__doc__
+Products.ZenModel.ServiceClass.__doc__
+Products.ZenModel.ShiftGraphPoint.__doc__
+Products.ZenModel.SiteError.__doc__
+Products.ZenModel.Software.__doc__
+Products.ZenModel.SoftwareClass.__doc__
+Products.ZenModel.StatusColor.__doc__
+Products.ZenModel.StatusMonitorConf.__doc__
+Products.ZenModel.System.__doc__
+Products.ZenModel.TemperatureSensor.__doc__
+Products.ZenModel.ThresholdGraphPoint.__doc__
+Products.ZenModel.TickGraphPoint.__doc__
+Products.ZenModel.VdefGraphPoint.__doc__
+Products.ZenModel.VruleGraphPoint.__doc__
+Products.ZenModel.ZDeviceLoader.__doc__
+Products.ZenModel.ZenModelBase.__doc__
+Products.ZenModel.ZenModelItem.__doc__
+Products.ZenModel.ZenModelRM.__doc__
+Products.ZenModel.ZenPack.__doc__
+Products.ZenModel.ZenPackLoader.__doc__
+Products.ZenModel.ZenPackManager.__doc__
+Products.ZenModel.ZenPackPersistence.__doc__
+Products.ZenModel.ZenStatus.__doc__
+Products.ZenModel.__doc__
+Products.ZenModel.zenbuild.__doc__
+Products.ZenModel.zenmib.__doc__
+Products.ZenRRD.FileCleanup.__doc__
+Products.ZenRRD.RRDDaemon.__doc__
+Products.ZenRRD.RRDMGraph.__doc__
+Products.ZenRRD.RRDUtil.__doc__
+Products.ZenRRD.RenderServer.__doc__
+Products.ZenRRD.SnmpDaemon.__doc__
+Products.ZenRRD.__doc__
+Products.ZenRRD.parsers.Nagios.__doc__
+Products.ZenRRD.parsers.ps.__doc__
+Products.ZenRRD.utils.__doc__
+Products.ZenRRD.zencommand.__doc__
+Products.ZenRRD.zenperfsnmp.__doc__
+Products.ZenRRD.zenprocess.__doc__
+Products.ZenRRD.zenstep.__doc__
+Products.ZenRRD.zentestcommand.__doc__
+Products.ZenRelations.Exceptions.__doc__
+Products.ZenRelations.ExportDevices.__doc__
+Products.ZenRelations.ExportRM.__doc__
+Products.ZenRelations.ImportDevices.__doc__
+Products.ZenRelations.ImportRM.__doc__
+Products.ZenRelations.PrimaryPathObjectManager.__doc__
+Products.ZenRelations.RelSchema.__doc__
+Products.ZenRelations.RelationshipBase.__doc__
+Products.ZenRelations.RelationshipManager.__doc__
+Products.ZenRelations.ToManyContRelationship.__doc__
+Products.ZenRelations.ToManyRelationship.__doc__
+Products.ZenRelations.ToManyRelationshipBase.__doc__
+Products.ZenRelations.ToOneRelationship.__doc__
+Products.ZenRelations.__doc__
+Products.ZenReports.AliasPlugin.__doc__
+Products.ZenReports.ReportServer.__doc__
+Products.ZenStatus.ZenTcpClient.__doc__
+Products.ZenStatus.zenping.__doc__
+Products.ZenStatus.zenstatus.__doc__
+Products.ZenUtils.BasicLoader.__doc__
+Products.ZenUtils.Chain.__doc__
+Products.ZenUtils.CheckBasicInstall.__doc__
+Products.ZenUtils.CheckRelations.__doc__
+Products.ZenUtils.CmdBase.__doc__
+Products.ZenUtils.ConfDaemon.__doc__
+Products.ZenUtils.Driver.__doc__
+Products.ZenUtils.EggifyZenPack.__doc__
+Products.ZenUtils.IpUtil.__doc__
+Products.ZenUtils.LocationDump.__doc__
+Products.ZenUtils.NJobs.__doc__
+Products.ZenUtils.PBUtil.__doc__
+Products.ZenUtils.Search.__doc__
+Products.ZenUtils.Step.__doc__
+Products.ZenUtils.ToManyRebuildKeys.__doc__
+Products.ZenUtils.Utils.__doc__
+Products.ZenUtils.Watchdog.__doc__
+Products.ZenUtils.ZCmdBase.__doc__
+Products.ZenUtils.ZenBackup.__doc__
+Products.ZenUtils.ZenBackupBase.__doc__
+Products.ZenUtils.ZenDaemon.__doc__
+Products.ZenUtils.ZenDeleteHistory.__doc__
+Products.ZenUtils.ZenPackCmd.__doc__
+Products.ZenUtils.ZenPackDaemons.__doc__
+Products.ZenUtils.ZenRestore.__doc__
+Products.ZenUtils.ZenScriptBase.__doc__
+Products.ZenUtils.ZeoPoolBase.__doc__
+Products.ZenUtils.captureReplay.__doc__
+Products.ZenUtils.guid.__doc__
+Products.ZenUtils.zenpack.__doc__
+Products.ZenUtils.zproprmlocal.__doc__
+Products.ZenWidgets.PersistentMessage.__doc__
+Products.ZenWidgets.ZenTableManager.__doc__
+Products.ZenWidgets.ZenTableState.__doc__
+Products.ZenWin.services.EventLogConfig.__doc__" class="py-name" href="#" onclick="return doclink('link-0', '__doc__', 'link-0');">__doc__</a></tt> <tt class="py-op">=</tt> <tt class="py-docstring">"""IpUtil</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">IPv4 utility functions</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Variable Products.ZenModel.MibModule.MibModule.types=Products.ZenModel.MibModule.MibModule-class.html#types"><a title="Products.ZenModel.MibModule.MibModule.types" class="py-name" href="#" onclick="return doclink('link-1', 'types', 'link-1');">types</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package Products.ZenUtils=Products.ZenUtils-module.html"><a title="Products.ZenUtils" class="py-name" href="#" onclick="return doclink('link-2', 'ZenUtils', 'link-2');">ZenUtils</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module Products.DataCollector.Exceptions=Products.DataCollector.Exceptions-module.html,Module Products.ZenEvents.Exceptions=Products.ZenEvents.Exceptions-module.html,Module Products.ZenModel.Exceptions=Products.ZenModel.Exceptions-module.html,Module Products.ZenRRD.Exceptions=Products.ZenRRD.Exceptions-module.html,Module Products.ZenRelations.Exceptions=Products.ZenRelations.Exceptions-module.html,Module Products.ZenUtils.Exceptions=Products.ZenUtils.Exceptions-module.html"><a title="Products.DataCollector.Exceptions
+Products.ZenEvents.Exceptions
+Products.ZenModel.Exceptions
+Products.ZenRRD.Exceptions
+Products.ZenRelations.Exceptions
+Products.ZenUtils.Exceptions" class="py-name" href="#" onclick="return doclink('link-3', 'Exceptions', 'link-3');">Exceptions</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Class Products.ZenUtils.Exceptions.ZentinelException=Products.ZenUtils.Exceptions.ZentinelException-class.html"><a title="Products.ZenUtils.Exceptions.ZentinelException" class="py-name" href="#" onclick="return doclink('link-4', 'ZentinelException', 'link-4');">ZentinelException</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">twisted</tt><tt class="py-op">.</tt><tt class="py-name">names</tt><tt class="py-op">.</tt><tt class="py-name">client</tt> <tt class="py-keyword">import</tt> <tt class="py-name">lookupPointer</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="IpAddressError"></a><div id="IpAddressError-def"><a name="L25"></a><tt class="py-lineno"> 25</tt> <a class="py-toggle" href="#" id="IpAddressError-toggle" onclick="return toggle('IpAddressError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil.IpAddressError-class.html">IpAddressError</a><tt class="py-op">(</tt><tt class="py-base-class">ZentinelException</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="InvalidIPRangeError"></a><div id="InvalidIPRangeError-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="InvalidIPRangeError-toggle" onclick="return toggle('InvalidIPRangeError');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil.InvalidIPRangeError-class.html">InvalidIPRangeError</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="InvalidIPRangeError-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="InvalidIPRangeError-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">    Attempted to parse an invalid IP range.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+</div><a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-comment"># Match if this is an IPv4 address</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable Products.ZenUtils.IpUtil.isip=Products.ZenUtils.IpUtil-module.html#isip"><a title="Products.ZenUtils.IpUtil.isip" class="py-name" href="#" onclick="return doclink('link-5', 'isip', 'link-5');">isip</a></tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method Products.ZenModel.Commandable.Commandable.compile()=Products.ZenModel.Commandable.Commandable-class.html#compile"><a title="Products.ZenModel.Commandable.Commandable.compile" class="py-name" href="#" onclick="return doclink('link-6', 'compile', 'link-6');">compile</a></tt><tt class="py-op">(</tt><tt class="py-string">"^\d+\.\d+\.\d+\.\d+$"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex.search()=Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#search,Method Products.ZenUtils.MultiPathIndex.MultiPathIndex.search()=Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html#search"><a title="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex.search
+Products.ZenUtils.MultiPathIndex.MultiPathIndex.search" class="py-name" href="#" onclick="return doclink('link-7', 'search', 'link-7');">search</a></tt> </tt>
+<a name="checkip"></a><div id="checkip-def"><a name="L35"></a><tt class="py-lineno"> 35</tt> <a class="py-toggle" href="#" id="checkip-toggle" onclick="return toggle('checkip');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#checkip">checkip</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="checkip-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="checkip-expanded"><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">    Check that an IPv4 address is valid. Return true</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">    or raise an exception(!)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; checkip('10.10.20.5')</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    True</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; try: checkip(10)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">    ... except IpAddressError, ex: print ex</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">    10 is not a dot delimited address</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; try: checkip('10')</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    ... except IpAddressError, ex: print ex</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">    10 is an invalid address</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; try: checkip('10.10.20.500')</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">    ... except IpAddressError, ex: print ex</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">    10.10.20.500 is an invalid address</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; checkip('10.10.20.00')</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">    True</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; checkip('10.10.20.0')</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">    True</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; checkip('10.10.20.255')</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">    True</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">    <tt id="link-8" class="py-name" targets="Method Products.ZenStatus.zenstatus.Status.success()=Products.ZenStatus.zenstatus.Status-class.html#success,Method Products.ZenUtils.Chain.Chain.success()=Products.ZenUtils.Chain.Chain-class.html#success"><a title="Products.ZenStatus.zenstatus.Status.success
+Products.ZenUtils.Chain.Chain.success" class="py-name" href="#" onclick="return doclink('link-8', 'success', 'link-8');">success</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">ip</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">:</tt>  </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt id="link-9" class="py-name"><a title="Products.ZenStatus.zenstatus.Status.success
+Products.ZenUtils.Chain.Chain.success" class="py-name" href="#" onclick="return doclink('link-9', 'success', 'link-8');">success</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-name">octs</tt> <tt class="py-op">=</tt> <tt class="py-name">ip</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt id="link-10" class="py-name" targets="Class Products.ZenUtils.IpUtil.IpAddressError=Products.ZenUtils.IpUtil.IpAddressError-class.html"><a title="Products.ZenUtils.IpUtil.IpAddressError" class="py-name" href="#" onclick="return doclink('link-10', 'IpAddressError', 'link-10');">IpAddressError</a></tt><tt class="py-op">(</tt> <tt class="py-string">'%s is not a dot delimited address'</tt> <tt class="py-op">%</tt> <tt class="py-name">ip</tt> <tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">octs</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-number">4</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt id="link-11" class="py-name"><a title="Products.ZenStatus.zenstatus.Status.success
+Products.ZenUtils.Chain.Chain.success" class="py-name" href="#" onclick="return doclink('link-11', 'success', 'link-8');">success</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">o</tt> <tt class="py-keyword">in</tt> <tt class="py-name">octs</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-op">(</tt><tt class="py-number">0</tt> <tt class="py-op">&lt;=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">o</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">255</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                        <tt id="link-12" class="py-name"><a title="Products.ZenStatus.zenstatus.Status.success
+Products.ZenUtils.Chain.Chain.success" class="py-name" href="#" onclick="return doclink('link-12', 'success', 'link-8');">success</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                    <tt id="link-13" class="py-name"><a title="Products.ZenStatus.zenstatus.Status.success
+Products.ZenUtils.Chain.Chain.success" class="py-name" href="#" onclick="return doclink('link-13', 'success', 'link-8');">success</a></tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-14" class="py-name"><a title="Products.ZenStatus.zenstatus.Status.success
+Products.ZenUtils.Chain.Chain.success" class="py-name" href="#" onclick="return doclink('link-14', 'success', 'link-8');">success</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt id="link-15" class="py-name"><a title="Products.ZenUtils.IpUtil.IpAddressError" class="py-name" href="#" onclick="return doclink('link-15', 'IpAddressError', 'link-10');">IpAddressError</a></tt><tt class="py-op">(</tt> <tt class="py-string">"%s is an invalid address"</tt> <tt class="py-op">%</tt> <tt class="py-name">ip</tt> <tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">True</tt> </tt>
+</div><a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"> </tt>
+<a name="numbip"></a><div id="numbip-def"><a name="L80"></a><tt class="py-lineno"> 80</tt> <a class="py-toggle" href="#" id="numbip-toggle" onclick="return toggle('numbip');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#numbip">numbip</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="numbip-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="numbip-expanded"><a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">    Convert a string IP to a decimal representation easier for</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">    calculating netmasks etc.</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">    Deprecated in favour of ipToDecimal()</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-16" class="py-name" targets="Function Products.ZenUtils.IpUtil.ipToDecimal()=Products.ZenUtils.IpUtil-module.html#ipToDecimal"><a title="Products.ZenUtils.IpUtil.ipToDecimal" class="py-name" href="#" onclick="return doclink('link-16', 'ipToDecimal', 'link-16');">ipToDecimal</a></tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="ipToDecimal"></a><div id="ipToDecimal-def"><a name="L89"></a><tt class="py-lineno"> 89</tt> <a class="py-toggle" href="#" id="ipToDecimal-toggle" onclick="return toggle('ipToDecimal');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#ipToDecimal">ipToDecimal</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ipToDecimal-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ipToDecimal-expanded"><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">    Convert a string IP to a decimal representation easier for</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">    calculating netmasks etc.</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; ipToDecimal('10.10.20.5')</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    168432645L</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; try: ipToDecimal('10.10.20.500')</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">    ... except IpAddressError, ex: print ex</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">    10.10.20.500 is an invalid address</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt id="link-17" class="py-name" targets="Function Products.ZenUtils.IpUtil.checkip()=Products.ZenUtils.IpUtil-module.html#checkip"><a title="Products.ZenUtils.IpUtil.checkip" class="py-name" href="#" onclick="return doclink('link-17', 'checkip', 'link-17');">checkip</a></tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-name">octs</tt> <tt class="py-op">=</tt> <tt class="py-name">ip</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-name">octs</tt><tt class="py-op">.</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-number">0L</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">octs</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-name">i</tt> <tt class="py-op">+=</tt> <tt class="py-op">(</tt><tt class="py-number">256l</tt> <tt class="py-op">**</tt> <tt class="py-name">j</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">octs</tt><tt class="py-op">[</tt><tt class="py-name">j</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">i</tt>     </tt>
+</div><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="ipFromIpMask"></a><div id="ipFromIpMask-def"><a name="L109"></a><tt class="py-lineno">109</tt> <a class="py-toggle" href="#" id="ipFromIpMask-toggle" onclick="return toggle('ipFromIpMask');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#ipFromIpMask">ipFromIpMask</a><tt class="py-op">(</tt><tt class="py-param">ipmask</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ipFromIpMask-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ipFromIpMask-expanded"><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">    Get just the IP address from an CIDR string like 1.1.1.1/24</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; ipFromIpMask('1.1.1.1')</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">    '1.1.1.1'</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; ipFromIpMask('1.1.1.1/24')</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">    '1.1.1.1'</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">ipmask</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">"/"</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
+<a name="strip"></a><div id="strip-def"><a name="L121"></a><tt class="py-lineno">121</tt> <a class="py-toggle" href="#" id="strip-toggle" onclick="return toggle('strip');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#strip">strip</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="strip-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="strip-expanded"><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">    Convert a numeric IP address to a string</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">    Deprecated in favour of decimalIpToStr()</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-18" class="py-name" targets="Function Products.ZenUtils.IpUtil.decimalIpToStr()=Products.ZenUtils.IpUtil-module.html#decimalIpToStr"><a title="Products.ZenUtils.IpUtil.decimalIpToStr" class="py-name" href="#" onclick="return doclink('link-18', 'decimalIpToStr', 'link-18');">decimalIpToStr</a></tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="decimalIpToStr"></a><div id="decimalIpToStr-def"><a name="L129"></a><tt class="py-lineno">129</tt> <a class="py-toggle" href="#" id="decimalIpToStr-toggle" onclick="return toggle('decimalIpToStr');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#decimalIpToStr">decimalIpToStr</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="decimalIpToStr-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="decimalIpToStr-expanded"><a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">    Convert a decimal IP address (as returned by ipToDecimal)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">    to a regular IPv4 dotted quad address.</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; decimalIpToStr(ipToDecimal('10.23.44.57'))</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line"><tt class="py-docstring">    '10.23.44.57'</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">    <tt class="py-name">_masks</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-number">0x000000ffL</tt><tt class="py-op">,</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">        <tt class="py-number">0x0000ff00L</tt><tt class="py-op">,</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-number">0x00ff0000L</tt><tt class="py-op">,</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-number">0xff000000L</tt><tt class="py-op">,</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-op">)</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">    <tt class="py-name">o</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">_masks</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-name">t</tt> <tt class="py-op">=</tt> <tt class="py-name">ip</tt> <tt class="py-op">&amp;</tt> <tt class="py-name">_masks</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">        <tt class="py-name">s</tt> <tt class="py-op">=</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">t</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">*</tt><tt class="py-number">8</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt class="py-name">o</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">s</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-name">o</tt><tt class="py-op">.</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'.'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">o</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
+<a name="hexToBits"></a><div id="hexToBits-def"><a name="L152"></a><tt class="py-lineno">152</tt> <a class="py-toggle" href="#" id="hexToBits-toggle" onclick="return toggle('hexToBits');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#hexToBits">hexToBits</a><tt class="py-op">(</tt><tt class="py-param">hex</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="hexToBits-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="hexToBits-expanded"><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-docstring">    Convert hex netbits (0xff000000) to decimal netmask (8)</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; hexToBits("0xff000000")</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line"><tt class="py-docstring">    8</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; hexToBits("0xffffff00")</tt> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-docstring">    24</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-19" class="py-name" targets="Function Products.ZenUtils.IpUtil.maskToBits()=Products.ZenUtils.IpUtil-module.html#maskToBits"><a title="Products.ZenUtils.IpUtil.maskToBits" class="py-name" href="#" onclick="return doclink('link-19', 'maskToBits', 'link-19');">maskToBits</a></tt><tt class="py-op">(</tt><tt id="link-20" class="py-name" targets="Function Products.ZenUtils.IpUtil.hexToMask()=Products.ZenUtils.IpUtil-module.html#hexToMask"><a title="Products.ZenUtils.IpUtil.hexToMask" class="py-name" href="#" onclick="return doclink('link-20', 'hexToMask', 'link-20');">hexToMask</a></tt><tt class="py-op">(</tt><tt class="py-name">hex</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">     </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line"> </tt>
+<a name="hexToMask"></a><div id="hexToMask-def"><a name="L164"></a><tt class="py-lineno">164</tt> <a class="py-toggle" href="#" id="hexToMask-toggle" onclick="return toggle('hexToMask');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#hexToMask">hexToMask</a><tt class="py-op">(</tt><tt class="py-param">hex</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="hexToMask-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="hexToMask-expanded"><a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-docstring">    Converts a netmask represented in hex to octets represented in</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-docstring">    decimal.</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; hexToMask("0xffffff00")</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-docstring">    '255.255.255.0'</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; hexToMask("0xffffffff")</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt class="py-docstring">    '255.255.255.255'</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; hexToMask("0x00000000")</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"><tt class="py-docstring">    '0.0.0.0'</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; hexToMask("trash")</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line"><tt class="py-docstring">    '255.255.255.255'</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">hex</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method Products.ZenEvents.EventClass.EventClass.find()=Products.ZenEvents.EventClass.EventClass-class.html#find,Method Products.ZenModel.ServiceOrganizer.ServiceOrganizer.find()=Products.ZenModel.ServiceOrganizer.ServiceOrganizer-class.html#find,Method Products.ZenWidgets.PortletManager.PortletManager.find()=Products.ZenWidgets.PortletManager.PortletManager-class.html#find"><a title="Products.ZenEvents.EventClass.EventClass.find
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.find
+Products.ZenWidgets.PortletManager.PortletManager.find" class="py-name" href="#" onclick="return doclink('link-21', 'find', 'link-21');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'x'</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"255.255.255.255"</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">     </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">    <tt class="py-name">hex</tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name" targets="Method Products.ZenModel.ZenPack.ZenPack.list()=Products.ZenModel.ZenPack.ZenPack-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLAbout.list()=Products.ZenModel.ZenPackLoader.ZPLAbout-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLBin.list()=Products.ZenModel.ZenPackLoader.ZPLBin-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLDaemons.list()=Products.ZenModel.ZenPackLoader.ZPLDaemons-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLDataSources.list()=Products.ZenModel.ZenPackLoader.ZPLDataSources-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLLibExec.list()=Products.ZenModel.ZenPackLoader.ZPLLibExec-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLLibraries.list()=Products.ZenModel.ZenPackLoader.ZPLLibraries-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLModelers.list()=Products.ZenModel.ZenPackLoader.ZPLModelers-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLObject.list()=Products.ZenModel.ZenPackLoader.ZPLObject-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLReport.list()=Products.ZenModel.ZenPackLoader.ZPLReport-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLSkins.list()=Products.ZenModel.ZenPackLoader.ZPLSkins-class.html#list,Method Products.ZenModel.ZenPackLoader.ZenPackLoader.list()=Products.ZenModel.ZenPackLoader.ZenPackLoader-class.html#list"><a title="Products.ZenModel.ZenPack.ZenPack.list
+Products.ZenModel.ZenPackLoader.ZPLAbout.list
+Products.ZenModel.ZenPackLoader.ZPLBin.list
+Products.ZenModel.ZenPackLoader.ZPLDaemons.list
+Products.ZenModel.ZenPackLoader.ZPLDataSources.list
+Products.ZenModel.ZenPackLoader.ZPLLibExec.list
+Products.ZenModel.ZenPackLoader.ZPLLibraries.list
+Products.ZenModel.ZenPackLoader.ZPLModelers.list
+Products.ZenModel.ZenPackLoader.ZPLObject.list
+Products.ZenModel.ZenPackLoader.ZPLReport.list
+Products.ZenModel.ZenPackLoader.ZPLSkins.list
+Products.ZenModel.ZenPackLoader.ZenPackLoader.list" class="py-name" href="#" onclick="return doclink('link-22', 'list', 'link-22');">list</a></tt><tt class="py-op">(</tt><tt class="py-name">hex</tt><tt class="py-op">.</tt><tt class="py-name">lower</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'x'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">    <tt class="py-name">octets</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">    <tt class="py-keyword">while</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">hex</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-name">snippit</tt> <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="Products.ZenModel.ZenPack.ZenPack.list
+Products.ZenModel.ZenPackLoader.ZPLAbout.list
+Products.ZenModel.ZenPackLoader.ZPLBin.list
+Products.ZenModel.ZenPackLoader.ZPLDaemons.list
+Products.ZenModel.ZenPackLoader.ZPLDataSources.list
+Products.ZenModel.ZenPackLoader.ZPLLibExec.list
+Products.ZenModel.ZenPackLoader.ZPLLibraries.list
+Products.ZenModel.ZenPackLoader.ZPLModelers.list
+Products.ZenModel.ZenPackLoader.ZPLObject.list
+Products.ZenModel.ZenPackLoader.ZPLReport.list
+Products.ZenModel.ZenPackLoader.ZPLSkins.list
+Products.ZenModel.ZenPackLoader.ZenPackLoader.list" class="py-name" href="#" onclick="return doclink('link-23', 'list', 'link-22');">list</a></tt><tt class="py-op">(</tt><tt class="py-name">hex</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">hex</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-name">snippit</tt><tt class="py-op">.</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-name">decimal</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-string">''</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">snippit</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">16</tt><tt class="py-op">)</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">        <tt class="py-name">octets</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">decimal</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line"> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">    <tt class="py-name">octets</tt><tt class="py-op">.</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'.'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">octets</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line"> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"> </tt>
+<a name="maskToBits"></a><div id="maskToBits-def"><a name="L193"></a><tt class="py-lineno">193</tt> <a class="py-toggle" href="#" id="maskToBits-toggle" onclick="return toggle('maskToBits');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#maskToBits">maskToBits</a><tt class="py-op">(</tt><tt class="py-param">netmask</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="maskToBits-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="maskToBits-expanded"><a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line"><tt class="py-docstring">    Convert string rep of netmask to number of bits</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; maskToBits('255.255.255.255')</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line"><tt class="py-docstring">    32</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; maskToBits('255.255.224.0')</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"><tt class="py-docstring">    19</tt> </tt>
+<a name="L201"></a><tt class="py-lineno">201</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; maskToBits('0.0.0.0')</tt> </tt>
+<a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line"><tt class="py-docstring">    0</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-24" class="py-name" targets="Variable Products.ZenEvents.CustomEventView.CustomEventView.type=Products.ZenEvents.CustomEventView.CustomEventView-class.html#type,Variable Products.ZenEvents.WhereClause.Compare.type=Products.ZenEvents.WhereClause.Compare-class.html#type,Variable Products.ZenEvents.WhereClause.Enumerated.type=Products.ZenEvents.WhereClause.Enumerated-class.html#type,Variable Products.ZenEvents.WhereClause.EventClass.type=Products.ZenEvents.WhereClause.EventClass-class.html#type,Variable Products.ZenEvents.WhereClause.Select.type=Products.ZenEvents.WhereClause.Select-class.html#type,Variable Products.ZenEvents.WhereClause.Text.type=Products.ZenEvents.WhereClause.Text-class.html#type,Variable Products.ZenEvents.WhereClause.WhereJavaScript.type=Products.ZenEvents.WhereClause.WhereJavaScript-class.html#type,Variable Products.ZenModel.Fan.Fan.type=Products.ZenModel.Fan.Fan-class.html#type,Variable Products.ZenModel.FileSystem.FileSystem.type=Products.ZenModel.FileSystem.FileSystem-class.html#type,Variable Products.ZenModel.IpInterface.IpInterface.type=Products.ZenModel.IpInterface.IpInterface-class.html#type,Variable Products.ZenModel.PowerSupply.PowerSupply.type=Products.ZenModel.PowerSupply.PowerSupply-class.html#type,Method Products.ZenModel.ProductClass.ProductClass.type()=Products.ZenModel.ProductClass.ProductClass-class.html#type,Method Products.ZenModel.SoftwareClass.SoftwareClass.type()=Products.ZenModel.SoftwareClass.SoftwareClass-class.html#type"><a title="Products.ZenEvents.CustomEventView.CustomEventView.type
+Products.ZenEvents.WhereClause.Compare.type
+Products.ZenEvents.WhereClause.Enumerated.type
+Products.ZenEvents.WhereClause.EventClass.type
+Products.ZenEvents.WhereClause.Select.type
+Products.ZenEvents.WhereClause.Text.type
+Products.ZenEvents.WhereClause.WhereJavaScript.type
+Products.ZenModel.Fan.Fan.type
+Products.ZenModel.FileSystem.FileSystem.type
+Products.ZenModel.IpInterface.IpInterface.type
+Products.ZenModel.PowerSupply.PowerSupply.type
+Products.ZenModel.ProductClass.ProductClass.type
+Products.ZenModel.SoftwareClass.SoftwareClass.type" class="py-name" href="#" onclick="return doclink('link-24', 'type', 'link-24');">type</a></tt><tt class="py-op">(</tt><tt id="link-25" class="py-name" targets="Variable Products.ZenHub.services.DiscoverService.IpNetProxy.netmask=Products.ZenHub.services.DiscoverService.IpNetProxy-class.html#netmask"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-25', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt id="link-26" class="py-name"><a title="Products.ZenModel.MibModule.MibModule.types" class="py-name" href="#" onclick="return doclink('link-26', 'types', 'link-1');">types</a></tt><tt class="py-op">.</tt><tt class="py-name">StringType</tt> <tt class="py-keyword">and</tt> <tt id="link-27" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-27', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="Products.ZenEvents.EventClass.EventClass.find
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.find
+Products.ZenWidgets.PortletManager.PortletManager.find" class="py-name" href="#" onclick="return doclink('link-28', 'find', 'link-21');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">:</tt>  </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">        <tt id="link-29" class="py-name" targets="Method Products.ZenRRD.FileCleanup.FileCleanup.test()=Products.ZenRRD.FileCleanup.FileCleanup-class.html#test,Function Products.ZenRRD.Thresholds.test()=Products.ZenRRD.Thresholds-module.html#test,Function Products.ZenUtils.Driver.test()=Products.ZenUtils.Driver-module.html#test,Method Products.ZenUtils.snmp.SnmpConfig.test()=Products.ZenUtils.snmp.SnmpConfig-class.html#test"><a title="Products.ZenRRD.FileCleanup.FileCleanup.test
+Products.ZenRRD.Thresholds.test
+Products.ZenUtils.Driver.test
+Products.ZenUtils.snmp.SnmpConfig.test" class="py-name" href="#" onclick="return doclink('link-29', 'test', 'link-29');">test</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0xffffffffL</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-30" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-30', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">==</tt><tt class="py-string">'0'</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-number">0</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">        <tt class="py-name">masknumb</tt> <tt class="py-op">=</tt> <tt id="link-31" class="py-name"><a title="Products.ZenUtils.IpUtil.ipToDecimal" class="py-name" href="#" onclick="return doclink('link-31', 'ipToDecimal', 'link-16');">ipToDecimal</a></tt><tt class="py-op">(</tt><tt id="link-32" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-32', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">32</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-33" class="py-name"><a title="Products.ZenRRD.FileCleanup.FileCleanup.test
+Products.ZenRRD.Thresholds.test
+Products.ZenUtils.Driver.test
+Products.ZenUtils.snmp.SnmpConfig.test" class="py-name" href="#" onclick="return doclink('link-33', 'test', 'link-29');">test</a></tt> <tt class="py-op">==</tt> <tt class="py-name">masknumb</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-number">32</tt><tt class="py-op">-</tt><tt class="py-name">i</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">            <tt id="link-34" class="py-name"><a title="Products.ZenRRD.FileCleanup.FileCleanup.test
+Products.ZenRRD.Thresholds.test
+Products.ZenUtils.Driver.test
+Products.ZenUtils.snmp.SnmpConfig.test" class="py-name" href="#" onclick="return doclink('link-34', 'test', 'link-29');">test</a></tt> <tt class="py-op">=</tt> <tt id="link-35" class="py-name"><a title="Products.ZenRRD.FileCleanup.FileCleanup.test
+Products.ZenRRD.Thresholds.test
+Products.ZenUtils.Driver.test
+Products.ZenUtils.snmp.SnmpConfig.test" class="py-name" href="#" onclick="return doclink('link-35', 'test', 'link-29');">test</a></tt> <tt class="py-op">-</tt> <tt class="py-number">2</tt> <tt class="py-op">**</tt> <tt class="py-name">i</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-36" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-36', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">        </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"> </tt>
+<a name="bitsToMaskNumb"></a><div id="bitsToMaskNumb-def"><a name="L216"></a><tt class="py-lineno">216</tt> <a class="py-toggle" href="#" id="bitsToMaskNumb-toggle" onclick="return toggle('bitsToMaskNumb');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#bitsToMaskNumb">bitsToMaskNumb</a><tt class="py-op">(</tt><tt class="py-param">netbits</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="bitsToMaskNumb-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="bitsToMaskNumb-expanded"><a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line"><tt class="py-docstring">    Convert integer number of netbits to a decimal number</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line"><tt class="py-docstring">    Deprecated in favour of bitsToDecimalMask()</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-37" class="py-name" targets="Function Products.ZenUtils.IpUtil.bitsToDecimalMask()=Products.ZenUtils.IpUtil-module.html#bitsToDecimalMask"><a title="Products.ZenUtils.IpUtil.bitsToDecimalMask" class="py-name" href="#" onclick="return doclink('link-37', 'bitsToDecimalMask', 'link-37');">bitsToDecimalMask</a></tt><tt class="py-op">(</tt><tt class="py-name">netbits</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"> </tt>
+<a name="bitsToDecimalMask"></a><div id="bitsToDecimalMask-def"><a name="L224"></a><tt class="py-lineno">224</tt> <a class="py-toggle" href="#" id="bitsToDecimalMask-toggle" onclick="return toggle('bitsToDecimalMask');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#bitsToDecimalMask">bitsToDecimalMask</a><tt class="py-op">(</tt><tt class="py-param">netbits</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="bitsToDecimalMask-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="bitsToDecimalMask-expanded"><a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line"><tt class="py-docstring">    Convert integer number of netbits to a decimal number</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; bitsToDecimalMask(32)</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line"><tt class="py-docstring">    4294967295L</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; bitsToDecimalMask(19)</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line"><tt class="py-docstring">    4294959104L</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; bitsToDecimalMask(0)</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line"><tt class="py-docstring">    0L</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">    <tt class="py-name">masknumb</tt> <tt class="py-op">=</tt> <tt class="py-number">0L</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">    <tt class="py-name">netbits</tt><tt class="py-op">=</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">netbits</tt><tt class="py-op">)</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-number">32</tt><tt class="py-op">-</tt><tt class="py-name">netbits</tt><tt class="py-op">,</tt> <tt class="py-number">32</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">        <tt class="py-name">masknumb</tt> <tt class="py-op">+=</tt> <tt class="py-number">2L</tt> <tt class="py-op">**</tt> <tt class="py-name">i</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">masknumb</tt> </tt>
+</div><a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">    </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line"> </tt>
+<a name="bitsToMask"></a><div id="bitsToMask-def"><a name="L242"></a><tt class="py-lineno">242</tt> <a class="py-toggle" href="#" id="bitsToMask-toggle" onclick="return toggle('bitsToMask');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#bitsToMask">bitsToMask</a><tt class="py-op">(</tt><tt class="py-param">netbits</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="bitsToMask-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="bitsToMask-expanded"><a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line"><tt class="py-docstring">    Convert netbits into a dotted-quad subnetmask</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; bitsToMask(12)</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line"><tt class="py-docstring">    '255.240.0.0'</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; bitsToMask(0)</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line"><tt class="py-docstring">    '0.0.0.0'</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; bitsToMask(32)</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"><tt class="py-docstring">    '255.255.255.255'</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-38" class="py-name"><a title="Products.ZenUtils.IpUtil.decimalIpToStr" class="py-name" href="#" onclick="return doclink('link-38', 'decimalIpToStr', 'link-18');">decimalIpToStr</a></tt><tt class="py-op">(</tt><tt id="link-39" class="py-name"><a title="Products.ZenUtils.IpUtil.bitsToDecimalMask" class="py-name" href="#" onclick="return doclink('link-39', 'bitsToDecimalMask', 'link-37');">bitsToDecimalMask</a></tt><tt class="py-op">(</tt><tt class="py-name">netbits</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line"> </tt>
+<a name="getnet"></a><div id="getnet-def"><a name="L256"></a><tt class="py-lineno">256</tt> <a class="py-toggle" href="#" id="getnet-toggle" onclick="return toggle('getnet');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#getnet">getnet</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">,</tt> <tt class="py-param">netmask</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getnet-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getnet-expanded"><a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line"><tt class="py-docstring">    Deprecated in favour of decimalNetFromIpAndNet()</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-40" class="py-name" targets="Function Products.ZenUtils.IpUtil.decimalNetFromIpAndNet()=Products.ZenUtils.IpUtil-module.html#decimalNetFromIpAndNet"><a title="Products.ZenUtils.IpUtil.decimalNetFromIpAndNet" class="py-name" href="#" onclick="return doclink('link-40', 'decimalNetFromIpAndNet', 'link-40');">decimalNetFromIpAndNet</a></tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">,</tt> <tt id="link-41" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-41', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line"> </tt>
+<a name="decimalNetFromIpAndNet"></a><div id="decimalNetFromIpAndNet-def"><a name="L262"></a><tt class="py-lineno">262</tt> <a class="py-toggle" href="#" id="decimalNetFromIpAndNet-toggle" onclick="return toggle('decimalNetFromIpAndNet');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#decimalNetFromIpAndNet">decimalNetFromIpAndNet</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">,</tt> <tt class="py-param">netmask</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="decimalNetFromIpAndNet-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="decimalNetFromIpAndNet-expanded"><a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line"><tt class="py-docstring">    Get network address of IP as string netmask as in the form 255.255.255.0</tt> </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; getnet('10.12.25.33', 24)</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line"><tt class="py-docstring">    168564992L</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; getnet('10.12.25.33', '255.255.255.0')</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line"><tt class="py-docstring">    168564992L</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">    <tt id="link-42" class="py-name"><a title="Products.ZenUtils.IpUtil.checkip" class="py-name" href="#" onclick="return doclink('link-42', 'checkip', 'link-17');">checkip</a></tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">)</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">    <tt class="py-name">ip</tt> <tt class="py-op">=</tt> <tt id="link-43" class="py-name"><a title="Products.ZenUtils.IpUtil.ipToDecimal" class="py-name" href="#" onclick="return doclink('link-43', 'ipToDecimal', 'link-16');">ipToDecimal</a></tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">)</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line"> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> <tt class="py-name">netbits</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt id="link-44" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-44', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> <tt class="py-name">netbits</tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt><tt class="py-number">1</tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line"> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-number">0</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">netbits</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">32</tt><tt class="py-op">:</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line">        <tt id="link-45" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-45', 'netmask', 'link-25');">netmask</a></tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name"><a title="Products.ZenUtils.IpUtil.bitsToDecimalMask" class="py-name" href="#" onclick="return doclink('link-46', 'bitsToDecimalMask', 'link-37');">bitsToDecimalMask</a></tt><tt class="py-op">(</tt><tt class="py-name">netbits</tt><tt class="py-op">)</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">        <tt id="link-47" class="py-name"><a title="Products.ZenUtils.IpUtil.checkip" class="py-name" href="#" onclick="return doclink('link-47', 'checkip', 'link-17');">checkip</a></tt><tt class="py-op">(</tt><tt id="link-48" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-48', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">        <tt id="link-49" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-49', 'netmask', 'link-25');">netmask</a></tt> <tt class="py-op">=</tt> <tt id="link-50" class="py-name"><a title="Products.ZenUtils.IpUtil.ipToDecimal" class="py-name" href="#" onclick="return doclink('link-50', 'ipToDecimal', 'link-16');">ipToDecimal</a></tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-51', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">ip</tt> <tt class="py-op">&amp;</tt> <tt id="link-52" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-52', 'netmask', 'link-25');">netmask</a></tt> </tt>
+</div><a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line"> </tt>
+<a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line"> </tt>
+<a name="getnetstr"></a><div id="getnetstr-def"><a name="L285"></a><tt class="py-lineno">285</tt> <a class="py-toggle" href="#" id="getnetstr-toggle" onclick="return toggle('getnetstr');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#getnetstr">getnetstr</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">,</tt> <tt class="py-param">netmask</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getnetstr-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getnetstr-expanded"><a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line"><tt class="py-docstring">    Deprecated in favour of netFromIpAndNet()</tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-53" class="py-name" targets="Function Products.ZenUtils.IpUtil.netFromIpAndNet()=Products.ZenUtils.IpUtil-module.html#netFromIpAndNet"><a title="Products.ZenUtils.IpUtil.netFromIpAndNet" class="py-name" href="#" onclick="return doclink('link-53', 'netFromIpAndNet', 'link-53');">netFromIpAndNet</a></tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">,</tt> <tt id="link-54" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-54', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line"> </tt>
+<a name="netFromIpAndNet"></a><div id="netFromIpAndNet-def"><a name="L291"></a><tt class="py-lineno">291</tt> <a class="py-toggle" href="#" id="netFromIpAndNet-toggle" onclick="return toggle('netFromIpAndNet');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#netFromIpAndNet">netFromIpAndNet</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">,</tt> <tt class="py-param">netmask</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="netFromIpAndNet-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="netFromIpAndNet-expanded"><a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L293"></a><tt class="py-lineno">293</tt>  <tt class="py-line"><tt class="py-docstring">    Return network number as string</tt> </tt>
+<a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; netFromIpAndNet('10.12.25.33', 24)</tt> </tt>
+<a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line"><tt class="py-docstring">    '10.12.25.0'</tt> </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; netFromIpAndNet('250.12.25.33', 1)</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line"><tt class="py-docstring">    '128.0.0.0'</tt> </tt>
+<a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; netFromIpAndNet('10.12.25.33', 16)</tt> </tt>
+<a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line"><tt class="py-docstring">    '10.12.0.0'</tt> </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; netFromIpAndNet('10.12.25.33', 32)</tt> </tt>
+<a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line"><tt class="py-docstring">    '10.12.25.33'</tt> </tt>
+<a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L304"></a><tt class="py-lineno">304</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-55" class="py-name"><a title="Products.ZenUtils.IpUtil.decimalIpToStr" class="py-name" href="#" onclick="return doclink('link-55', 'decimalIpToStr', 'link-18');">decimalIpToStr</a></tt><tt class="py-op">(</tt><tt id="link-56" class="py-name" targets="Function Products.ZenUtils.IpUtil.getnet()=Products.ZenUtils.IpUtil-module.html#getnet"><a title="Products.ZenUtils.IpUtil.getnet" class="py-name" href="#" onclick="return doclink('link-56', 'getnet', 'link-56');">getnet</a></tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">,</tt> <tt id="link-57" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.netmask" class="py-name" href="#" onclick="return doclink('link-57', 'netmask', 'link-25');">netmask</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line"> </tt>
+<a name="asyncNameLookup"></a><div id="asyncNameLookup-def"><a name="L306"></a><tt class="py-lineno">306</tt> <a class="py-toggle" href="#" id="asyncNameLookup-toggle" onclick="return toggle('asyncNameLookup');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#asyncNameLookup">asyncNameLookup</a><tt class="py-op">(</tt><tt class="py-param">address</tt><tt class="py-op">,</tt> <tt class="py-param">uselibcresolver</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="asyncNameLookup-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="asyncNameLookup-expanded"><a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line"><tt class="py-docstring">    Turn IP addreses into names using deferreds</tt> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L310"></a><tt class="py-lineno">310</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">uselibcresolver</tt><tt class="py-op">:</tt> </tt>
+<a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line">        <tt class="py-comment"># This is the most reliable way to do a lookup use it </tt> </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">twisted</tt><tt class="py-op">.</tt><tt class="py-name">internet</tt> <tt class="py-keyword">import</tt> <tt class="py-name">threads</tt> </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt id="link-58" class="py-name" targets="Variable Products.ZenModel.CPU.CPU.socket=Products.ZenModel.CPU.CPU-class.html#socket"><a title="Products.ZenModel.CPU.CPU.socket" class="py-name" href="#" onclick="return doclink('link-58', 'socket', 'link-58');">socket</a></tt> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">threads</tt><tt class="py-op">.</tt><tt class="py-name">deferToThread</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-op">:</tt> <tt id="link-59" class="py-name"><a title="Products.ZenModel.CPU.CPU.socket" class="py-name" href="#" onclick="return doclink('link-59', 'socket', 'link-58');">socket</a></tt><tt class="py-op">.</tt><tt class="py-name">gethostbyaddr</tt><tt class="py-op">(</tt><tt id="link-60" class="py-name" targets="Variable Products.ZenModel.Location.Location.address=Products.ZenModel.Location.Location-class.html#address"><a title="Products.ZenModel.Location.Location.address" class="py-name" href="#" onclick="return doclink('link-60', 'address', 'link-60');">address</a></tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line">        <tt class="py-comment"># There is a problem with this method because it will ignore /etc/hosts</tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line">        <tt id="link-61" class="py-name"><a title="Products.ZenModel.Location.Location.address" class="py-name" href="#" onclick="return doclink('link-61', 'address', 'link-60');">address</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'.'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-62" class="py-name"><a title="Products.ZenModel.Location.Location.address" class="py-name" href="#" onclick="return doclink('link-62', 'address', 'link-60');">address</a></tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-op">:</tt><tt class="py-op">:</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">'.in-addr.arpa'</tt> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line">        <tt class="py-name">d</tt> <tt class="py-op">=</tt> <tt class="py-name">lookupPointer</tt><tt class="py-op">(</tt><tt id="link-63" class="py-name"><a title="Products.ZenModel.Location.Location.address" class="py-name" href="#" onclick="return doclink('link-63', 'address', 'link-60');">address</a></tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">,</tt><tt class="py-number">2</tt><tt class="py-op">,</tt><tt class="py-number">4</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line">        <tt class="py-keyword">def</tt> <tt class="py-def-name">ip</tt><tt class="py-op">(</tt><tt class="py-param">result</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt id="link-64" class="py-name" targets="Variable Products.DataCollector.TelnetClient.TelnetClientProtocol.result=Products.DataCollector.TelnetClient.TelnetClientProtocol-class.html#result,Variable Products.ZenRRD.zencommand.Cmd.result=Products.ZenRRD.zencommand.Cmd-class.html#result,Method Products.ZenUtils.Driver.Driver.result()=Products.ZenUtils.Driver.Driver-class.html#result"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-64', 'result', 'link-64');">result</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt class="py-name">payload</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name" targets="Variable Products.DataCollector.SshClient.CommandChannel.name=Products.DataCollector.SshClient.CommandChannel-class.html#name,Variable Products.DataCollector.zendisc.ZenDisc.name=Products.DataCollector.zendisc.ZenDisc-class.html#name,Variable Products.DataCollector.zenmodeler.ZenModeler.name=Products.DataCollector.zenmodeler.ZenModeler-class.html#name,Variable Products.ZenEvents.EventServer.EventServer.name=Products.ZenEvents.EventServer.EventServer-class.html#name,Variable Products.ZenEvents.zenmail.ZenMail.name=Products.ZenEvents.zenmail.ZenMail-class.html#name,Variable Products.ZenEvents.zenpop3.ZenPOP3.name=Products.ZenEvents.zenpop3.ZenPOP3-class.html#name,Variable Products.ZenEvents.zensyslog.ZenSyslog.name=Products.ZenEvents.zensyslog.ZenSyslog-class.html#name,Variable Products.ZenEvents.zentrap.ZenTrap.name=Products.ZenEvents.zentrap.ZenTrap-class.html#name,Method Products.ZenHub.HubService.HubService.name()=Products.ZenHub.HubService.HubService-class.html#name,Variable Products.ZenHub.PBDaemon.PBDaemon.name=Products.ZenHub.PBDaemon.PBDaemon-class.html#name,Variable Products.ZenHub.services.ProcessConfig.ProcessProxy.name=Products.ZenHub.services.ProcessConfig.ProcessProxy-class.html#name,Variable Products.ZenHub.zenhub.ZenHub.name=Products.ZenHub.zenhub.ZenHub-class.html#name,Method Products.ZenModel.Device.Device.name()=Products.ZenModel.Device.Device-class.html#name,Method Products.ZenModel.DeviceComponent.DeviceComponent.name()=Products.ZenModel.DeviceComponent.DeviceComponent-class.html#name,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#name,Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#name,Method Products.ZenModel.OSProcess.OSProcess.name()=Products.ZenModel.OSProcess.OSProcess-class.html#name,Variable Products.ZenModel.OSProcessClass.OSProcessClass.name=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#name,Variable Products.ZenModel.ProductClass.ProductClass.name=Products.ZenModel.ProductClass.ProductClass-class.html#name,Method Products.ZenModel.RRDDataPoint.RRDDataPoint.name()=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#name,Method Products.ZenModel.Service.Service.name()=Products.ZenModel.Service.Service-class.html#name,Variable Products.ZenModel.ServiceClass.ServiceClass.name=Products.ZenModel.ServiceClass.ServiceClass-class.html#name,Method Products.ZenModel.Software.Software.name()=Products.ZenModel.Software.Software-class.html#name,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.name()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#name,Method Products.ZenModel.WinService.WinService.name()=Products.ZenModel.WinService.WinService-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLAbout.name=Products.ZenModel.ZenPackLoader.ZPLAbout-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLBin.name=Products.ZenModel.ZenPackLoader.ZPLBin-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDaemons.name=Products.ZenModel.ZenPackLoader.ZPLDaemons-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDataSources.name=Products.ZenModel.ZenPackLoader.ZPLDataSources-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibExec.name=Products.ZenModel.ZenPackLoader.ZPLLibExec-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibraries.name=Products.ZenModel.ZenPackLoader.ZPLLibraries-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLModelers.name=Products.ZenModel.ZenPackLoader.ZPLModelers-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLObject.name=Products.ZenModel.ZenPackLoader.ZPLObject-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLReport.name=Products.ZenModel.ZenPackLoader.ZPLReport-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLSkins.name=Products.ZenModel.ZenPackLoader.ZPLSkins-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZenPackLoader.name=Products.ZenModel.ZenPackLoader.ZenPackLoader-class.html#name,Method Products.ZenRRD.zencommand.Cmd.name()=Products.ZenRRD.zencommand.Cmd-class.html#name,Variable Products.ZenRRD.zenrender.zenrender.name=Products.ZenRRD.zenrender.zenrender-class.html#name,Variable Products.ZenStatus.zenping.ZenPing.name=Products.ZenStatus.zenping.ZenPing-class.html#name,Variable Products.ZenStatus.zenstatus.ZenStatus.name=Products.ZenStatus.zenstatus.ZenStatus-class.html#name,Variable Products.ZenUtils.DaemonStats.DaemonStats.name=Products.ZenUtils.DaemonStats.DaemonStats-class.html#name,Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#name,Variable Products.ZenUtils.zencatalog.ZenCatalog.name=Products.ZenUtils.zencatalog.ZenCatalog-class.html#name,Method Products.ZenWin.services.WinServiceConfig.SmartService.name()=Products.ZenWin.services.WinServiceConfig.SmartService-class.html#name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-65', 'name', 'link-65');">name</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line">        <tt class="py-name">d</tt><tt class="py-op">.</tt><tt class="py-name">addCallback</tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">)</tt> </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">d</tt> </tt>
+</div><a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line"> </tt>
+<a name="asyncIpLookup"></a><div id="asyncIpLookup-def"><a name="L324"></a><tt class="py-lineno">324</tt> <a class="py-toggle" href="#" id="asyncIpLookup-toggle" onclick="return toggle('asyncIpLookup');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#asyncIpLookup">asyncIpLookup</a><tt class="py-op">(</tt><tt class="py-param">name</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="asyncIpLookup-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="asyncIpLookup-expanded"><a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L326"></a><tt class="py-lineno">326</tt>  <tt class="py-line"><tt class="py-docstring">    Look up an IP based on the name passed in.  We use gethostbyname to make</tt> </tt>
+<a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line"><tt class="py-docstring">    sure that we use /etc/hosts as mentioned above.</tt> </tt>
+<a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L329"></a><tt class="py-lineno">329</tt>  <tt class="py-line"><tt class="py-docstring">    This hasn't been tested.</tt> </tt>
+<a name="L330"></a><tt class="py-lineno">330</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L331"></a><tt class="py-lineno">331</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">twisted</tt><tt class="py-op">.</tt><tt class="py-name">internet</tt> <tt class="py-keyword">import</tt> <tt class="py-name">threads</tt> </tt>
+<a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line">    <tt class="py-keyword">import</tt> <tt id="link-66" class="py-name"><a title="Products.ZenModel.CPU.CPU.socket" class="py-name" href="#" onclick="return doclink('link-66', 'socket', 'link-58');">socket</a></tt> </tt>
+<a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">threads</tt><tt class="py-op">.</tt><tt class="py-name">deferToThread</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-op">:</tt> <tt id="link-67" class="py-name"><a title="Products.ZenModel.CPU.CPU.socket" class="py-name" href="#" onclick="return doclink('link-67', 'socket', 'link-58');">socket</a></tt><tt class="py-op">.</tt><tt class="py-name">gethostbyname</tt><tt class="py-op">(</tt><tt id="link-68" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-68', 'name', 'link-65');">name</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line"> </tt>
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line"> </tt>
+<a name="parse_iprange"></a><div id="parse_iprange-def"><a name="L336"></a><tt class="py-lineno">336</tt> <a class="py-toggle" href="#" id="parse_iprange-toggle" onclick="return toggle('parse_iprange');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#parse_iprange">parse_iprange</a><tt class="py-op">(</tt><tt class="py-param">iprange</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="parse_iprange-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="parse_iprange-expanded"><a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line"><tt class="py-docstring">    Turn a string specifying an IP range into a list of IPs.</tt> </tt>
+<a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line"><tt class="py-docstring">    @param iprange: The range string, in the format '10.0.0.a-b'</tt> </tt>
+<a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line"><tt class="py-docstring">    @type iprange: str</tt> </tt>
+<a name="L342"></a><tt class="py-lineno">342</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L343"></a><tt class="py-lineno">343</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; parse_iprange('10.0.0.1-5')</tt> </tt>
+<a name="L344"></a><tt class="py-lineno">344</tt>  <tt class="py-line"><tt class="py-docstring">        ['10.0.0.1', '10.0.0.2', '10.0.0.3', '10.0.0.4', '10.0.0.5']</tt> </tt>
+<a name="L345"></a><tt class="py-lineno">345</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; parse_iprange('10.0.0.1')</tt> </tt>
+<a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line"><tt class="py-docstring">        ['10.0.0.1']</tt> </tt>
+<a name="L347"></a><tt class="py-lineno">347</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; try: parse_iprange('10.0.0.1-2-3')</tt> </tt>
+<a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line"><tt class="py-docstring">        ... except InvalidIPRangeError: print "Invalid"</tt> </tt>
+<a name="L349"></a><tt class="py-lineno">349</tt>  <tt class="py-line"><tt class="py-docstring">        Invalid</tt> </tt>
+<a name="L350"></a><tt class="py-lineno">350</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L351"></a><tt class="py-lineno">351</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L352"></a><tt class="py-lineno">352</tt>  <tt class="py-line">    <tt class="py-comment"># Get the relevant octet</tt> </tt>
+<a name="L353"></a><tt class="py-lineno">353</tt>  <tt class="py-line">    <tt class="py-name">net</tt><tt class="py-op">,</tt> <tt class="py-name">octet</tt> <tt class="py-op">=</tt> <tt class="py-name">iprange</tt><tt class="py-op">.</tt><tt class="py-name">rsplit</tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L354"></a><tt class="py-lineno">354</tt>  <tt class="py-line">    <tt class="py-name">split</tt> <tt class="py-op">=</tt> <tt class="py-name">octet</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'-'</tt><tt class="py-op">)</tt> </tt>
+<a name="L355"></a><tt class="py-lineno">355</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">split</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> <tt class="py-comment"># Nothing we can do about this</tt> </tt>
+<a name="L356"></a><tt class="py-lineno">356</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt id="link-69" class="py-name" targets="Class Products.ZenUtils.IpUtil.InvalidIPRangeError=Products.ZenUtils.IpUtil.InvalidIPRangeError-class.html"><a title="Products.ZenUtils.IpUtil.InvalidIPRangeError" class="py-name" href="#" onclick="return doclink('link-69', 'InvalidIPRangeError', 'link-69');">InvalidIPRangeError</a></tt><tt class="py-op">(</tt><tt class="py-string">'%s is an invalid IP range.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L357"></a><tt class="py-lineno">357</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">split</tt><tt class="py-op">)</tt><tt class="py-op">==</tt><tt class="py-number">1</tt><tt class="py-op">:</tt> <tt class="py-comment"># A single IP was passed</tt> </tt>
+<a name="L358"></a><tt class="py-lineno">358</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-name">iprange</tt><tt class="py-op">]</tt> </tt>
+<a name="L359"></a><tt class="py-lineno">359</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L360"></a><tt class="py-lineno">360</tt>  <tt class="py-line">        <tt id="link-70" class="py-name" targets="Method Products.ZenEvents.Schedule.Schedule.start()=Products.ZenEvents.Schedule.Schedule-class.html#start,Variable Products.ZenModel.DefGraphPoint.DefGraphPoint.start=Products.ZenModel.DefGraphPoint.DefGraphPoint-class.html#start,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.start=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#start,Method Products.ZenRRD.FileCleanup.FileCleanup.start()=Products.ZenRRD.FileCleanup.FileCleanup-class.html#start,Method Products.ZenRRD.zencommand.Cmd.start()=Products.ZenRRD.zencommand.Cmd-class.html#start,Method Products.ZenRRD.zencommand.ProcessRunner.start()=Products.ZenRRD.zencommand.ProcessRunner-class.html#start,Method Products.ZenRRD.zencommand.SshRunner.start()=Products.ZenRRD.zencommand.SshRunner-class.html#start,Method Products.ZenRRD.zencommand.zencommand.start()=Products.ZenRRD.zencommand.zencommand-class.html#start,Method Products.ZenRRD.zenperfsnmp.Status.start()=Products.ZenRRD.zenperfsnmp.Status-class.html#start,Method Products.ZenStatus.ZenTcpClient.ZenTcpClient.start()=Products.ZenStatus.ZenTcpClient.ZenTcpClient-class.html#start,Method Products.ZenStatus.zenstatus.Status.start()=Products.ZenStatus.zenstatus.Status-class.html#start,Method Products.ZenUtils.NJobs.NJobs.start()=Products.ZenUtils.NJobs.NJobs-class.html#start,Method Products.ZenUtils.ProcessQueue.ProcessQueue.start()=Products.ZenUtils.ProcessQueue.ProcessQueue-class.html#start,Method Products.ZenUtils.ProcessQueue._ProcessQueueProtocol.start()=Products.ZenUtils.ProcessQueue._ProcessQueueProtocol-class.html#start"><a title="Products.ZenEvents.Schedule.Schedule.start
+Products.ZenModel.DefGraphPoint.DefGraphPoint.start
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.start
+Products.ZenRRD.FileCleanup.FileCleanup.start
+Products.ZenRRD.zencommand.Cmd.start
+Products.ZenRRD.zencommand.ProcessRunner.start
+Products.ZenRRD.zencommand.SshRunner.start
+Products.ZenRRD.zencommand.zencommand.start
+Products.ZenRRD.zenperfsnmp.Status.start
+Products.ZenStatus.ZenTcpClient.ZenTcpClient.start
+Products.ZenStatus.zenstatus.Status.start
+Products.ZenUtils.NJobs.NJobs.start
+Products.ZenUtils.ProcessQueue.ProcessQueue.start
+Products.ZenUtils.ProcessQueue._ProcessQueueProtocol.start" class="py-name" href="#" onclick="return doclink('link-70', 'start', 'link-70');">start</a></tt><tt class="py-op">,</tt> <tt id="link-71" class="py-name" targets="Method Products.ZenEvents.ActionRuleWindow.ActionRuleWindow.end()=Products.ZenEvents.ActionRuleWindow.ActionRuleWindow-class.html#end,Variable Products.ZenModel.DefGraphPoint.DefGraphPoint.end=Products.ZenModel.DefGraphPoint.DefGraphPoint-class.html#end,Method Products.ZenModel.MaintenanceWindow.MaintenanceWindow.end()=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#end"><a title="Products.ZenEvents.ActionRuleWindow.ActionRuleWindow.end
+Products.ZenModel.DefGraphPoint.DefGraphPoint.end
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.end" class="py-name" href="#" onclick="return doclink('link-71', 'end', 'link-71');">end</a></tt> <tt class="py-op">=</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">,</tt> <tt class="py-name">split</tt><tt class="py-op">)</tt> </tt>
+<a name="L361"></a><tt class="py-lineno">361</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt class="py-string">'%s.%s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">net</tt><tt class="py-op">,</tt> <tt class="py-name">x</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt id="link-72" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.start
+Products.ZenModel.DefGraphPoint.DefGraphPoint.start
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.start
+Products.ZenRRD.FileCleanup.FileCleanup.start
+Products.ZenRRD.zencommand.Cmd.start
+Products.ZenRRD.zencommand.ProcessRunner.start
+Products.ZenRRD.zencommand.SshRunner.start
+Products.ZenRRD.zencommand.zencommand.start
+Products.ZenRRD.zenperfsnmp.Status.start
+Products.ZenStatus.ZenTcpClient.ZenTcpClient.start
+Products.ZenStatus.zenstatus.Status.start
+Products.ZenUtils.NJobs.NJobs.start
+Products.ZenUtils.ProcessQueue.ProcessQueue.start
+Products.ZenUtils.ProcessQueue._ProcessQueueProtocol.start" class="py-name" href="#" onclick="return doclink('link-72', 'start', 'link-70');">start</a></tt><tt class="py-op">,</tt> <tt id="link-73" class="py-name"><a title="Products.ZenEvents.ActionRuleWindow.ActionRuleWindow.end
+Products.ZenModel.DefGraphPoint.DefGraphPoint.end
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.end" class="py-name" href="#" onclick="return doclink('link-73', 'end', 'link-71');">end</a></tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L362"></a><tt class="py-lineno">362</tt>  <tt class="py-line"> </tt>
+<a name="L363"></a><tt class="py-lineno">363</tt>  <tt class="py-line"> </tt>
+<a name="getSubnetBounds"></a><div id="getSubnetBounds-def"><a name="L364"></a><tt class="py-lineno">364</tt> <a class="py-toggle" href="#" id="getSubnetBounds-toggle" onclick="return toggle('getSubnetBounds');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#getSubnetBounds">getSubnetBounds</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getSubnetBounds-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getSubnetBounds-expanded"><a name="L365"></a><tt class="py-lineno">365</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L366"></a><tt class="py-lineno">366</tt>  <tt class="py-line"><tt class="py-docstring">    Given a string representing the lower limit of a subnet, return decimal</tt> </tt>
+<a name="L367"></a><tt class="py-lineno">367</tt>  <tt class="py-line"><tt class="py-docstring">    representations of the first and last IP of that subnet.</tt> </tt>
+<a name="L368"></a><tt class="py-lineno">368</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L369"></a><tt class="py-lineno">369</tt>  <tt class="py-line"><tt class="py-docstring">    0 is considered to define the beginning of a subnet, so x.x.x.0 represents</tt> </tt>
+<a name="L370"></a><tt class="py-lineno">370</tt>  <tt class="py-line"><tt class="py-docstring">    a /24, x.x.0.0 represents a /16, etc. An octet of 0 followed by a non-zero</tt> </tt>
+<a name="L371"></a><tt class="py-lineno">371</tt>  <tt class="py-line"><tt class="py-docstring">    octet, of course, is not considered to define a lower limit.</tt> </tt>
+<a name="L372"></a><tt class="py-lineno">372</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L373"></a><tt class="py-lineno">373</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; map(decimalIpToStr, getSubnetBounds('10.1.1.0'))</tt> </tt>
+<a name="L374"></a><tt class="py-lineno">374</tt>  <tt class="py-line"><tt class="py-docstring">        ['10.1.1.0', '10.1.1.255']</tt> </tt>
+<a name="L375"></a><tt class="py-lineno">375</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; map(decimalIpToStr, getSubnetBounds('10.1.1.1'))</tt> </tt>
+<a name="L376"></a><tt class="py-lineno">376</tt>  <tt class="py-line"><tt class="py-docstring">        ['10.1.1.1', '10.1.1.1']</tt> </tt>
+<a name="L377"></a><tt class="py-lineno">377</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; map(decimalIpToStr, getSubnetBounds('10.0.1.0'))</tt> </tt>
+<a name="L378"></a><tt class="py-lineno">378</tt>  <tt class="py-line"><tt class="py-docstring">        ['10.0.1.0', '10.0.1.255']</tt> </tt>
+<a name="L379"></a><tt class="py-lineno">379</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; map(decimalIpToStr, getSubnetBounds('0.0.0.0'))</tt> </tt>
+<a name="L380"></a><tt class="py-lineno">380</tt>  <tt class="py-line"><tt class="py-docstring">        ['0.0.0.0', '255.255.255.255']</tt> </tt>
+<a name="L381"></a><tt class="py-lineno">381</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; map(decimalIpToStr, getSubnetBounds('10.0.0.0'))</tt> </tt>
+<a name="L382"></a><tt class="py-lineno">382</tt>  <tt class="py-line"><tt class="py-docstring">        ['10.0.0.0', '10.255.255.255']</tt> </tt>
+<a name="L383"></a><tt class="py-lineno">383</tt>  <tt class="py-line"><tt class="py-docstring">        &gt;&gt;&gt; map(decimalIpToStr, getSubnetBounds('100.0.0.0'))</tt> </tt>
+<a name="L384"></a><tt class="py-lineno">384</tt>  <tt class="py-line"><tt class="py-docstring">        ['100.0.0.0', '100.255.255.255']</tt> </tt>
+<a name="L385"></a><tt class="py-lineno">385</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L386"></a><tt class="py-lineno">386</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L387"></a><tt class="py-lineno">387</tt>  <tt class="py-line">    <tt class="py-name">octets</tt> <tt class="py-op">=</tt> <tt class="py-name">ip</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L388"></a><tt class="py-lineno">388</tt>  <tt class="py-line">    <tt class="py-name">otherend</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L389"></a><tt class="py-lineno">389</tt>  <tt class="py-line">    <tt class="py-keyword">while</tt> <tt class="py-name">octets</tt><tt class="py-op">:</tt> </tt>
+<a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line">        <tt class="py-name">o</tt> <tt class="py-op">=</tt> <tt class="py-name">octets</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L391"></a><tt class="py-lineno">391</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">o</tt><tt class="py-op">==</tt><tt class="py-string">'0'</tt><tt class="py-op">:</tt> </tt>
+<a name="L392"></a><tt class="py-lineno">392</tt>  <tt class="py-line">            <tt class="py-name">otherend</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-string">'255'</tt><tt class="py-op">)</tt> </tt>
+<a name="L393"></a><tt class="py-lineno">393</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L394"></a><tt class="py-lineno">394</tt>  <tt class="py-line">            <tt class="py-name">otherend</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">o</tt><tt class="py-op">)</tt> </tt>
+<a name="L395"></a><tt class="py-lineno">395</tt>  <tt class="py-line">            <tt class="py-keyword">break</tt> </tt>
+<a name="L396"></a><tt class="py-lineno">396</tt>  <tt class="py-line">    <tt class="py-name">otherend</tt><tt class="py-op">.</tt><tt class="py-name">reverse</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L397"></a><tt class="py-lineno">397</tt>  <tt class="py-line">    <tt class="py-name">octets</tt><tt class="py-op">.</tt><tt class="py-name">extend</tt><tt class="py-op">(</tt><tt class="py-name">otherend</tt><tt class="py-op">)</tt> </tt>
+<a name="L398"></a><tt class="py-lineno">398</tt>  <tt class="py-line">    <tt class="py-name">upper</tt> <tt class="py-op">=</tt> <tt class="py-string">'.'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">octets</tt><tt class="py-op">)</tt> </tt>
+<a name="L399"></a><tt class="py-lineno">399</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-74" class="py-name" targets="Function Products.ZenUtils.IpUtil.numbip()=Products.ZenUtils.IpUtil-module.html#numbip"><a title="Products.ZenUtils.IpUtil.numbip" class="py-name" href="#" onclick="return doclink('link-74', 'numbip', 'link-74');">numbip</a></tt><tt class="py-op">(</tt><tt class="py-name">ip</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-75" class="py-name"><a title="Products.ZenUtils.IpUtil.numbip" class="py-name" href="#" onclick="return doclink('link-75', 'numbip', 'link-74');">numbip</a></tt><tt class="py-op">(</tt><tt class="py-name">upper</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L400"></a><tt class="py-lineno">400</tt>  <tt class="py-line"> </tt>
+<a name="ensureIp"></a><div id="ensureIp-def"><a name="L401"></a><tt class="py-lineno">401</tt> <a class="py-toggle" href="#" id="ensureIp-toggle" onclick="return toggle('ensureIp');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.IpUtil-module.html#ensureIp">ensureIp</a><tt class="py-op">(</tt><tt class="py-param">ip</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ensureIp-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ensureIp-expanded"><a name="L402"></a><tt class="py-lineno">402</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L403"></a><tt class="py-lineno">403</tt>  <tt class="py-line"><tt class="py-docstring">    Given a partially formed IP address this will return a complete Ip address</tt> </tt>
+<a name="L404"></a><tt class="py-lineno">404</tt>  <tt class="py-line"><tt class="py-docstring">    with four octets with the invalid or missing entries replaced by 0</tt> </tt>
+<a name="L405"></a><tt class="py-lineno">405</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L406"></a><tt class="py-lineno">406</tt>  <tt class="py-line"><tt class="py-docstring">    @param ip partially formed ip (will strip out alpha characters)</tt> </tt>
+<a name="L407"></a><tt class="py-lineno">407</tt>  <tt class="py-line"><tt class="py-docstring">    @return valid IP address field</tt> </tt>
+<a name="L408"></a><tt class="py-lineno">408</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L409"></a><tt class="py-lineno">409</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; from Products.ZenUtils.IpUtil import ensureIp</tt> </tt>
+<a name="L410"></a><tt class="py-lineno">410</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; ensureIp('20')</tt> </tt>
+<a name="L411"></a><tt class="py-lineno">411</tt>  <tt class="py-line"><tt class="py-docstring">    '20.0.0.0'</tt> </tt>
+<a name="L412"></a><tt class="py-lineno">412</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; ensureIp('2000')</tt> </tt>
+<a name="L413"></a><tt class="py-lineno">413</tt>  <tt class="py-line"><tt class="py-docstring">    '0.0.0.0'</tt> </tt>
+<a name="L414"></a><tt class="py-lineno">414</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; ensureIp('10.175.X')</tt> </tt>
+<a name="L415"></a><tt class="py-lineno">415</tt>  <tt class="py-line"><tt class="py-docstring">    '10.175.0.0'</tt> </tt>
+<a name="L416"></a><tt class="py-lineno">416</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; ensureIp('10.0.1')</tt> </tt>
+<a name="L417"></a><tt class="py-lineno">417</tt>  <tt class="py-line"><tt class="py-docstring">    '10.0.1.0'</tt> </tt>
+<a name="L418"></a><tt class="py-lineno">418</tt>  <tt class="py-line"><tt class="py-docstring">    &gt;&gt;&gt; </tt> </tt>
+<a name="L419"></a><tt class="py-lineno">419</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L420"></a><tt class="py-lineno">420</tt>  <tt class="py-line">    <tt class="py-comment"># filter out the alpha characters</tt> </tt>
+<a name="L421"></a><tt class="py-lineno">421</tt>  <tt class="py-line">    <tt class="py-name">stripped</tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">c</tt> <tt class="py-keyword">for</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt class="py-name">ip</tt> <tt class="py-keyword">if</tt> <tt class="py-name">c</tt> <tt class="py-keyword">in</tt> <tt class="py-string">'1234567890.'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L422"></a><tt class="py-lineno">422</tt>  <tt class="py-line">    <tt class="py-name">octets</tt> <tt class="py-op">=</tt> <tt class="py-name">stripped</tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L423"></a><tt class="py-lineno">423</tt>  <tt class="py-line"> </tt>
+<a name="L424"></a><tt class="py-lineno">424</tt>  <tt class="py-line">    <tt class="py-comment"># make sure we always have 4 </tt> </tt>
+<a name="L425"></a><tt class="py-lineno">425</tt>  <tt class="py-line">    <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">octets</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">4</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L426"></a><tt class="py-lineno">426</tt>  <tt class="py-line">        <tt class="py-name">octets</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-string">'0'</tt><tt class="py-op">)</tt> </tt>
+<a name="L427"></a><tt class="py-lineno">427</tt>  <tt class="py-line"> </tt>
+<a name="L428"></a><tt class="py-lineno">428</tt>  <tt class="py-line">    <tt class="py-comment"># validate each octet</tt> </tt>
+<a name="L429"></a><tt class="py-lineno">429</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-op">(</tt><tt class="py-name">idx</tt><tt class="py-op">,</tt> <tt class="py-name">octet</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">enumerate</tt><tt class="py-op">(</tt><tt class="py-name">octets</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L430"></a><tt class="py-lineno">430</tt>  <tt class="py-line">        <tt class="py-comment"># cast it to an integer</tt> </tt>
+<a name="L431"></a><tt class="py-lineno">431</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L432"></a><tt class="py-lineno">432</tt>  <tt class="py-line">            <tt class="py-name">octet</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">octet</tt><tt class="py-op">)</tt> </tt>
+<a name="L433"></a><tt class="py-lineno">433</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">ValueError</tt><tt class="py-op">:</tt> </tt>
+<a name="L434"></a><tt class="py-lineno">434</tt>  <tt class="py-line">            <tt class="py-name">octet</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L435"></a><tt class="py-lineno">435</tt>  <tt class="py-line">             </tt>
+<a name="L436"></a><tt class="py-lineno">436</tt>  <tt class="py-line">        <tt class="py-comment"># make it 0 if not in the valid ip range</tt> </tt>
+<a name="L437"></a><tt class="py-lineno">437</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-op">(</tt><tt class="py-number">0</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">octet</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">255</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L438"></a><tt class="py-lineno">438</tt>  <tt class="py-line">            <tt class="py-name">octets</tt><tt class="py-op">[</tt><tt class="py-name">idx</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-string">'0'</tt> </tt>
+<a name="L439"></a><tt class="py-lineno">439</tt>  <tt class="py-line">             </tt>
+<a name="L440"></a><tt class="py-lineno">440</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-string">'.'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">octets</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L441"></a><tt class="py-lineno">441</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:30 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

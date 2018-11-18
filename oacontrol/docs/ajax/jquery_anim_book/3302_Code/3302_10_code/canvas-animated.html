@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Animating the canvas</title>
+        <!--[if IE]>
+			<script src="js/excanvas.compiled.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+    	<canvas id="c" width="500" height="300">
+        	<p>Your browser doesn't support the canvas element!</p>
+        </canvas>
+		<script>
+			(function() {
+				//get canvas and define drawing functions
+				var canvas = document.getElementById("c"),
+					crossInt = null,
+					rectInt = null,
+					redCross = function(context) {
+						context.fillStyle = "#C00";
+						context.strokeStyle = "#C00";
+						context.lineWidth = 30;
+						
+						var width = 0,
+							height = 0,
+							positions = { 
+								up : { x: 250, y: 150 },
+								down : { x: 250, y: 150 },
+								left: { x: 250, y: 150 },
+								right: { x: 250, y: 150 }
+							},
+							
+							addStripes = function() {
+								context.lineWidth = 1;
+								
+								function makeStripe(props) {
+									context.beginPath();
+									context.moveTo(props.startX, props.startY);
+									context.lineTo(props.line1X, props.line1Y);
+									context.lineTo(props.line2X, props.line2Y);	
+									context.lineTo(props.line3X, props.line3Y);
+									context.fill();
+									context.closePath();
+								}
+								
+								setTimeout(function() { makeStripe({ 
+									startX: 50, startY: 50,
+									line1X: 195, line1Y: 125,
+									line2X: 165, line2Y: 125,
+									line3X: 50, line3Y: 66
+								}); }, 1);
+								setTimeout(function() { makeStripe({ 
+									startX: 450, startY: 50,
+									line1X: 305, line1Y: 125,
+									line2X: 275, line2Y: 125,
+									line3X: 422, line3Y: 50
+								}); }, 50);
+								setTimeout(function() { makeStripe({ 
+									startX: 450, startY: 250,
+									line1X: 310, line1Y: 175,
+									line2X: 335, line2Y: 175,
+									line3X: 450, line3Y: 235
+								}); }, 100);
+								setTimeout(function() { makeStripe({ 
+									startX: 50, startY: 250,
+									line1X: 200, line1Y: 175,
+									line2X: 225, line2Y: 175,
+									line3X: 80, line3Y: 250
+								}); }, 150);
+							},
+							
+							growVertical = function() {
+								
+								if (height < 100 || width < 200) {
+									if (height < 100) {
+										context.beginPath();
+										context.moveTo(positions.up.x, positions.up.y);
+										context.lineTo(positions.up.x, positions.up.y - 2);
+										context.moveTo(positions.down.x, positions.down.y);
+										context.lineTo(positions.down.x, positions.down.y + 2);
+										context.stroke();
+										context.closePath();
+										
+										height = height + 2;
+										positions.up.y = positions.up.y - 2;
+										positions.down.y = positions.down.y + 2;									
+									}
+									if (width < 200) {
+										context.beginPath();
+										context.moveTo(positions.left.x, positions.left.y);
+										context.lineTo(positions.left.x - 2, positions.left.y);
+										context.moveTo(positions.right.x, positions.right.y);
+										context.lineTo(positions.right.x + 2, positions.right.y);
+										context.stroke();
+										context.closePath();
+										
+										width = width + 2;
+										positions.left.x = positions.left.x - 2;
+										positions.right.x = positions.right.x + 2;
+									}
+								} else {
+									clearInterval(crossInt);
+									addStripes();
+								}							
+							},
+							crossInt = setInterval( function() { growVertical(); }, 1);
+					},
+					whiteLines = function(context) {
+						
+						context.fillStyle = "#fff";
+						context.strokeStyle = "#fff";
+						context.lineWidth = 50;
+						
+						var width = 0,
+							height = 0,
+							positions = {
+								ne: { x: 250, y: 150 },
+								se: { x: 250, y: 150 },
+								nw: { x: 250, y: 150 },
+								sw: { x: 250, y: 150 }
+							},
+							growDiagonal = function() {
+								
+								if (positions.ne.x >= 50) {
+									context.beginPath();
+									context.moveTo(positions.ne.x, positions.ne.y);
+									context.lineTo(positions.ne.x - 4, positions.ne.y - 2);
+									context.moveTo(positions.se.x, positions.se.y);
+									context.lineTo(positions.se.x - 4, positions.se.y + 2);
+									context.moveTo(positions.nw.x, positions.nw.y);
+									context.lineTo(positions.nw.x + 4, positions.nw.y + 2);
+									context.moveTo(positions.sw.x, positions.sw.y);
+									context.lineTo(positions.sw.x + 4, positions.sw.y - 2);
+									context.stroke();
+									context.closePath();
+									
+									//update positions
+									positions.ne.x = positions.ne.x - 2;
+									positions.ne.y = positions.ne.y - 1;
+									positions.se.x = positions.se.x - 2;
+									positions.se.y = positions.se.y + 1;
+									positions.nw.x = positions.nw.x + 2;
+									positions.nw.y = positions.nw.y + 1;
+									positions.sw.x = positions.sw.x + 2;
+									positions.sw.y = positions.sw.y - 1;
+								} else {
+									clearInterval(crossInt);
+									redCross(context);
+								}							
+							},
+							growVertical = function() {
+								
+								if (height < 200 || width < 400) {
+									if (height < 200) {
+										height = height + 2;
+										context.fillRect(225, 50, 50, height);
+									}
+									if (width < 400) {
+										width = width + 4;
+										context.fillRect(50, 125, width, 50);
+									}
+								} else {
+									clearInterval(rectInt);
+									crossInt = setInterval(function() { growDiagonal(); }, 1);
+								}								
+							},
+							rectInt = setInterval(function() { growVertical(); }, 1);					
+						
+					},
+					init = function(context) {
+						
+						//enter blue background					
+						var width = 0,
+							pos = 0,
+							rectMotion = function() {
+								
+								if (width < 400) {
+									width = width + 2;
+									canvas.width = 500;
+									context.fillStyle = "#039";
+									context.fillRect(0, 50, width, 200);
+								} else if (pos < 50) {
+									pos = pos + 2;
+									canvas.width = 500;
+									context.fillStyle = "#039";
+									context.fillRect(pos, 50, 400, 200);								
+								} else {
+									clearInterval(rectInt);	
+									whiteLines(context);
+								}
+							},
+							rectInt = setInterval(function() { rectMotion(); }, 1);									
+					};
+					
+				//if IE wait for library to finish
+				if (window.ActiveXObject) {
+					window.onload = function() {
+						var context = canvas.getContext("2d");
+						init(context);
+					};
+				} else {
+					var context = canvas.getContext("2d");
+					init(context);
+				}
+			})();
+		</script>
+	</body>
+</html>

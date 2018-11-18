@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery stop()</title>
+		<link rel="stylesheet" href="css/fadeIn.css">
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<nav>
+			<ul class="purecss">
+				<li><a href="#" title="Home">Home</a></li>
+			  <li><a href="#" title="Articles">Articles</a></li>
+			  <li><a href="#" title="Code">Code</a></li>
+			  <li><a href="#" title="Demos">Demos</a></li>
+			  <li class="last"><a href="#" title="Portfolio">Portfolio</a></li>
+		  </ul>
+		</nav>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//cache list
+				var ul = $("nav ul");
+				
+				//remove purecss class to disable css hovers
+				ul.removeClass("purecss");
+				
+				//add spans inside every link
+				ul.find("a").each(function(){
+					var a = $(this);
+					a.append("<span>" + a.text() + "</span>");
+				});
+				
+				//animate spans
+				ul.find("a").hover(function() {
+					$(this).find("span").stop(true, true).fadeIn("slow");
+				}, function() {
+					$(this).find("span").stop(true, true).fadeOut("slow");
+				});
+				
+			})(jQuery);
+		</script>
+	</body>
+</html>

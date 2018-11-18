@@ -1,0 +1,366 @@
+--==========================================================================
+--
+--	ZX7200FABRIC.MIB
+--
+--	ZNYX ZX7200FABRIC SNMP MIB
+--
+--==========================================================================
+--
+--	(c) Copyright 2001 ZNYX Networks, Inc.
+--	All rights reserved.
+--
+--==========================================================================
+
+
+	ZX7200FABRIC-MIB DEFINITIONS ::= BEGIN
+
+	IMPORTS
+		enterprises, NetworkAddress, IpAddress, Counter,
+		Gauge, TimeTicks, OBJECT-TYPE
+			FROM RFC1155-SMI
+		znyxProductSpecificMib
+			FROM ZNYX-MIB;
+
+	-- Conventions
+
+	DisplayString ::= OCTET STRING
+
+
+
+	znyxPsMibZX7200FABRIC		OBJECT IDENTIFIER ::= { znyxProductSpecificMib 11 }
+
+	zZX7200FABRICGeoPins OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object returns a string identifying
+			 the shelf and the slot within the shelf
+			 the switch is located in."
+		::= { znyxPsMibZX7200FABRIC 1 }
+
+	zZX7200FABRICInternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 Internal Fault LED is driven."
+		::= { znyxPsMibZX7200FABRIC 2 }
+
+	zZX7200FABRICInternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current Internal Fault LED status."
+		::= { znyxPsMibZX7200FABRIC 3 }
+
+	zZX7200FABRICExternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 External Fault LED is driven."
+		::= { znyxPsMibZX7200FABRIC 4 }
+
+	zZX7200FABRICExternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current External Fault LED status."
+		::= { znyxPsMibZX7200FABRIC 5 }
+
+	zZX7200FABRICOpenArchVersion OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Open Architect software version."
+    		::= { znyxPsMibZX7200FABRIC 6 }
+
+	zZX7200FABRICLinkCtrlTable OBJECT-TYPE
+	    	SYNTAX      SEQUENCE OF ZZX7200FABRICLinkCtrlEntry
+  		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      	    	"A table containing link control information for each port
+		       available on the device."
+    		::= { znyxPsMibZX7200FABRIC 7 }
+
+	zZX7200FABRICLinkCtrlEntry OBJECT-TYPE
+ 		SYNTAX      ZZX7200FABRICLinkCtrlEntry
+    		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      		"Link control information for each port available on the
+			 device."
+   		INDEX   { zZX7200FABRICLinkCtrlPort }
+    		::= { zZX7200FABRICLinkCtrlTable 1 }
+
+ 	ZZX7200FABRICLinkCtrlEntry ::=
+  		SEQUENCE {
+			zZX7200FABRICLinkCtrlPort
+				INTEGER,
+			zZX7200FABRICLinkCtrlState
+				INTEGER,
+			zZX7200FABRICLinkCtrlSpeed
+				INTEGER
+    		}
+
+	zZX7200FABRICLinkCtrlPort OBJECT-TYPE
+		SYNTAX      INTEGER (1..65535)
+		ACCESS  not-accessible
+		STATUS      mandatory
+		DESCRIPTION
+		"The port number associated with this Link Control entry."
+		::= { zZX7200FABRICLinkCtrlEntry 1 }
+
+	zZX7200FABRICLinkCtrlState OBJECT-TYPE
+    		SYNTAX      INTEGER { up (1), down (2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control state of the port."
+    		::= { zZX7200FABRICLinkCtrlEntry 2 }
+
+	zZX7200FABRICLinkCtrlSpeed OBJECT-TYPE
+    		SYNTAX      INTEGER  { auto(1), n100fd(2), n100hd(3), n10fd (4), n10hd(5), n1000fd(6), n1000hd(7), n10000fd(8) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control speed of the port. Changes to this speed
+			 require the port to be in the down state."
+    		::= { zZX7200FABRICLinkCtrlEntry 3 }
+
+	-- Vital Product Data (VPD)
+
+	zZX7200FABRICVPDPN OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Part Number."
+    		::= { znyxPsMibZX7200FABRIC 8 }
+
+	zZX7200FABRICVPDSN OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Serial Number."
+    		::= { znyxPsMibZX7200FABRIC 9 }
+
+	zZX7200FABRICVPDV0 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Mac Address."
+    		::= { znyxPsMibZX7200FABRIC 10 }
+
+	zZX7200FABRICVPDV1 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Mac Address Number."
+    		::= { znyxPsMibZX7200FABRIC 11 }
+
+	zZX7200FABRICVPDV2 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The PPC 82xx Memory Subsystem."
+    		::= { znyxPsMibZX7200FABRIC 12 }
+
+	zZX7200FABRICVPDV3 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The BCM 56xx Memory Subsystem."
+    		::= { znyxPsMibZX7200FABRIC 13 }
+
+	zZX7200FABRICVPDV4 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Boot Flash Subsystem."
+    		::= { znyxPsMibZX7200FABRIC 14 }
+
+	zZX7200FABRICVPDV5 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Application Flash Subsystem."
+    		::= { znyxPsMibZX7200FABRIC 15 }
+
+	zZX7200FABRICVPDV6 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Firmware Revision."
+    		::= { znyxPsMibZX7200FABRIC 16 }
+
+	zZX7200FABRICVPDV7 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Reset Counter."
+    		::= { znyxPsMibZX7200FABRIC 17 }
+
+	zZX7200FABRICVPDV8 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Kernel Runtime."
+    		::= { znyxPsMibZX7200FABRIC 18 }
+
+	zZX7200FABRICVPDV9 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Revision."
+    		::= { znyxPsMibZX7200FABRIC 19 }
+
+	zZX7200FABRICVPDVA OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Adapter ID."
+    		::= { znyxPsMibZX7200FABRIC 20 }
+
+	zZX7200FABRICVPDVB OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Model Number."
+    		::= { znyxPsMibZX7200FABRIC 21 }
+
+	zZX7200FABRICVPDVS OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Logical Slot Number."
+    		::= { znyxPsMibZX7200FABRIC 22 }
+
+	zZX7200FABRICVPDVT OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Geographical Shelf Address."
+    		::= { znyxPsMibZX7200FABRIC 23 }
+
+	zZX7200FABRICVPDVP OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The IPMC Version."
+    		::= { znyxPsMibZX7200FABRIC 24 }
+
+	zZX7200FABRICVPDVM OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Main CPLD Version."
+    		::= { znyxPsMibZX7200FABRIC 25 }
+
+	zZX7200FABRICVPDVR OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Reset CPLD Version."
+    		::= { znyxPsMibZX7200FABRIC 26 }
+
+	zZX7200FABRICVPDVL OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The LED CPLD Version."
+    		::= { znyxPsMibZX7200FABRIC 27 }
+
+	zZX7200FABRICVPDVZ OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The ZMON Version."
+    		::= { znyxPsMibZX7200FABRIC 28 }
+
+	zZX7200FABRICVPDY1 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Manufacturer ID."
+    		::= { znyxPsMibZX7200FABRIC 29 }
+
+	zZX7200FABRICVPDY2 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Board ID."
+    		::= { znyxPsMibZX7200FABRIC 30 }
+
+	zZX7200FABRICVPDY3 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Data CLEI."
+    		::= { znyxPsMibZX7200FABRIC 31 }
+
+	zZX7200FABRICVPDY4 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Data PEC."
+    		::= { znyxPsMibZX7200FABRIC 32 }
+
+	zZX7200FABRICVPDY5 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Release Number."
+    		::= { znyxPsMibZX7200FABRIC 33 }
+
+	END
+
+

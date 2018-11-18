@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+
+
+<!-- ////////////////// jquery-svg REQUIRES SVGVIEWER IN IE8 //////////////////////////////////-->
+<style type="text/css">
+
+
+div.svgbasics { width: 800px; height: 400px; border: 1px solid #484; }
+</style>
+
+<script>
+
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg"
+
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+var dkglow = "#3B2507" ;
+var ltglow = "#FCB83B" ;
+
+var svg;
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    getsvg();  
+});
+    
+// laod the svg
+function getsvg(){
+
+      $("#svgload").svg({  
+            loadURL: 'zx1900_master.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+
+}
+
+
+
+function main(){
+    
+  
+
+$('#powerglow').mouseover(function(){
+       $('#powerglow').animate({ svgStroke: ltglow },1000);
+    });
+    $('#powerglow').mouseout(function(){
+	$('#powerglow').css("stroke", dkglow);
+    });
+
+
+
+
+}
+function adjustPosition(){
+    $('#7300-5group').css("opacity", 0 );
+      $('#sbc-3group').animate({svgTransform: 'translate(-120,688)'}, 2000);
+   
+        $('#7300-3group').animate({   opacity: '0' }, 'slow'); 
+
+}
+
+
+
+// Returns a random number between min and max
+function getRandomInteger(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function logDebug(newtext){
+    document.getElementById("debug").innerHTML += (" " + newtext) ;
+}
+
+
+
+
+</script></head><body>
+
+
+<br>
+<h3>Test of moving svg groups and opacity from a single loaded file.</h3>
+<div>
+<button id="reloadbutton" onClick='location.reload();'>Reload</button> 
+<button id="gobutton" onClick='adjustPosition()'>Go</button> 
+<br></div>
+
+
+<div id="svgload" class="svgbasics"> </div>
+
+<br>
+<div id="debug"></div>
+
+
+
+</body></html>
+
+

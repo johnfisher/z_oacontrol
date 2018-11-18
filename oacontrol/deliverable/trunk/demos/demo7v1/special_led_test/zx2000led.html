@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.svg.js"></script>
+<script type="text/javascript" src="jquery.svganim.js" ></script> 
+<script type="text/javascript" src="hoverIntent.js"></script>
+<script type="text/javascript" src="zsuperfish.js"></script>
+<script type="text/javascript" src="jquery.xml2json.js"></script>
+<script type="text/javascript" src="oac.js"></script>
+
+<link rel="stylesheet" media="screen" href="oac.css" /> 
+
+<script type="text/javascript">
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg" ;
+var zgreen = "rgb(0, 255, 0)";
+var zred = "rgb(255, 0, 0)";
+var zamber =  "rgb(252, 184, 59)";
+var zblack = "rgb(0, 0, 0)";
+var zblue = "rgb(61, 144, 244)";
+var hotcolor = zblue ;
+var shmmcolor = zgreen;
+var ooscolor = zamber;
+var oaacolor = zgreen;
+var oafaultcolor = zamber;
+var clkcolor = zgreen;
+	//var blinklist = Object.create( {"led1-l" :  {color : blue	, blink : true, shape : "rect" } } );
+var zblinklist = {};
+	var idarray = [];
+	var stop_short_interval = false ; // used for flag to stop blinking
+
+
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    getsvg();  
+});
+    
+// load the svg
+function getsvg(){
+      $("#svgload").svg({  
+            loadURL: '2010_leds.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+}
+
+function main (){
+
+
+//alert("Start"); 
+
+	
+ zgetOrigLEDState();	
+ zblink();
+}
+
+
+
+function solid(led){
+	if (led === "hot") {
+			zblinklist[ "led2010-8-hot" ].blink = false ;
+			hotcolor = zblue; // special
+			zblinklist[ "led2010-8-hot" ].color = hotcolor ;
+			$("#led2010-8-hot").css("fill", hotcolor );// back to default
+	}else if(led === "shmm"){
+			zblinklist[ "led2010-8-shmm" ].blink = false ;		
+	}else if(led === "oos"){
+			zblinklist[ "led2010-8-oos" ].blink = false ;		
+	}else if(led ==="oaa"){
+			zblinklist[ "led2010-8-oaa" ].blink = false ;
+	}else if(led === "oafault"){
+			zblinklist[ "led2010-8-oafault" ].blink = false ;	
+	}
+return led ;
+}
+function blink(led){
+	if (led === "hot") {
+			zblinklist[ "led2010-8-hot" ].blink = true ;		
+	}else if(led === "shmm"){
+			zblinklist[ "led2010-8-shmm" ].blink = true ;		
+	}else if(led === "oos"){
+			zblinklist[ "led2010-8-oos" ].blink = true ;		
+	}else if(led ==="oaa"){
+			zblinklist[ "led2010-8-oaa" ].blink = true ;
+	}else if(led === "oafault"){
+			zblinklist[ "led2010-8-oafault" ].blink = true ;	
+	}
+return led ;
+}
+function off(led){
+	if (led === "hot") {
+		hotcolor = zblack;
+		$("#led2010-8-hot").css("fill", zblack );
+	}else if(led === "shmm"){
+		shmmcolor = zblack;
+		$("#led2010-8-shmm").css("fill", zblack );
+	}else if(led === "oos"){
+		ooscolor = zblack;
+		$("#led2010-8-oos").css("fill", zblack );
+	}else if(led ==="oaa"){
+		oaacolor = zblack;
+		$("#led2010-8-oaa").css("fill", zblack );
+	}else if(led === "oafault"){
+		oafaultcolor = zblack;
+		$("#led2010-8-oafault").css("fill", zblack );
+	}
+return led;
+}
+
+function chshmm(color){
+	shmmcolor = color;
+	$("#led2010-8-shmm").css("fill", color );
+}
+function choss(color){
+	ooscolor = color;
+	$("#led2010-8-oos").css("fill", color );
+}
+function choaa(color){
+	oaacolor = color;
+	$("#led2010-8-oaa").css("fill", color );
+}
+function chclk(color){
+	clkcolor = color;
+	$("#led2010-8-clk").css("fill", color );
+}
+function choafault(color){
+	oafaultcolor = color;
+	$("#led2010-8-oafault").css("fill", color );
+}
+
+
+	function zgetOrigLEDState(){
+	// note: this populates the blinklist object
+	// captures original color of leds too except "power" which has a gradiant
+	var blink_duration = 600 ; // blink loop interval
+	
+		// NOW   so not picked up by "rect" above
+		var ctags=document.getElementsByTagName("ellipse");  
+		for(var x=0;x<ctags.length;x++){
+			var myid = ctags[x].id;
+			var date = new Date();
+			var addmin = Math.round( blink_duration/3 );
+			var newtime = date.getTime() + getRandomInteger( addmin  , blink_duration );
+			if( myid.match("led") ){
+				// set all LEDs to not blink by default
+				var fillcol = $("#" + myid).css("fill") || red ;
+				//writeDebug( fillcol  );	
+				zblinklist[ myid ] = { blink : false, color : fillcol, shape : "ellipse", timestamp : newtime	 } ;
+			}
+			if ( myid === "led2010-8-clk" ) {
+				zblinklist[ myid ].blink = true ;
+			}
+		}
+		//zblinklist[ "led2010-8-clk" ].blink = true ;
+	}
+
+function zblink(){
+		var blink_duration = 600 ; // blink loop interval
+			var blink_loop = window.setInterval(function() {
+				// now set leds to their var color in case it was blinking and the color was changed
+				zblinklist[ "led2010-8-hot" ].color = hotcolor;
+				zblinklist[ "led2010-8-shmm" ].color = shmmcolor;
+				zblinklist[ "led2010-8-oos" ].color = ooscolor;
+				zblinklist[ "led2010-8-oaa" ].color = oaacolor;
+				zblinklist[ "led2010-8-clk" ].color = clkcolor;
+				zblinklist[ "led2010-8-oafault" ].color = oafaultcolor;
+				var mybllist = zblinklist ;
+				for( var name in mybllist){
+					if ( mybllist[ name ].blink === true ){
+						var date = new Date();
+						var time = date.getTime() ;  // getTime translates to total milliseconds
+						var delay = time - mybllist[ name ].timestamp ;
+						// we need to add some randomized number of ms to the timestamps
+						// to prevent a pulsing effect as all LEDs blink together
+						var newtime =  time += getRandomInteger( 100  , blink_duration   );
+						var col = mybllist[ name ].color ;
+						if ( delay > blink_duration ) {
+							if ( name.match("led") ) {
+								if ( $("#" + name).css("fill") === zblack ) {
+									$("#" + name).css("fill", col );
+								}else{
+									$("#" + name).css("fill", zblack );
+								}
+								mybllist[ name ].timestamp  = newtime ;
+							} 
+						}
+					}
+				}
+				zblinklist = mybllist ;
+				mybllist = "";
+			}, blink_duration ); 
+}
+
+
+	function getRandomInteger(min, max){
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+  function writeDebug( txt) {
+		document.getElementById("debugdiv").innerHTML += (".... " + JSON.stringify(txt)) ;
+  }
+
+/////////////////////////////////////////////////
+</script>
+
+</head><body class="mybody">
+<div id="pagebkg" class="mycanvas">
+<div id="debugdiv"></div>
+<div id="logodiv"><img src="oacontrol_logoB40.png"></div>
+<!-- START invisble divs for drop-down menus until raised by mouseover -->
+
+<!-- END invisble divs for drop-down menus until raised by mouseover -->
+
+<br>
+<div id="svgload" class="svgbasics">
+
+
+<br>
+<table class="tb">
+ <tr><th colspan=4>Adjust LED Mode</th></tr>      
+<tr><td><button type="button" onclick="solid('hot')">hot solid </button><p><button type="button" onclick="blink('hot')">hot blink </button><p>
+<button type="button" onclick="off('hot')">hot off </button></td><td><button type="button" onclick="solid('oaa')">oa active solid </button><p>
+<button type="button" onclick="blink('oaa')">oa active blink </button><p><button type="button" onclick="off('oaa')">oa active off </button></td>
+<td><button type="button" onclick="solid('shmm')">shmm solid </button><p><button type="button" onclick="blink('shmm')">shmm blink </button><p>
+<button type="button" onclick="off('shmm')">shmm off </button></td><td>-<p>clock<p>-</td>
+<td><button type="button" onclick="solid('oos')">oos solid </button><p><button type="button" onclick="blink('oos')">oos blink </button><p>
+<button type="button" onclick="off('oos')">oos off </button></td><td ><button type="button" onclick="solid('oafault')">oa fault solid </button><p>
+<button type="button" onclick="blink('oafault')">oa fault blink </button><p><button type="button" onclick="off('oafault')">oa fault off </button></td></tr>
+</table>
+
+<table>
+<tr>
+<th colspan =3>Reset LED color</th>
+</tr>
+<tr>
+<td><button type="button" onclick="chshmm(zamber)">shmm = amber </button></td><td><button type="button" onclick="chshmm(zgreen)">shmm = green </button></td><td>
+<button type="button" onclick="choss(zred)">oos = red </button></td><td><button type="button" onclick="choss(zamber)">oos = amber </button></td>
+</tr>
+<tr><td><button type="button" onclick="choaa(zamber)">oa active = amber </button></td><td><button type="button" onclick="choaa(zgreen)">oa active = green </button></td><td>
+<button type="button" onclick="chclk(zamber)">clock = amber </button></td><td><button type="button" onclick="chclk(zgreen)">clock = green </button></td>
+</tr>
+<td><button type="button" onclick="choafault(zred)">oa fault = red </button></td><td><button type="button" onclick="choafault(zamber)">oa fault = amber </button></td><td></td><td></td>
+</tr>
+
+</table>
+
+<!------------------------ SVG loads here --------------------->
+</div><!---svgload-->
+</div><!---pagebkg-->
+
+
+</body></html>
+
+

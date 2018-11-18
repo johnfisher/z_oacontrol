@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Pulsate Effect</title>
+		<link rel="stylesheet" href="css/pulsate.css">
+	</head>
+	<body>
+    	<table>
+        	<tr><th>Job Number</th><th>Start Time</th><th>End Time</th><th colspan="2">Total</th></tr>
+            <tr><td>05432</td><td>8:00</td><td>8:43</td><td>43 minutes</td><td><a class="delete" href="#" title="Delete this item">Delete</a></td></tr>
+            <tr><td>05684</td><td>8:43</td><td>10:21</td><td>1 hour 38 minutes</td><td><a class="delete" href="#" title="Delete this item">Delete</a></td></tr>
+            <tr><td>05684</td><td>10:21</td><td>13:30</td><td>3 hour 9 minutes</td><td><a class="delete" href="#" title="Delete this item">Delete</a></td></tr>
+        </table>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$(".delete").click(function(e) {
+					e.preventDefault();
+					
+					$(this).closest("tr").children().css("background-color", "#ff3434").effect("pulsate", function() {
+						$(this).parent().remove();
+					});
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

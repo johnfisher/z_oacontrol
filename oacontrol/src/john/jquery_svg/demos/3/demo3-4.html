@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+<script type="text/javascript" src="js/hoverIntent.js"></script>
+<script type="text/javascript" src="js/superfish.js"></script>
+<!-- <script type="text/javascript" src="js/jquery.svgdom.js	"></script> -->
+
+<link rel="stylesheet" media="screen" href="css/superfish.css" /> 
+<link rel="stylesheet" media="screen" href="css/superfish-vertical.css" /> 
+ 
+  
+
+
+
+<!-- ////////////////// jquery-svg REQUIRES SVGVIEWER IN IE8 //////////////////////////////////-->
+<style type="text/css">
+    div.svgbasics { width: 800px; height: 800px; border: 1px solid #484; }
+    div.yourdiv { width: 800px; height: 200px;}
+    table.tb { }
+    button.bt {  }
+#floatMenu {  
+    display:none; 
+    position:absolute;  
+    top:150px;  
+    left:50%;  
+    margin-left:35px;  
+    width:200px;  
+
+}  
+#floatMenu ul {  
+    margin-bottom:20px;  
+}  
+#floatMenu ul li a {  
+    display:block;  
+    border:1px solid #999;  
+    background-color:#222;  
+    border-left:6px solid #999;  
+    text-decoration:none;  
+    color:#ccc;  
+    padding:5px 5px 5px 25px;  
+} 
+
+</style>
+
+<script>
+
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg"
+
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+var dkglow = "#3B2507" ;
+var ltglow = "#FCB83B" ;
+
+var svg;
+// prepare the dom and then load the svg
+$(document).ready(function(){
+    getsvg();  
+
+});
+    
+// laod the svg
+function getsvg(){
+
+      $("#svgload").svg({  
+            loadURL: 'zx1900_master_exploded.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+
+}
+
+
+
+function main(){
+
+		// superfish initialise plugins
+		jQuery(function(){
+			jQuery('ul.sf-menu').superfish();
+		});
+
+
+
+     logDebug("test debug");
+// hide the 7300's and sbc's
+    $('#7300-4group').css("opacity", 0 );
+    $('#7300-3group').css("opacity", 0 );
+    $('#7300-5group').css("opacity", 0 );
+    $('#sbc-4group').css("opacity", 0 );
+    $('#sbc-3group').css("opacity", 0 );
+    $('#sbc-5group').css("opacity", 0 );
+
+
+
+
+ $('#7300-3group').mouseover(function(){
+       $("#floatMenu").animate({top:375,left:100},{duration:100,queue:false});
+      $("#floatMenu").fadeIn( 400);
+    });
+
+// $('#7300-3group').mouseover(function(){
+//       $("#floatMenu").animate({top:375,left:100},{duration:100,queue:false});
+//       $("#floatMenu").fadeIn( 400);
+//     });
+//     $('#7300-3group').mouseout(function(){
+// 	$("#floatMenu").fadeOut( 200);
+//     });
+// //////////////////////////////////////
+// 
+// $('#7300-3group').hover( function(){
+//     $("#floatMenu").animate({top:375,left:100},{duration:100,queue:false}); //animate only numeric values  
+//     $("#floatMenu").fadeIn( 400);
+//     }, function() {
+//     $("#floatMenu").fadeOut( 200);
+//   });
+
+
+}
+
+
+
+function popSlot3_ZX7300(){
+    popSlot3_Empty(); // reset for the seond time you push "SB"
+    $('#7300-3group').animate({svgTransform: 'translate(-16,-297)',svgOpacity: 100}, 2000);
+}
+function popSlot4_ZX7300(){
+    popSlot4_Empty(); // reset for the seond time you push "SB"
+    $('#7300-4group').animate({svgTransform: 'translate(-38,-445)',svgOpacity: 100}, 2000);
+}
+function popSlot5_ZX7300(){
+    popSlot5_Empty(); // reset for the seond time you push "SB"
+    $('#7300-5group').animate({svgTransform: 'translate(-30,-404)',svgOpacity: 100}, 2000);
+}
+function popSlot3_Sbc(){
+    popSlot3_Empty(); // reset for the seond time you push "SB"
+    $('#sbc-3group').animate({svgTransform: 'translate(-120,336)',svgOpacity: 100}, 2000);
+}
+function popSlot4_Sbc(){
+    popSlot4_Empty(); // reset for the seond time you push "SBC"
+    $('#sbc-4group').animate({svgTransform: 'translate(110,-397)',svgOpacity: 100}, 2000);
+}
+function popSlot5_Sbc(){
+    popSlot5_Empty(); // reset for the seond time you push "SBC"
+    $('#sbc-5group').animate({svgTransform: 'translate(-56,385)',svgOpacity: 100}, 2000);
+}
+function popSlot3_Empty(){
+    $('#sbc-3group').css("opacity", 0 );
+    $('#7300-3group').css("opacity", 0 );
+}
+function popSlot4_Empty(){
+    $('#sbc-4group').css("opacity", 0 );
+    $('#7300-4group').css("opacity", 0 );
+}
+function popSlot5_Empty(){
+    $('#sbc-5group').css("opacity", 0 );
+    $('#7300-5group').css("opacity", 0 );
+}
+
+// Returns a random number between min and max
+function getRandomInteger(min, max){
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function logDebug(newtext){
+    document.getElementById("debug").innerHTML += (".... " + newtext) ;
+}
+
+
+
+
+</script></head><body>
+
+
+<br>
+<h3 >Test of SVG animation: superfish menus.</h3>
+
+
+<div id="floatMenu" class ="yourdiv">
+<ul class="sf-menu">
+			<li class="floatMenu">
+				<a href="#a">menu itemA</a>
+				<ul>
+					<li>
+						<a href="#aa">menu item that is quite long</a>
+					</li>
+					<li class="floatMenu">
+						<a href="#ab">menu itemA1</a>
+						<ul>
+							<li class="current"><a href="#">menu item</a></li>
+							<li><a href="#aba">menu itemA1.1</a></li>
+							<li><a href="#abb">menu itemA1.2</a></li>
+							<li><a href="#abc">menu itemA1.3</a></li>
+							<li><a href="#abd">menu itemA1.4</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">menu itemA2</a>
+						<ul>
+							<li><a href="#">menu itemA2.1</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">menu itemA3</a>
+						<ul>
+							<li><a href="#">menu itemA3.1</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+							<li><a href="#">menu item</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+
+
+<div id="svgload" class="svgbasics">
+
+<table class="tb">
+<tr><th colspan=4 >Press buttons to configure the chassis with boards:</th></tr>
+<tr><td>slot 5</td><td><button class="bt" onClick='popSlot5_ZX7300()' >ZX7300</button></td><td><button class="bt" onClick='popSlot5_Sbc()' >SBC</button></td><td><button class="bt" onClick='popSlot5_Empty()' >empty</button></td></tr>
+<tr><td>slot 4</td><td><button class="bt" onClick='popSlot4_ZX7300()' >ZX7300</button></td><td><button class="bt" onClick='popSlot4_Sbc()' >SBC</button></td><td><button class="bt" onClick='popSlot4_Empty()' >empty</td></tr>
+<tr><td>slot 3</td><td><button class="bt" onClick='popSlot3_ZX7300()' >ZX7300</button></td><td><button class="bt" onClick='popSlot3_Sbc()' >SBC</button></td><td><button class="bt" onClick='popSlot3_Empty()' >empty</button></td></tr>
+</table>
+
+
+
+
+</div>
+
+<br>
+<div id="debug"></div>
+
+
+
+</body></html>
+
+

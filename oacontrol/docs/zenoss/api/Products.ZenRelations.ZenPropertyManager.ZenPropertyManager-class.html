@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenRelations.ZenPropertyManager.ZenPropertyManager</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenRelations-module.html">Package&nbsp;ZenRelations</a> ::
+        <a href="Products.ZenRelations.ZenPropertyManager-module.html">Module&nbsp;ZenPropertyManager</a> ::
+        Class&nbsp;ZenPropertyManager
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ZenPropertyManager</h1><p class="nomargin-top"><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+                             <a href="object-class.html">object</a> --+
+                                      |
+            ExtensionClass.Base --+   |
+                                  |   |
+          OFS.ZDOM.Node --+       |   |
+                          |       |   |
+           OFS.ZDOM.Element --+   |   |
+                              |   |   |
+ OFS.ZDOM.ElementWithAttributes --+   |
+                                  |   |
+OFS.PropertyManager.PropertyManager --+
+                                      |
+                                     <strong class="uidshort">ZenPropertyManager</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li><a href="Products.ZenRelations.RelationshipManager.RelationshipManager-class.html">RelationshipManager.RelationshipManager</a></li>  </ul>
+</dd></dl>
+
+<hr />
+<pre class="literalblock">
+
+ZenPropertyManager adds keyedselection type to PropertyManager.
+A keyedselection displayes a different name in the popup then
+the actual value the popup will have.
+
+It also has management for zenProperties which are properties that can be
+inherited long the acquision chain.  All properties are for a branch are
+defined on a &quot;root node&quot; specified by the function which must be returned
+by the function getZenRootNode that should be over ridden in a sub class.
+Prperties can then be added further &quot;down&quot; the aq_chain by calling
+setZenProperty on any contained node.
+
+ZenProperties all have the same prefix which is defined by iszprop
+this can be overridden in a subclass.
+
+ZenPropertyManager overrides getProperty and getPropertyType from
+PropertyManager to support acquisition. If you want to query an object
+about a property, but do not want it to search the acquistion chain then
+use the super classes method or aq_base.  Example:
+
+    # acquires property from dmd.Devices
+    dmd.Devices.Server.getProperty('zCollectorPlugins')
+
+    # does not acquire property from dmd.Devices
+    PropertyManager.getProperty(dmd.Devices.Server, 'zCollectorPlugins')
+
+    # also does not acquire property from dmd.Devices
+    aq_base(dmd.Devices.Server).getProperty('zSnmpCommunity')
+
+The properties are stored as attributes which is convenient, but can be
+confusing.  Attribute access always uses acquistion.  Setting an
+attribute, will not add it to the list of properties, so subsquent calls
+to hasProperty or getProperty won't return it.
+
+Property Transformers are stored at dmd.propertyTransformers and transform
+the property based on type during calls to the _setProperty,
+_updateProperty, and getProperty methods. Adding a property using
+_setProperty applies the appropriate transformer and adds its value as an
+attribute, but when you access it as an attribute the property transformer
+is again applied, but this time using its transformForGet method.
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#_setPropValue" class="summary-sig-name" onclick="show_private();">_setPropValue</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      override from PerpertyManager to handle checks and ip creation</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager._setPropValue">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#_setProperty" class="summary-sig-name" onclick="show_private();">_setProperty</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">value</span>,
+        <span class="summary-sig-arg">type</span>=<span class="summary-sig-default">'string'</span>,
+        <span class="summary-sig-arg">label</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">visible</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">setter</span>=<span class="summary-sig-default">None</span>)</span><br />
+      for selection and multiple selection properties the value argument 
+      indicates the select variable of the property</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager._setProperty">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#_updateProperty" class="summary-sig-name" onclick="show_private();">_updateProperty</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      This method sets a property on a zope object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager._updateProperty">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#manage_editProperties" class="summary-sig-name">manage_editProperties</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">REQUEST</span>)</span><br />
+      Edit object properties via the web.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.manage_editProperties">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getZenRootNode"></a><span class="summary-sig-name">getZenRootNode</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      sub class must implement to use zenProperties.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.getZenRootNode">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#zenPropertyIds" class="summary-sig-name">zenPropertyIds</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">all</span>=<span class="summary-sig-default">True</span>,
+        <span class="summary-sig-arg">pfilt</span>=<span class="summary-sig-default">iszprop</span>)</span><br />
+      Return list of device tree property names.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.zenPropertyIds">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zenPropertyItems"></a><span class="summary-sig-name">zenPropertyItems</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return list of (id, value) tuples of zenProperties.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.zenPropertyItems">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zenPropertyMap"></a><span class="summary-sig-name">zenPropertyMap</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pfilt</span>=<span class="summary-sig-default">iszprop</span>)</span><br />
+      Return property mapping of device tree properties.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.zenPropertyMap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zenPropertyString"></a><span class="summary-sig-name">zenPropertyString</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Return the value of a device tree property as a string</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.zenPropertyString">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zenPropIsPassword"></a><span class="summary-sig-name">zenPropIsPassword</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Is this field a password field.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.zenPropIsPassword">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zenPropertyPath"></a><span class="summary-sig-name">zenPropertyPath</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Return the primaryId of where a device tree property is found.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.zenPropertyPath">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setZenProperty"></a><span class="summary-sig-name">setZenProperty</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">propname</span>,
+        <span class="summary-sig-arg">propvalue</span>,
+        <span class="summary-sig-arg">REQUEST</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Add or set the propvalue of the property propname on this node of the
+      device Class tree.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.setZenProperty">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="saveZenProperties"></a><span class="summary-sig-name">saveZenProperties</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pfilt</span>=<span class="summary-sig-default">iszprop</span>,
+        <span class="summary-sig-arg">REQUEST</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Save all ZenProperties found in the REQUEST.form object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.saveZenProperties">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="deleteZenProperty"></a><span class="summary-sig-name">deleteZenProperty</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">propname</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">REQUEST</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Delete device tree properties from the this DeviceClass object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.deleteZenProperty">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="zenPropertyOptions"></a><span class="summary-sig-name">zenPropertyOptions</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">propname</span>)</span><br />
+      Provide a set of default options for a ZProperty</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.zenPropertyOptions">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="isLocal"></a><span class="summary-sig-name">isLocal</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">propname</span>)</span><br />
+      Check to see if a name is local to our current context.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.isLocal">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getOverriddenObjects"></a><span class="summary-sig-name">getOverriddenObjects</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">propname</span>,
+        <span class="summary-sig-arg">showDevices</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Get the objects that override a property somewhere below in the tree</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.getOverriddenObjects">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#_findParentWithProperty" class="summary-sig-name" onclick="show_private();">_findParentWithProperty</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Returns self or the first acquisition parent that has a property with
+      the id.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager._findParentWithProperty">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#hasProperty" class="summary-sig-name">hasProperty</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">useAcquisition</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Override method in PropertyManager to support acquisition.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.hasProperty">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#getProperty" class="summary-sig-name">getProperty</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">d</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Get property value and apply transformer.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.getProperty">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#getPropertyType" class="summary-sig-name">getPropertyType</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Overrides methods from PropertyManager to support acquistion.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.getPropertyType">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#getZ" class="summary-sig-name">getZ</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Return the value of a zProperty on this object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.getZ">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.PropertyManager.PropertyManager</code></b>:
+      <code>manage_addProperty</code>,
+      <code>manage_changeProperties</code>,
+      <code>manage_changePropertyTypes</code>,
+      <code>manage_delProperties</code>,
+      <code>propdict</code>,
+      <code>propertyDescription</code>,
+      <code>propertyIds</code>,
+      <code>propertyItems</code>,
+      <code>propertyLabel</code>,
+      <code>propertyMap</code>,
+      <code>propertyValues</code>,
+      <code>valid_property_id</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.PropertyManager.PropertyManager</code></b> (private):
+      <code>_delPropValue</code>,
+      <code>_delProperty</code>,
+      <code>_propertyMap</code>,
+      <code>_wrapperCheck</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ZDOM.ElementWithAttributes</code></b>:
+      <code>getAttribute</code>,
+      <code>getAttributeNode</code>,
+      <code>getAttributes</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ZDOM.Element</code></b>:
+      <code>getChildNodes</code>,
+      <code>getElementsByTagName</code>,
+      <code>getFirstChild</code>,
+      <code>getLastChild</code>,
+      <code>getNextSibling</code>,
+      <code>getNodeName</code>,
+      <code>getNodeType</code>,
+      <code>getParentNode</code>,
+      <code>getPreviousSibling</code>,
+      <code>getTagName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ZDOM.Node</code></b>:
+      <code>getNodeValue</code>,
+      <code>getOwnerDocument</code>,
+      <code>hasChildNodes</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__pychecker__"></a><span class="summary-name">__pychecker__</span> = <code title="'no-override'">'no-override'</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="security"></a><span class="summary-name">security</span> = <code title="ClassSecurityInfo()">ClassSecurityInfo()</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Products.ZenRelations.ZenPropertyManager.ZenPropertyManager-class.html#manage_propertiesForm" class="summary-name">manage_propertiesForm</a> = <code title="DTMLFile('dtml/properties', globals(), property_extensible_schema__= 1\
+)">DTMLFile('dtml/properties', globals(),<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_onlystars"></a><span class="summary-name">_onlystars</span> = <code title="re.compile(&quot;^\*+$&quot;).search">re.compile(&quot;^\*+$&quot;).search</code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.PropertyManager.PropertyManager</code></b>:
+      <code>__propsets__</code>,
+      <code>manage_options</code>,
+      <code>manage_propertyTypeForm</code>,
+      <code>propertysheets</code>,
+      <code>title</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.PropertyManager.PropertyManager</code></b> (private):
+      <code>_properties</code>,
+      <code>_reserved_names</code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_setPropValue"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_setPropValue</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager._setPropValue">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>override from PerpertyManager to handle checks and ip creation</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.PropertyManager.PropertyManager._setPropValue
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_setProperty"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_setProperty</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">value</span>,
+        <span class="sig-arg">type</span>=<span class="sig-default">'string'</span>,
+        <span class="sig-arg">label</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">visible</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">setter</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager._setProperty">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>for selection and multiple selection properties the value argument 
+  indicates the select variable of the property</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.PropertyManager.PropertyManager._setProperty
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_updateProperty"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_updateProperty</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager._updateProperty">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This method sets a property on a zope object. It overrides the method 
+  in PropertyManager. If Zope is upgraded you will need to check that this 
+  method has not changed! It is overridden so that we can catch the 
+  ValueError returned from the field2* converters in the class 
+  Converters.py</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.PropertyManager.PropertyManager._updateProperty
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="manage_editProperties"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">manage_editProperties</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">REQUEST</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.manage_editProperties">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Edit object properties via the web. The purpose of this method is to 
+  change all property values, even those not listed in REQUEST; otherwise 
+  checkboxes that get turned off will be ignored.  Use 
+  manage_changeProperties() instead for most situations.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.PropertyManager.PropertyManager.manage_editProperties
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="zenPropertyIds"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">zenPropertyIds</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">all</span>=<span class="sig-default">True</span>,
+        <span class="sig-arg">pfilt</span>=<span class="sig-default">iszprop</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.zenPropertyIds">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return list of device tree property names. If all use list from 
+  property root node.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_findParentWithProperty"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_findParentWithProperty</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager._findParentWithProperty">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns self or the first acquisition parent that has a property with 
+  the id.  Returns None if no parent had the id.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="hasProperty"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">hasProperty</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">useAcquisition</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.hasProperty">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Override method in PropertyManager to support acquisition.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.PropertyManager.PropertyManager.hasProperty
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getProperty"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getProperty</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">d</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.getProperty">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get property value and apply transformer.  Overrides method in Zope's 
+  PropertyManager class.  Acquire values from aquisiton parents if 
+  needed.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.PropertyManager.PropertyManager.getProperty
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getPropertyType"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getPropertyType</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.getPropertyType">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Overrides methods from PropertyManager to support acquistion.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.PropertyManager.PropertyManager.getPropertyType
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="getZ"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">getZ</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ZenPropertyManager-pysrc.html#ZenPropertyManager.getZ">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the value of a zProperty on this object.  This method is used 
+  to lookup zProperties for a user with a role that doesn't have direct 
+  access to an attribute further up the acquisition path.  If the requested
+  property is a password, then None is returned.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>id</code></strong> (string) - id of zProperty</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>Value of zProperty</dd>
+  </dl>
+<div class="fields">      <p><strong>Permission:</strong>
+        ZEN_ZPROPERTIES_VIEW
+<pre class="py-doctest">
+<span class="py-prompt">&gt;&gt;&gt; </span>dmd.Devices.getZ(<span class="py-string">'zSnmpPort'</span>)
+<span class="py-output">161</span>
+<span class="py-output"></span><span class="py-prompt">&gt;&gt;&gt; </span>dmd.Devices.getZ(<span class="py-string">'zWinPassword'</span>)
+<span class="py-prompt">&gt;&gt;&gt;</span></pre>
+      </p>
+</div></td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="manage_propertiesForm"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">manage_propertiesForm</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+DTMLFile('dtml/properties', globals(), property_extensible_schema__= 1<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+)
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:42 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

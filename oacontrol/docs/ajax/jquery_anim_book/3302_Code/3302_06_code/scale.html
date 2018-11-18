@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Scale Effect</title>
+		<link rel="stylesheet" href="css/scale.css">
+	</head>
+	<body>
+    	<div id="container">
+	    	<img src="img/europa.jpg" alt="Europa">
+        </div>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$("img").click(function() {
+					var img = $(this);
+					
+					if(!img.hasClass("full")) {
+						img.addClass("full").effect("scale", { percent: 400 }, function() {
+							$("<a>", {
+								href: "#",
+								text: "x",
+								click: function(e) {
+									e.preventDefault;
+									
+									var a = $(this);
+									a.parent().find("img").removeClass("full").effect("scale", { percent: 25 });
+									a.remove();
+								}
+							}).appendTo("#container");
+						});
+					};
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

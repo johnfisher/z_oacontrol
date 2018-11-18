@@ -1,0 +1,224 @@
+
+/********************  BEGIN ZNYX ************************************************************/
+
+/* how to align the svg and still have the popup jump to the right.
+ * the svg pops to upper right corner of the div.svgbasics
+ * there is no class or styles for the <svg> element
+ * but the viewBox attribute inside the svg file determines placement too.
+ * So if you make the div big enough to make room for popups to the right, then
+ * the svg loads small and to the right. Adjusting the viewBox so in effect the svg hangs off the left of the page
+ * brings back the svg to full size and aligned left ( or off the screen if you go too far)
+ *  viewBox="150 0 950 1320"  is in the svg file. Its OK to edit it directly.
+ * */
+	body.mybody{
+		background:#E8DFD7 ;
+	}
+	div.svgbasics { 
+		width: 1320px; 
+		height:1400px; 		
+	}
+    div.yourdiv {
+		width: 1000px; 
+		height: 200px;
+	}
+    div.controls { 
+		width:1000px; 
+		height:100px; 
+		background: red; 
+		border: 1px solid #484
+	}
+    table.tb { }
+    button.bt {  }
+    td.notify {
+		width: 240px; 
+		height: 30px; 
+		background: #F2EAE3 ;
+		color:	#000000; /*ZNYX text color */
+		font-family:"Verdana", "Arial", sans-serif;  /* changed font */
+		font-size: 10px;
+    }
+    th.notify {
+		color:	#000000; /*ZNYX text color */
+		font-family:"Verdana", "Arial", sans-serif;  /* changed font */
+		font-size: 10px;
+    }
+    div.menuDiv {  
+		display:none; 
+		position:absolute;  
+		top:150px;  
+		left:50%;  
+		margin-left:35px;  
+		width:200px;  
+    }  
+    div.menuHeadDiv {  
+		display:block; 
+		position:absolute;  
+		top:50px;  
+		left:10px;  
+		margin-left:35px;  
+		width:800px;  
+    }
+    div.mytitle {  
+		display:block; 
+		position:relative;  
+		top:0px;  
+		left:50px;    
+		width:100%;  
+    }
+    div.mycanvas {  
+		display:block; 
+		position:absolute; 
+		top:0px
+		width:100%;
+		height:100%;
+    }
+    .hiddenIframe {
+		position:absolute;
+		top:0px;
+		left:0px;
+		display:block;
+		z-index:-999;
+		visibility:hidden;
+    }
+    
+/**** OAC COLORS sync with html file *********
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+var dkglow = "#3B2507" ;
+var ltglow = "#FCB83B" ;
+var hotorange = "#F0730E" ;  
+//var coolorange= "#975118";
+var coolorange= "#623815";
+var dknotify = "#B18D75";
+var ltnotify = "#F2DAC9";
+var ltgrey = "#E0E0E0";
+/********************  BEGIN SPECIAL SVG ************************************************************/
+
+/* http://keith-wood.name/svg.html
+   SVG for jQuery v1.4.2.
+   Written by Keith Wood (kbwood{at}iinet.com.au) August 2007.
+   Dual licensed under the GPL (http://dev.jquery.com/browser/trunk/jquery/GPL-LICENSE.txt) and 
+   MIT (http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt) licenses. 
+   Please attribute the author if you use it. */
+
+
+svg\:svg {
+	display: none;
+	float: left;
+}
+
+.svg_error {
+	color: red;
+	font-weight: bold;
+}
+
+
+/********************  BEGIN SUPERFISH MENU ************************************************************/
+/*** ESSENTIAL STYLES ***/
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sf-menu {
+	line-height:	1.0;
+}
+.sf-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			10em; /* left offset of submenus need to match (see below) */
+}
+.sf-menu ul li {
+	width:			250px;
+}
+.sf-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+.sf-menu li {
+	float:			left;
+	position:		relative;
+}
+.sf-menu a {
+	display:		block;
+	position:		relative;
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left:			0;
+	top:			2.5em; /* match top ul list item height */
+	z-index:		99;
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			10em; /* match ul width */
+	top:			0;
+}
+
+
+
+.sf-menu {
+	float:			left;
+	margin-bottom:	1em;
+	
+}
+.sf-menu a {					/*ZNYX all menu panels*/
+	border-left:	10px solid #B18D75;
+	border-top:		2px solid #FFFFFF;
+	border-bottom:		2px solid #FFFFFF;
+	border-right:		2px solid #FFFFFF;
+	padding: 		.75em 1em;
+	text-decoration:none;
+}
+.sf-menu a, .sf-menu a:visited  { /* visited pseudo selector so IE6 applies text colour*/
+	color:			#000000; /*ZNYX text color */
+	font-family:"Verdana", "Arial", sans-serif;  /* changed font */
+	font-size: 10px;
+}
+.sf-menu li {
+	background:		#E0E0E0; /*ZNYX first layer of menu; same as ltgrey*/
+}
+.sf-menu li li {
+	background:		#E0E0E0; /*ZNYX second layer of menu; same as ltgrey*/
+}
+.sf-menu li li li {
+	background:		#E0E0E0; /*ZNYX third layer of menu; same as ltgrey*/
+}
+.sf-menu li:hover, .sf-menu li.sfHover,
+.sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	background:		#F2DAC9; /*ZNYX focus/hover all menu panels; same as ltnotify*/
+	outline:		0; /*ZNYX dont use, makes ugly box*/
+}
+/***************************/
+/*** arrows **/
+/* removed superfish auto-arrows which didn't work well
+/* added <img> in html
+/***************************/
+/*** shadows for all but IE6 ***/
+.sf-shadow ul {
+	background:	url('../images/shadow.png') no-repeat bottom right;
+	padding: 0 8px 9px 0;
+	-moz-border-radius-bottomleft: 17px;
+	-moz-border-radius-topright: 17px;
+	-webkit-border-top-right-radius: 17px;
+	-webkit-border-bottom-left-radius: 17px;
+}
+.sf-shadow ul.sf-shadow-off {
+	background: transparent;
+}
+/********************  END SUPERFISH ************************************************************/

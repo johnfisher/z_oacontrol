@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.svg.js"></script>
+<script type="text/javascript" src="jquery.svganim.js" ></script> 
+<script type="text/javascript" src="hoverIntent.js"></script>
+<script type="text/javascript" src="zsuperfish.js"></script>
+<script type="text/javascript" src="jquery.xml2json.js"></script>
+<script type="text/javascript" src="oac.js"></script>
+<script type="text/javascript" src="oac_test.js"></script>
+
+<link rel="stylesheet" media="screen" href="oac.css" /> 
+
+<script type="text/javascript">
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg" ;
+
+
+
+// prepare the dom and then load the svg
+$(document).ready(function(){
+
+    $("ul.sf-menu").superfish();
+
+    getsvg();  
+});
+    
+// load the svg
+function getsvg(){
+      $("#svgload").svg({  
+            loadURL: 'zx2000_master_exploded.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+}
+
+function main (){
+
+alert ("start");
+	$("#mybody").oac.setupPage();
+	$("#mybody").oac.blinkLED();
+
+
+
+	$("#mybody").oac.loopGetSNMP();
+
+
+}
+function writeDebug( text){
+	document.getElementById("debugdiv").innerHTML = text ;
+}
+/////////////////////////////////////////////////
+</script>
+
+</head><body class="mybody">
+<div id="pagebkg" class="mycanvas">
+<div id="debugdiv"></div>
+<div id="logodiv"><img src="oacontrol_logoB40.png"></div>
+<!-- START invisble divs for drop-down menus until raised by mouseover -->
+<div id="menuDiv73003" class ="menuDiv">
+	<ul class="sf-menu">    
+		<li>
+			<a href="#a">ZX7300-Slot 3 <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/OASwitch/ZX7300/devices/10.2.0.249/devicedetail#deviceDetailNav:device_overview " target="_blank">ZX7300 Details</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+<br></div>
+<div id="menuDiv73004" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 4 <img src="arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Reports</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv73005" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 5 <img src="arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a href="#aa">Configure</a>
+				    </li>
+				    <li>
+					    <a href="#ab">menu items <img src="arrows-orange-right.png"/></a>
+					    <ul>
+						    <li><a href="#">menu item</a></li>
+						    <li><a href="#aba">menu itemA1.1</a></li>
+					    </ul>
+				    </li>
+				    <li> 
+					    <a href="#aa">Events</a>
+				    </li>
+				    <li> 
+					    <a href="#aa">Reports</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDivSbc3" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">SBC-Slot 3 <img src="arrows-orange-down.png"/></a>
+			</li>
+		</ul>
+<br></div>
+<div id="menuDivSbc4" class ="menuDiv">
+	<ul class="sf-menu">    
+		<li>
+			<a href="#a">SBC-Slot 4 <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/ZXSBC/devices/10.2.0.233/devicedetail#deviceDetailNav:device_overview " target="_blank">SBC Details</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+<br></div>
+<div id="menuDivSbc5" class ="menuDiv">
+	<ul class="sf-menu">  
+		<li>
+			<a href="#a">SBC-Slot 5 <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/ZXSBC/devices/10.2.0.124/devicedetail#deviceDetailNav:device_overview" target="_blank">SBC Details</a>
+				</li>
+			</ul>
+		</li>  
+	</ul>
+<br></div>
+<div id="menuDivShMc1" class ="menuDiv">
+	<ul class="sf-menu">   
+		<li>
+			<a href="#a">Shelf Manager 1 <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a href="http://10.2.6.10/" target="_blank">Internal Controls</a>
+				</li>
+				<li> 
+					<a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/ShelfMgr/devices/10.2.6.10/devicedetail#deviceDetailNav:graphs" target="_blank">Temperature and Voltage Graphs</a>
+				</li>
+			</ul> 
+		</li>
+	</ul>
+<br></div>
+<div id="menuDiv1900a" class ="menuDiv">
+	<ul class="sf-menu">   
+		<li>
+			<a href="#a">ZX1900A Switch <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a id="1900Apopup">Base and Fabric Ports Popup</a>
+				</li>				
+				<li> 
+					<a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/OASwitch/ZX1900BaseDevice/devices/10.2.0.155/devicedetail#deviceDetailNav:device_overview " target="_blank"> Base Switch Details</a>
+				</li>
+				<li> 
+					<a href="http://10.2.0.233:8080/zport/dmd/Devices/Network/OASwitch/ZX1900FabricDevice/devices/10.2.0.215/devicedetail#deviceDetailNav:device_overview " target="_blank">Fabric Switch Details</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+<br></div>
+<div id="menuDiv1900b" class ="menuDiv">
+	<ul class="sf-menu">    
+		<li>
+			<a href="#a">ZX1900B FTM <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a  href="http://10.2.0.233:8080/zport/dmd/Devices/Network/OASwitch/ZX1900FabricDevice/devices/" target="_blank" >FTM details</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+<br></div>
+<!-- END invisble divs for drop-down menus until raised by mouseover -->
+
+<br>
+<div id="svgload" class="svgbasics">
+
+
+<br>
+<table class="tb">
+<tr><th class="notify">Slot 1:</th>          <th class="notify">Slot 2:</th>          <th class="notify">Slot 3:</th>          <th class="notify">Slot 4:</th>          <th class="notify">Slot 5:</th>          <th class="notify">Details:</th></tr>
+<tr><td id="slot1notify" class="notify"></td><td id="slot2notify" class="notify"></td><td id="slot3notify" class="notify"></td><td id="slot4notify" class="notify"></td><td id="slot5notify" class="notify"></td><td id="tempnotify" class="notify" rowspan=2></td></tr>
+<tr><td id="slot7notify" class="notify" colspan=2></td><td id="slot8notify" class="notify" colspan=2></td></tr>
+</table>
+
+<!------------------------ SVG loads here --------------------->
+</div><!---svgload-->
+</div><!---pagebkg-->
+
+
+</body></html>
+
+

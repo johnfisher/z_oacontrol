@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+
+<html>
+<head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.svg.js"></script>
+<script type="text/javascript" src="js/jquery.svganim.js" ></script> 
+<script type="text/javascript" src="js/jquery.svgdom.js" ></script>
+
+
+<!-- ////////////////// jquery-svg REQUIRES SVGVIEWER IN IE8 //////////////////////////////////-->
+<style type="text/css">
+    td.svgbox {width: 100px; height: 50px;  }
+    div.svgbox {width: 100px; height: 50px;  }
+    div.svgbasics { width: 800px; height: 200px; border: 1px solid #484; }
+    div.svgstuff  { width: 800px; height: 200px; border: 1px solid #484; }
+</style>
+
+<script>
+
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg"
+
+
+var black = "rgb(0, 0, 0)";
+var blue =  "#0000ff";
+var green = "#00ff00";
+var red = "#ff0000";
+var amber =  "#FCB83B" ;
+var dkglow = "#3B2507" ;
+var ltglow = "#FCB83B" ;
+var svg;
+///////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////
+
+// prepare the dom and then load the svg
+$(document).ready(function(){
+$('#svgupper').svg({loadURL: 'red.svg', onLoad: main});
+     
+});
+
+function main(svg) {
+	  svg.load('green.svg', {addTo: true, onLoad: function() {
+	      svg.load('blue.svg', {addTo: true});
+	  }    
+      });
+
+ $('#bluegroup').animate({svgTransform: 'translate(100,100)'}, 2000);
+alert("past it");
+}
+    
+// laod the svg
+function getsvg(){
+
+      $("#svgupper").svg({  
+            loadURL: 'red.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+      svg = $("#svgupper").svg('get');
+}
+
+function loadYellow(){
+      $("#svgupper").svg({  
+            loadURL: 'yellow.svg',  
+            onLoad: loadGreen,  
+            settings: {}  
+          } );
+}
+function loadGreen(){
+      $("#svgupper").svg({  
+            loadURL: 'green.svg',  
+            onLoad: loadRed,  
+            settings: {}  
+          } );
+}
+function loadRed(){
+      $("#svgupper").svg({  
+            loadURL: 'red.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+}
+
+
+//function main(){
+//Kwood: clones green.svg   
+//     $.get('green.svg', null, function(data) {
+//         for (var i = 0; i < 4; i++) {
+//              svg.add(data.documentElement);
+//         }
+//         $('svg', svg.root()).each(function(i) {
+//              svg.change(this, {x: i * 50, y: i * 50});
+//         });
+//     }, 'xml');
+//alert("startmain");
+// depends on svg definition in getsvg()
+//     $.get('green.svg', null, function(data) {
+//     
+//              svg.add(data.documentElement);
+//       
+//         $('svg', svg.root()).each(function(i) {
+//              svg.change(this, {x: 200, y:  100});
+//         });
+//     }, 'xml');
+// 
+// alert("pause");
+// 
+//     $.get('blue.svg', null, function(data2) {
+//     
+//              svg.add(data2.documentElement);
+//       
+//         $('svg', svg.root()).each(function(i) {
+//              svg.change(this, {x: 100, y:  100});
+//         });
+//     }, 'xml');
+
+   //svg.load('green.svg', {addTo: true, onLoad: function() {  svg.load('blue.svg', {addTo: true});}
+//}
+
+//}
+
+
+function logDebug(newtext){
+    document.getElementById("debug").innerHTML += (" " + newtext) ;
+}
+
+
+
+
+</script></head><body>
+
+
+<br>
+<h3>test of arranging svgs by location</h3>
+<br>
+<div id="svgupper" class="svgstuff"></div>
+
+
+
+<div id="debug"></div>
+
+
+
+</body></html>
+
+

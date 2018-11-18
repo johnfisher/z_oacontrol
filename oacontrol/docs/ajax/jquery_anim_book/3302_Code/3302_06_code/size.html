@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Size Effect</title>
+		<link rel="stylesheet" href="css/size.css">
+	</head>
+	<body>
+    	<div id="dock">
+        	<a href="#" class="icon" id="finder"><img src="img/finder.png"></a>
+            <a href="#" class="icon" id="mail"><img src="img/mail.png"></a>
+            <a href="#" class="icon" id="safari"><img src="img/safari.png"></a>
+            <a href="#" class="icon" id="firefox"><img src="img/firefox_small.png"></a>
+            <a href="#" class="icon" id="itunes"><img src="img/itunes.png"></a>
+        </div>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$(".icon", "#dock").hover(function() {
+					$(this).stop().animate({ top: -31 }).find("img").stop().effect("size", { to: { width: 64, height: 64 }});
+				}, function() {
+					$(this).stop().animate({ top: -15 }).find("img").stop().effect("size", { to: { width: 48, height: 48 }});					
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

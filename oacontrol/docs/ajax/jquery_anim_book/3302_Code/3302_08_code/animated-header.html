@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Animated Header</title>
+		<link rel="stylesheet" href="css/animated-header.css">
+        <!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+    	<header id="anim"></header>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				var header = $("header");
+				
+				//init bg position to stop IE throwing errors
+				header.css("backgroundPosition", "0 0");
+
+				//setInterval function
+				var bgscroll = function() {
+
+					//work out new bg position
+					var current = parseInt(header.css("backgroundPosition").split(" ")[1]),
+						newBgPos = "0 " + (current - 1) + "px";
+					
+					//set new bg position
+					header.css("backgroundPosition", newBgPos);
+				};
+				
+				//run function
+				window.setInterval(function() { bgscroll() }, 75);
+				
+			})(jQuery);
+		</script>
+	</body>
+</html>

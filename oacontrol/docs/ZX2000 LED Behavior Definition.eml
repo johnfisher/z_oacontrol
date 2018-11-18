@@ -1,0 +1,2256 @@
+Return-Path: alan.deikman@znyx.com
+Received: from zimbra.znyx.com (LHLO zimbra.znyx.com) (10.1.2.11) by
+ zimbra.znyx.com with LMTP; Mon, 5 Dec 2011 16:02:30 -0800 (PST)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+	by zimbra.znyx.com (Postfix) with ESMTP id AF2C04558008;
+	Mon,  5 Dec 2011 16:02:30 -0800 (PST)
+X-Virus-Scanned: amavisd-new at zimbra.znyx.com
+X-Spam-Flag: NO
+X-Spam-Score: -4.398
+X-Spam-Level: 
+X-Spam-Status: No, score=-4.398 tagged_above=-10 required=0.6
+	tests=[ALL_TRUSTED=-1.8, AWL=-0.000, BAYES_00=-2.599,
+	HTML_MESSAGE=0.001]
+Received: from zimbra.znyx.com ([127.0.0.1])
+	by localhost (zimbra.znyx.com [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id LqwNm+OOTM4g; Mon,  5 Dec 2011 16:02:29 -0800 (PST)
+Received: from esk.znyx.com (esk.znyx.com [10.1.1.87])
+	(Authenticated sender: alan.deikman@znyx.com)
+	by zimbra.znyx.com (Postfix) with ESMTP id 2E6F24558004;
+	Mon,  5 Dec 2011 16:02:29 -0800 (PST)
+From: Alan Deikman <alan.deikman@znyx.com>
+Content-Type: multipart/alternative; boundary="Apple-Mail=_333CBD39-D24D-4779-BBDD-F2A0EF106A47"
+Subject: ZX2000 LED Behavior Definition
+Date: Mon, 5 Dec 2011 16:02:28 -0800
+Message-Id: <926AD4E0-C17F-48B0-AF97-9ABC6948207F@znyx.com>
+To: Alton Wong <Alton.wong@znyx.com>,
+ Jason Waln <jason.waln@znyx.com>,
+ Dan Weaver <dan.weaver@znyx.com>,
+ Mindy Nguyen <mindy.nguyen@znyx.com>,
+ Pete Hawkins <pete.hawkins@znyx.com>,
+ Dave Parkinson <dave.parkinson@znyx.com>,
+ Bob Miller <bob.miller@znyx.com>,
+ Bob Guilfoyle <bob.guilfoyle@znyx.com>,
+ Jeff Elpern <jeff.elpern@znyx.com>,
+ Pocheng Shyu <pocheng.shyu@znyx.com>,
+ john fisher <john.fisher@znyx.com>
+Mime-Version: 1.0 (Apple Message framework v1251.1)
+X-Mailer: Apple Mail (2.1251.1)
+
+
+--Apple-Mail=_333CBD39-D24D-4779-BBDD-F2A0EF106A47
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=windows-1252
+
+I have written the following text to be added to the ZX2000 =
+specification document.  Since the whole document source is currently =
+100MB I have just excerpted that one section below.  To simplify =
+discussion, I have written it from the point of view of the user; much =
+if not all of this text can be pasted directly into the User Guide.  The =
+ultimate logic implemented by the FPGA, IPMC firmware, and OA can be =
+worked out from this.=20
+
+This should be considered the first straw-man.  I derived some of this =
+from discussions with Jason and Pete who provided a number of =
+suggestions.   Please provide comment.
+
+
+LED/Displays
+Identification
+
+The following table identifies the LEDs that are presented on the front =
+panel of the ZX2010 FRU.  For location and arrangement, see the drawing =
+in the User Controls section.
+
+=20
+
+Name
+
+Color
+
+Glyph
+
+Location
+
+Description
+
+HotSwap
+
+Blue
+
+
+
+Front Bracket
+
+Driven as per ShMM-500
+
+OK
+
+Red/Green
+
+
+
+Front Bracket
+
+Driven by both the ShMM-500 & H8S.
+
+OOS
+
+Red/Green
+
+
+
+Front Bracket
+
+Driven by both the ShMM-500 & H8S.
+
+ACTIVE
+
+Green
+
+
+
+Front Bracket
+
+Driven by ShMM-500.=20
+
+CLOCK
+
+Green
+
+
+
+Front Bracket
+
+Driven by Znyx OA software.
+
+FAULT
+
+Red
+
+
+
+Front Bracket
+
+Driven by Znyx OA software.
+
+Sh-OOB LINK
+
+Green
+
+N/A
+
+RJ45
+
+Driven by ShMM-500 for Sh-eth0.=20
+
+Sh-OOB ACT
+
+Amber
+
+N/A
+
+RJ45
+
+Driven by ShMM-500 for Sh-eth0.=20
+
+Sw-OOB LINK
+
+Green
+
+N/A
+
+RJ45
+
+Driven by Znyx OA software for uP-eth0.=20
+
+Sw-OOB ACT
+
+Amber
+
+N/A
+
+RJ45
+
+Driven by Znyx OA software for uP-eth0.=20
+
+SFP+
+
+Port Leds
+
+Green
+
+Amber
+
+N/A
+
+Front Bracket Port 14-19 SFP+
+
+Dual LED per SFP+ Port for Link and Activity
+
+=20
+
+Green Steady =3D 1G/10G Port Link
+
+Green Blink =3D 1G/10G Port Activity
+
+=20
+
+Amber Steady =3D Link Software Configured Down
+
+Amber OFF =3D Link Software Configured Up
+
+=20
+
+LED Behavior
+
+This section documents how the LEDs that are not associated with network =
+ports behave during all defined conditions, described from the point of =
+view of the system operator.  Beyond the reset state, all LEDs are under =
+control of software running in one or more of the IPMC, ShMC, and =
+PowerPC processors.  Although the software specifications are outside =
+the scope of this document, the end result of how the LED functions are =
+defined here.
+
+=20
+
+Hardware Reset Behavior
+
+In all cases, all LEDs will be ON during while hardware reset is =
+asserted.  Although the standard ZX2010 does not include a user =
+accessible reset control, if it is implemented a lamp test is =
+implemented by holding down the reset button.  A lamp test that does not =
+reset the board is not implemented.   During power-up, (when the FRU is =
+inserted) the reset controller will hold the reset nets until it =
+determines power is stable.  During this time all LEDs will be ON.
+
+=20
+
+In all cases, once the reset signal is de-asserted, all LEDs will =
+default to the OFF state.  They will remain off until some software =
+component boots and turns them on.  In some cases this will be a very =
+brief interval, but the failure of the associated LEDs to come on can be =
+taken as an indication that the associated software component has failed =
+to run.
+
+=20
+
+In the LED behavior summary sections that follow, the reset behavior is =
+assumed.
+
+HotSwap LED
+
+The behavior of the HotSwap LED will be consistent with the ATCA =
+specification.  The LED and its corresponding HotSwap switch is =
+connected to and driven by the ShMM-500 device, which will operate it as =
+if it were hosted on a conventional CMM carrier.  The behavior summary =
+is as follows:
+
+=20
+
+LED Condition
+
+Meaning
+
+Off
+
+This indicates one of the following conditions:
+
+1.     The ZX2010 does not have power.
+
+2.     The ZX2010 ShMC firmware has failed to boot.
+
+3.     The ZX2010 is in normal operation.  This condition will be =
+corroborated by other LEDs.
+
+Blinking
+
+The ZX2010 is in transitional state.
+
+On
+
+The ZX2010 may be extracted.
+
+=20
+
+OK LED
+
+The OK LED may also be identified as the =93Healthy=94 LED.  It is =
+driven by a combination of the ShMM-500 and the ZX2010=92s IPMC (H8S).  =
+It has both a red and green component, allowing four static states. The =
+software will implement the following behavior:
+
+=20
+
+LED Condition
+
+Meaning
+
+Off
+
+This indicates one of the following conditions:
+
+1.     The ZX2010 does not have power.
+
+2.     Both the IPMC and ShMM-500 firmware has failed to boot.
+
+Red On
+
+Either the ShMM-500 or the IPMC has discovered a sensor past critical.
+
+Green On
+
+Neither the ShMM-500 nor the IPMC has registered a sensor past critical.
+
+Red + Green On
+
+Not defined.
+
+Blinking Red/Green
+
+Either the ShMM-500 or the IPMC discovered a sensor past critical limits =
+within the past 600 seconds (ten minutes), although no sensor is past =
+critical limits at this time.
+
+Note: in computing the status of this LED, the ShMM-500 will only =
+include sensors that are within the ZX2010 FRU.
+
+OOS LED
+
+The Out-Of-Service (OOS) LED is conventionally active when the FRU is =
+not in service for one reason or another.   It is driven by both the =
+ShMM-500 and the IPMC.  It has both a red and green component, allowing =
+four static states.   The software will implement the following =
+behavior:
+
+=20
+
+LED Condition
+
+Meaning
+
+Off
+
+This indicates one of the following conditions:
+
+1.     The ZX2010 does not have power.
+
+2.     Both the IPMC and ShMM-500 firmware has failed to boot.
+
+Red On
+
+The payload power has been off.
+
+Green On
+
+Not defined.
+
+Red + Green On
+
+Not defined.
+
+Blinking
+
+Not defined.
+
+=20
+
+Active
+
+This LED is provided to indicate the Active/Standby state of the ZX2010 =
+FRU.  Both the ShMM-500 and OpenArchitect both have their own =
+Active/Standby state.  In a coherent ZX2000 system, only one ShMM-500 is =
+considered active at one time, although one or both OpenArchitect =
+instances can be active at one time depending on the configuration =
+selected by the user.
+
+=20
+
+This LED has one color, and is driven by logic combined from the =
+ShMM-500 and OpenArchitect.
+
+=20
+
+LED Condition
+
+Meaning
+
+Off
+
+This indicates one of the following conditions:
+
+1.     The ZX2010 does not have power.
+
+2.     Both the ShMM-500 and the OpenArchitect processor have failed to =
+boot.
+
+3.     Neither the ShMM-500 nor the OpenArchitect instance is in the =
+Active state.
+
+On
+
+Both the ShMM-500 and the OpenArchitect instance are in the Active =
+state.
+
+Blinking (2Hz)
+
+One of the ShMM-500 or OpenArchitect entities is in the active state, =
+but not both.
+
+In the case where this LED is blinking, the status of the overall ZX2000 =
+system can be determined by examining the partner ZX2010=92s LEDs.
+
+Clock
+
+After the reset this LED is blinked by a software routine within =
+OpenArchitect at roughly 1Hz to indicate that the software (and =
+processor it is running in) is operating normally.  This function is =
+identical to all prior implementations of OpenArchitect.
+
+Fault
+
+After the reset the Fault LED is driven by software within =
+OpenArchitect.  The software can have any number of user-settable fault =
+conditions that can be reported.   For example prior implementations =
+have defined the =93EXT FAULT=94 LED to indicate the condition where =
+some configured link does not have link-up status.
+
+=20
+
+LED Condition
+
+Meaning
+
+Off
+
+This indicates one of the following conditions:
+
+1.     The ZX2010 does not have power.
+
+2.     Operation is Normal.  This condition requires corroboration with =
+other LEDs.
+
+On
+
+OpenArchitect has determined that one of the fault conditions are true.
+
+Blinking (8Hz)
+
+The OpenArchitect is in the Active state, but cannot determine if the =
+partner ZX2010 can assume control (i.e. is in Standby or Active state).
+
+=20
+
+
+
+----------------------------
+Alan Deikman
+ZNYX Networks, Inc.
+
+
+
+
+--Apple-Mail=_333CBD39-D24D-4779-BBDD-F2A0EF106A47
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=windows-1252
+
+<html><head></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; -webkit-line-break: after-white-space; =
+"><div>I have written the following text to be added to the ZX2000 =
+specification document. &nbsp;Since the whole document source is =
+currently 100MB I have just excerpted that one section below. &nbsp;To =
+simplify discussion, I have written it from the point of view of the =
+user; much if not all of this text can be pasted directly into the User =
+Guide. &nbsp;The ultimate logic implemented by the FPGA, IPMC firmware, =
+and OA can be worked out from this.&nbsp;</div><div><br></div><div>This =
+should be considered the first straw-man. &nbsp;I derived some of this =
+from discussions with Jason and Pete who provided a number of =
+suggestions. &nbsp; Please provide =
+comment.</div><div><br></div><div><br></div><div>
+
+
+
+
+
+
+
+
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Normal</w:View>
+  <w:Zoom>0</w:Zoom>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val=3D"Cambria Math"/>
+   <m:brkBin m:val=3D"before"/>
+   <m:brkBinSub m:val=3D"&#45;-"/>
+   <m:smallFrac m:val=3D"off"/>
+   <m:dispDef/>
+   <m:lMargin m:val=3D"0"/>
+   <m:rMargin m:val=3D"0"/>
+   <m:defJc m:val=3D"centerGroup"/>
+   <m:wrapIndent m:val=3D"1440"/>
+   <m:intLim m:val=3D"subSup"/>
+   <m:naryLim m:val=3D"undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState=3D"false" DefUnhideWhenUsed=3D"true"
+  DefSemiHidden=3D"true" DefQFormat=3D"false" DefPriority=3D"99"
+  LatentStyleCount=3D"276">
+  <w:LsdException Locked=3D"false" Priority=3D"0" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Normal"/>
+  <w:LsdException Locked=3D"false" Priority=3D"0" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"heading 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"0" QFormat=3D"true" =
+Name=3D"heading 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"0" QFormat=3D"true" =
+Name=3D"heading 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"9" QFormat=3D"true" =
+Name=3D"heading 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"9" QFormat=3D"true" =
+Name=3D"heading 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"9" QFormat=3D"true" =
+Name=3D"heading 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"9" QFormat=3D"true" =
+Name=3D"heading 7"/>
+  <w:LsdException Locked=3D"false" Priority=3D"9" QFormat=3D"true" =
+Name=3D"heading 8"/>
+  <w:LsdException Locked=3D"false" Priority=3D"9" QFormat=3D"true" =
+Name=3D"heading 9"/>
+  <w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"toc 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"toc 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"toc 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"toc 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"toc 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"toc 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"toc 7"/>
+  <w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"toc 8"/>
+  <w:LsdException Locked=3D"false" Priority=3D"39" Name=3D"toc 9"/>
+  <w:LsdException Locked=3D"false" Priority=3D"35" QFormat=3D"true" =
+Name=3D"caption"/>
+  <w:LsdException Locked=3D"false" Priority=3D"10" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Title"/>
+  <w:LsdException Locked=3D"false" Priority=3D"1" Name=3D"Default =
+Paragraph Font"/>
+  <w:LsdException Locked=3D"false" Priority=3D"11" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Subtitle"/>
+  <w:LsdException Locked=3D"false" Priority=3D"22" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Strong"/>
+  <w:LsdException Locked=3D"false" Priority=3D"20" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Emphasis"/>
+  <w:LsdException Locked=3D"false" Priority=3D"0" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Table Grid"/>
+  <w:LsdException Locked=3D"false" UnhideWhenUsed=3D"false" =
+Name=3D"Placeholder Text"/>
+  <w:LsdException Locked=3D"false" Priority=3D"1" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"No Spacing"/>
+  <w:LsdException Locked=3D"false" Priority=3D"60" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Shading"/>
+  <w:LsdException Locked=3D"false" Priority=3D"61" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light List"/>
+  <w:LsdException Locked=3D"false" Priority=3D"62" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Grid"/>
+  <w:LsdException Locked=3D"false" Priority=3D"63" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"64" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"65" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"66" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"67" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"68" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"69" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"70" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Dark List"/>
+  <w:LsdException Locked=3D"false" Priority=3D"71" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Shading"/>
+  <w:LsdException Locked=3D"false" Priority=3D"72" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful List"/>
+  <w:LsdException Locked=3D"false" Priority=3D"73" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Grid"/>
+  <w:LsdException Locked=3D"false" Priority=3D"60" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Shading Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"61" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light List Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"62" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Grid Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"63" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"64" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"65" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 1 Accent 1"/>
+  <w:LsdException Locked=3D"false" UnhideWhenUsed=3D"false" =
+Name=3D"Revision"/>
+  <w:LsdException Locked=3D"false" Priority=3D"34" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"List Paragraph"/>
+  <w:LsdException Locked=3D"false" Priority=3D"29" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Quote"/>
+  <w:LsdException Locked=3D"false" Priority=3D"30" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Intense Quote"/>
+  <w:LsdException Locked=3D"false" Priority=3D"66" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 2 Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"67" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"68" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"69" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"70" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Dark List Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"71" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Shading Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"72" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful List Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"73" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Grid Accent 1"/>
+  <w:LsdException Locked=3D"false" Priority=3D"60" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Shading Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"61" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light List Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"62" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Grid Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"63" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"64" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"65" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 1 Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"66" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 2 Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"67" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"68" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"69" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"70" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Dark List Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"71" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Shading Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"72" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful List Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"73" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Grid Accent 2"/>
+  <w:LsdException Locked=3D"false" Priority=3D"60" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Shading Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"61" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light List Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"62" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Grid Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"63" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"64" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"65" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 1 Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"66" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 2 Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"67" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"68" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"69" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"70" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Dark List Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"71" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Shading Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"72" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful List Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"73" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Grid Accent 3"/>
+  <w:LsdException Locked=3D"false" Priority=3D"60" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Shading Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"61" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light List Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"62" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Grid Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"63" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"64" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"65" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 1 Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"66" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 2 Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"67" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"68" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"69" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"70" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Dark List Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"71" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Shading Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"72" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful List Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"73" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Grid Accent 4"/>
+  <w:LsdException Locked=3D"false" Priority=3D"60" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Shading Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"61" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light List Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"62" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Grid Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"63" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"64" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"65" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 1 Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"66" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 2 Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"67" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"68" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"69" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"70" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Dark List Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"71" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Shading Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"72" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful List Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"73" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Grid Accent 5"/>
+  <w:LsdException Locked=3D"false" Priority=3D"60" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Shading Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"61" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light List Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"62" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Light Grid Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"63" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"64" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"65" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 1 Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"66" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium List 2 Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"67" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"68" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"69" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"70" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Dark List Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"71" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Shading Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"72" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful List Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"73" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" Name=3D"Colorful Grid Accent 6"/>
+  <w:LsdException Locked=3D"false" Priority=3D"19" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Subtle Emphasis"/>
+  <w:LsdException Locked=3D"false" Priority=3D"21" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Intense Emphasis"/>
+  <w:LsdException Locked=3D"false" Priority=3D"31" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Subtle Reference"/>
+  <w:LsdException Locked=3D"false" Priority=3D"32" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Intense =
+Reference"/>
+  <w:LsdException Locked=3D"false" Priority=3D"33" SemiHidden=3D"false"
+   UnhideWhenUsed=3D"false" QFormat=3D"true" Name=3D"Book Title"/>
+  <w:LsdException Locked=3D"false" Priority=3D"37" Name=3D"Bibliography"/>=
+
+  <w:LsdException Locked=3D"false" Priority=3D"39" QFormat=3D"true" =
+Name=3D"TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;}
+table.MsoTableGrid
+	{mso-style-name:"Table Grid";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-unhide:no;
+	border:solid windowtext 1.0pt;
+	mso-border-alt:solid windowtext .5pt;
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-border-insideh:.5pt solid windowtext;
+	mso-border-insidev:.5pt solid windowtext;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+</style>
+<![endif]-->
+
+
+
+<!--StartFragment-->
+
+<div style=3D"mso-element:para-border-div;border:none;border-top:solid =
+windowtext 1.5pt;
+padding:1.0pt 0in 0in 0in;margin-left:-9.0pt;margin-right:-.3in">
+
+<h1 =
+style=3D"margin-top:12.0pt;margin-right:0in;margin-bottom:3.0pt;margin-lef=
+t:
+0in"><a name=3D"_Toc289989118"><span =
+style=3D"font-size:14.0pt">LED/Displays</span></a><span =
+style=3D"font-size:14.0pt"><o:p></o:p></span></h1>
+
+</div>
+
+<h2>Identification<o:p></o:p></h2><p class=3D"MsoNormal">The following =
+table identifies the LEDs that are presented
+on the front panel of the ZX2010 FRU.<span =
+style=3D"mso-spacerun:yes">&nbsp;
+</span>For location and arrangement, see the drawing in the User =
+Controls
+section.<o:p></o:p></p><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<table class=3D"MsoNormalTable" border=3D"1" cellspacing=3D"0" =
+cellpadding=3D"0" =
+style=3D"margin-left:23.4pt;border-collapse:collapse;mso-table-layout-alt:=
+fixed;
+ border:none;mso-border-alt:solid windowtext 1.0pt;mso-padding-alt:0in =
+5.4pt 0in 5.4pt;
+ mso-border-insideh:1.0pt solid windowtext;mso-border-insidev:1.0pt =
+solid windowtext">
+ <thead>
+  <tr style=3D"mso-yfti-irow:0;mso-yfti-firstrow:yes">
+   <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;background:
+   #E6E6E6;padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableHeader" =
+style=3D"margin-right:-3.95pt">Name<o:p></o:p></p>
+   </td>
+   <td width=3D"66" style=3D"width:66.05pt;border:solid windowtext =
+1.0pt;border-left:
+   none;mso-border-left-alt:solid windowtext 1.0pt;background:#E6E6E6;
+   padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader">Color<o:p></o:p></p>
+   </td>
+   <td width=3D"50" valign=3D"top" style=3D"width:49.5pt;border:solid =
+windowtext 1.0pt;
+   border-left:none;mso-border-left-alt:solid windowtext =
+1.0pt;background:#E6E6E6;
+   padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader">Glyph<o:p></o:p></p>
+   </td>
+   <td width=3D"81" style=3D"width:81.0pt;border:solid windowtext =
+1.0pt;border-left:
+   none;mso-border-left-alt:solid windowtext 1.0pt;background:#E6E6E6;
+   padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader">Location<o:p></o:p></p>
+   </td>
+   <td width=3D"216" style=3D"width:3.0in;border:solid windowtext =
+1.0pt;border-left:
+   none;mso-border-left-alt:solid windowtext 1.0pt;background:#E6E6E6;
+   padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader">Description<o:p></o:p></p>
+   </td>
+  </tr>
+ </thead>
+ <tbody><tr style=3D"mso-yfti-irow:1">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" =
+style=3D"margin-right:-3.95pt">HotSwap<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Blue<o:p></o:p></p>
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><!--[if gte vml 1]><v:shapetype
+   id=3D"_x0000_t75" coordsize=3D"21600,21600" o:spt=3D"75" =
+o:preferrelative=3D"t"
+   path=3D"m@4@5l@4@11@9@11@9@5xe" filled=3D"f" stroked=3D"f">
+   <v:stroke joinstyle=3D"miter"/>
+   <v:formulas>
+    <v:f eqn=3D"if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn=3D"sum @0 1 0"/>
+    <v:f eqn=3D"sum 0 0 @1"/>
+    <v:f eqn=3D"prod @2 1 2"/>
+    <v:f eqn=3D"prod @3 21600 pixelWidth"/>
+    <v:f eqn=3D"prod @3 21600 pixelHeight"/>
+    <v:f eqn=3D"sum @0 0 1"/>
+    <v:f eqn=3D"prod @6 1 2"/>
+    <v:f eqn=3D"prod @7 21600 pixelWidth"/>
+    <v:f eqn=3D"sum @8 21600 0"/>
+    <v:f eqn=3D"prod @7 21600 pixelHeight"/>
+    <v:f eqn=3D"sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok=3D"f" gradientshapeok=3D"t" =
+o:connecttype=3D"rect"/>
+   <o:lock v:ext=3D"edit" aspectratio=3D"t"/>
+  </v:shapetype><v:shape id=3D"_x0000_i1025" type=3D"#_x0000_t75" =
+style=3D'width:14pt;
+   height:14pt' o:ole=3D"">
+   <v:imagedata =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image001.emz"
+    o:title=3D""/>
+  </v:shape><![endif]--><!--[if !vml]--><img width=3D"16" height=3D"16" =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image002.png" v:shapes=3D"_x0000_i1025"><!--[endif]--><!--[if =
+gte mso 9]><xml>
+   <o:OLEObject Type=3D"Embed" ProgID=3D"CorelDRAW.Graphic.10"
+    ShapeID=3D"_x0000_i1025" DrawAspect=3D"Content" =
+ObjectID=3D"_1258461940">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Front =
+Bracket<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven as per =
+ShMM-500<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:2">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" =
+style=3D"margin-right:-3.95pt">OK<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData">Red/Green<o:p></o:p></p>
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><!--[if gte vml 1]><v:shape
+   id=3D"_x0000_i1026" type=3D"#_x0000_t75" =
+style=3D'width:12pt;height:11pt' o:ole=3D"">
+   <v:imagedata =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image003.emz"
+    o:title=3D""/>
+  </v:shape><![endif]--><!--[if !vml]--><img width=3D"14" height=3D"13" =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image004.png" v:shapes=3D"_x0000_i1026"><!--[endif]--><!--[if =
+gte mso 9]><xml>
+   <o:OLEObject Type=3D"Embed" ProgID=3D"CorelDRAW.Graphic.10"
+    ShapeID=3D"_x0000_i1026" DrawAspect=3D"Content" =
+ObjectID=3D"_1258461942">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Front =
+Bracket<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven by both the =
+ShMM-500 &amp; H8S.<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:3">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" =
+style=3D"margin-right:-3.95pt">OOS<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData">Red/Green<o:p></o:p></p>
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><!--[if gte vml 1]><v:shape
+   id=3D"_x0000_i1027" type=3D"#_x0000_t75" =
+style=3D'width:11pt;height:12pt'>
+   <v:imagedata =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image005.emz"
+    o:title=3D""/>
+  </v:shape><![endif]--><!--[if !vml]--><img width=3D"13" height=3D"14" =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image006.png" =
+v:shapes=3D"_x0000_i1027"><!--[endif]--><o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Front =
+Bracket<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven by both the =
+ShMM-500 &amp; H8S.<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:4">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" =
+style=3D"margin-right:-3.95pt">ACTIVE<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Green<o:p></o:p></p>=
+
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><!--[if gte vml 1]><v:shape
+   id=3D"_x0000_i1028" type=3D"#_x0000_t75" =
+style=3D'width:14pt;height:15pt' o:ole=3D"">
+   <v:imagedata =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image007.emz"
+    o:title=3D""/>
+  </v:shape><![endif]--><!--[if !vml]--><img width=3D"16" height=3D"17" =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image008.png" v:shapes=3D"_x0000_i1028"><!--[endif]--><!--[if =
+gte mso 9]><xml>
+   <o:OLEObject Type=3D"Embed" ProgID=3D"CorelDRAW.Graphic.10"
+    ShapeID=3D"_x0000_i1028" DrawAspect=3D"Content" =
+ObjectID=3D"_1258461943">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Front =
+Bracket<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven by ShMM-500.<span =
+style=3D"mso-spacerun:yes">&nbsp;
+  </span><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:5">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" =
+style=3D"margin-right:-3.95pt">CLOCK<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Green<o:p></o:p></p>=
+
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><!--[if gte vml 1]><v:shape
+   id=3D"_x0000_i1029" type=3D"#_x0000_t75" =
+style=3D'width:16pt;height:15pt' o:ole=3D"">
+   <v:imagedata =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image009.emz"
+    o:title=3D""/>
+  </v:shape><![endif]--><!--[if !vml]--><img width=3D"18" height=3D"17" =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image010.png" v:shapes=3D"_x0000_i1029"><!--[endif]--><!--[if =
+gte mso 9]><xml>
+   <o:OLEObject Type=3D"Embed" ProgID=3D"CorelDRAW.Graphic.10"
+    ShapeID=3D"_x0000_i1029" DrawAspect=3D"Content" =
+ObjectID=3D"_1258461944">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Front =
+Bracket<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven by Znyx OA =
+software.<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:6">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" =
+style=3D"margin-right:-3.95pt">FAULT<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Red<o:p></o:p></p>
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><!--[if gte vml 1]><v:shape
+   id=3D"_x0000_i1030" type=3D"#_x0000_t75" =
+style=3D'width:15pt;height:14pt' o:ole=3D"">
+   <v:imagedata =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image011.emz"
+    o:title=3D""/>
+  </v:shape><![endif]--><!--[if !vml]--><img width=3D"17" height=3D"16" =
+src=3D"file://localhost/Users/alandeikman/Library/Caches/TemporaryItems/ms=
+oclip/0clip_image012.png" v:shapes=3D"_x0000_i1030"><!--[endif]--><!--[if =
+gte mso 9]><xml>
+   <o:OLEObject Type=3D"Embed" ProgID=3D"CorelDRAW.Graphic.10"
+    ShapeID=3D"_x0000_i1030" DrawAspect=3D"Content" =
+ObjectID=3D"_1258461945">
+   </o:OLEObject>
+  </xml><![endif]--><o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Front =
+Bracket<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven by Znyx OA =
+software.<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:7">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" style=3D"margin-right:-3.95pt">Sh-OOB =
+LINK<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Green<o:p></o:p></p>=
+
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">N/A<o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">RJ45<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven by ShMM-500 for =
+Sh-eth0.<span style=3D"mso-spacerun:yes">&nbsp; </span><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:8">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" style=3D"margin-right:-3.95pt">Sh-OOB =
+ACT<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Amber<o:p></o:p></p>=
+
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">N/A<o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">RJ45<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven by ShMM-500 for =
+Sh-eth0.<span style=3D"mso-spacerun:yes">&nbsp; </span><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:9">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" style=3D"margin-right:-3.95pt">Sw-OOB =
+LINK<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Green<o:p></o:p></p>=
+
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">N/A<o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">RJ45<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven by Znyx OA software =
+for uP-eth0.<span style=3D"mso-spacerun:yes">&nbsp; =
+</span><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:10">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" style=3D"margin-right:-3.95pt">Sw-OOB =
+ACT<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Amber<o:p></o:p></p>=
+
+  </td>
+  <td width=3D"50" valign=3D"top" =
+style=3D"width:49.5pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">N/A<o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">RJ45<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Driven by Znyx OA software =
+for uP-eth0.<span style=3D"mso-spacerun:yes">&nbsp; =
+</span><o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:11;mso-yfti-lastrow:yes">
+  <td width=3D"73" style=3D"width:73.45pt;border:solid windowtext =
+1.0pt;border-top:
+  none;mso-border-top-alt:solid windowtext 1.0pt;padding:0in 5.4pt 0in =
+5.4pt"><p class=3D"TableData" style=3D"margin-right:-3.95pt">SFP+ =
+<o:p></o:p></p><p class=3D"TableData" style=3D"margin-right:-3.95pt">Port =
+Leds<o:p></o:p></p>
+  </td>
+  <td width=3D"66" =
+style=3D"width:66.05pt;border-top:none;border-left:none;
+  border-bottom:solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;
+  mso-border-top-alt:solid windowtext 1.0pt;mso-border-left-alt:solid =
+windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData">Green<o:p></o:p></p><p =
+class=3D"TableData">Amber<o:p></o:p></p>
+  </td>
+  <td width=3D"50" =
+style=3D"width:49.5pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">N/A<o:p></o:p></p>
+  </td>
+  <td width=3D"81" =
+style=3D"width:81.0pt;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Front Bracket Port 14-19 =
+SFP+<o:p></o:p></p>
+  </td>
+  <td width=3D"216" =
+style=3D"width:3.0in;border-top:none;border-left:none;border-bottom:
+  solid windowtext 1.0pt;border-right:solid windowtext =
+1.0pt;mso-border-top-alt:
+  solid windowtext 1.0pt;mso-border-left-alt:solid windowtext =
+1.0pt;padding:
+  0in 5.4pt 0in 5.4pt"><p class=3D"TableData">Dual LED per SFP+ Port for =
+Link and Activity<o:p></o:p></p><p =
+class=3D"TableData"><o:p>&nbsp;</o:p></p><p class=3D"TableData">Green =
+Steady =3D 1G/10G Port Link<o:p></o:p></p><p class=3D"TableData">Green =
+Blink =3D 1G/10G Port Activity<o:p></o:p></p><p =
+class=3D"TableData"><o:p>&nbsp;</o:p></p><p class=3D"TableData">Amber =
+Steady =3D Link Software Configured Down<o:p></o:p></p><p =
+class=3D"TableData">Amber OFF =3D Link Software Configured =
+Up<o:p></o:p></p>
+  </td>
+ </tr>
+</tbody></table><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<h2>LED Behavior<o:p></o:p></h2><p class=3D"MsoNormal">This section =
+documents how the LEDs that are not associated
+with network ports behave during all defined conditions, described from =
+the
+point of view of the system operator.<span =
+style=3D"mso-spacerun:yes">&nbsp;
+</span>Beyond the reset state, all LEDs are under control of software =
+running
+in one or more of the IPMC, ShMC, and PowerPC processors.<span =
+style=3D"mso-spacerun:yes">&nbsp; </span>Although the software =
+specifications are
+outside the scope of this document, the end result of how the LED =
+functions are
+defined here.<o:p></o:p></p><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<h3>Hardware Reset Behavior<o:p></o:p></h3><p class=3D"MsoNormal">In all =
+cases, all LEDs will be ON during while hardware
+reset is asserted.<span style=3D"mso-spacerun:yes">&nbsp; =
+</span>Although the standard
+ZX2010 does not include a user accessible reset control, if it is =
+implemented a
+lamp test is implemented by holding down the reset button.<span =
+style=3D"mso-spacerun:yes">&nbsp; </span>A lamp test that does not reset =
+the board is
+not implemented.<span style=3D"mso-spacerun:yes">&nbsp;&nbsp; =
+</span>During power-up, (when
+the FRU is inserted) the reset controller will hold the reset nets until =
+it
+determines power is stable.<span style=3D"mso-spacerun:yes">&nbsp; =
+</span>During this
+time all LEDs will be ON.<o:p></o:p></p><p =
+class=3D"MsoNormal"><o:p>&nbsp;</o:p></p><p class=3D"MsoNormal">In all =
+cases, once the reset signal is de-asserted, all LEDs
+will default to the OFF state.<span style=3D"mso-spacerun:yes">&nbsp; =
+</span>They will
+remain off until some software component boots and turns them on.<span =
+style=3D"mso-spacerun:yes">&nbsp; </span>In some cases this will be a =
+very brief
+interval, but the failure of the associated LEDs to come on can be taken =
+as an
+indication that the associated software component has failed to =
+run.<o:p></o:p></p><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p><p =
+class=3D"MsoNormal">In the LED behavior summary sections that follow, =
+the reset
+behavior is assumed.<o:p></o:p></p>
+
+<h3>HotSwap LED<o:p></o:p></h3><p class=3D"MsoNormal">The behavior of =
+the HotSwap LED will be consistent with the ATCA
+specification.<span style=3D"mso-spacerun:yes">&nbsp; </span>The LED and =
+its
+corresponding HotSwap switch is connected to and driven by the ShMM-500 =
+device,
+which will operate it as if it were hosted on a conventional CMM =
+carrier.<span style=3D"mso-spacerun:yes">&nbsp; </span>The behavior =
+summary is as follows:<o:p></o:p></p><p =
+class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<table class=3D"MsoTableGrid" border=3D"1" cellspacing=3D"0" =
+cellpadding=3D"0" =
+style=3D"margin-left:36.9pt;border-collapse:collapse;border:none;mso-borde=
+r-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt =
+0in 5.4pt">
+ <tbody><tr style=3D"mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader"><span style=3D"mso-bidi-font-size:10.0pt">LED =
+Condition<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" style=3D"width:297.0pt;border:solid =
+windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext =
+.5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader"><span =
+style=3D"mso-bidi-font-size:10.0pt">Meaning<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:1">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">Off<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">This =
+indicates one
+  of the following conditions:<o:p></o:p></span></p><p class=3D"TableData"=
+ style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 =
+lfo1"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">1.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">The ZX2010 does not have =
+power.<o:p></o:p></span></p><p class=3D"TableData" =
+style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 =
+lfo1"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">2.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">The ZX2010 ShMC firmware has failed =
+to
+  boot.<o:p></o:p></span></p><p class=3D"TableData" =
+style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l2 level1 =
+lfo1"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">3.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">The ZX2010 is in normal =
+operation.<span style=3D"mso-spacerun:yes">&nbsp; </span>This condition =
+will be corroborated by
+  other LEDs.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:2">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">Blinking<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">The ZX2010 =
+is in
+  transitional state.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:3;mso-yfti-lastrow:yes">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">On<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">The ZX2010 =
+may be
+  extracted.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<h3>OK LED<o:p></o:p></h3><p class=3D"MsoNormal">The OK LED may also be =
+identified as the =93Healthy=94 LED.<span =
+style=3D"mso-spacerun:yes">&nbsp; </span>It is driven by a combination =
+of the ShMM-500
+and the ZX2010=92s IPMC (H8S).<span style=3D"mso-spacerun:yes">&nbsp; =
+</span>It has both
+a red and green component, allowing four static states. The software =
+will
+implement the following behavior:<o:p></o:p></p><p =
+class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<table class=3D"MsoTableGrid" border=3D"1" cellspacing=3D"0" =
+cellpadding=3D"0" =
+style=3D"margin-left:36.9pt;border-collapse:collapse;border:none;mso-borde=
+r-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt =
+0in 5.4pt">
+ <tbody><tr style=3D"mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader"><span style=3D"mso-bidi-font-size:10.0pt">LED =
+Condition<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" style=3D"width:297.0pt;border:solid =
+windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext =
+.5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader"><span =
+style=3D"mso-bidi-font-size:10.0pt">Meaning<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:1">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">Off<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">This =
+indicates one
+  of the following conditions:<o:p></o:p></span></p><p class=3D"TableData"=
+ style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 =
+lfo2"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">1.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">The ZX2010 does not have =
+power.<o:p></o:p></span></p><p class=3D"TableData" =
+style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 =
+lfo2"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">2.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">Both the IPMC and ShMM-500 firmware =
+has
+  failed to boot.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:2">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span style=3D"mso-bidi-font-size:10.0pt">Red =
+On<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">Either the
+  ShMM-500 or the IPMC has discovered a sensor past =
+critical.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:3">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">Green On<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">Neither =
+the
+  ShMM-500 nor the IPMC has registered a sensor past =
+critical.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:4">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span style=3D"mso-bidi-font-size:10.0pt">Red =
++ Green On<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">Not =
+defined.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:5;mso-yfti-lastrow:yes">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">Blinking =
+Red/Green<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">Either the
+  ShMM-500 or the IPMC discovered a sensor past critical limits within =
+the past
+  600 seconds (ten minutes), although no sensor is past critical limits =
+at this
+  time.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table><p class=3D"MsoNormal">Note: in computing the status of =
+this LED, the ShMM-500 will
+only include sensors that are within the ZX2010 FRU.<o:p></o:p></p>
+
+<h3>OOS LED<o:p></o:p></h3><p class=3D"MsoNormal">The Out-Of-Service =
+(OOS) LED is conventionally active when
+the FRU is not in service for one reason or another.<span =
+style=3D"mso-spacerun:yes">&nbsp;&nbsp; </span>It is driven by both the =
+ShMM-500 and the
+IPMC.<span style=3D"mso-spacerun:yes">&nbsp; </span>It has both a red =
+and green
+component, allowing four static states.<span =
+style=3D"mso-spacerun:yes">&nbsp;&nbsp;
+</span>The software will implement the following =
+behavior:<o:p></o:p></p><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<table class=3D"MsoNormalTable" border=3D"1" cellspacing=3D"0" =
+cellpadding=3D"0" =
+style=3D"margin-left:36.9pt;border-collapse:collapse;border:none;mso-borde=
+r-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt =
+0in 5.4pt;
+ mso-border-insideh:.5pt solid windowtext;mso-border-insidev:.5pt solid =
+windowtext">
+ <tbody><tr style=3D"mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader">LED Condition<o:p></o:p></p>
+  </td>
+  <td width=3D"297" valign=3D"top" style=3D"width:297.0pt;border:solid =
+windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext =
+.5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader">Meaning<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:1">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">Off<o:p></o:p></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData">This indicates one of the following =
+conditions:<o:p></o:p></p><p class=3D"TableData" =
+style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 =
+lfo3"><!--[if !supportLists]--><span style=3D"mso-list:Ignore">1.<span =
+style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><!--[endif]-->The ZX2010 does not have =
+power.<o:p></o:p></p><p class=3D"TableData" =
+style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l0 level1 =
+lfo3"><!--[if !supportLists]--><span style=3D"mso-list:Ignore">2.<span =
+style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></span><!--[endif]-->Both the IPMC and ShMM-500 firmware has =
+failed to
+  boot.<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:2">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">Red On<o:p></o:p></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData">The payload power has been off.<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:3">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">Green On<o:p></o:p></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData">Not defined.<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:4">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">Red + Green On<o:p></o:p></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData">Not defined.<o:p></o:p></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:5;mso-yfti-lastrow:yes">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center">Blinking<o:p></o:p></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData">Not defined.<o:p></o:p></p>
+  </td>
+ </tr>
+</tbody></table><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<h3>Active <o:p></o:p></h3><p class=3D"MsoNormal">This LED is provided =
+to indicate the Active/Standby state of
+the ZX2010 FRU.<span style=3D"mso-spacerun:yes">&nbsp; </span>Both the =
+ShMM-500 and
+OpenArchitect both have their own Active/Standby state.<span =
+style=3D"mso-spacerun:yes">&nbsp; </span>In a coherent ZX2000 system, =
+only one
+ShMM-500 is considered active at one time, although one or both =
+OpenArchitect
+instances can be active at one time depending on the configuration =
+selected by
+the user. <o:p></o:p></p><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p><p =
+class=3D"MsoNormal">This LED has one color, and is driven by logic =
+combined from
+the ShMM-500 and OpenArchitect.<o:p></o:p></p><p =
+class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<table class=3D"MsoTableGrid" border=3D"1" cellspacing=3D"0" =
+cellpadding=3D"0" =
+style=3D"margin-left:36.9pt;border-collapse:collapse;border:none;mso-borde=
+r-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt =
+0in 5.4pt">
+ <tbody><tr style=3D"mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader"><span style=3D"mso-bidi-font-size:10.0pt">LED =
+Condition<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" style=3D"width:297.0pt;border:solid =
+windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext =
+.5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader"><span =
+style=3D"mso-bidi-font-size:10.0pt">Meaning<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:1">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">Off<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">This =
+indicates one
+  of the following conditions:<o:p></o:p></span></p><p class=3D"TableData"=
+ style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 =
+lfo4"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">1.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">The ZX2010 does not have =
+power.<o:p></o:p></span></p><p class=3D"TableData" =
+style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 =
+lfo4"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">2.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">Both the ShMM-500 and the =
+OpenArchitect
+  processor have failed to boot.<o:p></o:p></span></p><p =
+class=3D"TableData" =
+style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l1 level1 =
+lfo4"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">3.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">Neither the ShMM-500 nor the =
+OpenArchitect
+  instance is in the Active state.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:2">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">On<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">Both the =
+ShMM-500
+  and the OpenArchitect instance are in the Active =
+state.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:3;mso-yfti-lastrow:yes">
+  <td width=3D"140" valign=3D"top" style=3D"width:139.5pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">Blinking (2Hz)<o:p></o:p></span></p>
+  </td>
+  <td width=3D"297" valign=3D"top" =
+style=3D"width:297.0pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">One of the
+  ShMM-500 or OpenArchitect entities is in the active state, but not =
+both.<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table><p class=3D"MsoNormal">In the case where this LED is =
+blinking, the status of the
+overall ZX2000 system can be determined by examining the partner =
+ZX2010=92s LEDs.<o:p></o:p></p>
+
+<h3>Clock<o:p></o:p></h3><p class=3D"MsoNormal">After the reset this LED =
+is blinked by a software routine
+within OpenArchitect at roughly 1Hz to indicate that the software (and
+processor it is running in) is operating normally.<span =
+style=3D"mso-spacerun:yes">&nbsp; </span>This function is identical to =
+all prior
+implementations of OpenArchitect.<o:p></o:p></p>
+
+<h3>Fault<o:p></o:p></h3><p class=3D"MsoNormal">After the reset the =
+Fault LED is driven by software within
+OpenArchitect. <span style=3D"mso-spacerun:yes">&nbsp;</span>The =
+software can have any
+number of user-settable fault conditions that can be reported.<span =
+style=3D"mso-spacerun:yes">&nbsp;&nbsp; </span>For example prior =
+implementations have
+defined the =93EXT FAULT=94 LED to indicate the condition where some =
+configured
+link does not have link-up status. <o:p></o:p></p><p =
+class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<table class=3D"MsoTableGrid" border=3D"1" cellspacing=3D"0" =
+cellpadding=3D"0" =
+style=3D"margin-left:36.9pt;border-collapse:collapse;border:none;mso-borde=
+r-alt:
+ solid windowtext .5pt;mso-yfti-tbllook:1184;mso-padding-alt:0in 5.4pt =
+0in 5.4pt">
+ <tbody><tr style=3D"mso-yfti-irow:0;mso-yfti-firstrow:yes">
+  <td width=3D"129" valign=3D"top" style=3D"width:129.3pt;border:solid =
+windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader"><span style=3D"mso-bidi-font-size:10.0pt">LED =
+Condition<o:p></o:p></span></p>
+  </td>
+  <td width=3D"277" valign=3D"top" style=3D"width:276.6pt;border:solid =
+windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext =
+.5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableHeader"><span =
+style=3D"mso-bidi-font-size:10.0pt">Meaning<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:1">
+  <td width=3D"129" valign=3D"top" style=3D"width:129.3pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">Off<o:p></o:p></span></p>
+  </td>
+  <td width=3D"277" valign=3D"top" =
+style=3D"width:276.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">This =
+indicates one
+  of the following conditions:<o:p></o:p></span></p><p class=3D"TableData"=
+ style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 =
+lfo5"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">1.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">The ZX2010 does not have =
+power.<o:p></o:p></span></p><p class=3D"TableData" =
+style=3D"margin-left:.5in;text-indent:-.25in;mso-list:l4 level1 =
+lfo5"><!--[if !supportLists]--><span =
+style=3D"mso-bidi-font-size:10.0pt"><span =
+style=3D"mso-list:Ignore">2.<span style=3D"font:7.0pt &quot;Times New =
+Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; =
+</span></span></span><!--[endif]--><span =
+style=3D"mso-bidi-font-size:10.0pt">Operation is Normal.<span =
+style=3D"mso-spacerun:yes">&nbsp; </span>This condition requires =
+corroboration with
+  other LEDs.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:2">
+  <td width=3D"129" valign=3D"top" style=3D"width:129.3pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">On<o:p></o:p></span></p>
+  </td>
+  <td width=3D"277" valign=3D"top" =
+style=3D"width:276.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span =
+style=3D"mso-bidi-font-size:10.0pt">OpenArchitect has
+  determined that one of the fault conditions are =
+true.<o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style=3D"mso-yfti-irow:3;mso-yfti-lastrow:yes">
+  <td width=3D"129" valign=3D"top" style=3D"width:129.3pt;border:solid =
+windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext =
+.5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt"><p class=3D"TableData" align=3D"center" =
+style=3D"text-align:center"><span =
+style=3D"mso-bidi-font-size:10.0pt">Blinking (8Hz)<o:p></o:p></span></p>
+  </td>
+  <td width=3D"277" valign=3D"top" =
+style=3D"width:276.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid =
+windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid =
+windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt"><p =
+class=3D"TableData"><span style=3D"mso-bidi-font-size:10.0pt">The =
+OpenArchitect
+  is in the Active state, but cannot determine if the partner ZX2010 can =
+assume
+  control (i.e. is in Standby or Active state).<o:p></o:p></span></p>
+  </td>
+ </tr>
+</tbody></table><p class=3D"MsoNormal"><o:p>&nbsp;</o:p></p>
+
+<!--EndFragment--></div><div><br></div><br><div =
+apple-content-edited=3D"true">
+<div>----------------------------</div><div>Alan Deikman</div><div>ZNYX =
+Networks, Inc.</div><div><br></div><br =
+class=3D"Apple-interchange-newline">
+</div>
+<br></body></html>=
+
+--Apple-Mail=_333CBD39-D24D-4779-BBDD-F2A0EF106A47--

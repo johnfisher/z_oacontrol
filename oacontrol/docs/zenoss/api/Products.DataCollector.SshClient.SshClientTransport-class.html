@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.DataCollector.SshClient.SshClientTransport</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.DataCollector-module.html">Package&nbsp;DataCollector</a> ::
+        <a href="Products.DataCollector.SshClient-module.html">Module&nbsp;SshClient</a> ::
+        Class&nbsp;SshClientTransport
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.DataCollector.SshClient.SshClientTransport-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class SshClientTransport</h1><p class="nomargin-top"><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+twisted.internet.protocol.BaseProtocol --+            
+                                         |            
+        twisted.internet.protocol.Protocol --+        
+                                             |        
+  twisted.conch.ssh.transport.SSHTransportBase --+    
+                                                 |    
+    twisted.conch.ssh.transport.SSHClientTransport --+
+                                                     |
+                                                    <strong class="uidshort">SshClientTransport</strong>
+</pre>
+
+<hr />
+<p>Base client class for constructing Twisted Conch services. This class 
+  is *only* responsible for connecting to the SSH service on the device, 
+  and ensuring that *host* keys are sane.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Twisted deferred object (defer.succeed(1)</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshClientTransport-class.html#verifyHostKey" class="summary-sig-name">verifyHostKey</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">hostKey</span>,
+        <span class="summary-sig-arg">fingerprint</span>)</span><br />
+      Module to verify the host's SSH key against the stored fingerprint we
+      have from the last time that we communicated with the host.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.verifyHostKey">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshClientTransport-class.html#connectionMade" class="summary-sig-name">connectionMade</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Called after the connection has been made.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.connectionMade">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshClientTransport-class.html#receiveError" class="summary-sig-name">receiveError</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">reasonCode</span>,
+        <span class="summary-sig-arg">description</span>)</span><br />
+      Called when a disconnect error message was received from the device.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.receiveError">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshClientTransport-class.html#receiveUnimplemented" class="summary-sig-name">receiveUnimplemented</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">seqnum</span>)</span><br />
+      Called when an unimplemented packet message was received from the 
+      device.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.receiveUnimplemented">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshClientTransport-class.html#receiveDebug" class="summary-sig-name">receiveDebug</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">alwaysDisplay</span>,
+        <span class="summary-sig-arg">message</span>,
+        <span class="summary-sig-arg">lang</span>)</span><br />
+      Called when a debug message was received from the device.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.receiveDebug">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.DataCollector.SshClient.SshClientTransport-class.html#connectionSecure" class="summary-sig-name">connectionSecure</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      This is called after the connection is set up and other services can 
+      be run.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.connectionSecure">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.transport.SSHClientTransport</code></b>:
+      <code>requestService</code>,
+      <code>ssh_KEXINIT</code>,
+      <code>ssh_KEX_DH_GEX_GROUP</code>,
+      <code>ssh_KEX_DH_GEX_REPLY</code>,
+      <code>ssh_NEWKEYS</code>,
+      <code>ssh_SERVICE_ACCEPT</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.transport.SSHClientTransport</code></b> (private):
+      <code>_continueGEX_REPLY</code>,
+      <code>_continueKEXDH_REPLY</code>,
+      <code>_keySetup</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.transport.SSHTransportBase</code></b>:
+      <code>connectionLost</code>,
+      <code>dataReceived</code>,
+      <code>dispatchMessage</code>,
+      <code>getPacket</code>,
+      <code>isEncrypted</code>,
+      <code>isVerified</code>,
+      <code>loseConnection</code>,
+      <code>sendDebug</code>,
+      <code>sendDisconnect</code>,
+      <code>sendIgnore</code>,
+      <code>sendKexInit</code>,
+      <code>sendPacket</code>,
+      <code>sendUnimplemented</code>,
+      <code>setService</code>,
+      <code>ssh_DEBUG</code>,
+      <code>ssh_DISCONNECT</code>,
+      <code>ssh_IGNORE</code>,
+      <code>ssh_UNIMPLEMENTED</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.transport.SSHTransportBase</code></b> (private):
+      <code>_getKey</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.internet.protocol.BaseProtocol</code></b>:
+      <code>makeConnection</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.internet.protocol.BaseProtocol</code></b>:
+      <code>connected</code>,
+      <code>transport</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== INSTANCE VARIABLES ==================== -->
+<a name="section-InstanceVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.transport.SSHClientTransport</code></b>:
+      <code>e</code>,
+      <code>g</code>,
+      <code>instance</code>,
+      <code>isClient</code>,
+      <code>p</code>,
+      <code>x</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.transport.SSHClientTransport</code></b> (private):
+      <code>_gotNewKeys</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>twisted.conch.ssh.transport.SSHTransportBase</code></b>:
+      <code>buf</code>,
+      <code>comment</code>,
+      <code>currentEncryptions</code>,
+      <code>first</code>,
+      <code>gotVersion</code>,
+      <code>incomingCompression</code>,
+      <code>incomingCompressionType</code>,
+      <code>incomingPacketSequence</code>,
+      <code>kexAlg</code>,
+      <code>keyAlg</code>,
+      <code>nextEncryptions</code>,
+      <code>otherKexInitPayload</code>,
+      <code>otherVersionString</code>,
+      <code>ourKexInitPayload</code>,
+      <code>ourVersionString</code>,
+      <code>outgoingCompression</code>,
+      <code>outgoingCompressionType</code>,
+      <code>outgoingPacketSequence</code>,
+      <code>protocolVersion</code>,
+      <code>service</code>,
+      <code>sessionID</code>,
+      <code>supportedCiphers</code>,
+      <code>supportedCompressions</code>,
+      <code>supportedKeyExchanges</code>,
+      <code>supportedLanguages</code>,
+      <code>supportedMACs</code>,
+      <code>supportedPublicKeys</code>,
+      <code>version</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="verifyHostKey"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">verifyHostKey</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">hostKey</span>,
+        <span class="sig-arg">fingerprint</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.verifyHostKey">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Module to verify the host's SSH key against the stored fingerprint we 
+  have from the last time that we communicated with the host.</p>
+  <p>NB: currently does not verify this information but simply trusts every
+  host key</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>hostKey</code></strong> (string) - host's SSH key (unused)</li>
+        <li><strong class="pname"><code>fingerprint</code></strong> (string) - host fingerprint (unused)</li>
+    </ul></dd>
+    <dt>Returns: Twisted deferred object (defer.succeed(1)</dt>
+        <dd>Twisted deferred object</dd>
+    <dt>Overrides:
+        twisted.conch.ssh.transport.SSHClientTransport.verifyHostKey
+    </dt>
+  </dl>
+<div class="fields">      <p><strong>To Do:</strong>
+        verify the host key
+      </p>
+</div></td></tr></table>
+</div>
+<a name="connectionMade"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">connectionMade</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.connectionMade">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called after the connection has been made. Used to set up private 
+  instance variables.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        twisted.internet.protocol.BaseProtocol.connectionMade
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="receiveError"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">receiveError</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">reasonCode</span>,
+        <span class="sig-arg">description</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.receiveError">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called when a disconnect error message was received from the 
+  device.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>reasonCode</code></strong> (integer) - error code from SSH connection failure</li>
+        <li><strong class="pname"><code>description</code></strong> (string) - human-readable version of the error code</li>
+    </ul></dd>
+    <dt>Overrides:
+        twisted.conch.ssh.transport.SSHTransportBase.receiveError
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="receiveUnimplemented"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">receiveUnimplemented</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">seqnum</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.receiveUnimplemented">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called when an unimplemented packet message was received from the 
+  device.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>seqnum</code></strong> (integer) - SSH message code</li>
+    </ul></dd>
+    <dt>Overrides:
+        twisted.conch.ssh.transport.SSHTransportBase.receiveUnimplemented
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="receiveDebug"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">receiveDebug</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">alwaysDisplay</span>,
+        <span class="sig-arg">message</span>,
+        <span class="sig-arg">lang</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.receiveDebug">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called when a debug message was received from the device.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>alwaysDisplay</code></strong> (integer) - boolean-type code to indicate if the message is to be displayed</li>
+        <li><strong class="pname"><code>message</code></strong> (string) - debug message from remote device</li>
+        <li><strong class="pname"><code>lang</code></strong> (integer) - language code</li>
+    </ul></dd>
+    <dt>Overrides:
+        twisted.conch.ssh.transport.SSHTransportBase.receiveDebug
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="connectionSecure"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">connectionSecure</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.DataCollector.SshClient-pysrc.html#SshClientTransport.connectionSecure">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is called after the connection is set up and other services can 
+  be run. This function starts the SshUserAuth client (ie the Connection 
+  client).</p>
+  <dl class="fields">
+    <dt>Overrides:
+        twisted.conch.ssh.transport.SSHClientTransport.connectionSecure
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:22 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

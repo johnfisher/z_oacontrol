@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<objects>
+	<!-- ('', 'zport', 'dmd', 'userCommands', 'check_links') -->
+	<object id='/zport/dmd/userCommands/check_links' module='Products.ZenModel.UserCommand' class='UserCommand'>
+		<property id='zendoc' type='string'>
+		check whether links are up or down
+		</property>
+		<property type="text" id="description" mode="w" >
+		check whether links are up or down
+		</property>
+		<property type="text" id="command" mode="w" >
+		python check_links.py -h  ${here/manageIp}
+		</property>
+	</object>
+	<!-- ('', 'zport', 'dmd', 'userCommands', 'check_zconfig') -->
+	<object id='/zport/dmd/userCommands/check_zconfig' module='Products.ZenModel.UserCommand' class='UserCommand'>
+		<property id='zendoc' type='string'>
+		check switch configuration
+		</property>
+		<property type="text" id="description" mode="w" >
+		check switch configuration
+		</property>
+		<property type="text" id="command" mode="w" >
+		python /usr/local/zenoss/common/libexec/check_zconfig.py -h  ${here/manageIp}
+		</property>
+	</object>
+	<!-- (zenossdeki) -->
+	<object id='/zport/dmd/userCommands/getMyDeviceList' module='Products.ZenModel.UserCommand' class='UserCommand'>
+		<property id='zendoc' type='string'>
+		list devices at URL
+		</property>
+		<property type="text" id="description" mode="w" >
+		list devices
+		</property>
+		<property type="text" id="command" mode="w" >
+		python /usr/local/zenoss/common/libexec/getMyDeviceList.py
+		</property>
+	</object>
+</objects>

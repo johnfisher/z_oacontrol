@@ -1,0 +1,395 @@
+# an annotated file to define the elements
+<?xml version="1.0" encoding="utf-8"?>
+<zx2000>
+     <chassis>
+          <ip>10.250.0.83</ip>
+          <class>ShelfMgr</class>
+          <numPorts>0</numPorts>
+          <console />
+          <serial>0</serial>
+          <status>ok</status>
+          <zname>SHMM</zname>  
+          <eth0>
+               <cnf>up</cnf>
+               <link>up</link>
+               </eth0>
+          <eth1>
+               <cnf>down</cnf>
+               <link>down</link>
+          </eth1>
+          <lfan>			the parts of the chassis that don't have their own section		
+               <hot />			left fan tray seen from front. hot swap LED
+               <warn />			left fan tray seen from front. warn LED
+               <ok />			left fan tray seen from front. ok LED
+               <mstate />		left fan tray seen from front. Mstate (+integer)
+               <serial />		left fan tray seen from front. serial number
+               </lfan>
+          <rfan>
+               <hot />			right fan tray seen from front. hot swap LED
+               <warn />			right fan tray seen from front. warn LED
+               <ok />			right fan tray seen from front. ok LED
+               <mstate />		right fan tray seen from front. Mstate (+integer)
+               <serial />		right fan tray seen from front. serial number
+               </rfan>
+          <lpem>
+               <hot />			left power module seen from front. hot swap LED
+               <warn />			left power module seen from front. warn LED
+               <ok />			left power module seen from front. ok LED
+               <mstate />		left fpower module seen from front. Mstate (+integer)
+               <serial />		left power module seen from front. serial number
+               </lpem>
+          <rpem>
+               <hot />			right power module seen from front. hot swap LED
+               <warn />			right power module seen from front. warn LED
+               <ok />			right power module seen from front. ok LED
+               <mstate />		right power module seen from front. Mstate (+integer)
+               <serial />		right power module seen from front. serial number
+               </rpem>
+          </chassis>
+
+     <slot1>				ATCA slot numbered from bottom up
+          <ip>10.250.0.12</ip>		IP address for use in maintenance/management
+          <serial />			serial number
+          <name>MPCBL0030</name>	see MIB for exact field name for this data see FRU data too; the webapp will only understand a known set
+          <numPorts>0</numPorts>
+          <class>ZXSBC</class>
+          <eth0>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth0>
+          <eth1>
+               <cnf>up</cnf>
+               <link>up</link>
+               </eth1>
+          <eth2>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth2>
+          <eth3>
+               <cnf>up</cnf>
+               <link>up</link>
+               </eth3>
+          <eth4>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth4>
+          <mstate>4</mstate>
+          <status>ok</status>
+          <zname>ZXSBC_1</zname>
+          </slot1>
+
+     <slot2>
+          <ip>10.250.0.22</ip>
+          <mstate>7</mstate>
+          <name>MPCBL0030</name>
+          <serial />
+          <status>unreachable</status>
+          </slot2>
+
+     <slot3>
+          <class>ZXSBC</class>
+          <eth0>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth0>
+          <eth1>
+               <cnf>up</cnf>
+               <link>up</link>
+               </eth1>
+          <eth2>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth2>
+          <eth3>
+               <cnf>up</cnf>
+               <link>up</link>
+               </eth3>
+          <eth4>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth4>
+          <ip>10.250.0.32</ip>
+          <mstate>4</mstate>
+          <name>MPCBL0030</name>
+          <numPorts>0</numPorts>
+          <serial />
+          <status>ok</status>
+          <zname>ZXSBC_2</zname>
+          </slot3>
+
+     <slot4>
+          <ip>10.250.0.42</ip>
+          <mstate>7</mstate>
+          <name>MPCBL0030</name>
+          <serial />
+          <status>unreachable</status>
+          </slot4>
+
+     <slot5>				slot illustrating a 7300
+          <class>ZX7300</class>
+          <console />
+          <ip>10.250.0.94</ip>			should be 10.250.0.52
+          <mstate>4</mstate>
+          <name>ZX7300</name>
+          <numPorts>28</numPorts>
+          <ext>on</ext>				ext LED
+          <int>on</int>				int LED
+          <clk>on</clk>				clock LED
+          <healthy />				From SHMM
+          <svc />				From SHMM
+          <serial>01DH00003ZNX</serial>
+          <status>ok</status>
+          <zname>ZX7300-X1_1</zname>
+          <eth0>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth0>
+          <eth1>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth1>
+          <eth2>
+               <cnf>up</cnf>
+               <link>up</link>
+               </eth2>
+          <port0>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port0>
+          <port1>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port1>
+          <port10>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port10>
+          <port11>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port11>
+          <port12>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port12>
+          <port13>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port13>
+          <port14>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port14>
+          <port15>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port15>
+          <port16>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port16>
+          <port17>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port17>
+          <port18>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port18>
+          <port19>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port19>
+          <port2>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port2>
+          <port20>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port20>
+          <port21>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port21>
+          <port22>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port22>
+          <port23>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port23>
+          <port24>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port24>
+          <port25>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port25>
+          <port26>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port26>
+          <port27>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port27>
+          <port3>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port3>
+          <port4>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port4>
+          <port5>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port5>
+          <port6>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port6>
+          <port7>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port7>
+          <port8>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port8>
+          <port9>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port9>
+          </slot5>
+
+     <slot6>
+          <ip>10.250.0.62</ip>
+          <mstate>7</mstate>
+          <name>MPCBL0030</name>
+          <serial />
+          <status>unreachable</status>
+          </slot6>
+
+     <slot7>
+          <ip>10.250.0.71</ip>
+          <mstate>7</mstate>
+          <name>ZX2010</name>
+          <serial />
+          <status>unreachable</status>
+          </slot7>
+
+     <slot8>
+          <ip>10.2.0.81</ip>
+          <class>ZX2010Device</class>
+          <serial>01DK00004ZNX</serial>
+          <mstate>4</mstate>
+          <name>ZX2010</name>
+          <numPorts>20</numPorts>
+          <oaa>on</oaa>
+          <oafault>on</oafault>
+          <clk>on</clk> 
+          <oos />				From SHMM
+          <hot />				From SHMM 
+          <shmm />				From SHMM
+          <console />
+          <status>ok</status>
+          <zname>ZX2010-X1_1</zname>
+          <eth0>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth0>
+          <eth1>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth1>
+          <eth2>
+               <cnf>down</cnf>
+               <link>down</link>
+               </eth2>
+          <port0>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port0>
+          <port1>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port1>
+          <port10>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port10>
+          <port11>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port11>
+          <port12>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port12>
+          <port13>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port13>
+          <port14>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port14>
+          <port15>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port15>
+          <port16>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port16>
+          <port17>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port17>
+          <port18>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port18>
+          <port19>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port19>
+          <port2>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port2>
+          <port3>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port3>
+          <port4>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port4>
+          <port5>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port5>
+          <port6>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port6>
+          <port7>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port7>
+          <port8>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port8>
+          <port9>
+               <cnf>up</cnf>
+               <link>down</link>
+               </port9>
+          </slot8>
+</zx2000>
+

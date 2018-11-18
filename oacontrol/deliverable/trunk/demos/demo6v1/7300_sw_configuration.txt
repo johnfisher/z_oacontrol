@@ -1,0 +1,24 @@
+
+eth1   inet addr:10.1.7.140  Bcast:10.255.255.255  Mask:255.255.255.0
+zhp0  inet addr:10.1.8.141  Bcast:10.255.255.255  Mask:255.255.255.0
+
+ifconfig zhp0 10.1.8.141 netmask 255.255.255.0 broadcast 10.1.8.255 up
+ifconfig eth1 10.1.7.140 netmask 255.255.255.0 broadcast 10.1.7.255 up
+
+
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+10.1.8.0        *               255.255.255.0   U     0      0        0 zhp0
+10.1.7.0        *               255.255.255.0   U     0      0        0 eth1
+from S50layer2....
+
+               ifconfig zre0..27 up
+
+                # Assign the ZNYX default IP address 10.0.0.<slot> to the
+                # zhp0 interface and start it
+                #
+                ifconfig zhp0 10.1.8.141 netmask 255.255.255.0 broadcast 10.1.8.255 up
+
+
+                ifconfig eth1 10.1.7.140 netmask 255.255.255.0 broadcast 10.1.7.255 up
+
+

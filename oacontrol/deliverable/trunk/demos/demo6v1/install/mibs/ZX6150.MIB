@@ -1,0 +1,366 @@
+--==========================================================================
+--
+--	zx6150.mib
+--
+--	ZNYX ZX6150 SNMP MIB
+--
+--==========================================================================
+--
+--	(c) Copyright 2001 ZNYX Networks, Inc.
+--	All rights reserved.
+--
+--==========================================================================
+
+
+	ZX6150-MIB DEFINITIONS ::= BEGIN
+
+	IMPORTS
+		enterprises, NetworkAddress, IpAddress, Counter,
+		Gauge, TimeTicks, OBJECT-TYPE
+			FROM RFC1155-SMI
+		znyxProductSpecificMib
+			FROM ZNYX-MIB;
+
+	-- Conventions
+
+	DisplayString ::= OCTET STRING
+
+
+
+	znyxPsMibZX6150		OBJECT IDENTIFIER ::= { znyxProductSpecificMib 9 }
+
+	zZX6150GeoPins OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object returns a string identifying
+			 the shelf and the slot within the shelf
+			 the switch is located in."
+		::= { znyxPsMibZX6150 1 }
+
+	zZX6150InternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 Internal Fault LED is driven."
+		::= { znyxPsMibZX6150 2 }
+
+	zZX6150InternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current Internal Fault LED status."
+		::= { znyxPsMibZX6150 3 }
+
+	zZX6150ExternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 External Fault LED is driven."
+		::= { znyxPsMibZX6150 4 }
+
+	zZX6150ExternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current External Fault LED status."
+		::= { znyxPsMibZX6150 5 }
+
+	zZX6150OpenArchVersion OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Open Architect software version."
+    		::= { znyxPsMibZX6150 6 }
+
+	zZX6150LinkCtrlTable OBJECT-TYPE
+	    	SYNTAX      SEQUENCE OF ZZX6150LinkCtrlEntry
+  		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      	    	"A table containing link control information for each port
+		       available on the device."
+    		::= { znyxPsMibZX6150 7 }
+
+	zZX6150LinkCtrlEntry OBJECT-TYPE
+ 		SYNTAX      ZZX6150LinkCtrlEntry
+    		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      		"Link control information for each port available on the
+			 device."
+   		INDEX   { zZX6150LinkCtrlPort }
+    		::= { zZX6150LinkCtrlTable 1 }
+
+ 	ZZX6150LinkCtrlEntry ::=
+  		SEQUENCE {
+			zZX6150LinkCtrlPort
+				INTEGER,
+			zZX6150LinkCtrlState
+				INTEGER,
+			zZX6150LinkCtrlSpeed
+				INTEGER
+    		}
+
+	zZX6150LinkCtrlPort OBJECT-TYPE
+		SYNTAX      INTEGER (1..65535)
+		ACCESS  not-accessible
+		STATUS      mandatory
+		DESCRIPTION
+		"The port number associated with this Link Control entry."
+		::= { zZX6150LinkCtrlEntry 1 }
+
+	zZX6150LinkCtrlState OBJECT-TYPE
+    		SYNTAX      INTEGER { up (1), down (2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control state of the port."
+    		::= { zZX6150LinkCtrlEntry 2 }
+
+	zZX6150LinkCtrlSpeed OBJECT-TYPE
+    		SYNTAX      INTEGER  { auto(1), n100fd(2), n100hd(3), n10fd (4), n10hd(5), n1000fd(6), n1000hd(7), n10000fd(8) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control speed of the port. Changes to this speed
+			 require the port to be in the down state."
+    		::= { zZX6150LinkCtrlEntry 3 }
+
+	-- Vital Product Data (VPD)
+
+	zZX6150VPDPN OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Part Number."
+    		::= { znyxPsMibZX6150 8 }
+
+	zZX6150VPDSN OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Serial Number."
+    		::= { znyxPsMibZX6150 9 }
+
+	zZX6150VPDV0 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Mac Address."
+    		::= { znyxPsMibZX6150 10 }
+
+	zZX6150VPDV1 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Mac Address Number."
+    		::= { znyxPsMibZX6150 11 }
+
+	zZX6150VPDV2 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The PPC 82xx Memory Subsystem."
+    		::= { znyxPsMibZX6150 12 }
+
+	zZX6150VPDV3 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The BCM 56xx Memory Subsystem."
+    		::= { znyxPsMibZX6150 13 }
+
+	zZX6150VPDV4 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Boot Flash Subsystem."
+    		::= { znyxPsMibZX6150 14 }
+
+	zZX6150VPDV5 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Application Flash Subsystem."
+    		::= { znyxPsMibZX6150 15 }
+
+	zZX6150VPDV6 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Firmware Revision."
+    		::= { znyxPsMibZX6150 16 }
+
+	zZX6150VPDV7 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Reset Counter."
+    		::= { znyxPsMibZX6150 17 }
+
+	zZX6150VPDV8 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Kernel Runtime."
+    		::= { znyxPsMibZX6150 18 }
+
+	zZX6150VPDV9 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Revision."
+    		::= { znyxPsMibZX6150 19 }
+
+	zZX6150VPDVA OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Adapter ID."
+    		::= { znyxPsMibZX6150 20 }
+
+	zZX6150VPDVB OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Model Number."
+    		::= { znyxPsMibZX6150 21 }
+
+	zZX6150VPDVS OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Logical Slot Number."
+    		::= { znyxPsMibZX6150 22 }
+
+	zZX6150VPDVT OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Geographical Shelf Address."
+    		::= { znyxPsMibZX6150 23 }
+
+	zZX6150VPDVP OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The IPMC Version."
+    		::= { znyxPsMibZX6150 24 }
+
+	zZX6150VPDVM OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Main CPLD Version."
+    		::= { znyxPsMibZX6150 25 }
+
+	zZX6150VPDVR OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Reset CPLD Version."
+    		::= { znyxPsMibZX6150 26 }
+
+	zZX6150VPDVL OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The LED CPLD Version."
+    		::= { znyxPsMibZX6150 27 }
+
+	zZX6150VPDVZ OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The ZMON Version."
+    		::= { znyxPsMibZX6150 28 }
+
+	zZX6150VPDY1 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Manufacturer ID."
+    		::= { znyxPsMibZX6150 29 }
+
+	zZX6150VPDY2 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Board ID."
+    		::= { znyxPsMibZX6150 30 }
+
+	zZX6150VPDY3 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Data CLEI."
+    		::= { znyxPsMibZX6150 31 }
+
+	zZX6150VPDY4 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Data PEC."
+    		::= { znyxPsMibZX6150 32 }
+
+	zZX6150VPDY5 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Release Number."
+    		::= { znyxPsMibZX6150 33 }
+
+	END
+
+

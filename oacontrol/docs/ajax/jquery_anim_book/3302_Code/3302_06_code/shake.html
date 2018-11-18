@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery UI Shake Effect</title>
+		<link rel="stylesheet" href="css/shake.css">
+	</head>
+	<body>
+    	<form>
+        	<h2>Login</h2>
+        	<label>Username:<input id="name" type="text"></label>
+            <label>Password:<input id="pass" type="text"></label>
+            <button id="submit">Login</button>
+        </form>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$("#submit").click(function(e) {
+					e.preventDefault();
+					
+					$("input").each(function(i, val) {
+						(!$(this).val()) ? $(this).css("border", "1px solid red").effect("shake", { distance: 5 }, 100) : null;
+					});
+				});
+			})(jQuery);
+		</script>
+	</body>
+</html>

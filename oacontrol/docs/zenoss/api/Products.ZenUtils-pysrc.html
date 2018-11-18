@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenUtils</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        Package&nbsp;ZenUtils
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenUtils-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenUtils-module.html">Package Products.ZenUtils</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt class="py-name">CMFCore</tt><tt class="py-op">.</tt><tt class="py-name">DirectoryView</tt> <tt class="py-keyword">import</tt> <tt class="py-name">registerDirectory</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-name">registerDirectory</tt><tt class="py-op">(</tt><tt class="py-string">'js'</tt><tt class="py-op">,</tt> <tt class="py-name">globals</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-comment"># import any monkey patches that may be necessary</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package Products.ZenUtils.patches=Products.ZenUtils.patches-module.html"><a title="Products.ZenUtils.patches" class="py-name" href="#" onclick="return doclink('link-0', 'patches', 'link-0');">patches</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module Products.ZenUtils.patches.pasmonkey=Products.ZenUtils.patches.pasmonkey-module.html"><a title="Products.ZenUtils.patches.pasmonkey" class="py-name" href="#" onclick="return doclink('link-1', 'pasmonkey', 'link-1');">pasmonkey</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="Products.ZenUtils.patches" class="py-name" href="#" onclick="return doclink('link-2', 'patches', 'link-0');">patches</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module Products.ZenUtils.patches.dirviewmonkey=Products.ZenUtils.patches.dirviewmonkey-module.html"><a title="Products.ZenUtils.patches.dirviewmonkey" class="py-name" href="#" onclick="return doclink('link-3', 'dirviewmonkey', 'link-3');">dirviewmonkey</a></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Package Products.ZenUtils=Products.ZenUtils-module.html"><a title="Products.ZenUtils" class="py-name" href="#" onclick="return doclink('link-4', 'ZenUtils', 'link-4');">ZenUtils</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Module Products.ZenReports.Utils=Products.ZenReports.Utils-module.html,Module Products.ZenUtils.Utils=Products.ZenUtils.Utils-module.html"><a title="Products.ZenReports.Utils
+Products.ZenUtils.Utils" class="py-name" href="#" onclick="return doclink('link-5', 'Utils', 'link-5');">Utils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Function Products.ZenUtils.Utils.unused()=Products.ZenUtils.Utils-module.html#unused"><a title="Products.ZenUtils.Utils.unused" class="py-name" href="#" onclick="return doclink('link-6', 'unused', 'link-6');">unused</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt id="link-7" class="py-name"><a title="Products.ZenUtils.Utils.unused" class="py-name" href="#" onclick="return doclink('link-7', 'unused', 'link-6');">unused</a></tt><tt class="py-op">(</tt><tt id="link-8" class="py-name"><a title="Products.ZenUtils.patches.pasmonkey" class="py-name" href="#" onclick="return doclink('link-8', 'pasmonkey', 'link-1');">pasmonkey</a></tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name"><a title="Products.ZenUtils.patches.dirviewmonkey" class="py-name" href="#" onclick="return doclink('link-9', 'dirviewmonkey', 'link-3');">dirviewmonkey</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Products.ZenUtils" class="py-name" href="#" onclick="return doclink('link-10', 'ZenUtils', 'link-4');">ZenUtils</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Module Products.ZenUtils.MultiPathIndex=Products.ZenUtils.MultiPathIndex-module.html,Class Products.ZenUtils.MultiPathIndex.MultiPathIndex=Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html"><a title="Products.ZenUtils.MultiPathIndex
+Products.ZenUtils.MultiPathIndex.MultiPathIndex" class="py-name" href="#" onclick="return doclink('link-11', 'MultiPathIndex', 'link-11');">MultiPathIndex</a></tt> <tt class="py-keyword">import</tt> <tt id="link-12" class="py-name"><a title="Products.ZenUtils.MultiPathIndex
+Products.ZenUtils.MultiPathIndex.MultiPathIndex" class="py-name" href="#" onclick="return doclink('link-12', 'MultiPathIndex', 'link-11');">MultiPathIndex</a></tt> <tt class="py-op">,</tt> \ </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">                                             <tt class="py-name">manage_addMultiPathIndex</tt><tt class="py-op">,</tt> \ </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">                                             <tt id="link-13" class="py-name" targets="Variable Products.ZenUtils.MultiPathIndex.manage_addMultiPathIndexForm=Products.ZenUtils.MultiPathIndex-module.html#manage_addMultiPathIndexForm"><a title="Products.ZenUtils.MultiPathIndex.manage_addMultiPathIndexForm" class="py-name" href="#" onclick="return doclink('link-13', 'manage_addMultiPathIndexForm', 'link-13');">manage_addMultiPathIndexForm</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="initialize"></a><div id="initialize-def"><a name="L26"></a><tt class="py-lineno">26</tt> <a class="py-toggle" href="#" id="initialize-toggle" onclick="return toggle('initialize');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils-module.html#initialize">initialize</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="initialize-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="initialize-expanded"><a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">    <tt id="link-14" class="py-name" targets="Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#context,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.context()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#context,Variable Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context=Products.ZenModel.ZDeviceLoader.BaseDeviceLoader-class.html#context,Method Products.ZenRelations.ImportRM.ImportRM.context()=Products.ZenRelations.ImportRM.ImportRM-class.html#context"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-14', 'context', 'link-14');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">registerClass</tt><tt class="py-op">(</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt id="link-15" class="py-name"><a title="Products.ZenUtils.MultiPathIndex
+Products.ZenUtils.MultiPathIndex.MultiPathIndex" class="py-name" href="#" onclick="return doclink('link-15', 'MultiPathIndex', 'link-11');">MultiPathIndex</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt id="link-16" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.permission=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#permission"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.permission" class="py-name" href="#" onclick="return doclink('link-16', 'permission', 'link-16');">permission</a></tt><tt class="py-op">=</tt><tt class="py-string">'Add Pluggable Index'</tt><tt class="py-op">,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-name">constructors</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="Products.ZenUtils.MultiPathIndex.manage_addMultiPathIndexForm" class="py-name" href="#" onclick="return doclink('link-17', 'manage_addMultiPathIndexForm', 'link-13');">manage_addMultiPathIndexForm</a></tt><tt class="py-op">,</tt> <tt class="py-name">manage_addMultiPathIndex</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-comment">#icon="www/index.gif",</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-name">visibility</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:48 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

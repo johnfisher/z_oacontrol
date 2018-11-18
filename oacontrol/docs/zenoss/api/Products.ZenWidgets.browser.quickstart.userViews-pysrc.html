@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenWidgets.browser.quickstart.userViews</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenWidgets-module.html">Package&nbsp;ZenWidgets</a> ::
+        <a href="Products.ZenWidgets.browser-module.html">Package&nbsp;browser</a> ::
+        <a href="Products.ZenWidgets.browser.quickstart-module.html">Package&nbsp;quickstart</a> ::
+        Module&nbsp;userViews
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenWidgets.browser.quickstart.userViews-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenWidgets.browser.quickstart.userViews-module.html">Module Products.ZenWidgets.browser.quickstart.userViews</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2009, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">transaction</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt class="py-name">Five</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package Products.ZenEvents.browser=Products.ZenEvents.browser-module.html,Package Products.ZenModel.browser=Products.ZenModel.browser-module.html,Package Products.ZenWidgets.browser=Products.ZenWidgets.browser-module.html"><a title="Products.ZenEvents.browser
+Products.ZenModel.browser
+Products.ZenWidgets.browser" class="py-name" href="#" onclick="return doclink('link-0', 'browser', 'link-0');">browser</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">BrowserView</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt class="py-name">Five</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="Products.ZenEvents.browser
+Products.ZenModel.browser
+Products.ZenWidgets.browser" class="py-name" href="#" onclick="return doclink('link-1', 'browser', 'link-0');">browser</a></tt><tt class="py-op">.</tt><tt class="py-name">pagetemplatefile</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ZopeTwoPageTemplateFile</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package Products.ZenWidgets=Products.ZenWidgets-module.html"><a title="Products.ZenWidgets" class="py-name" href="#" onclick="return doclink('link-2', 'ZenWidgets', 'link-2');">ZenWidgets</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module Products.ZenWidgets.browser.messaging=Products.ZenWidgets.browser.messaging-module.html,Module Products.ZenWidgets.messaging=Products.ZenWidgets.messaging-module.html"><a title="Products.ZenWidgets.browser.messaging
+Products.ZenWidgets.messaging" class="py-name" href="#" onclick="return doclink('link-3', 'messaging', 'link-3');">messaging</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Package Products.ZenUtils=Products.ZenUtils-module.html"><a title="Products.ZenUtils" class="py-name" href="#" onclick="return doclink('link-4', 'ZenUtils', 'link-4');">ZenUtils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Module Products.ZenUtils.Ext=Products.ZenUtils.Ext-module.html"><a title="Products.ZenUtils.Ext" class="py-name" href="#" onclick="return doclink('link-5', 'Ext', 'link-5');">Ext</a></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt class="py-name">CMFCore</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module Products.ZenRRD.utils=Products.ZenRRD.utils-module.html,Module Products.ZenRelations.utils=Products.ZenRelations.utils-module.html,Module Products.ZenWin.utils=Products.ZenWin.utils-module.html"><a title="Products.ZenRRD.utils
+Products.ZenRelations.utils
+Products.ZenWin.utils" class="py-name" href="#" onclick="return doclink('link-6', 'utils', 'link-6');">utils</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">getToolByName</tt> </tt>
+<a name="SetAdminPasswordException"></a><div id="SetAdminPasswordException-def"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt> <a class="py-toggle" href="#" id="SetAdminPasswordException-toggle" onclick="return toggle('SetAdminPasswordException');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenWidgets.browser.quickstart.userViews.SetAdminPasswordException-class.html">SetAdminPasswordException</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SetAdminPasswordException-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="SetAdminPasswordException-expanded"><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-docstring">"""There was a problem setting the admin password"""</tt> </tt>
+</div><a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="CreateUserView"></a><div id="CreateUserView-def"><a name="L24"></a><tt class="py-lineno">24</tt> <a class="py-toggle" href="#" id="CreateUserView-toggle" onclick="return toggle('CreateUserView');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenWidgets.browser.quickstart.userViews.CreateUserView-class.html">CreateUserView</a><tt class="py-op">(</tt><tt class="py-base-class">BrowserView</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CreateUserView-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="CreateUserView-expanded"><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    Creates the initial user and sets the admin password.</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Method Products.ZenEvents.browser.EventConsole.EventConsole.__call__()=Products.ZenEvents.browser.EventConsole.EventConsole-class.html#__call__,Method Products.ZenEvents.browser.EventConsole.EventConsoleFields.__call__()=Products.ZenEvents.browser.EventConsole.EventConsoleFields-class.html#__call__,Method Products.ZenEvents.browser.EventPillsAndSummaries.ObjectsEventSummary.__call__()=Products.ZenEvents.browser.EventPillsAndSummaries.ObjectsEventSummary-class.html#__call__,Method Products.ZenEvents.browser.EventPillsAndSummaries.SinglePill.__call__()=Products.ZenEvents.browser.EventPillsAndSummaries.SinglePill-class.html#__call__,Method Products.ZenModel.DeviceHW.DeviceHW.__call__()=Products.ZenModel.DeviceHW.DeviceHW-class.html#__call__,Method Products.ZenModel.GraphDefinition.FakeContext.__call__()=Products.ZenModel.GraphDefinition.FakeContext-class.html#__call__,Method Products.ZenModel.Report.Report.__call__()=Products.ZenModel.Report.Report-class.html#__call__,Method Products.ZenModel.ZenModelBase.ZenModelBase.__call__()=Products.ZenModel.ZenModelBase.ZenModelBase-class.html#__call__,Method Products.ZenModel.browser.Autocompleters.ComponentPaths.__call__()=Products.ZenModel.browser.Autocompleters.ComponentPaths-class.html#__call__,Method Products.ZenModel.browser.Autocompleters.DeviceNames.__call__()=Products.ZenModel.browser.Autocompleters.DeviceNames-class.html#__call__,Method Products.ZenModel.browser.Autocompleters.EventClassNames.__call__()=Products.ZenModel.browser.Autocompleters.EventClassNames-class.html#__call__,Method Products.ZenModel.browser.Autocompleters.GraphIds.__call__()=Products.ZenModel.browser.Autocompleters.GraphIds-class.html#__call__,Method Products.ZenModel.browser.Autocompleters.OrganizerNames.__call__()=Products.ZenModel.browser.Autocompleters.OrganizerNames-class.html#__call__,Method Products.ZenModel.browser.Autocompleters.ServiceList.__call__()=Products.ZenModel.browser.Autocompleters.ServiceList-class.html#__call__,Method Products.ZenModel.browser.DeviceList.AdvancedQueryDeviceList.__call__()=Products.ZenModel.browser.DeviceList.AdvancedQueryDeviceList-class.html#__call__,Method Products.ZenModel.browser.DeviceList.DeviceBatch.__call__()=Products.ZenModel.browser.DeviceList.DeviceBatch-class.html#__call__,Method Products.ZenModel.browser.DeviceList.DeviceList.__call__()=Products.ZenModel.browser.DeviceList.DeviceList-class.html#__call__,Method Products.ZenModel.browser.DeviceStatus.DeviceComponentTable.__call__()=Products.ZenModel.browser.DeviceStatus.DeviceComponentTable-class.html#__call__,Method Products.ZenModel.browser.EventConsole.EventConsole.__call__()=Products.ZenModel.browser.EventConsole.EventConsole-class.html#__call__,Method Products.ZenModel.browser.EventConsole.EventConsoleFields.__call__()=Products.ZenModel.browser.EventConsole.EventConsoleFields-class.html#__call__,Method Products.ZenRelations.RelationshipBase.RelationshipBase.__call__()=Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#__call__,Method Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.__call__()=Products.ZenRelations.ToManyContRelationship.ToManyContRelationship-class.html#__call__,Method Products.ZenRelations.ToManyRelationship.ToManyRelationship.__call__()=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#__call__,Method Products.ZenRelations.ToOneRelationship.ToOneRelationship.__call__()=Products.ZenRelations.ToOneRelationship.ToOneRelationship-class.html#__call__,Method Products.ZenReports.AliasPlugin.PythonColumnHandler.__call__()=Products.ZenReports.AliasPlugin.PythonColumnHandler-class.html#__call__,Method Products.ZenReports.AliasPlugin.RRDColumnHandler.__call__()=Products.ZenReports.AliasPlugin.RRDColumnHandler-class.html#__call__,Method Products.ZenUtils.Ext.DirectRouter.__call__()=Products.ZenUtils.Ext.DirectRouter-class.html#__call__,Method Products.ZenUtils.Utils.Singleton.__call__()=Products.ZenUtils.Utils.Singleton-class.html#__call__,Method Products.ZenUtils.extdirect.router.DirectRouter.__call__()=Products.ZenUtils.extdirect.router.DirectRouter-class.html#__call__,Method Products.ZenUtils.extdirect.zope.router.ZopeDirectRouter.__call__()=Products.ZenUtils.extdirect.zope.router.ZopeDirectRouter-class.html#__call__,Method Products.ZenUtils.mock.MockObject.__call__()=Products.ZenUtils.mock.MockObject-class.html#__call__,Method Products.ZenWidgets.browser.Portlets.DeviceIssuesPortletView.__call__()=Products.ZenWidgets.browser.Portlets.DeviceIssuesPortletView-class.html#__call__,Method Products.ZenWidgets.browser.Portlets.HeartbeatPortletView.__call__()=Products.ZenWidgets.browser.Portlets.HeartbeatPortletView-class.html#__call__,Method Products.ZenWidgets.browser.Portlets.ProductionStatePortletView.__call__()=Products.ZenWidgets.browser.Portlets.ProductionStatePortletView-class.html#__call__,Method Products.ZenWidgets.browser.Portlets.TopLevelOrganizerPortletView.__call__()=Products.ZenWidgets.browser.Portlets.TopLevelOrganizerPortletView-class.html#__call__,Method Products.ZenWidgets.browser.Portlets.UserMessagesPortletView.__call__()=Products.ZenWidgets.browser.Portlets.UserMessagesPortletView-class.html#__call__,Method Products.ZenWidgets.browser.Portlets.WatchListPortletView.__call__()=Products.ZenWidgets.browser.Portlets.WatchListPortletView-class.html#__call__,Method Products.ZenWidgets.browser.messaging.DeleteMessage.__call__()=Products.ZenWidgets.browser.messaging.DeleteMessage-class.html#__call__,Method Products.ZenWidgets.browser.messaging.UserMessages.__call__()=Products.ZenWidgets.browser.messaging.UserMessages-class.html#__call__,Variable Products.ZenWidgets.browser.quickstart.userViews.CreateUserView.__call__=Products.ZenWidgets.browser.quickstart.userViews.CreateUserView-class.html#__call__,Variable Products.ZenWidgets.browser.quickstart.views.CreateUserView.__call__=Products.ZenWidgets.browser.quickstart.views.CreateUserView-class.html#__call__,Variable Products.ZenWidgets.browser.quickstart.views.OutlineView.__call__=Products.ZenWidgets.browser.quickstart.views.OutlineView-class.html#__call__"><a title="Products.ZenEvents.browser.EventConsole.EventConsole.__call__
+Products.ZenEvents.browser.EventConsole.EventConsoleFields.__call__
+Products.ZenEvents.browser.EventPillsAndSummaries.ObjectsEventSummary.__call__
+Products.ZenEvents.browser.EventPillsAndSummaries.SinglePill.__call__
+Products.ZenModel.DeviceHW.DeviceHW.__call__
+Products.ZenModel.GraphDefinition.FakeContext.__call__
+Products.ZenModel.Report.Report.__call__
+Products.ZenModel.ZenModelBase.ZenModelBase.__call__
+Products.ZenModel.browser.Autocompleters.ComponentPaths.__call__
+Products.ZenModel.browser.Autocompleters.DeviceNames.__call__
+Products.ZenModel.browser.Autocompleters.EventClassNames.__call__
+Products.ZenModel.browser.Autocompleters.GraphIds.__call__
+Products.ZenModel.browser.Autocompleters.OrganizerNames.__call__
+Products.ZenModel.browser.Autocompleters.ServiceList.__call__
+Products.ZenModel.browser.DeviceList.AdvancedQueryDeviceList.__call__
+Products.ZenModel.browser.DeviceList.DeviceBatch.__call__
+Products.ZenModel.browser.DeviceList.DeviceList.__call__
+Products.ZenModel.browser.DeviceStatus.DeviceComponentTable.__call__
+Products.ZenModel.browser.EventConsole.EventConsole.__call__
+Products.ZenModel.browser.EventConsole.EventConsoleFields.__call__
+Products.ZenRelations.RelationshipBase.RelationshipBase.__call__
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.__call__
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.__call__
+Products.ZenRelations.ToOneRelationship.ToOneRelationship.__call__
+Products.ZenReports.AliasPlugin.PythonColumnHandler.__call__
+Products.ZenReports.AliasPlugin.RRDColumnHandler.__call__
+Products.ZenUtils.Ext.DirectRouter.__call__
+Products.ZenUtils.Utils.Singleton.__call__
+Products.ZenUtils.extdirect.router.DirectRouter.__call__
+Products.ZenUtils.extdirect.zope.router.ZopeDirectRouter.__call__
+Products.ZenUtils.mock.MockObject.__call__
+Products.ZenWidgets.browser.Portlets.DeviceIssuesPortletView.__call__
+Products.ZenWidgets.browser.Portlets.HeartbeatPortletView.__call__
+Products.ZenWidgets.browser.Portlets.ProductionStatePortletView.__call__
+Products.ZenWidgets.browser.Portlets.TopLevelOrganizerPortletView.__call__
+Products.ZenWidgets.browser.Portlets.UserMessagesPortletView.__call__
+Products.ZenWidgets.browser.Portlets.WatchListPortletView.__call__
+Products.ZenWidgets.browser.messaging.DeleteMessage.__call__
+Products.ZenWidgets.browser.messaging.UserMessages.__call__
+Products.ZenWidgets.browser.quickstart.userViews.CreateUserView.__call__
+Products.ZenWidgets.browser.quickstart.views.CreateUserView.__call__
+Products.ZenWidgets.browser.quickstart.views.OutlineView.__call__" class="py-name" href="#" onclick="return doclink('link-7', '__call__', 'link-7');">__call__</a></tt> <tt class="py-op">=</tt> <tt class="py-name">ZopeTwoPageTemplateFile</tt><tt class="py-op">(</tt><tt class="py-string">'templates/createuser.pt'</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">Ext</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Function Products.ZenUtils.Ext.form_action()=Products.ZenUtils.Ext-module.html#form_action"><a title="Products.ZenUtils.Ext.form_action" class="py-name" href="#" onclick="return doclink('link-8', 'form_action', 'link-8');">form_action</a></tt> </tt>
+<a name="CreateUserView.createUser"></a><div id="CreateUserView.createUser-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="CreateUserView.createUser-toggle" onclick="return toggle('CreateUserView.createUser');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenWidgets.browser.quickstart.userViews.CreateUserView-class.html#createUser">createUser</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CreateUserView.createUser-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="CreateUserView.createUser-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">        Handles form submission for setting the admin password and creating</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">        an initial user.</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-name">response</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="Products.ZenUtils.Ext" class="py-name" href="#" onclick="return doclink('link-9', 'Ext', 'link-5');">Ext</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Class Products.ZenUtils.Ext.FormResponse=Products.ZenUtils.Ext.FormResponse-class.html"><a title="Products.ZenUtils.Ext.FormResponse" class="py-name" href="#" onclick="return doclink('link-10', 'FormResponse', 'link-10');">FormResponse</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">        <tt class="py-name">adminPassword</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Variable Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.request=Products.ZenModel.ZDeviceLoader.BaseDeviceLoader-class.html#request"><a title="Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.request" class="py-name" href="#" onclick="return doclink('link-11', 'request', 'link-11');">request</a></tt><tt class="py-op">.</tt><tt class="py-name">form</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method Products.ZenEvents.DbConnectionPool.DbConnectionPool.get()=Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#get,Method Products.ZenRRD.zencommand.SshPool.get()=Products.ZenRRD.zencommand.SshPool-class.html#get,Method Products.ZenUtils.Map.Locked.get()=Products.ZenUtils.Map.Locked-class.html#get,Method Products.ZenUtils.Map.Timed.get()=Products.ZenUtils.Map.Timed-class.html#get"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.get
+Products.ZenRRD.zencommand.SshPool.get
+Products.ZenUtils.Map.Locked.get
+Products.ZenUtils.Map.Timed.get" class="py-name" href="#" onclick="return doclink('link-12', 'get', 'link-12');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">"admin-password1"</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">        <tt class="py-name">userName</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.request" class="py-name" href="#" onclick="return doclink('link-13', 'request', 'link-11');">request</a></tt><tt class="py-op">.</tt><tt class="py-name">form</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.get
+Products.ZenRRD.zencommand.SshPool.get
+Products.ZenUtils.Map.Locked.get
+Products.ZenUtils.Map.Timed.get" class="py-name" href="#" onclick="return doclink('link-14', 'get', 'link-12');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">"username"</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-name">userPassword</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.request" class="py-name" href="#" onclick="return doclink('link-15', 'request', 'link-11');">request</a></tt><tt class="py-op">.</tt><tt class="py-name">form</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.get
+Products.ZenRRD.zencommand.SshPool.get
+Products.ZenUtils.Map.Locked.get
+Products.ZenUtils.Map.Timed.get" class="py-name" href="#" onclick="return doclink('link-16', 'get', 'link-12');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">"password1"</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">        <tt class="py-name">emailAddress</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.request" class="py-name" href="#" onclick="return doclink('link-17', 'request', 'link-11');">request</a></tt><tt class="py-op">.</tt><tt class="py-name">form</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.get
+Products.ZenRRD.zencommand.SshPool.get
+Products.ZenUtils.Map.Locked.get
+Products.ZenUtils.Map.Timed.get" class="py-name" href="#" onclick="return doclink('link-18', 'get', 'link-12');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">"emailAddress"</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt class="py-name">zenUsers</tt> <tt class="py-op">=</tt> <tt class="py-name">getToolByName</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#context,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.context()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#context,Variable Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context=Products.ZenModel.ZDeviceLoader.BaseDeviceLoader-class.html#context,Method Products.ZenRelations.ImportRM.ImportRM.context()=Products.ZenRelations.ImportRM.ImportRM-class.html#context"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-19', 'context', 'link-19');">context</a></tt><tt class="py-op">,</tt> <tt class="py-string">'ZenUsers'</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-comment"># Set admin password</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">            <tt class="py-name">admin</tt> <tt class="py-op">=</tt> <tt class="py-name">zenUsers</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method Products.ZenModel.UserSettings.UserSettingsManager.getUserSettings()=Products.ZenModel.UserSettings.UserSettingsManager-class.html#getUserSettings"><a title="Products.ZenModel.UserSettings.UserSettingsManager.getUserSettings" class="py-name" href="#" onclick="return doclink('link-20', 'getUserSettings', 'link-20');">getUserSettings</a></tt><tt class="py-op">(</tt><tt class="py-string">'admin'</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">            <tt class="py-name">admin</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method Products.ZenModel.UserSettings.UserSettings.manage_editUserSettings()=Products.ZenModel.UserSettings.UserSettings-class.html#manage_editUserSettings"><a title="Products.ZenModel.UserSettings.UserSettings.manage_editUserSettings" class="py-name" href="#" onclick="return doclink('link-21', 'manage_editUserSettings', 'link-21');">manage_editUserSettings</a></tt><tt class="py-op">(</tt><tt id="link-22" class="py-name" targets="Variable Products.ZenRRD.zencommand.DeviceConfig.password=Products.ZenRRD.zencommand.DeviceConfig-class.html#password"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-22', 'password', 'link-22');">password</a></tt><tt class="py-op">=</tt><tt class="py-name">adminPassword</tt><tt class="py-op">,</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                                          <tt class="py-name">sndpassword</tt><tt class="py-op">=</tt><tt class="py-name">adminPassword</tt><tt class="py-op">,</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">                                          <tt class="py-name">oldpassword</tt><tt class="py-op">=</tt><tt class="py-string">'zenoss'</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">            <tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method Products.ZenHub.services.Beat.Beat.error()=Products.ZenHub.services.Beat.Beat-class.html#error,Method Products.ZenRRD.RRDDaemon.RRDDaemon.error()=Products.ZenRRD.RRDDaemon.RRDDaemon-class.html#error,Method Products.ZenRRD.zencommand.zencommand.error()=Products.ZenRRD.zencommand.zencommand-class.html#error,Method Products.ZenStatus.zenstatus.ZenStatus.error()=Products.ZenStatus.zenstatus.ZenStatus-class.html#error,Method Products.ZenUtils.Ext.FormResponse.error()=Products.ZenUtils.Ext.FormResponse-class.html#error"><a title="Products.ZenHub.services.Beat.Beat.error
+Products.ZenRRD.RRDDaemon.RRDDaemon.error
+Products.ZenRRD.zencommand.zencommand.error
+Products.ZenStatus.zenstatus.ZenStatus.error
+Products.ZenUtils.Ext.FormResponse.error" class="py-name" href="#" onclick="return doclink('link-23', 'error', 'link-23');">error</a></tt><tt class="py-op">(</tt><tt class="py-string">'admin-pass'</tt><tt class="py-op">,</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">                       <tt class="py-string">"There was a problem setting the admin password."</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">zenUsers</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Method Products.ZenModel.DataRoot.DataRoot.checkValidId()=Products.ZenModel.DataRoot.DataRoot-class.html#checkValidId,Method Products.ZenModel.GraphDefinition.GraphDefinition.checkValidId()=Products.ZenModel.GraphDefinition.GraphDefinition-class.html#checkValidId,Method Products.ZenModel.IpNetwork.IpNetwork.checkValidId()=Products.ZenModel.IpNetwork.IpNetwork-class.html#checkValidId,Method Products.ZenModel.ZenModelBase.ZenModelBase.checkValidId()=Products.ZenModel.ZenModelBase.ZenModelBase-class.html#checkValidId,Method Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.checkValidId()=Products.ZenRelations.ToManyContRelationship.ToManyContRelationship-class.html#checkValidId"><a title="Products.ZenModel.DataRoot.DataRoot.checkValidId
+Products.ZenModel.GraphDefinition.GraphDefinition.checkValidId
+Products.ZenModel.IpNetwork.IpNetwork.checkValidId
+Products.ZenModel.ZenModelBase.ZenModelBase.checkValidId
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.checkValidId" class="py-name" href="#" onclick="return doclink('link-24', 'checkValidId', 'link-24');">checkValidId</a></tt><tt class="py-op">(</tt><tt class="py-name">userName</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">True</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">            <tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="Products.ZenHub.services.Beat.Beat.error
+Products.ZenRRD.RRDDaemon.RRDDaemon.error
+Products.ZenRRD.zencommand.zencommand.error
+Products.ZenStatus.zenstatus.ZenStatus.error
+Products.ZenUtils.Ext.FormResponse.error" class="py-name" href="#" onclick="return doclink('link-25', 'error', 'link-23');">error</a></tt><tt class="py-op">(</tt><tt class="py-string">'username'</tt><tt class="py-op">,</tt> <tt class="py-string">'That username already exists.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">            <tt class="py-name">ret</tt> <tt class="py-op">=</tt> <tt class="py-name">zenUsers</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Method Products.ZenModel.UserSettings.UserSettingsManager.manage_addUser()=Products.ZenModel.UserSettings.UserSettingsManager-class.html#manage_addUser"><a title="Products.ZenModel.UserSettings.UserSettingsManager.manage_addUser" class="py-name" href="#" onclick="return doclink('link-26', 'manage_addUser', 'link-26');">manage_addUser</a></tt><tt class="py-op">(</tt><tt class="py-name">userName</tt><tt class="py-op">,</tt> <tt class="py-name">userPassword</tt><tt class="py-op">,</tt>  </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">                              <tt class="py-op">(</tt><tt class="py-string">'Manager'</tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-27" class="py-name" targets="Variable Products.ZenRelations.ZItem.ZItem.REQUEST=Products.ZenRelations.ZItem.ZItem-class.html#REQUEST"><a title="Products.ZenRelations.ZItem.ZItem.REQUEST" class="py-name" href="#" onclick="return doclink('link-27', 'REQUEST', 'link-27');">REQUEST</a></tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name" targets="Method Products.ZenModel.AdministrativeRole.AdministrativeRole.email()=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#email,Variable Products.ZenModel.UserSettings.UserSettings.email=Products.ZenModel.UserSettings.UserSettings-class.html#email"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.email
+Products.ZenModel.UserSettings.UserSettings.email" class="py-name" href="#" onclick="return doclink('link-28', 'email', 'link-28');">email</a></tt><tt class="py-op">=</tt><tt class="py-name">emailAddress</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">ret</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">                <tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="Products.ZenHub.services.Beat.Beat.error
+Products.ZenRRD.RRDDaemon.RRDDaemon.error
+Products.ZenRRD.zencommand.zencommand.error
+Products.ZenStatus.zenstatus.ZenStatus.error
+Products.ZenUtils.Ext.FormResponse.error" class="py-name" href="#" onclick="return doclink('link-29', 'error', 'link-23');">error</a></tt><tt class="py-op">(</tt><tt class="py-string">'username'</tt><tt class="py-op">,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">                               <tt class="py-string">'We were unable to add a user at this time.'</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">                               <tt class="py-string">' Check your installation.'</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Method Products.ZenUtils.Ext.FormResponse.has_errors()=Products.ZenUtils.Ext.FormResponse-class.html#has_errors"><a title="Products.ZenUtils.Ext.FormResponse.has_errors" class="py-name" href="#" onclick="return doclink('link-30', 'has_errors', 'link-30');">has_errors</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">            <tt class="py-comment"># Log out, so the form can log us in as the new user</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">            <tt class="py-name">acl_users</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-31', 'context', 'link-19');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">getPhysicalRoot</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-32', 'context', 'link-19');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt><tt class="py-op">.</tt><tt class="py-name">resetCredentials</tt><tt class="py-op">(</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.request" class="py-name" href="#" onclick="return doclink('link-33', 'request', 'link-11');">request</a></tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.request" class="py-name" href="#" onclick="return doclink('link-34', 'request', 'link-11');">request</a></tt><tt class="py-op">.</tt><tt class="py-name">response</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-comment"># Don't run the quickstart next time</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-35', 'context', 'link-19');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">dmd</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Variable Products.ZenModel.DataRoot.DataRoot._rq=Products.ZenModel.DataRoot.DataRoot-class.html#_rq"><a title="Products.ZenModel.DataRoot.DataRoot._rq" class="py-name" href="#" onclick="return doclink('link-36', '_rq', 'link-36');">_rq</a></tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line"> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-comment"># Send us on our way</tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt class="py-name">response</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Method Products.ZenUtils.Ext.FormResponse.redirect()=Products.ZenUtils.Ext.FormResponse-class.html#redirect"><a title="Products.ZenUtils.Ext.FormResponse.redirect" class="py-name" href="#" onclick="return doclink('link-37', 'redirect', 'link-37');">redirect</a></tt><tt class="py-op">(</tt><tt class="py-string">'qs-step2'</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">response</tt> </tt>
+</div></div><a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:27 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenUtils.extdirect.zope.metaconfigure</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenUtils-module.html">Package&nbsp;ZenUtils</a> ::
+        <a href="Products.ZenUtils.extdirect-module.html">Package&nbsp;extdirect</a> ::
+        <a href="Products.ZenUtils.extdirect.zope-module.html">Package&nbsp;zope</a> ::
+        Module&nbsp;metaconfigure
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenUtils.extdirect.zope.metaconfigure-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenUtils.extdirect.zope.metaconfigure-module.html">Module Products.ZenUtils.extdirect.zope.metaconfigure</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2009, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package Products.ZenUtils.extdirect.zope=Products.ZenUtils.extdirect.zope-module.html"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-0', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Variable Products.ZenModel.RRDDataSource.RRDDataSource.component=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#component,Variable Products.ZenRRD.zencommand.DataPointConfig.component=Products.ZenRRD.zencommand.DataPointConfig-class.html#component"><a title="Products.ZenModel.RRDDataSource.RRDDataSource.component
+Products.ZenRRD.zencommand.DataPointConfig.component" class="py-name" href="#" onclick="return doclink('link-1', 'component', 'link-1');">component</a></tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-2', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">interface</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Interface</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-3', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">viewlet</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Module Products.ZenUtils.extdirect.zope.metaconfigure=Products.ZenUtils.extdirect.zope.metaconfigure-module.html"><a title="Products.ZenUtils.extdirect.zope.metaconfigure" class="py-name" href="#" onclick="return doclink('link-4', 'metaconfigure', 'link-4');">metaconfigure</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">viewletDirective</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-5', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">publisher</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module Products.ZenEvents.interfaces=Products.ZenEvents.interfaces-module.html,Module Products.ZenModel.interfaces=Products.ZenModel.interfaces-module.html,Module Products.ZenUtils.extdirect.zope.interfaces=Products.ZenUtils.extdirect.zope.interfaces-module.html,Module Products.ZenWidgets.interfaces=Products.ZenWidgets.interfaces-module.html"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-6', 'interfaces', 'link-6');">interfaces</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Package Products.ZenEvents.browser=Products.ZenEvents.browser-module.html,Package Products.ZenModel.browser=Products.ZenModel.browser-module.html,Package Products.ZenWidgets.browser=Products.ZenWidgets.browser-module.html"><a title="Products.ZenEvents.browser
+Products.ZenModel.browser
+Products.ZenWidgets.browser" class="py-name" href="#" onclick="return doclink('link-7', 'browser', 'link-7');">browser</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">IBrowserView</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-8', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">publisher</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-9', 'interfaces', 'link-6');">interfaces</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Products.ZenEvents.browser
+Products.ZenModel.browser
+Products.ZenWidgets.browser" class="py-name" href="#" onclick="return doclink('link-10', 'browser', 'link-7');">browser</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">IDefaultBrowserLayer</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-11" class="py-name"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-11', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">viewlet</tt><tt class="py-op">.</tt><tt class="py-name">viewlet</tt> <tt class="py-keyword">import</tt> <tt class="py-name">ViewletBase</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt class="py-name">Five</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="Products.ZenEvents.browser
+Products.ZenModel.browser
+Products.ZenWidgets.browser" class="py-name" href="#" onclick="return doclink('link-12', 'browser', 'link-7');">browser</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="Products.ZenUtils.extdirect.zope.metaconfigure" class="py-name" href="#" onclick="return doclink('link-13', 'metaconfigure', 'link-4');">metaconfigure</a></tt> <tt class="py-keyword">import</tt> <tt class="py-name">page</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt id="link-14" class="py-name"><a title="Products.ZenUtils.extdirect.zope" class="py-name" href="#" onclick="return doclink('link-14', 'zope', 'link-0');">zope</a></tt><tt class="py-op">.</tt><tt class="py-name">app</tt><tt class="py-op">.</tt><tt class="py-name">publisher</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="Products.ZenEvents.browser
+Products.ZenModel.browser
+Products.ZenWidgets.browser" class="py-name" href="#" onclick="return doclink('link-15', 'browser', 'link-7');">browser</a></tt><tt class="py-op">.</tt><tt class="py-name">viewmeta</tt> <tt class="py-keyword">import</tt> <tt class="py-name">page</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Package Products.ZenUtils=Products.ZenUtils-module.html"><a title="Products.ZenUtils" class="py-name" href="#" onclick="return doclink('link-16', 'ZenUtils', 'link-16');">ZenUtils</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Package Products.ZenUtils.extdirect=Products.ZenUtils.extdirect-module.html"><a title="Products.ZenUtils.extdirect" class="py-name" href="#" onclick="return doclink('link-17', 'extdirect', 'link-17');">extdirect</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Module Products.ZenUtils.extdirect.router=Products.ZenUtils.extdirect.router-module.html,Module Products.ZenUtils.extdirect.zope.router=Products.ZenUtils.extdirect.zope.router-module.html"><a title="Products.ZenUtils.extdirect.router
+Products.ZenUtils.extdirect.zope.router" class="py-name" href="#" onclick="return doclink('link-18', 'router', 'link-18');">router</a></tt> <tt class="py-keyword">import</tt> <tt id="link-19" class="py-name" targets="Class Products.ZenUtils.extdirect.router.DirectProviderDefinition=Products.ZenUtils.extdirect.router.DirectProviderDefinition-class.html"><a title="Products.ZenUtils.extdirect.router.DirectProviderDefinition" class="py-name" href="#" onclick="return doclink('link-19', 'DirectProviderDefinition', 'link-19');">DirectProviderDefinition</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-20" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-20', 'interfaces', 'link-6');">interfaces</a></tt> <tt class="py-keyword">import</tt> <tt id="link-21" class="py-name" targets="Class Products.ZenUtils.extdirect.zope.interfaces.IExtDirectJavaScriptManager=Products.ZenUtils.extdirect.zope.interfaces.IExtDirectJavaScriptManager-class.html"><a title="Products.ZenUtils.extdirect.zope.interfaces.IExtDirectJavaScriptManager" class="py-name" href="#" onclick="return doclink('link-21', 'IExtDirectJavaScriptManager', 'link-21');">IExtDirectJavaScriptManager</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="SourceViewletBase"></a><div id="SourceViewletBase-def"><a name="L28"></a><tt class="py-lineno">28</tt> <a class="py-toggle" href="#" id="SourceViewletBase-toggle" onclick="return toggle('SourceViewletBase');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase-class.html">SourceViewletBase</a><tt class="py-op">(</tt><tt class="py-base-class">ViewletBase</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SourceViewletBase-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="SourceViewletBase-expanded"><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">    <tt id="link-22" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase._source=Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase-class.html#_source"><a title="Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase._source" class="py-name" href="#" onclick="return doclink('link-22', '_source', 'link-22');">_source</a></tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt id="link-23" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase.weight=Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase-class.html#weight,Method Products.ZenUtils.snmp.SnmpConfig.weight()=Products.ZenUtils.snmp.SnmpConfig-class.html#weight"><a title="Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase.weight
+Products.ZenUtils.snmp.SnmpConfig.weight" class="py-name" href="#" onclick="return doclink('link-23', 'weight', 'link-23');">weight</a></tt><tt class="py-op">=</tt><tt class="py-number">0</tt> </tt>
+<a name="SourceViewletBase.render"></a><div id="SourceViewletBase.render-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="SourceViewletBase.render-toggle" onclick="return toggle('SourceViewletBase.render');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase-class.html#render">render</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SourceViewletBase.render-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="SourceViewletBase.render-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase._source" class="py-name" href="#" onclick="return doclink('link-24', '_source', 'link-22');">_source</a></tt> </tt>
+</div></div><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt>
+<a name="JavaScriptSourceViewlet"></a><div id="JavaScriptSourceViewlet-def"><a name="L34"></a><tt class="py-lineno">34</tt> <a class="py-toggle" href="#" id="JavaScriptSourceViewlet-toggle" onclick="return toggle('JavaScriptSourceViewlet');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.extdirect.zope.metaconfigure-module.html#JavaScriptSourceViewlet">JavaScriptSourceViewlet</a><tt class="py-op">(</tt><tt class="py-param">source</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JavaScriptSourceViewlet-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="JavaScriptSourceViewlet-expanded"><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">    <tt class="py-name">klass</tt> <tt class="py-op">=</tt> <tt id="link-25" class="py-name" targets="Variable Products.ZenEvents.CustomEventView.CustomEventView.type=Products.ZenEvents.CustomEventView.CustomEventView-class.html#type,Variable Products.ZenEvents.WhereClause.Compare.type=Products.ZenEvents.WhereClause.Compare-class.html#type,Variable Products.ZenEvents.WhereClause.Enumerated.type=Products.ZenEvents.WhereClause.Enumerated-class.html#type,Variable Products.ZenEvents.WhereClause.EventClass.type=Products.ZenEvents.WhereClause.EventClass-class.html#type,Variable Products.ZenEvents.WhereClause.Select.type=Products.ZenEvents.WhereClause.Select-class.html#type,Variable Products.ZenEvents.WhereClause.Text.type=Products.ZenEvents.WhereClause.Text-class.html#type,Variable Products.ZenEvents.WhereClause.WhereJavaScript.type=Products.ZenEvents.WhereClause.WhereJavaScript-class.html#type,Variable Products.ZenModel.Fan.Fan.type=Products.ZenModel.Fan.Fan-class.html#type,Variable Products.ZenModel.FileSystem.FileSystem.type=Products.ZenModel.FileSystem.FileSystem-class.html#type,Variable Products.ZenModel.IpInterface.IpInterface.type=Products.ZenModel.IpInterface.IpInterface-class.html#type,Variable Products.ZenModel.PowerSupply.PowerSupply.type=Products.ZenModel.PowerSupply.PowerSupply-class.html#type,Method Products.ZenModel.ProductClass.ProductClass.type()=Products.ZenModel.ProductClass.ProductClass-class.html#type,Method Products.ZenModel.SoftwareClass.SoftwareClass.type()=Products.ZenModel.SoftwareClass.SoftwareClass-class.html#type"><a title="Products.ZenEvents.CustomEventView.CustomEventView.type
+Products.ZenEvents.WhereClause.Compare.type
+Products.ZenEvents.WhereClause.Enumerated.type
+Products.ZenEvents.WhereClause.EventClass.type
+Products.ZenEvents.WhereClause.Select.type
+Products.ZenEvents.WhereClause.Text.type
+Products.ZenEvents.WhereClause.WhereJavaScript.type
+Products.ZenModel.Fan.Fan.type
+Products.ZenModel.FileSystem.FileSystem.type
+Products.ZenModel.IpInterface.IpInterface.type
+Products.ZenModel.PowerSupply.PowerSupply.type
+Products.ZenModel.ProductClass.ProductClass.type
+Products.ZenModel.SoftwareClass.SoftwareClass.type" class="py-name" href="#" onclick="return doclink('link-25', 'type', 'link-25');">type</a></tt><tt class="py-op">(</tt><tt class="py-string">'JavaScriptSourceViewlet'</tt><tt class="py-op">,</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                 <tt class="py-op">(</tt><tt id="link-26" class="py-name" targets="Class Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase=Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase-class.html"><a title="Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase" class="py-name" href="#" onclick="return doclink('link-26', 'SourceViewletBase', 'link-26');">SourceViewletBase</a></tt><tt class="py-op">,</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">                 <tt class="py-op">{</tt><tt class="py-string">'_source'</tt><tt class="py-op">:</tt><tt id="link-27" class="py-name" targets="Variable Products.ZenWidgets.Portlet.Portlet.source=Products.ZenWidgets.Portlet.Portlet-class.html#source"><a title="Products.ZenWidgets.Portlet.Portlet.source" class="py-name" href="#" onclick="return doclink('link-27', 'source', 'link-27');">source</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">                  <tt class="py-string">'weight'</tt><tt class="py-op">:</tt><tt class="py-number">2</tt><tt class="py-op">}</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">klass</tt> </tt>
+</div><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="directRouter"></a><div id="directRouter-def"><a name="L42"></a><tt class="py-lineno">42</tt> <a class="py-toggle" href="#" id="directRouter-toggle" onclick="return toggle('directRouter');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.extdirect.zope.metaconfigure-module.html#directRouter">directRouter</a><tt class="py-op">(</tt><tt class="py-param">_context</tt><tt class="py-op">,</tt> <tt class="py-param">name</tt><tt class="py-op">,</tt> <tt class="py-param">class_</tt><tt class="py-op">,</tt> <tt class="py-param">namespace</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">for_</tt><tt class="py-op">=</tt><tt class="py-name">Interface</tt><tt class="py-op">,</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                 <tt class="py-param">layer</tt><tt class="py-op">=</tt><tt class="py-name">IDefaultBrowserLayer</tt><tt class="py-op">,</tt> <tt class="py-param">timeout</tt><tt class="py-op">=</tt><tt class="py-string">"30000"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">                 <tt class="py-param">permission</tt><tt class="py-op">=</tt><tt class="py-string">'zenoss.Common'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="directRouter-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="directRouter-expanded"><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">    <tt class="py-comment"># Register the view at which the class will be available</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">    <tt class="py-name">page</tt><tt class="py-op">(</tt><tt class="py-name">_context</tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name" targets="Variable Products.DataCollector.SshClient.CommandChannel.name=Products.DataCollector.SshClient.CommandChannel-class.html#name,Variable Products.DataCollector.zendisc.ZenDisc.name=Products.DataCollector.zendisc.ZenDisc-class.html#name,Variable Products.DataCollector.zenmodeler.ZenModeler.name=Products.DataCollector.zenmodeler.ZenModeler-class.html#name,Variable Products.ZenEvents.EventServer.EventServer.name=Products.ZenEvents.EventServer.EventServer-class.html#name,Variable Products.ZenEvents.zenmail.ZenMail.name=Products.ZenEvents.zenmail.ZenMail-class.html#name,Variable Products.ZenEvents.zenpop3.ZenPOP3.name=Products.ZenEvents.zenpop3.ZenPOP3-class.html#name,Variable Products.ZenEvents.zensyslog.ZenSyslog.name=Products.ZenEvents.zensyslog.ZenSyslog-class.html#name,Variable Products.ZenEvents.zentrap.ZenTrap.name=Products.ZenEvents.zentrap.ZenTrap-class.html#name,Method Products.ZenHub.HubService.HubService.name()=Products.ZenHub.HubService.HubService-class.html#name,Variable Products.ZenHub.PBDaemon.PBDaemon.name=Products.ZenHub.PBDaemon.PBDaemon-class.html#name,Variable Products.ZenHub.services.ProcessConfig.ProcessProxy.name=Products.ZenHub.services.ProcessConfig.ProcessProxy-class.html#name,Variable Products.ZenHub.zenhub.ZenHub.name=Products.ZenHub.zenhub.ZenHub-class.html#name,Method Products.ZenModel.Device.Device.name()=Products.ZenModel.Device.Device-class.html#name,Method Products.ZenModel.DeviceComponent.DeviceComponent.name()=Products.ZenModel.DeviceComponent.DeviceComponent-class.html#name,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#name,Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#name,Method Products.ZenModel.OSProcess.OSProcess.name()=Products.ZenModel.OSProcess.OSProcess-class.html#name,Variable Products.ZenModel.OSProcessClass.OSProcessClass.name=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#name,Variable Products.ZenModel.ProductClass.ProductClass.name=Products.ZenModel.ProductClass.ProductClass-class.html#name,Method Products.ZenModel.RRDDataPoint.RRDDataPoint.name()=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#name,Method Products.ZenModel.Service.Service.name()=Products.ZenModel.Service.Service-class.html#name,Variable Products.ZenModel.ServiceClass.ServiceClass.name=Products.ZenModel.ServiceClass.ServiceClass-class.html#name,Method Products.ZenModel.Software.Software.name()=Products.ZenModel.Software.Software-class.html#name,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.name()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#name,Method Products.ZenModel.WinService.WinService.name()=Products.ZenModel.WinService.WinService-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLAbout.name=Products.ZenModel.ZenPackLoader.ZPLAbout-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLBin.name=Products.ZenModel.ZenPackLoader.ZPLBin-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDaemons.name=Products.ZenModel.ZenPackLoader.ZPLDaemons-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDataSources.name=Products.ZenModel.ZenPackLoader.ZPLDataSources-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibExec.name=Products.ZenModel.ZenPackLoader.ZPLLibExec-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibraries.name=Products.ZenModel.ZenPackLoader.ZPLLibraries-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLModelers.name=Products.ZenModel.ZenPackLoader.ZPLModelers-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLObject.name=Products.ZenModel.ZenPackLoader.ZPLObject-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLReport.name=Products.ZenModel.ZenPackLoader.ZPLReport-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLSkins.name=Products.ZenModel.ZenPackLoader.ZPLSkins-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZenPackLoader.name=Products.ZenModel.ZenPackLoader.ZenPackLoader-class.html#name,Method Products.ZenRRD.zencommand.Cmd.name()=Products.ZenRRD.zencommand.Cmd-class.html#name,Variable Products.ZenRRD.zenrender.zenrender.name=Products.ZenRRD.zenrender.zenrender-class.html#name,Variable Products.ZenStatus.zenping.ZenPing.name=Products.ZenStatus.zenping.ZenPing-class.html#name,Variable Products.ZenStatus.zenstatus.ZenStatus.name=Products.ZenStatus.zenstatus.ZenStatus-class.html#name,Variable Products.ZenUtils.DaemonStats.DaemonStats.name=Products.ZenUtils.DaemonStats.DaemonStats-class.html#name,Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#name,Variable Products.ZenUtils.zencatalog.ZenCatalog.name=Products.ZenUtils.zencatalog.ZenCatalog-class.html#name,Method Products.ZenWin.services.WinServiceConfig.SmartService.name()=Products.ZenWin.services.WinServiceConfig.SmartService-class.html#name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-28', 'name', 'link-28');">name</a></tt><tt class="py-op">,</tt> <tt id="link-29" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.permission=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#permission"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.permission" class="py-name" href="#" onclick="return doclink('link-29', 'permission', 'link-29');">permission</a></tt><tt class="py-op">,</tt> <tt id="link-30" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.for_=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#for_"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.for_" class="py-name" href="#" onclick="return doclink('link-30', 'for_', 'link-30');">for_</a></tt><tt class="py-op">,</tt> <tt id="link-31" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.layer=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#layer"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.layer" class="py-name" href="#" onclick="return doclink('link-31', 'layer', 'link-31');">layer</a></tt><tt class="py-op">,</tt> <tt id="link-32" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.class_=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#class_"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.class_" class="py-name" href="#" onclick="return doclink('link-32', 'class_', 'link-32');">class_</a></tt><tt class="py-op">=</tt><tt id="link-33" class="py-name"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.class_" class="py-name" href="#" onclick="return doclink('link-33', 'class_', 'link-32');">class_</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt class="py-comment"># Make a viewlet class with the appropriate javascript source</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">    <tt id="link-34" class="py-name"><a title="Products.ZenWidgets.Portlet.Portlet.source" class="py-name" href="#" onclick="return doclink('link-34', 'source', 'link-27');">source</a></tt> <tt class="py-op">=</tt> <tt id="link-35" class="py-name"><a title="Products.ZenUtils.extdirect.router.DirectProviderDefinition" class="py-name" href="#" onclick="return doclink('link-35', 'DirectProviderDefinition', 'link-19');">DirectProviderDefinition</a></tt><tt class="py-op">(</tt><tt id="link-36" class="py-name"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.class_" class="py-name" href="#" onclick="return doclink('link-36', 'class_', 'link-32');">class_</a></tt><tt class="py-op">,</tt> <tt id="link-37" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-37', 'name', 'link-28');">name</a></tt><tt class="py-op">,</tt> <tt id="link-38" class="py-name" targets="Variable Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout=Products.DataCollector.TelnetClient.TelnetClientProtocol-class.html#timeout,Variable Products.ZenEvents.zenpop3.POPProtocol.timeout=Products.ZenEvents.zenpop3.POPProtocol-class.html#timeout,Method Products.ZenRRD.zencommand.ProcessRunner.timeout()=Products.ZenRRD.zencommand.ProcessRunner-class.html#timeout,Method Products.ZenRRD.zencommand.SshRunner.timeout()=Products.ZenRRD.zencommand.SshRunner-class.html#timeout,Function Products.ZenUtils.Timeout.timeout()=Products.ZenUtils.Timeout-module.html#timeout,Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#timeout"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout
+Products.ZenEvents.zenpop3.POPProtocol.timeout
+Products.ZenRRD.zencommand.ProcessRunner.timeout
+Products.ZenRRD.zencommand.SshRunner.timeout
+Products.ZenUtils.Timeout.timeout
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout" class="py-name" href="#" onclick="return doclink('link-38', 'timeout', 'link-38');">timeout</a></tt><tt class="py-op">,</tt> <tt id="link-39" class="py-name" targets="Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.namespace=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#namespace"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.namespace" class="py-name" href="#" onclick="return doclink('link-39', 'namespace', 'link-39');">namespace</a></tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method Products.ZenHub.zenhub.AuthXmlRpcService.render()=Products.ZenHub.zenhub.AuthXmlRpcService-class.html#render,Method Products.ZenRRD.RenderServer.RenderServer.render()=Products.ZenRRD.RenderServer.RenderServer-class.html#render,Method Products.ZenUtils.extdirect.router.DirectProviderDefinition.render()=Products.ZenUtils.extdirect.router.DirectProviderDefinition-class.html#render,Method Products.ZenUtils.extdirect.zope.interfaces.IDirectProviderDefinition.render()=Products.ZenUtils.extdirect.zope.interfaces.IDirectProviderDefinition-class.html#render,Method Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase.render()=Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase-class.html#render"><a title="Products.ZenHub.zenhub.AuthXmlRpcService.render
+Products.ZenRRD.RenderServer.RenderServer.render
+Products.ZenUtils.extdirect.router.DirectProviderDefinition.render
+Products.ZenUtils.extdirect.zope.interfaces.IDirectProviderDefinition.render
+Products.ZenUtils.extdirect.zope.metaconfigure.SourceViewletBase.render" class="py-name" href="#" onclick="return doclink('link-40', 'render', 'link-40');">render</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">    <tt class="py-name">viewletclass</tt> <tt class="py-op">=</tt> <tt id="link-41" class="py-name" targets="Function Products.ZenUtils.extdirect.zope.metaconfigure.JavaScriptSourceViewlet()=Products.ZenUtils.extdirect.zope.metaconfigure-module.html#JavaScriptSourceViewlet"><a title="Products.ZenUtils.extdirect.zope.metaconfigure.JavaScriptSourceViewlet" class="py-name" href="#" onclick="return doclink('link-41', 'JavaScriptSourceViewlet', 'link-41');">JavaScriptSourceViewlet</a></tt><tt class="py-op">(</tt><tt id="link-42" class="py-name"><a title="Products.ZenWidgets.Portlet.Portlet.source" class="py-name" href="#" onclick="return doclink('link-42', 'source', 'link-27');">source</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">    <tt class="py-name">viewletDirective</tt><tt class="py-op">(</tt><tt class="py-name">_context</tt><tt class="py-op">,</tt> <tt id="link-43" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-43', 'name', 'link-28');">name</a></tt><tt class="py-op">,</tt> <tt class="py-string">'zope2.Public'</tt><tt class="py-op">,</tt> <tt id="link-44" class="py-name"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.for_" class="py-name" href="#" onclick="return doclink('link-44', 'for_', 'link-30');">for_</a></tt><tt class="py-op">,</tt> <tt id="link-45" class="py-name"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.layer" class="py-name" href="#" onclick="return doclink('link-45', 'layer', 'link-31');">layer</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">                     <tt class="py-name">manager</tt><tt class="py-op">=</tt><tt id="link-46" class="py-name"><a title="Products.ZenUtils.extdirect.zope.interfaces.IExtDirectJavaScriptManager" class="py-name" href="#" onclick="return doclink('link-46', 'IExtDirectJavaScriptManager', 'link-21');">IExtDirectJavaScriptManager</a></tt><tt class="py-op">,</tt> <tt id="link-47" class="py-name"><a title="Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.class_" class="py-name" href="#" onclick="return doclink('link-47', 'class_', 'link-32');">class_</a></tt><tt class="py-op">=</tt><tt class="py-name">viewletclass</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:45 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

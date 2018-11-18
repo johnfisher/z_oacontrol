@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenUtils.ZenDaemon.ZenDaemon</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenUtils-module.html">Package&nbsp;ZenUtils</a> ::
+        <a href="Products.ZenUtils.ZenDaemon-module.html">Module&nbsp;ZenDaemon</a> ::
+        Class&nbsp;ZenDaemon
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ZenDaemon</h1><p class="nomargin-top"><span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+     <a href="object-class.html">object</a> --+    
+              |    
+<a href="Products.ZenUtils.CmdBase.CmdBase-class.html">CmdBase.CmdBase</a> --+
+                  |
+                 <strong class="uidshort">ZenDaemon</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li><a href="Products.ZenUtils.ZeoPoolBase.ZeoPoolBase-class.html">ZeoPoolBase.ZeoPoolBase</a></li><li>, <a href="Products.ZenHub.PBDaemon.PBDaemon-class.html">ZenHub.PBDaemon.PBDaemon</a></li><li>, <a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html">ZCmdBase.ZCmdBase</a></li>  </ul>
+</dd></dl>
+
+<hr />
+<p>Base class for creating daemons</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">noopts</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">keeproot</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Initializer that takes care of basic daemon options.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="openPrivilegedPort"></a><span class="summary-sig-name">openPrivilegedPort</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*address</span>)</span><br />
+      Execute under zensocket, providing the args to zensocket</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.openPrivilegedPort">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="writePidFile"></a><span class="summary-sig-name">writePidFile</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Write the PID file to disk</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.writePidFile">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#setupLogging" class="summary-sig-name">setupLogging</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Create formating for log entries and set default log level</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.setupLogging">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="sighandler_USR1"></a><span class="summary-sig-name">sighandler_USR1</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">signum</span>,
+        <span class="summary-sig-arg">frame</span>)</span><br />
+      Switch to debug level if signaled by the user, and to default when 
+      signaled again.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.sighandler_USR1">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="changeUser"></a><span class="summary-sig-name">changeUser</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Switch identity to the appropriate Unix user</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.changeUser">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#becomeDaemon" class="summary-sig-name">becomeDaemon</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Code below comes from the excellent recipe by Chad J.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.becomeDaemon">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="sigTerm"></a><span class="summary-sig-name">sigTerm</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">signum</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">frame</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Signal handler for the SIGTERM signal.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.sigTerm">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">integer</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#watchdogCycleTime" class="summary-sig-name">watchdogCycleTime</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return our cycle time (in minutes)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.watchdogCycleTime">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">integer</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#watchdogStartTimeout" class="summary-sig-name">watchdogStartTimeout</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return our watchdog start timeout (in minutes)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.watchdogStartTimeout">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">integer</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#watchdogMaxRestartTime" class="summary-sig-name">watchdogMaxRestartTime</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return our watchdog max restart time (in minutes)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.watchdogMaxRestartTime">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="becomeWatchdog"></a><span class="summary-sig-name">becomeWatchdog</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Watch the specified daemon and restart it if necessary.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.becomeWatchdog">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="niceDoggie"></a><span class="summary-sig-name">niceDoggie</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">timeout</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.niceDoggie">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#buildOptions" class="summary-sig-name">buildOptions</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Standard set of command-line options.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.buildOptions">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html">CmdBase.CmdBase</a></code></b>:
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#buildParser">buildParser</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#checkLogpath">checkLogpath</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#generate_configs">generate_configs</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#generate_xml_configs">generate_xml_configs</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#generate_xml_table">generate_xml_table</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#getConfigFileDefaults">getConfigFileDefaults</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#parseOptions">parseOptions</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#pretty_print_config_comment">pretty_print_config_comment</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="pidfile"></a><span class="summary-name">pidfile</span> = <code title="None">None</code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html">CmdBase.CmdBase</a></code></b>:
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#doesLogging">doesLogging</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">noopts</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">keeproot</span>=<span class="sig-default">False</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initializer that takes care of basic daemon options. Creates a PID 
+  file.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenUtils.CmdBase.CmdBase-class.html#__init__">CmdBase.CmdBase.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="setupLogging"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setupLogging</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.setupLogging">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create formating for log entries and set default log level</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenUtils.CmdBase.CmdBase-class.html#setupLogging">CmdBase.CmdBase.setupLogging</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="becomeDaemon"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">becomeDaemon</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.becomeDaemon">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Code below comes from the excellent recipe by Chad J. Schroeder.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="watchdogCycleTime"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">watchdogCycleTime</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.watchdogCycleTime">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return our cycle time (in minutes)</p>
+  <dl class="fields">
+    <dt>Returns: integer</dt>
+        <dd>cycle time</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="watchdogStartTimeout"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">watchdogStartTimeout</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.watchdogStartTimeout">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return our watchdog start timeout (in minutes)</p>
+  <dl class="fields">
+    <dt>Returns: integer</dt>
+        <dd>start timeout</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="watchdogMaxRestartTime"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">watchdogMaxRestartTime</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.watchdogMaxRestartTime">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return our watchdog max restart time (in minutes)</p>
+  <dl class="fields">
+    <dt>Returns: integer</dt>
+        <dd>maximum restart time</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="buildOptions"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">buildOptions</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenUtils.ZenDaemon-pysrc.html#ZenDaemon.buildOptions">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Standard set of command-line options.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenUtils.CmdBase.CmdBase-class.html#buildOptions">CmdBase.CmdBase.buildOptions</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:43 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

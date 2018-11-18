@@ -1,0 +1,1267 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- base href="http://keith-wood.name/svg.html" --></head><body><div style="background:#fff;border:1px solid #999;margin:-1px -1px 0;padding:0;"><div style="background:#ddd;border:1px solid #999;color:#000;font:13px arial,sans-serif;font-weight:normal;margin:12px;padding:8px;text-align:left">This is Google's cache of <a href="http://keith-wood.name/svg.html" style="text-decoration: underline; color: rgb(0, 0, 204);">http://keith-wood.name/svg.html</a>. It is a snapshot of the page as it appeared on Jun 5, 2011 16:42:31 GMT. The <a href="http://keith-wood.name/svg.html" style="text-decoration: underline; color: rgb(0, 0, 204);">current page</a> could have changed in the meantime. <a href="http://www.google.com/intl/en/help/features_list.html#cached" style="text-decoration: underline; color: rgb(0, 0, 204);">Learn more</a><br><br><div style="float:right"><a href="http://webcache.googleusercontent.com/search?q=cache:0cEJCwML2ZkJ:keith-wood.name/svg.html+jquery+svg&amp;hl=en&amp;gl=us&amp;strip=1" style="text-decoration: underline; color: rgb(0, 0, 204);">Text-only version</a></div>
+<div>These search terms are highlighted: <span style="background:#ffff66;color:black;font-weight:bold">jquery</span>&nbsp;<span style="background:#a0ffff;color:black;font-weight:bold">svg</span>&nbsp;&nbsp;</div></div></div><div style="position:relative">
+<!--?xml version="1.0" encoding="UTF-8"?-->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery SVG</title>
+<style type="text/css">
+@import "css/jquery.tabs.css";
+@import "css/jquery.bookmark.css";
+@import "css/jquery.svg.css";
+@import "css/demo.css";
+
+#tabs ul { width: 100%; }
+#tips ul { width: auto; }
+table { width: 100%; }
+pre { clear: none; }
+.svgdiv { border: 1px solid #3c8243; }
+#svgintro { float: right; width: 150px; height: 150px; margin-right: 30px; background: #fff; border: 1px solid #3c8243; }
+.svgsample { float: left; width: 46%; margin: 1%; overflow: scroll; border: 1px solid #3c8243; padding: 5px; }
+.drawOpt { float: left; width: 25%; }
+.row { clear: both; }
+#showMods { padding: 0em 0.25em; background-color: #ddffe8; color: #000; border: 1px solid #3c8243; font-size: 80%; text-decoration: none; cursor: pointer; }
+#domMods { display: none; padding: 0em 1em 0.5em; background-color: #ddffe8; border: 1px solid #3c8243; }
+</style>
+<script type="text/javascript" src="jquerysvg_files/jquery-1.html"></script><!-- SVG modified version -->
+<script type="text/javascript" src="jquerysvg_files/jquery_004.html"></script>
+<script type="text/javascript" src="jquerysvg_files/jquery_008.html"></script>
+<script type="text/javascript" src="jquerysvg_files/jquery.html"></script>
+<script type="text/javascript" src="jquerysvg_files/jquery_007.html"></script>
+<script type="text/javascript" src="jquerysvg_files/jquery_002.html"></script>
+<script type="text/javascript" src="jquerysvg_files/jquery_005.html"></script>
+<script type="text/javascript" src="jquerysvg_files/jquery_003.html"></script>
+<script type="text/javascript" src="jquerysvg_files/jquery_009.html"></script>
+<script type="text/javascript" src="jquerysvg_files/jquery_006.html"></script>
+<script type="text/javascript" src="jquerysvg_files/svg.html"></script>
+<script type="text/javascript" src="jquerysvg_files/jquery_010.html"></script>
+<script type="text/javascript">
+var shapes = [];
+var values = [];
+
+$(function() {
+	$('#download').click(function() {
+		pageTracker._trackPageview('/downloads/svg-1.4.3');
+		window.location = 'zip/jquery.svg.package-1.4.3.zip';
+	});
+	if (!$.browser.msie) {
+		$('a[href=#graphs]').parent().addClass('tabSplit');
+	}
+	$('#svgexample').svg();
+	initExamples();
+	setGraphOptions();
+	$('#showMods').toggle(function() {
+		$(this).text($(this).text().replace(/Show/, 'Hide'))
+		$('#domMods').show();
+		return false;
+	}, function() {
+		$(this).text($(this).text().replace(/Hide/, 'Show'))
+		$('#domMods').hide();
+		return false;
+	});
+});
+</script>
+<script type="text/javascript" src="jquerysvg_files/demo.html"></script> <!-- After SVG load -->
+
+
+<h1><b style="color:black;background-color:#ffff66">jQuery</b> <b style="color:black;background-color:#a0ffff">SVG</b></h1>
+<p>A <a href="http://jquery.com/"><b style="color:black;background-color:#ffff66">jQuery</b></a> <a href="http://jquery.com/plugins/project/svg">plugin</a>
+	that lets you interact with an <b style="color:black;background-color:#a0ffff">SVG</b> canvas. If you find this plugin useful please
+	<a href="http://jquery.com/plugins/project/svg">vote for it</a>
+	on the <b style="color:black;background-color:#ffff66">jQuery</b> site<span id="rating"></span>.</p>
+<p>The current version is <span class="version">1.4.3</span> and is available 
+	under the <a href="http://dev.jquery.com/browser/trunk/jquery/GPL-LICENSE.txt">GPL</a> and
+	<a href="http://dev.jquery.com/browser/trunk/jquery/MIT-LICENSE.txt">MIT</a> licences.
+	For more detail see the <a href="http://keith-wood.name/svgRef.html">documentation reference</a> page,
+	or the <a href="http://keith-wood.name/svggraphRef.html">graphing reference</a> or
+	<a href="http://keith-wood.name/svgplotRef.html">plotting reference</a> pages.
+	Or see a <a href="http://keith-wood.name/svgBasics.html">minimal page</a> that you could
+	use as a basis for your own investigations.</p>
+<p style="text-align: center;">
+	<button type="button" id="download">Download now</button>
+	<span id="bookmark"></span>
+</p>
+<div id="tabs">
+	<ul>
+		<li><a href="#intro"><span>Introduction</span></a></li>
+		<li><a href="#extend"><span>Extensions</span></a></li>
+		<li><a href="#examples"><span>Examples</span></a></li>
+		<li><a href="#load"><span>Load</span></a></li>
+		<li><a href="#anim"><span>Animations</span></a></li>
+		<li><a href="#sketch"><span>Sketchpad</span></a></li>
+		<li><a href="#graphs"><span>Graphing</span></a></li>
+		<li><a href="#plot"><span>Plotting</span></a></li>
+		<li><a href="#mix"><span>Mixture</span></a></li>
+		<li><a href="#dom"><span><b style="color:black;background-color:#a0ffff">SVG</b> DOM</span></a></li>
+		<li><a href="#tips"><span>Tips</span></a></li>
+		<li><a href="#wild"><span>In the Wild</span></a></li>
+		<li><a href="#quick"><span>Quick Ref</span></a></li>
+	</ul>
+	<div id="intro" class="feature">
+		<h2>Introduction</h2>
+		<p><b style="color:black;background-color:#a0ffff">SVG</b> (Scalable Vector Graphics) is a <q>modularized language 
+			for describing two-dimensional vector and mixed vector/raster 
+			graphics in XML</q>. It is a 
+			<a href="http://www.w3.org/TR/SVG11/">W3C Recommendation</a>
+			currently at version 1.1.</p>
+		<q><b style="color:black;background-color:#a0ffff">SVG</b> is a language for describing two-dimensional graphics in XML. 
+			<b style="color:black;background-color:#a0ffff">SVG</b> allows for three types of graphic objects: vector graphic shapes 
+			(e.g., paths consisting of straight lines and curves), images and text. 
+			Graphical objects can be grouped, styled, transformed and composited 
+			into previously rendered objects. The feature set includes nested 
+			transformations, clipping paths, alpha masks, filter effects and template objects.</q>
+		<p><b style="color:black;background-color:#a0ffff">SVG</b> is implemented in Firefox natively from version 1.5, Opera natively from version 8.5,
+			Safari natively from version 3.0, and in IE from Windows 98 onwards via the 
+			<a href="http://www.adobe.com/svg/viewer/install/main.html">Adobe <b style="color:black;background-color:#a0ffff">SVG</b> viewer</a> or the
+			<a href="http://www.examotion.com/index.php?id=product_player">Renesis Player</a>.
+			Not every <b style="color:black;background-color:#a0ffff">SVG</b> construct is supported by these implementations.</p>
+		<p>This plugin allows you to manipulate the <b style="color:black;background-color:#a0ffff">SVG</b> from JavaScript.
+			For more details see the <a href="http://keith-wood.name/svgRef.html">reference documentation</a>,
+			or the <a href="http://keith-wood.name/svggraphRef.html">graphing reference</a> or
+			<a href="http://keith-wood.name/svgplotRef.html">plotting reference</a> pages.</p>
+		<p>Download and include the <b style="color:black;background-color:#ffff66">jQuery</b> <b style="color:black;background-color:#a0ffff">SVG</b> CSS and JavaScript in the head section of your page.</p>
+		<pre><code class="html">&lt;style type="text/css"&gt;@import "<b style="color:black;background-color:#ffff66">jquery</b>.<b style="color:black;background-color:#a0ffff">svg</b>.css";&lt;/style&gt;
+&lt;script type="text/javascript" src="<b style="color:black;background-color:#ffff66">jquery</b>.<b style="color:black;background-color:#a0ffff">svg</b>.js"&gt;&lt;/script&gt;</code></pre>
+		<p>Alternatively, you can use the packed or minified versions of the code:
+			<code><b style="color:black;background-color:#ffff66">jquery</b>.<b style="color:black;background-color:#a0ffff">svg</b>.pack.js</code> (14.6K vs 54.3K) or
+			<code><b style="color:black;background-color:#ffff66">jquery</b>.<b style="color:black;background-color:#a0ffff">svg</b>.min.js</code> (18.8K, 5.8K when zipped).</p>
+		<div id="svgintro"></div>
+		<p>Attach an <b style="color:black;background-color:#a0ffff">SVG</b> canvas to a <code>&lt;div&gt;</code>.</p>
+		<pre><code class="jsdemo">$('#svgintro').<b style="color:black;background-color:#a0ffff">svg</b>({onLoad: drawIntro});</code></pre>
+		<p>Then respond to the load completion and start working with it.</p>
+		<pre><code class="jsdemo">function drawIntro(<b style="color:black;background-color:#a0ffff">svg</b>) {
+	<b style="color:black;background-color:#a0ffff">svg</b>.circle(75, 75, 50,
+		{fill: 'none', stroke: 'red', strokeWidth: 3});
+	var g = <b style="color:black;background-color:#a0ffff">svg</b>.group({stroke: 'black', strokeWidth: 2});
+	<b style="color:black;background-color:#a0ffff">svg</b>.line(g, 15, 75, 135, 75);
+	<b style="color:black;background-color:#a0ffff">svg</b>.line(g, 75, 15, 75, 135);
+}</code></pre>
+		<p>You can remove the <b style="color:black;background-color:#a0ffff">SVG</b> functionality if you no longer need it.
+			<button type="button" id="remove">Remove</button></p>
+<pre><code class="jsdemo">$('#remove').toggle(function() {
+		$(this).text('Re-attach');
+		$('#svgintro').<b style="color:black;background-color:#a0ffff">svg</b>('destroy');
+	},
+	function() {
+		$(this).text('Remove');
+		$('#svgintro').<b style="color:black;background-color:#a0ffff">svg</b>({onLoad: drawIntro});
+	});</code></pre>
+		<p>For <b>IE</b>, a blank <b style="color:black;background-color:#a0ffff">SVG</b> document is initially loaded that registers itself with
+			the plugin and allows access to its internal structure. This is the
+			<code>blank.<b style="color:black;background-color:#a0ffff">svg</b></code> document. Because of this requirement, you <b>must wait</b>
+			for the document to be loaded before accessing the <b style="color:black;background-color:#a0ffff">SVG</b> instance and using it.
+			Use the <code>onLoad</code> setting to be notified when loading is complete.
+			The callback is not necessary for the other browsers, but its use provides
+			a consistent access pattern for them all.</p>
+		<p>Processed divisions are marked with a class of <code>hasSVG</code>
+			and are not re-processed if targetted a second time.</p>
+	</div>
+	<div id="extend" class="feature">
+		<h2>Extension Plugins</h2>
+		<p>As well as the basic <b style="color:black;background-color:#a0ffff">SVG</b> functionality, the plugin allows for extending its
+			abilities via additional packages. In this way you can avoid loading code
+			that you are not going to use. Most extensions add an entry point object to
+			the <b style="color:black;background-color:#a0ffff">SVG</b> manager object, returned by <code>$(selector).<b style="color:black;background-color:#a0ffff">svg</b>('get')</code>,
+			from which you can access its functionality.</p>
+		<p>Currently the following extensions are available:</p>
+		<table border="0">
+			<tbody><tr><th>Package</th><th>Entry point</th><th>Functionality</th></tr>
+			<tr><td><b style="color:black;background-color:#ffff66">jquery</b>.svganim.js</td><td>-</td>
+				<td>Support for <b style="color:black;background-color:#ffff66">jQuery</b> animation of <b style="color:black;background-color:#a0ffff">SVG</b> attributes.
+					<span class="version">Since 1.1.0</span>.</td></tr>
+			<tr><td><b style="color:black;background-color:#ffff66">jquery</b>.svgdom.js</td><td>-</td>
+				<td>Support for <b style="color:black;background-color:#ffff66">jQuery</b>/<b style="color:black;background-color:#a0ffff">SVG</b> DOM compatibility.
+					<span class="version">Since 1.4.0</span>.</td></tr>
+			<tr><td><b style="color:black;background-color:#ffff66">jquery</b>.svgfilter.js</td><td><b style="color:black;background-color:#a0ffff">svg</b>.filter</td>
+				<td>Support for <b style="color:black;background-color:#a0ffff">SVG</b> <code>filter</code> element and filter definitions.</td></tr>
+			<tr><td><b style="color:black;background-color:#ffff66">jquery</b>.svggraph.js</td><td><b style="color:black;background-color:#a0ffff">svg</b>.graph</td>
+				<td>Support for basic graphing using <b style="color:black;background-color:#a0ffff">SVG</b>.</td></tr>
+			<tr><td><b style="color:black;background-color:#ffff66">jquery</b>.svgplot.js</td><td><b style="color:black;background-color:#a0ffff">svg</b>.plot</td>
+				<td>Support for plotting functions using <b style="color:black;background-color:#a0ffff">SVG</b>.
+					<span class="version">Since 1.3.0</span>.</td></tr>
+		</tbody></table>
+		<p>To use these extensions just load them after the main 
+			<b style="color:black;background-color:#ffff66">jQuery</b> <b style="color:black;background-color:#a0ffff">SVG</b> Javascript in the head section of your page.</p>
+		<pre><code class="html">&lt;script type="text/javascript" src="<b style="color:black;background-color:#ffff66">jquery</b>.<b style="color:black;background-color:#a0ffff">svg</b>.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="<b style="color:black;background-color:#ffff66">jquery</b>.svggraph.js"&gt;&lt;/script&gt;</code></pre>
+		<p>Each extension registers itself with the <b style="color:black;background-color:#a0ffff">SVG</b> framework as shown,
+			indicating the name of its entry point and the class (function)
+			that encapsulates its functionality:</p>
+		<pre><code class="js">$.<b style="color:black;background-color:#a0ffff">svg</b>.addExtension('graph', SVGGraph);</code></pre>
+		<p>Attach an <b style="color:black;background-color:#a0ffff">SVG</b> canvas and retrieve the <b style="color:black;background-color:#a0ffff">SVG</b> instance as before. 
+			Then access the new functionality through its entry point:</p>
+		<pre><code class="js">$('div selector').<b style="color:black;background-color:#a0ffff">svg</b>();
+var <b style="color:black;background-color:#a0ffff">svg</b> = $('div selector').<b style="color:black;background-color:#a0ffff">svg</b>('get');
+<b style="color:black;background-color:#a0ffff">svg</b>.graph.addSeries('Firefox', [0.00, 4.06, 8.13, 9.95],
+	'lightgreen', 'green', 3);</code></pre>
+	</div>
+	<div id="examples" class="feature">
+		<h2><b style="color:black;background-color:#a0ffff">SVG</b> Examples</h2>
+		<p>These examples are taken from the 
+			<a href="http://www.w3.org/TR/SVG11/"><b style="color:black;background-color:#a0ffff">SVG</b> 1.1 specification</a>
+			to show how they might be implemented using this package.</p>
+		<p><select id="example"><option selected="selected"></option></select></p>
+		<p id="exampledesc">Select one of the examples taken from the <b style="color:black;background-color:#a0ffff">SVG</b> specification
+			that demonstrates how the functionality might be produced using this package.
+			Both the original <b style="color:black;background-color:#a0ffff">SVG</b> document and the <b style="color:black;background-color:#ffff66">jQuery</b> <b style="color:black;background-color:#a0ffff">SVG</b> code are shown below.</p>
+		<div style="clear: both;">&nbsp;</div>
+		<div id="svgexample" class="svgdiv" style="width: 100%; height: 300px;"></div>
+		<div id="svgsource" class="svgsample">
+			<h3><b style="color:black;background-color:#a0ffff">SVG</b> Source Document</h3>
+			<pre><code class="html"></code></pre>
+		</div>
+		<div id="svgcode" class="svgsample">
+			<h3><b style="color:black;background-color:#a0ffff">SVG</b> <b style="color:black;background-color:#ffff66">jQuery</b> Code</h3>
+			<pre><code class="js"></code></pre>
+		</div>
+		<div style="clear: both;">&nbsp;</div>
+	</div>
+	<div id="load" class="feature">
+		<h2><b style="color:black;background-color:#a0ffff">SVG</b> Load</h2>
+		<p>The <b style="color:black;background-color:#a0ffff">SVG</b> component may be updated with inline <b style="color:black;background-color:#a0ffff">SVG</b> elements, be cleared of all content,
+			or be loaded with external <b style="color:black;background-color:#a0ffff">SVG</b> documents. In the latter case, you may pass additional
+			settings to add to any existing content (<code>addTo: true</code>) or automatically
+			clear it first (<code>addTo: false</code> - the default).</p>
+		<p>You can also specify a callback function (<code>onLoad: loadDone</code>) to
+			be notified when the external document (loaded asynchronously) has completed.
+			The function receives the current <b style="color:black;background-color:#a0ffff">SVG</b> wrapper object as a parameter,
+			and an additional message parameter if there was an error.
+			The <code>this</code> object is the <b style="color:black;background-color:#a0ffff">SVG</b> container division.</p>
+		<div id="svgload" class="svgdiv" style="width: 100%; height: 300px;"></div>
+		<p><button type="button" id="addInline">Add inline fragment</button>
+			<button type="button" id="clear1">Clear</button></p>
+		<svg:svg id="svginline">
+			<svg:g>
+				<svg:rect width="350" height="50" x="20" y="90" fill="blue"></svg:rect>
+				<svg:text x="40" y="120" fill="white" font-weight="bold">This came from an inline <b style="color:black;background-color:#a0ffff">SVG</b> fragment</svg:text>
+			</svg:g>
+		</svg:svg>
+		<pre><code class="html">&lt;<b style="color:black;background-color:#a0ffff">svg</b>:<b style="color:black;background-color:#a0ffff">svg</b> id="svginline"&gt;
+  &lt;<b style="color:black;background-color:#a0ffff">svg</b>:g&gt;
+    &lt;<b style="color:black;background-color:#a0ffff">svg</b>:rect width="350" height="50" x="20" y="90" fill="blue"&gt;&lt;/<b style="color:black;background-color:#a0ffff">svg</b>:rect&gt;
+    &lt;<b style="color:black;background-color:#a0ffff">svg</b>:text x="40" y="120" fill="white" font-weight="bold"&gt;
+      This came from an inline <b style="color:black;background-color:#a0ffff">SVG</b> fragment&lt;/<b style="color:black;background-color:#a0ffff">svg</b>:text&gt;
+  &lt;/<b style="color:black;background-color:#a0ffff">svg</b>:g&gt;
+&lt;/<b style="color:black;background-color:#a0ffff">svg</b>:<b style="color:black;background-color:#a0ffff">svg</b>&gt;</code></pre>
+		<pre><code class="jsdemo">$('#svgload').<b style="color:black;background-color:#a0ffff">svg</b>();
+
+$('#addInline').click(function() {
+	var <b style="color:black;background-color:#a0ffff">svg</b> = $('#svgload').<b style="color:black;background-color:#a0ffff">svg</b>('get');
+	<b style="color:black;background-color:#a0ffff">svg</b>.add($('#svginline'));
+	resetSize(<b style="color:black;background-color:#a0ffff">svg</b>);
+});
+
+$('#clear1').click(function() {
+	$('#svgload').<b style="color:black;background-color:#a0ffff">svg</b>('get').clear();
+});</code></pre>
+		<p><input id="loadURL" size="40" value="lion.svg" type="text"> 
+			<input id="addTo" value="yes" type="checkbox"> <label for="addTo">Add to</label>
+			<button type="button" id="loadExternal">Load</button></p>
+		<pre><code class="jsdemo">$('#loadExternal').click(function() {
+	var <b style="color:black;background-color:#a0ffff">svg</b> = $('#svgload').<b style="color:black;background-color:#a0ffff">svg</b>('get');
+	<b style="color:black;background-color:#a0ffff">svg</b>.load($('#loadURL').val(), {addTo: $('#addTo')[0].checked,
+		changeSize: false, onLoad: loadDone});
+	resetSize(<b style="color:black;background-color:#a0ffff">svg</b>);
+});
+
+// Callback after loading external document
+function loadDone(<b style="color:black;background-color:#a0ffff">svg</b>, error) {
+	<b style="color:black;background-color:#a0ffff">svg</b>.text(10, 20, error || 'Loaded into ' + this.id);
+}</code></pre>
+	</div>
+	<div id="anim" class="feature">
+		<h2><b style="color:black;background-color:#a0ffff">SVG</b> Attribute Animations</h2>
+		<p>By adding the <code><b style="color:black;background-color:#ffff66">jquery</b>.svganim.js</code> extension
+			to your page you can easily animate several of the attributes of the
+			various <b style="color:black;background-color:#a0ffff">SVG</b> elements using the standard <b style="color:black;background-color:#ffff66">jQuery</b>
+			<code><a href="http://docs.jquery.com/Effects/animate">animate</a></code> function.</p>
+		<p>All attributes must be prefixed by '<b style="color:black;background-color:#a0ffff">svg</b>' to identify them as <b style="color:black;background-color:#a0ffff">SVG</b> settings
+			and are written in camelCase, e.g. <code>svgStrokeWidth</code>.
+			Many of the values may be expressed as exact pixels or as percentages.
+			You can also use the '+=' or '-=' prefixes for relative values.</p>
+		<pre><code class="js">var myrect = <b style="color:black;background-color:#a0ffff">svg</b>.rect(25, 25, 150, '25%', 10, 10,
+	{fill: 'none', stroke: 'blue', strokeWidth: 3,
+	transform: 'rotate(0, 100, 75)'});
+$(myrect).animate({svgWidth: 200, svgHeight: '30%',
+	svgStroke: 'aqua', svgStrokeWidth: '+=7',
+	svgTransform: 'rotate(60, 100, 75)'}, 2000);</code></pre>
+		<p>Animate
+			<select id="animShape">
+				<optgroup label="Viewport">
+					<option value="svg:ViewBox">viewBox (zoom)</option>
+				</optgroup>
+				<optgroup label="Rectangle">
+					<option value="rect:X" selected="selected">rectangle left</option>
+					<option value="rect:Y">rectangle top</option>
+					<option value="rect:Width">rectangle width</option>
+					<option value="rect:Height">rectangle height</option>
+					<option value="rect:Rx">rectangle rounding x</option>
+					<option value="rect:Ry">rectangle rounding y</option>
+					<option value="rect:Fill">rectangle fill colour</option>
+					<option value="rect:Stroke">rectangle stroke colour</option>
+					<option value="rect:StrokeWidth">rectangle stroke width</option>
+					<option value="rect:Transform">rectangle transform (rotate)</option>
+				</optgroup>
+				<optgroup label="Line">
+					<option value="line:X1">line start x</option>
+					<option value="line:Y1">line start y</option>
+					<option value="line:X2">line end x</option>
+					<option value="line:Y2">line end y</option>
+					<option value="line:Stroke">line stroke colour</option>
+					<option value="line:StrokeWidth">line stroke width</option>
+					<option value="line:Transform">line transform (scale)</option>
+				</optgroup>
+				<optgroup label="Circle">
+					<option value="circle:Cx">circle centre x</option>
+					<option value="circle:Cy">circle centre y</option>
+					<option value="circle:R">circle radius</option>
+					<option value="circle:Fill">circle fill colour</option>
+					<option value="circle:Stroke">circle stroke colour</option>
+					<option value="circle:StrokeWidth">circle stroke width</option>
+					<option value="circle:Transform">circle transform (translate)</option>
+				</optgroup>
+				<optgroup label="Ellipse">
+					<option value="ellipse:Cx">ellipse centre x</option>
+					<option value="ellipse:Cy">ellipse centre y</option>
+					<option value="ellipse:Rx">ellipse radius x</option>
+					<option value="ellipse:Ry">ellipse radius y</option>
+					<option value="ellipse:Fill">ellipse fill colour</option>
+					<option value="ellipse:Stroke">ellipse stroke colour</option>
+					<option value="ellipse:StrokeWidth">ellipse stroke width</option>
+					<option value="ellipse:Transform">ellipse transform (skewX/Y)</option>
+				</optgroup>
+				<optgroup label="Polyline">
+					<option value="polyline:Stroke">polyline stroke colour</option>
+					<option value="polyline:StrokeWidth">polyline stroke width</option>
+					<option value="polyline:StrokeOpacity">polyline stroke opacity</option>
+					<option value="polyline:Transform">polyline transform (translate)</option>
+				</optgroup>
+				<optgroup label="Polygon">
+					<option value="polygon:Opacity">polygon opacity</option>
+					<option value="polygon:Fill">polygon fill colour</option>
+					<option value="polygon:FillOpacity">polygon fill opacity</option>
+					<option value="polygon:Stroke">polygon stroke colour</option>
+					<option value="polygon:StrokeWidth">polygon stroke width</option>
+					<option value="polygon:Transform">polygon transform (matrix)</option>
+				</optgroup>
+				<optgroup label="Group">
+					<option value="group:Opacity">group opacity</option>
+					<option value="group:Transform">group transform (scale)</option>
+				</optgroup>
+			</select> <button type="button" id="animGo">Go</button>
+			<span id="animBetween"></span>
+		</p>
+		<p>or a combination of effects&nbsp;&nbsp;<button type="button" id="animCombo">Go</button></p>
+		<div id="svganim" class="svgdiv" style="width: 600px; height: 350px;"></div>
+		<pre><code class="jsdemo">$('#svganim').<b style="color:black;background-color:#a0ffff">svg</b>({onLoad: drawAnim});
+		
+var current = {};
+
+$('#animGo').click(function() {
+	var opt = $('#animShape').val();
+	$('#animBetween').text(
+		'between ' + values[opt][0] + ' and ' + values[opt][1]);
+	current[opt] = 1 - (current[opt] || 0);
+	var parts = opt.split(':');
+	var params = {};
+	params['<b style="color:black;background-color:#a0ffff">svg</b>' + parts[1]] = values[opt][current[opt]];
+	$(shapes[parts[0]]).animate(params, 2000);
+});
+
+$('#animCombo').toggle(function() {
+		$(shapes['rect']).animate(
+			{svgWidth: '30%', svgStrokeWidth: 10,
+			svgTransform: 'rotate(45 100 75) translate(20 40)'}, 2000);
+		$(shapes['circle']).animate({svgR: 100, svgStroke: 'pink'}, 2000);
+	}, function() {
+		$(shapes['rect']).animate(
+			{svgWidth: '25%', svgStrokeWidth: 3,
+			svgTransform: 'rotate(0 100 75) translate(0 0)'}, 2000);
+		$(shapes['circle']).animate({svgR: 50, svgStroke: 'red'}, 2000);
+	});</code></pre>
+		<p>The attributes that can be animated are summarised below. For more information
+			see the <a href="http://keith-wood.name/svgRef.html">documentation reference</a> animation page</p>
+		<table>
+			<tbody><tr><th><b style="color:black;background-color:#a0ffff">SVG</b> Attribute</th><th>Animation Attribute</th><th>Type</th><th>Elements</th></tr>
+			<tr><td>x</td><td>svgX</td><td>numeric</td>
+				<td><b style="color:black;background-color:#a0ffff">svg</b>, rect, text</td></tr>
+			<tr><td>y</td><td>svgY</td><td>numeric</td>
+				<td><b style="color:black;background-color:#a0ffff">svg</b>, rect, text</td></tr>
+			<tr><td>width</td><td>svgWidth</td><td>numeric</td>
+				<td><b style="color:black;background-color:#a0ffff">svg</b>, rect</td></tr>
+			<tr><td>height</td><td>svgHeight</td><td>numeric</td>
+				<td><b style="color:black;background-color:#a0ffff">svg</b>, rect</td></tr>
+			<tr><td>cx</td><td>svgCx</td><td>numeric</td>
+				<td>circle, ellipse</td></tr>
+			<tr><td>cy</td><td>svgCy</td><td>numeric</td>
+				<td>circle, ellipse</td></tr>
+			<tr><td>r</td><td>svgR</td><td>numeric</td>
+				<td>circle</td></tr>
+			<tr><td>rx</td><td>svgRx</td><td>numeric</td>
+				<td>rect, ellipse</td></tr>
+			<tr><td>ry</td><td>svgRy</td><td>numeric</td>
+				<td>rect, ellipse</td></tr>
+			<tr><td>x1</td><td>svgX1</td><td>numeric</td>
+				<td>line</td></tr>
+			<tr><td>y1</td><td>svgY1</td><td>numeric</td>
+				<td>line</td></tr>
+			<tr><td>x2</td><td>svgX2</td><td>numeric</td>
+				<td>line</td></tr>
+			<tr><td>y2</td><td>svgY2</td><td>numeric</td>
+				<td>line</td></tr>
+			<tr><td>opacity</td><td>svgOpacity</td><td>numeric 0.0-1.0</td>
+				<td>group, rect, circle, ellipse, line, polyline, polygon, path, text</td></tr>
+			<tr><td>fontSize</td><td>svgFontSize</td><td>numeric</td>
+				<td>group, text</td></tr>
+			<tr><td>fill</td><td>svgFill</td><td>colour</td>
+				<td>group, rect, circle, ellipse, polygon, path, text</td></tr>
+			<tr><td>fillOpacity</td><td>svgFillOpacity</td><td>numeric 0.0-1.0</td>
+				<td>group, rect, circle, ellipse, polygon, path, text</td></tr>
+			<tr><td>stroke</td><td>svgStroke</td><td>colour</td>
+				<td>group, rect, circle, ellipse, line, polyline, polygon, path, text</td></tr>
+			<tr><td>strokeWidth</td><td>svgStrokeWidth</td><td>numeric</td>
+				<td>group, rect, circle, ellipse, line, polyline, polygon, path, text</td></tr>
+			<tr><td>strokeOpacity</td><td>svgStrokeOpacity</td><td>numeric 0.0-1.0</td>
+				<td>group, rect, circle, ellipse, line, polyline, polygon, path, text</td></tr>
+			<tr><td>transform</td><td>svgTransform</td><td>string</td>
+				<td>group, rect, circle, ellipse, line, polyline, polygon, path, text</td></tr>
+			<tr><td>viewBox</td><td>svgViewBox</td><td>string</td>
+				<td><b style="color:black;background-color:#a0ffff">svg</b>, symbol, marker, pattern</td></tr>
+		</tbody></table>
+	</div>
+	<div id="sketch" class="feature">
+		<h2>Sketchpad</h2>
+		<p>Select a shape and its appearance and then drag in the panel to create it.</p>
+		<div id="svgsketch" class="svgdiv" style="width: 100%; height: 300px;"></div>
+		<div>&nbsp;</div>
+		<div class="row">
+			<span class="drawOpt">Shape</span>
+			<span class="drawOpt"><select id="shape">
+				<option selected="selected" value="rect">Rectangle</option><option value="circle">Circle</option>
+				<option value="ellipse">Ellipse</option><option value="line">Line</option>
+				<option value="polyline">Polyline</option><option value="polygon">Polygon</option>
+				</select></span>
+			<span class="drawOpt">Fill</span>
+			<span class="drawOpt"><select id="fill">
+				<option selected="selected" value="red">red</option><option value="yellow">yellow</option>
+				<option value="green">green</option><option value="blue">blue</option>
+				<option value="white">white</option><option value="gray">gray</option>
+				<option value="black">black</option><option value="none">none</option></select></span>
+		</div>
+		<div class="row">
+			<span class="drawOpt">Stroke width</span>
+			<span class="drawOpt"><select id="swidth">
+				<option selected="selected" value="1">1</option><option value="2">2</option>
+				<option value="3">3</option><option value="4">4</option>
+				<option value="5">5</option><option value="6">6</option>
+				<option value="7">7</option><option value="8">8</option>
+				<option value="9">9</option><option value="10">10</option></select></span>
+			<span class="drawOpt">Stroke</span>
+			<span class="drawOpt"><select id="stroke">
+				<option value="red">red</option><option value="yellow">yellow</option>
+				<option value="green">green</option><option value="blue" selected="selected">blue</option>
+				<option value="white">white</option><option value="gray">gray</option>
+				<option value="black">black</option><option value="none">none</option></select></span>
+		</div>
+		<div class="row">
+			<span class="drawOpt">&nbsp;</span>
+			<span class="drawOpt"><button type="button" id="undo">Undo</button></span>
+			<span class="drawOpt"><button type="button" id="clear2">Clear</button></span>
+			<span class="drawOpt"><button type="button" id="toSVG">To <b style="color:black;background-color:#a0ffff">SVG</b></button></span>
+		</div>
+		<div>&nbsp;</div>
+		<pre><code class="jsdemo">var drawNodes = [];
+var sketchpad = null;
+var start = null;
+var outline = null;
+var offset = null;
+
+$('#svgsketch').<b style="color:black;background-color:#a0ffff">svg</b>({onLoad: function(<b style="color:black;background-color:#a0ffff">svg</b>) {
+		sketchpad = <b style="color:black;background-color:#a0ffff">svg</b>;
+		var surface = <b style="color:black;background-color:#a0ffff">svg</b>.rect(0, 0, '100%', '100%', {id: 'surface', fill: 'white'});
+		$(surface).mousedown(startDrag).mousemove(dragging).mouseup(endDrag);
+		resetSize(<b style="color:black;background-color:#a0ffff">svg</b>, '100%', '100%');
+	}
+});
+
+// Remember where we started
+function startDrag(event) {
+	offset = ($.browser.msie ? {left: 0, top: 0} : $('#svgsketch').offset());
+	if (!$.browser.msie) {
+		offset.left -= document.documentElement.scrollLeft || document.body.scrollLeft;
+		offset.top -= document.documentElement.scrollTop || document.body.scrollTop;
+	}
+	start = {X: event.clientX - offset.left, Y: event.clientY - offset.top};
+	event.preventDefault();
+}
+
+// Provide feedback as we drag
+function dragging(event) {
+	if (!start) {
+		return;
+	}
+	if (!outline) {
+		outline = sketchpad.rect(0, 0, 0, 0,
+			{fill: 'none', stroke: '#c0c0c0', strokeWidth: 1, strokeDashArray: '2,2'});
+		$(outline).mouseup(endDrag);
+	}
+	sketchpad.change(outline, {x: Math.min(event.clientX - offset.left, start.X),
+		y: Math.min(event.clientY - offset.top, start.Y),
+		width: Math.abs(event.clientX - offset.left - start.X),
+		height: Math.abs(event.clientY - offset.top - start.Y)});
+	event.preventDefault();
+}
+
+// Draw where we finish
+function endDrag(event) {
+	if (!start) {
+		return;
+	}
+	$(outline).remove();
+	outline = null;
+	drawShape(start.X, start.Y,
+		event.clientX - offset.left, event.clientY - offset.top);
+	start = null;
+	event.preventDefault();
+}
+
+// Draw the selected element on the canvas
+function drawShape(x1, y1, x2, y2) {
+	var left = Math.min(x1, x2);
+	var top = Math.min(y1, y2);
+	var right = Math.max(x1, x2);
+	var bottom = Math.max(y1, y2);
+	var settings = {fill: $('#fill').val(), stroke: $('#stroke').val(),
+		strokeWidth: $('#swidth').val()};
+	var shape = $('#shape').val();
+	var node = null;
+	if (shape == 'rect') {
+		node = sketchpad.rect(left, top, right - left, bottom - top, settings);
+	}
+	else if (shape == 'circle') {
+		var r = Math.min(right - left, bottom - top) / 2;
+		node = sketchpad.circle(left + r, top + r, r, settings);
+	}
+	else if (shape == 'ellipse') {
+		var rx = (right - left) / 2;
+		var ry = (bottom - top) / 2;
+		node = sketchpad.ellipse(left + rx, top + ry, rx, ry, settings);
+	}
+	else if (shape == 'line') {
+		node = sketchpad.line(x1, y1, x2, y2, settings);
+	}
+	else if (shape == 'polyline') {
+		node = sketchpad.polyline([[(x1 + x2) / 2, y1], [x2, y2],
+			[x1, (y1 + y2) / 2], [x2, (y1 + y2) / 2], [x1, y2],
+			[(x1 + x2) / 2, y1]], $.extend(settings, {fill: 'none'}));
+	}
+	else if (shape == 'polygon') {
+		node = sketchpad.polygon([[(x1 + x2) / 2, y1], [x2, y1], [x2, y2],
+			[(x1 + x2) / 2, y2], [x1, (y1 + y2) / 2]], settings);
+	}
+	drawNodes[drawNodes.length] = node;
+	$(node).mousedown(startDrag).mousemove(dragging).mouseup(endDrag);
+	$('#svgsketch').focus();
+};
+
+// Remove the last drawn element
+$('#undo').click(function() {
+	if (!drawNodes.length) {
+		return;
+	}
+	sketchpad.remove(drawNodes[drawNodes.length - 1]);
+	drawNodes.splice(drawNodes.length - 1, 1);
+});
+
+// Clear the canvas
+$('#clear2').click(function() {
+	while (drawNodes.length) {
+		$('#undo').trigger('click');
+	}
+});
+
+// Convert to text
+$('#toSVG').click(function() {
+	alert(sketchpad.toSVG());
+});</code></pre>
+	</div>
+	<div id="graphs" class="feature">
+		<h2>Graphing</h2>
+		<p>Use the graphing extension to make it easier to create <b style="color:black;background-color:#a0ffff">SVG</b> graphs.</p>
+		<p>Add the <b style="color:black;background-color:#ffff66">jQuery</b> <b style="color:black;background-color:#a0ffff">SVG</b> graphing extension in the head section of your page.</p>
+		<pre><code class="html">&lt;script type="text/javascript" src="<b style="color:black;background-color:#ffff66">jquery</b>.svggraph.js"&gt;&lt;/script&gt;</code></pre>
+		<p>Then access the <a href="#graphcode">extra functionality</a> via the
+			<code>graph</code> object within the <b style="color:black;background-color:#a0ffff">SVG</b> root. As well as the series and their formatting,
+			you can control the graph title, axes, gridlines, labels, and legend.</p>
+		<div id="svggraph" class="svgdiv" style="width: 100%; height: 600px;"></div>
+		<p><select id="chartType"><option selected="selected"></option></select>
+			with <select id="chartLegend"><option selected="selected" value="0">no</option><option value="1">left</option>
+				<option value="2">right</option><option value="3">top</option>
+				<option value="4">bottom</option></select> legend
+			and <select id="seriesFill"><option selected="selected" value="plain">plain</option>
+				<option value="grad">graduated</option></select> background&nbsp;&nbsp;
+			<button type="button" id="graphIt">Graph it</button></p>
+		<p id="graphDesc"></p>
+		<p>Options:</p>
+		<ul id="graphOptions"><li>None</li></ul>
+		<p>This is the <a id="graphcode">code</a> behind the graphing.</p>
+		<pre><code class="jsdemo">$('#svggraph').<b style="color:black;background-color:#a0ffff">svg</b>(initGraph);
+		
+var chartAreas = [[0.1, 0.1, 0.95, 0.9], [0.2, 0.1, 0.95, 0.9],
+	[0.1, 0.1, 0.8, 0.9], [0.1, 0.25, 0.9, 0.9], [0.1, 0.1, 0.9, 0.8]];
+var legendAreas = [[0.0, 0.0, 0.0, 0.0], [0.005, 0.1, 0.125, 0.5],
+	[0.85, 0.1, 0.97, 0.5], [0.2, 0.1, 0.8, 0.2], [0.2, 0.9, 0.8, 0.995]];
+var fills = [['lightblue', 'url(#fadeBlue)'], ['pink', 'url(#fadeRed)'],
+	['lightgreen', 'url(#fadeGreen)']];
+
+function initGraph(<b style="color:black;background-color:#a0ffff">svg</b>) {
+	var defs = <b style="color:black;background-color:#a0ffff">svg</b>.defs();
+	<b style="color:black;background-color:#a0ffff">svg</b>.linearGradient(defs, 'fadeBlue',
+		[[0, 'lightblue'], [1, 'blue']]);
+	<b style="color:black;background-color:#a0ffff">svg</b>.linearGradient(defs, 'fadeRed', [[0, 'pink'], [1, 'red']]);
+	<b style="color:black;background-color:#a0ffff">svg</b>.linearGradient(defs, 'fadeGreen',
+		[[0, 'lightgreen'], [1, 'green']]);
+	<b style="color:black;background-color:#a0ffff">svg</b>.graph.noDraw().title('Browser Usage', 'blue').
+		addSeries('IE', [95.97, 91.80, 88.16, 86.64],
+			'lightblue', 'blue', 3).
+		addSeries('Netscape', [3.39, 2.83, 1.61, 0.00],
+			'pink', 'red', 3).
+		addSeries('Firefox', [0.00, 4.06, 8.13, 9.95],
+			'lightgreen', 'green', 3).
+		format('ivory', 'gray').
+		gridlines({stroke: 'gray', strokeDashArray: '2,2'}, 'gray');
+	<b style="color:black;background-color:#a0ffff">svg</b>.graph.xAxis.title('Year', 'green').scale(0, 3).
+		ticks(1, 0).labels(['2002', '2004', '2005', '2006']);
+	<b style="color:black;background-color:#a0ffff">svg</b>.graph.yAxis.title('Percentage').ticks(10, 5);
+	<b style="color:black;background-color:#a0ffff">svg</b>.graph.legend.settings({fill: 'lightgoldenrodyellow',
+		stroke: 'gray'});
+	<b style="color:black;background-color:#a0ffff">svg</b>.graph.status(showGraphStatus);
+}
+
+// Draw a new graph with the selected options
+$('#graphIt').click(function() {
+	var chartType = $('#chartType').val();
+	var chartLegend = parseInt($('#chartLegend').val(), 10);
+	var seriesFill = ($('#seriesFill').val() == 'plain' ? 0 : 1);
+	var <b style="color:black;background-color:#a0ffff">svg</b> = $('#svggraph').<b style="color:black;background-color:#a0ffff">svg</b>('get');
+	<b style="color:black;background-color:#a0ffff">svg</b>.graph.noDraw().
+		legend.show(chartLegend).area(legendAreas[chartLegend]).end().
+		series(0).format(fills[0][seriesFill]).end().
+		series(1).format(fills[1][seriesFill]).end().
+		series(2).format(fills[2][seriesFill]).end().
+		area(chartAreas[chartLegend]).
+		type(chartType, {explode: 2, explodeDist: 10}).redraw();
+	chartType = $.<b style="color:black;background-color:#a0ffff">svg</b>.graphing.chartTypes()[chartType];
+	$('#graphDesc').text(chartType.description());
+	var options = '';
+	for (var i = 0; i &lt; chartType.options().length; i++) {
+		options += '&lt;li&gt;' + chartType.options()[i] + '&lt;/li&gt;';
+	}
+	$('#graphOptions').html(options || '&lt;li&gt;None&lt;/li&gt;');
+	resetSize(<b style="color:black;background-color:#a0ffff">svg</b>);
+});
+
+function showGraphStatus(label, value) {
+	$('#svggraph').attr('title', (label ? label + ' ' + value : ''));
+}</code></pre>
+	</div>
+	<div id="plot" class="feature">
+		<h2>Plotting</h2>
+		<p>Use the plotting extension to display the plots of numeric functions on a grid.</p>
+		<p>Add the <b style="color:black;background-color:#ffff66">jQuery</b> <b style="color:black;background-color:#a0ffff">SVG</b> plotting extension in the head section of your page.</p>
+		<pre><code class="html">&lt;script type="text/javascript" src="<b style="color:black;background-color:#ffff66">jquery</b>.svgplot.js"&gt;&lt;/script&gt;</code></pre>
+		<p>Then access the <a href="#plotcode">extra functionality</a> via the
+			<code>plot</code> object within the <b style="color:black;background-color:#a0ffff">SVG</b> root. As well as the functions and their formatting,
+			you can control the plot title, axes, gridlines, labels, and legend.</p>
+		<div id="svgplot" class="svgdiv" style="width: 100%; height: 600px;"></div>
+		<p>Zoom <select id="plotZoom"><option selected="selected" value="0">small</option><option value="1">large</option></select>
+			with <select id="plotEqual"><option value="0">unequal</option>
+				<option value="1" selected="selected">equal</option></select> x/y units
+			and <select id="plotLegend"><option selected="selected" value="0">no</option><option value="1">left</option>
+				<option value="2">right</option><option value="3">top</option>
+				<option value="4">bottom</option></select> legend&nbsp;&nbsp;
+			<button type="button" id="plotIt">Plot it</button></p>
+		<p>This is the <a id="plotcode">code</a> behind the plotting.</p>
+		<pre><code class="jsdemo">$('#svgplot').<b style="color:black;background-color:#a0ffff">svg</b>(initPlot);
+		
+var plotZooms = [[-2, 2, -1.5, 1.5], [-10, 10, -10, 10]];
+var chartAreas = [[0.1, 0.1, 0.95, 0.9], [0.2, 0.1, 0.95, 0.9],
+	[0.1, 0.1, 0.8, 0.9], [0.1, 0.25, 0.9, 0.9], [0.1, 0.1, 0.9, 0.8]];
+var legendAreas = [[0.0, 0.0, 0.0, 0.0], [0.005, 0.1, 0.125, 0.5],
+	[0.85, 0.1, 0.97, 0.5], [0.2, 0.1, 0.8, 0.2], [0.2, 0.9, 0.8, 0.995]];
+	
+function initPlot(<b style="color:black;background-color:#a0ffff">svg</b>) {
+	<b style="color:black;background-color:#a0ffff">svg</b>.plot.noDraw().title('Functions', 'blue').
+		addFunction('Sine', Math.sin, 'blue', 3).
+		addFunction('Cosine', Math.cos,
+			[-Math.PI, Math.PI], 20, 'red', 3).
+		addFunction('Decaying', decay, 'green', 3).
+		format('ivory', 'gray').
+		gridlines({stroke: 'gray', strokeDashArray: '2,2'}, 'gray');
+	<b style="color:black;background-color:#a0ffff">svg</b>.plot.xAxis.scale(-1, 3.5).ticks(1, 0.2);
+	<b style="color:black;background-color:#a0ffff">svg</b>.plot.yAxis.scale(-1.5, 1.5).ticks(1, 0.2);
+	<b style="color:black;background-color:#a0ffff">svg</b>.plot.legend.settings({fill: 'lightgoldenrodyellow',
+		stroke: 'gray'});
+	<b style="color:black;background-color:#a0ffff">svg</b>.plot.status(showPlotStatus);
+}
+
+// Plot a new function with the selected options
+$('#plotIt').click(function() {
+	var plotZoom = parseInt($('#plotZoom').val(), 10);
+	var plotEqual = parseInt($('#plotEqual').val(), 10);
+	var plotLegend = parseInt($('#plotLegend').val(), 10);
+	var <b style="color:black;background-color:#a0ffff">svg</b> = $('#svgplot').<b style="color:black;background-color:#a0ffff">svg</b>('get');
+	<b style="color:black;background-color:#a0ffff">svg</b>.plot.noDraw().
+		legend.show(plotLegend).area(legendAreas[plotLegend]).end().
+		xAxis.scale(plotZooms[plotZoom][0], plotZooms[plotZoom][1]).end().
+		yAxis.scale(plotZooms[plotZoom][2], plotZooms[plotZoom][3]).end().
+		area(chartAreas[plotLegend]).equalXY(plotEqual).redraw();
+	resetSize(<b style="color:black;background-color:#a0ffff">svg</b>);
+});
+
+// Decaying sine wave
+function decay(x) {
+	return Math.exp(-0.4 * x) * Math.sin(x);
+}
+
+function showPlotStatus(label) {
+	$('#svgplot').attr('title', label);
+}</code></pre>
+	</div>
+	<div id="mix" class="feature">
+		<h2>Mixture of Graphs/Plots/etc.</h2>
+		<p>You can combine graphs, plots, and other <b style="color:black;background-color:#a0ffff">SVG</b> elements in the one document.
+			A default container (embedded &lt;<b style="color:black;background-color:#a0ffff">svg</b>&gt;) is created for each of a graph
+			and a plot. You can change the settings for these or specify a new
+			container and size and position it appropriately.</p>
+		<div id="svgmix" class="svgdiv" style="width: 100%; height: 700px;"></div>
+		<p>This is the <a id="mixcode">code</a> behind the mixture.</p>
+		<pre><code class="jsdemo">$('#svgmix').<b style="color:black;background-color:#a0ffff">svg</b>({onLoad: drawMixture});
+
+function drawMixture(<b style="color:black;background-color:#a0ffff">svg</b>) {
+	var g = <b style="color:black;background-color:#a0ffff">svg</b>.group({'font-weight': 'bold'});
+	<b style="color:black;background-color:#a0ffff">svg</b>.text(g, 600, 100, 'This graph is in its');
+	<b style="color:black;background-color:#a0ffff">svg</b>.text(g, 600, 120, 'own &lt;<b style="color:black;background-color:#a0ffff">svg</b>&gt; element');
+	<b style="color:black;background-color:#a0ffff">svg</b>.text(g, 150, 450, 'As is this plot');
+	// Graph
+	<b style="color:black;background-color:#a0ffff">svg</b>.change(<b style="color:black;background-color:#a0ffff">svg</b>.graph.container(),
+		{width: 600, height: 350, 'font-size': 12});
+	<b style="color:black;background-color:#a0ffff">svg</b>.graph.noDraw().
+		title('Browser Usage').type('column').area([0.1, 0.1, 0.9, 0.8]).
+		addSeries('IE', [95.97, 91.80, 88.16, 86.64],
+			'lightblue', 'blue', 3).
+		addSeries('Netscape', [3.39, 2.83, 1.61, 0.00], 'pink', 'red', 3).
+		addSeries('Firefox', [0.00, 4.06, 8.13, 9.95],
+			'lightgreen', 'green', 3).
+		format('ivory', 'gray').
+		gridlines({stroke: 'gray', strokeDashArray: '2,2'}, 'gray').
+		xAxis.title('Year', 30).scale(0, 3).
+		ticks(1, 0).labels(['2002', '2004', '2005', '2006']).end().
+		yAxis.title('Percentage').ticks(10, 5).end().
+		legend.show(true).area([0.2, 0.9, 0.8, 0.995]).
+		settings({fill: 'lightgoldenrodyellow', stroke: 'gray'}).end().
+		redraw();
+	// Plot
+	<b style="color:black;background-color:#a0ffff">svg</b>.plot.noDraw().container(<b style="color:black;background-color:#a0ffff">svg</b>.<b style="color:black;background-color:#a0ffff">svg</b>(300, 350, 400, 350)).
+		title('Functions').area([0.1, 0.1, 0.9, 0.8]).equalXY(true).
+		addFunction('Sine', Math.sin, 'blue', 3).
+		addFunction('Cosine', Math.cos, [-Math.PI, Math.PI], 20, 'red', 3).
+		addFunction('Decaying', decay, 'green', 3).
+		format('ivory', 'gray').
+		gridlines({stroke: 'gray', strokeDashArray: '2,2'}, 'gray').
+		xAxis.scale(-1, 3.5).ticks(1, 0.2).end().
+		yAxis.scale(-1.5, 1.5).ticks(1, 0.2).end().
+		legend.show(true).area([0.1, 0.9, 0.9, 0.995]).
+		settings({fill: 'lightgoldenrodyellow', stroke: 'gray'}).end().
+		redraw();
+	resetSize(<b style="color:black;background-color:#a0ffff">svg</b>, 800, 700);
+}
+
+// Decaying sine wave
+function decay(x) {
+	return Math.exp(-0.4 * x) * Math.sin(x);
+}</code></pre>
+	</div>
+	<div id="dom" class="feature">
+		<h2><b style="color:black;background-color:#a0ffff">SVG</b> DOM</h2>
+		<p>The <b style="color:black;background-color:#a0ffff">SVG</b> DOM is different to the HTML DOM for which <b style="color:black;background-color:#ffff66">jQuery</b> was designed.
+			In particular, any attributes that can be animated are stored as objects
+			instead of plain strings. This includes the <code>class</code> attribute.
+			Thus, jQuery's functions that work with classes don't work on <b style="color:black;background-color:#a0ffff">SVG</b> nodes.</p>
+		<p>To overcome this problem you can use the <b style="color:black;background-color:#ffff66">jQuery</b> <b style="color:black;background-color:#a0ffff">SVG</b> DOM extension.
+			Add the extension in the head section of your page.</p>
+		<pre><code class="html">&lt;script type="text/javascript" src="<b style="color:black;background-color:#ffff66">jquery</b>.svgdom.js"&gt;&lt;/script&gt;</code></pre>
+		<p>Then just use jQuery's class and attribute functions on <b style="color:black;background-color:#a0ffff">SVG</b> nodes as well:
+			<code>addClass</code>, <code>removeClass</code>, <code>toggleClass</code>,
+			<code>hasClass</code>, <code>attr</code>, and <code>removeAttr</code>.</p>
+		<p>Use the power of <b style="color:black;background-color:#ffff66">jQuery</b> to select nodes in the <b style="color:black;background-color:#a0ffff">SVG</b> document with this
+			extension. Provide the <b style="color:black;background-color:#a0ffff">SVG</b> root element as the context for your selections:</p>
+		<pre><code class="js">$(selector, <b style="color:black;background-color:#a0ffff">svg</b>.root())...</code></pre>
+		<p>Unfortunately, there are some small <b>modifications</b> needed to the
+			base <b><b style="color:black;background-color:#ffff66">jQuery</b> code</b> for IE that cannot be overridden in the extension. A
+			<a href="http://keith-wood.name/zip/jquery-1.4.2-svg.zip" onclick="pageTracker._trackPageview('/downloads/jquery-1.4.2-svg');">
+			modified <b style="color:black;background-color:#ffff66">jQuery</b> 1.4.2</a> is available for download, as is a
+			<a href="http://keith-wood.name/zip/jquery-1.3.2-svg.zip" onclick="pageTracker._trackPageview('/downloads/jquery-1.3.2-svg');">
+			modified <b style="color:black;background-color:#ffff66">jQuery</b> 1.3.2</a>. <a id="showMods" href="#">Show mods</a></p>
+		<div id="domMods">
+			<p>In the <code>event.add</code> function (line 1644, v1.4.2):</p>
+			<pre><code class="js">if ( !special.setup || special.setup.call( elem, data, namespaces, eventHandle ) === false ) {
+	// Bind the global event handler to the element
+	try { // <b style="color:black;background-color:#a0ffff">SVG</b>
+		elem.addEventListener(type, eventHandle, false);
+	}
+	catch(e) {
+		if (elem.attachEvent)
+			elem.attachEvent("on" + type, eventHandle);
+	}
+}</code></pre>
+			<p>In the <code>event.remove</code> function (line 1770, v1.4.2):</p>
+			<pre><code class="js">if ( !special.teardown || special.teardown.call( elem, namespaces ) === false ) {
+	try { // <b style="color:black;background-color:#a0ffff">SVG</b>
+		elem.removeEventListener(type, <b style="color:black;background-color:#ffff66">jQuery</b>.data(elem, "handle"), false);
+	}
+	catch (e) {
+		if (elem.detachEvent)
+			elem.detachEvent("on" + type, <b style="color:black;background-color:#ffff66">jQuery</b>.data(elem, "handle"));
+	}
+}</code></pre>
+			<p>In the <code>Sizzle</code> function (line 2741, v1.4.2):</p>
+			<pre><code class="js">if ( toString.call(checkSet) === "[object Array]" ) {
+	if ( !prune ) {
+		results.push.apply( results, checkSet );
+	} else if ( context &amp;&amp; context.nodeType === 1 ) {
+		for ( var i = 0; checkSet[i] != null; i++ ) {
+			if ( checkSet[i] &amp;&amp; (checkSet[i] === true || checkSet[i].nodeType === 1 &amp;&amp; contains(context, checkSet[i])) ) {
+				results.push( set[i] || set.item(i) ); // <b style="color:black;background-color:#a0ffff">SVG</b>
+			}
+		}
+	} else {
+		for ( var i = 0; checkSet[i] != null; i++ ) {
+			if ( checkSet[i] &amp;&amp; checkSet[i].nodeType === 1 ) {
+				results.push( set[i] || set.item(i) ); // <b style="color:black;background-color:#a0ffff">SVG</b>
+			}
+		}
+	}
+} else {...</code></pre>
+			<p>In the fallback for the Sizzle <code>makeArray</code> function (line 3346, v1.4.2):</p>
+			<pre><code class="js">if ( toString.call(array) === "[object Array]" ) {
+	Array.prototype.push.apply( ret, array );
+} else {
+	if ( typeof array.length === "number" ) {
+		for ( var i = 0, l = array.length; i &lt; l; i++ ) {
+			ret.push( array[i] || array.item(i) ); // <b style="color:black;background-color:#a0ffff">SVG</b>
+		}
+	} else {
+		for ( var i = 0; array[i]; i++ ) {
+			ret.push( array[i] );
+		}
+	}
+}</code></pre>
+		</div>
+		<p>The structure of the sample <b style="color:black;background-color:#a0ffff">SVG</b> document below is as follows:</p>
+		<ul style="list-style: none;">
+			<li>&lt;<b style="color:black;background-color:#a0ffff">svg</b>&gt;</li>
+			<li>&nbsp;&nbsp;+ &lt;rect id="rect1"&gt;</li>
+			<li>&nbsp;&nbsp;+ &lt;circle id="circle1"&gt;</li>
+			<li>&nbsp;&nbsp;+ &lt;g&gt;</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ &lt;circle id="circle2" class="grouped"&gt;</li>
+			<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+ &lt;rect id="rect2" class="grouped"&gt;</li>
+		</ul>
+		<div id="svgselect" class="svgdiv" style="width: 100%; height: 300px;"></div>
+		<p>Select <select id="selectPath"><option selected="selected" value="">pick a path</option>
+				<option value="#rect1">First rectangle</option><option value="#rect2">Second rectangle</option>
+				<option value="#circle1">First circle</option><option value="#circle2">Second circle</option>
+				<option value=".grouped">Grouped shapes</option><option value="g *">Grouped shapes (alt)</option>
+				<option value=":not(.grouped)">Ungrouped shapes</option>
+				<option value="rect">All rectangles</option><option value="circle">All circles</option>
+				<option value="rect + circle">Circle after rectangle</option>
+				<option value="g &gt; circle">Circle child of group</option>
+				<option value="*[fill^=bl]">Black/blue shapes</option>
+				<option value="*[fill=yellow]">Yellow shapes</option></select>
+			<input id="selector" type="text"></p>
+		<p style="padding-left: 4em;">and fill with <select id="selectColour">
+				<option selected="selected" value="black">black</option><option value="blue">blue</option>
+				<option value="gray">gray</option><option value="green">green</option>
+				<option value="red">red</option><option value="yellow">yellow</option></select>
+			&nbsp;<button type="button" id="fillButton">Fill</button></p>
+		<p style="padding-left: 4em;">or
+			<label><input name="selectEvent" id="selectEventAdd" checked="checked" type="radio">add</label>
+			or <label><input name="selectEvent" id="selectEventRemove" type="radio">remove</label>
+			click/mouseover&nbsp;<button type="button" id="eventButton">Events</button></p>
+		<pre><code class="jsdemo">$('#svgselect').<b style="color:black;background-color:#a0ffff">svg</b>({onLoad: function(<b style="color:black;background-color:#a0ffff">svg</b>) {
+		<b style="color:black;background-color:#a0ffff">svg</b>.rect(10, 20, 150, 100, {id: 'rect1',
+			fill: 'red', stroke: 'black', strokeWidth: 3});
+		<b style="color:black;background-color:#a0ffff">svg</b>.circle(100, 150, 75, {id: 'circle1',
+			fill: 'yellow', stroke: 'black', strokeWidth: 3});
+		var g = <b style="color:black;background-color:#a0ffff">svg</b>.group({transform: 'translate(200,20)'});
+		<b style="color:black;background-color:#a0ffff">svg</b>.circle(g, 100, 100, 75, {id: 'circle2', class_: 'grouped',
+			fill: 'yellow', stroke: 'black', strokeWidth: 3});
+		<b style="color:black;background-color:#a0ffff">svg</b>.rect(g, 10, 150, 150, 100, {id: 'rect2', class_: 'grouped',
+			fill: 'red', stroke: 'black', strokeWidth: 3});
+		resetSize(<b style="color:black;background-color:#a0ffff">svg</b>, '100%', '100%');
+	}
+});
+
+$('#selectPath').change(function() {
+	$('#selector').val($(this).val());
+});
+
+$('#fillButton').click(function() {
+	var <b style="color:black;background-color:#a0ffff">svg</b> = $('#svgselect').<b style="color:black;background-color:#a0ffff">svg</b>('get');
+	$($('#selector').val(), <b style="color:black;background-color:#a0ffff">svg</b>.root()).attr('fill', $('#selectColour').val());
+});
+
+$('#eventButton').click(function() {
+	var <b style="color:black;background-color:#a0ffff">svg</b> = $('#svgselect').<b style="color:black;background-color:#a0ffff">svg</b>('get');
+	if ($('#selectEventAdd').is(':checked')) {
+		$($('#selector').val(), <b style="color:black;background-color:#a0ffff">svg</b>.root()).bind('click', svgClicked).
+			bind('mouseover', svgOver).bind('mouseout', svgOut);
+	}
+	else {
+		$($('#selector').val(), <b style="color:black;background-color:#a0ffff">svg</b>.root()).
+			unbind('click mouseover mouseout');
+	}
+});
+
+function svgClicked() {
+	alert('This is a ' + $(this).attr('fill') + ' ' + this.nodeName);
+}
+
+function svgOver() {
+	$(this).attr('stroke', 'lime');
+}
+
+function svgOut() {
+	$(this).attr('stroke', 'black');
+}</code></pre>
+	</div>
+	<div id="tips" class="feature">
+		<h2>Tips and Tricks</h2>
+		<ul>
+		<li><p>Since IE requires the ascynchronous loading of a seed <b style="color:black;background-color:#a0ffff">SVG</b> document,
+			you should not try to access the <b style="color:black;background-color:#a0ffff">SVG</b> components immediately after
+			attaching this plugin to a division. Instead, make use of the 
+			<code>onLoad</code> callback to ensure that the <b style="color:black;background-color:#a0ffff">SVG</b> component
+			is ready when you want to use it.</p></li>
+		<li><p>Since <b style="color:black;background-color:#a0ffff">SVG</b> is XML, you can use the power of <b style="color:black;background-color:#ffff66">jQuery</b> on it as well.
+			Retrieve the <b style="color:black;background-color:#a0ffff">SVG</b> wrapper as usual, then work with respect to its root element.
+			For example, to change the line colour for all circles in a container:</p>
+			<pre><code class="js">var <b style="color:black;background-color:#a0ffff">svg</b> = $('#mycontainer').<b style="color:black;background-color:#a0ffff">svg</b>('get');
+$('circle', <b style="color:black;background-color:#a0ffff">svg</b>.root()).attr('stroke', 'red');</code></pre>
+			<p>Note, however, that <b style="color:black;background-color:#ffff66">jQuery</b> is designed for the HTML DOM and that the
+			<b style="color:black;background-color:#a0ffff">SVG</b> DOM is different and some things do not work. For example, the class
+			names in <b style="color:black;background-color:#a0ffff">SVG</b> are actually objects rather than the simple strings of HTML,
+			since they can be animated. This means that the class selector of <b style="color:black;background-color:#ffff66">jQuery</b>
+			doesn't work. The <b style="color:black;background-color:#a0ffff">SVG</b> DOM extension adds <b style="color:black;background-color:#a0ffff">SVG</b> support for the class
+			and attribute functions of <b style="color:black;background-color:#ffff66">jQuery</b> and for <b style="color:black;background-color:#ffff66">jQuery</b> selectors over <b style="color:black;background-color:#a0ffff">SVG</b> nodes.</p></li>
+		<li><p>You can also access <b style="color:black;background-color:#ffff66">jQuery</b> from JavaScript embedded within the <b style="color:black;background-color:#a0ffff">SVG</b>.
+			First, you need to break out of the <b style="color:black;background-color:#a0ffff">SVG</b> document back into
+			the containing page, and then use <b style="color:black;background-color:#ffff66">jQuery</b> as usual.
+			For example, in response to a click event, change the
+			colour of all circles in the document:</p>
+			<pre><code class="js">var jQ = (window.parent ? window.parent.<b style="color:black;background-color:#ffff66">jQuery</b> : window.<b style="color:black;background-color:#ffff66">jQuery</b>);
+var <b style="color:black;background-color:#a0ffff">svg</b> = jQ(event.target).parents('<b style="color:black;background-color:#a0ffff">svg</b>');
+jQ('circle', <b style="color:black;background-color:#a0ffff">svg</b>).attr('fill', 'blue');</code></pre></li>
+		<li><p>You can even use this plugin from within a standalone <b style="color:black;background-color:#a0ffff">SVG</b> document.
+			After loading the <b style="color:black;background-color:#ffff66">jQuery</b> and plugin code, you need an <code>onload</code>
+			handler to initialise the <b style="color:black;background-color:#a0ffff">SVG</b> wrapper, passing it a reference to the root
+			<b style="color:black;background-color:#a0ffff">SVG</b> element and an object providing the expected width and height.
+			The example below shows all of this and draws a plus sign
+			in the top-left corner of the canvas.</p>
+			<pre><code class="html">&lt;<b style="color:black;background-color:#a0ffff">svg</b> onload="init(evt)" xmlns="http://www.w3.org/2000/<b style="color:black;background-color:#a0ffff">svg</b>"
+    xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+&lt;script type="text/javascript" xlink:href="<b style="color:black;background-color:#ffff66">jquery</b>-1.2.6.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" xlink:href="<b style="color:black;background-color:#ffff66">jquery</b>.<b style="color:black;background-color:#a0ffff">svg</b>.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;&lt;![CDATA[
+var svgWrapper;
+
+function init(evt) {
+	svgWrapper = new $.<b style="color:black;background-color:#a0ffff">svg</b>._wrapperClass(
+		evt.target.ownerDocument.documentElement,
+		{clientWidth: 500, clientHeight: 400});
+	svgWrapper.rect(40, 45, 50, 10);
+	svgWrapper.rect(60, 25, 10, 50);
+}
+// ]]&gt;
+&lt;/script&gt;
+&lt;g&gt;
+&lt;/g&gt;
+&lt;/<b style="color:black;background-color:#a0ffff">svg</b>&gt;</code></pre>
+			<p>Note, however, that <b style="color:black;background-color:#ffff66">jQuery</b> 1.3.x doesn't work within standalone <b style="color:black;background-color:#a0ffff">SVG</b> documents
+			due to the introduction of <a href="http://docs.jquery.com/Utilities/jQuery.support">
+			feature detection</a>.</p></li>
+		</ul>
+	</div>
+	<div id="wild" class="feature">
+		<h2>In the Wild</h2>
+		<p>This tab highlights examples of this plugin in use "in the wild".</p>
+		<div id="wildLinks">
+			<div>
+				<h3><a href="http://www.dancekaleidoscope.org.au/dance.html">
+					<img src="jquerysvg_files/dancekaleidoscope.html" alt=""> Dance Kaleidoscope</a></h3>
+				<p>To help visualise the dances performed by this group,
+					this page provides animations of various dances using <b style="color:black;background-color:#a0ffff">SVG</b>.</p>
+			</div>
+			<div>
+				<h3><a href="http://code.google.com/p/db-svg/">DB-<b style="color:black;background-color:#a0ffff">SVG</b> Data Model Explorer</a></h3>
+				<p>A Java Web application that generates <b style="color:black;background-color:#a0ffff">SVG</b> data model
+					diagrams for any database with a JDBC driver.
+					<b style="color:black;background-color:#ffff66">jQuery</b> <b style="color:black;background-color:#a0ffff">SVG</b> helps manage the diagram on the Web page.</p>
+			</div>
+			<div>
+				<h3><a href="http://thekidd.ca/blog/2009/05/scribbles-playing-with-svg-greasemonkey/">
+					<img src="jquerysvg_files/scribbles.html" alt=""> Scribbles</a></h3>
+				<p>For now though the fact that my project involves Greasemonkey,
+					tracking the mouse cursor, and dynamically displaying visual
+					feedback has led to a nice unintended combination of being
+					able to draw all over webpages with the cursor.</p>
+			</div>
+			<div>
+				<h3><a href="http://www.colabopad.com/"><img src="jquerysvg_files/colabopad.html" alt=""> Colabopad</a></h3>
+				<p>A collaborative scratch pad for remote tutoring.
+					<b style="color:black;background-color:#ffff66">jQuery</b> <b style="color:black;background-color:#a0ffff">SVG</b> helps generate plots of functions.</p>
+			</div>
+			<div style="clear: both;">
+				<h3><a href="http://meditationen.glaubenheute.de/weltbild/doppelspalt-labor.html">Das Doppelspalt Experiment</a></h3>
+				<p>A rendering of the setup and results for the double-slit experiment.</p>
+			</div>
+			<div>
+				<h3><a href="http://www.remmler.org/shape/configure.html">Configure</a></h3>
+				<p>"Configure" is a dynamic geometry environment. Explore dynamic representations of shape.
+					For use in conjunction with research studying learners' development of geometric reasoning
+					from intuitive and informal conceptions of alikeness to non-metric, property-based conceptions.</p>
+			</div>
+		</div>
+		<p style="clear: both;">To add another example, please contact me (kbwood{at}iinet.com.au)
+			and provide the plugin name, the URL of your site, its title,
+			and a short description of its purpose and where/how the plugin is used.</p>
+	</div>
+	<div id="quick" class="feature">
+		<h2>Quick Reference</h2>
+		<p>A list of available fields and functions. For more detail see the
+			<a href="http://keith-wood.name/svgRef.html">documentation reference</a> page.</p>
+		<pre><code class="js">$(selector).<b style="color:black;background-color:#a0ffff">svg</b>({
+	loadURL: '', // External document to load
+	onLoad: null, // Callback once loaded
+	settings: {}}) // Additional settings for <b style="color:black;background-color:#a0ffff">SVG</b> element
+$(selector).<b style="color:black;background-color:#a0ffff">svg</b>(loadURL)
+$(selector).<b style="color:black;background-color:#a0ffff">svg</b>(onLoad)
+$(selector).<b style="color:black;background-color:#a0ffff">svg</b>('get') // Retrieve <b style="color:black;background-color:#a0ffff">SVG</b> wrapper
+$(selector).<b style="color:black;background-color:#a0ffff">svg</b>('destroy') // Remove <b style="color:black;background-color:#a0ffff">SVG</b> functionality
+
+$.<b style="color:black;background-color:#a0ffff">svg</b>.addExtension(name, extClass) // Extend <b style="color:black;background-color:#a0ffff">SVG</b> functionality
+
+<b style="color:black;background-color:#a0ffff">svg</b>.root()
+<b style="color:black;background-color:#a0ffff">svg</b>.configure(settings, clear)
+<b style="color:black;background-color:#a0ffff">svg</b>.getElementById(id)
+<b style="color:black;background-color:#a0ffff">svg</b>.change(element, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.title(parent, text, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.describe(parent, text, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.defs(parent, id, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.symbol(parent, id, x1, y1, width, height, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.marker(parent, id, refX, refY, mWidth, mHeight, orient, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.style(parent, styles, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.script(parent, script, type, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.linearGradient(parent, id, stops, x1, y1, x2, y2, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.radialGradient(parent, id, stops, cx, cy, r, fx, fy, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.pattern(parent, id, x, y, width, height, vx, vy, vwidth, vheight, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.mask(parent, id, x, y, width, height, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.createPath()
+<b style="color:black;background-color:#a0ffff">svg</b>.createText()
+<b style="color:black;background-color:#a0ffff">svg</b>.<b style="color:black;background-color:#a0ffff">svg</b>(parent, x, y, width, height, vx, vy, vwidth, vheight, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.group(parent, id, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.use(parent, x, y, width, height, ref, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.link(parent, ref, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.image(parent, x, y, width, height, ref, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.path(parent, path, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.rect(parent, x, y, width, height, rx, ry, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.circle(parent, cx, cy, r, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.ellipse(parent, cx, cy, rx, ry, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.line(parent, x1, y1, x2, y2, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.polyline(parent, points, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.polygon(parent, points, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.text(parent, x, y, value, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.textpath(parent, path, value, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.other(parent, name, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.add(parent, node)
+<b style="color:black;background-color:#a0ffff">svg</b>.load(url, settings)
+<b style="color:black;background-color:#a0ffff">svg</b>.remove(node)
+<b style="color:black;background-color:#a0ffff">svg</b>.clear(attrsToo)
+<b style="color:black;background-color:#a0ffff">svg</b>.toSVG(node)
+
+path.reset()
+path.move(x, y, relative)
+path.line(x, y, relative)
+path.horiz(x, relative)
+path.vert(y, relative)
+path.curveC(x1, y1, x2, y2, x, y, relative)
+path.smoothC(x2, y2, x, y, relative)
+path.curveQ(x1, y1, x, y, relative)
+path.smoothQ(x, y, relative)
+path.arc(rx, ry, xRotate, large, clockwise, x, y, relative)
+path.close()
+path.path()
+
+text.reset()
+text.string(value)
+text.span(value, settings)
+text.ref(id, settings)
+text.path(id, value, settings)
+</code></pre>
+	</div>
+</div>
+<h2>Comments</h2>
+<blockquote><p>Great work. Congratulations! I am excited to see your good work.</p></blockquote>
+<div><cite>Felipe Sanches</cite></div>
+<blockquote><p>Love the <b style="color:black;background-color:#ffff66">jquery</b> <b style="color:black;background-color:#a0ffff">svg</b> extension you've written. Stunningly neat.</p></blockquote>
+<div><cite>Murray</cite></div>
+<blockquote><p>Thanks for this plugin and it's documentation filled with examples.
+	Learning by example was always my preferred way to learn.</p></blockquote>
+<div><cite>Michel</cite></div>
+<blockquote><p>We have been long-time <b style="color:black;background-color:#a0ffff">SVG</b> advocates and active with Inkscape.
+	So love the idea of an easy to use <b style="color:black;background-color:#a0ffff">SVG</b> ajax plugin.</p></blockquote>
+<div><cite>Miles Togoe</cite></div>
+<blockquote><p>This is an amazing plugin! It has so many applications.</p></blockquote>
+<div><cite>James Revillini</cite></div>
+<blockquote><p>I am still amazed how quickly I have put something together
+	using your plugin and the flexibility of SVG's.</p></blockquote>
+<div><cite>Mark Flewellen</cite></div>
+<p style="clear: both;">Contact <a href="http://keith-wood.name/index.html">Keith Wood</a> at kbwood{at}iinet.com.au 
+	with comments or suggestions.</p>
+<h2>Change History</h2>
+<table id="history" border="0" width="100%">
+<tbody><tr><th>Version</th><th>Date</th><th>Changes</th></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.4.3.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.4.3');">
+	1.4.3</a></td><td>23&nbsp;Jan&nbsp;2010</td><td><ul>
+	<li>Allow wrapping of inline <b style="color:black;background-color:#a0ffff">SVG</b></li>
+	<li>Allow <code>parent</code> in many calls to be a <b style="color:black;background-color:#ffff66">jQuery</b> object</li>
+	<li>Clear corresponding style attribute when animating</li>
+	<li>Corrected retrieval of <code>transform</code> attribute</li>
+	<li>Corrected handling of style attributes</li>
+	<li>Graph and plot <code>status</code> no longer need to be global functions</li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.4.2.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.4.2');">
+	1.4.2</a></td><td>05&nbsp;Sep&nbsp;2009</td><td><ul>
+	<li>Added <code>colour</code> option to graph <code>title</code>and
+		graph axis <code>labels</code> and <code>title</code> functions</li>
+	<li>Allow <code>explode</code> option for pie charts to be a single number</li>
+	<li>Added <code>colour</code> option to plot <code>title</code> and
+		plot axis <code>format</code> and <code>title</code> functions</li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.4.1.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.4.1');">
+	1.4.1</a></td><td>18&nbsp;Jul&nbsp;2009</td><td><ul>
+	<li>Added <b style="color:black;background-color:#ffff66">jQuery</b> selector support for <b style="color:black;background-color:#a0ffff">SVG</b> DOM</li>
+	<li>Added <b style="color:black;background-color:#ffff66">jQuery</b> event support for <b style="color:black;background-color:#a0ffff">SVG</b> DOM</li>
+	<li>Deprecated path functions <code>moveTo</code>, <code>lineTo</code>, <code>horizTo</code>,
+		<code>vertTo</code>, <code>curveCTo</code>, <code>smoothCTo</code>, <code>curveQTo</code>,
+		<code>smoothQTo</code>, and <code>arcTo</code> in favour of <code>move</code>, <code>line</code>,
+		<code>horiz</code>, <code>vert</code>, <code>curveC</code>, <code>smoothC</code>,
+		<code>curveQ</code>, <code>smoothQ</code>, and <code>arc</code></li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.4.0.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.4.0');">
+	1.4.0</a></td><td>06&nbsp;Jun&nbsp;2009</td><td><ul>
+	<li><b style="color:black;background-color:#a0ffff">SVG</b> attributes containing dashes (-) should now be specified in camel-case,
+		e.g. <code>strokeWidth</code> instead of <code>'stroke-width'</code></li>
+	<li><b style="color:black;background-color:#a0ffff">SVG</b> attributes that are JavaScript reserved words should have
+		a following underscore (_), e.g. <code>class_</code> instead of <code>'class'</code></li>
+	<li>Allowed simplified attachment with an <code>onLoad</code> function</li>
+	<li>Allowed simplified load with an <code>onLoad</code> function</li>
+	<li>Allowed load from text</li>
+	<li>Fixed animation initialisation</li>
+	<li>Separated <b style="color:black;background-color:#ffff66">jQuery</b>/<b style="color:black;background-color:#a0ffff">SVG</b> DOM compatibility into an extension</li>
+	<li>Added <b style="color:black;background-color:#ffff66">jQuery</b> attribute compatibility: <code>attr</code> and <code>removeAttr</code></li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.3.2.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.3.2');">
+	1.3.2</a></td><td>28&nbsp;Mar&nbsp;2009</td><td><ul>
+	<li>Sped up document load (except IE)</li>
+	<li>Handled matrix transformations in <code><b style="color:black;background-color:#a0ffff">svg</b>-transform</code> animations</li>
+	<li>Corrected error in animation of scale transform</li>
+	<li>Restored Renesis compatibility</li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.3.1.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.3.1');">
+	1.3.1</a></td><td>24&nbsp;Jan&nbsp;2009</td><td><ul>
+	<li>Allowed graphs and plots to have a specified container,
+		so they can be combined with other <b style="color:black;background-color:#a0ffff">SVG</b> elements</li>
+	<li>Changed graphs and plots containers from <code>group</code> to <code><b style="color:black;background-color:#a0ffff">svg</b></code> elements</li>
+	<li>Replaced IDs on graph and plot elements with classes</li>
+	<li>Added <code>node</code> parameter to <code>toSVG</code> function</li>
+	<li>Added <code>change</code> function</li>
+	<li>Corrected custom label drawing for graphs</li>
+	<li>Added Google Chrome compatibility for graphs and plots</li>
+	<li>Corrected <b style="color:black;background-color:#a0ffff">SVG</b> ability recognition</li>
+	<li>Added fallback for CDATA sections in loaded documents</li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.3.0.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.3.0');">
+	1.3.0</a></td><td>13&nbsp;Dec&nbsp;2008</td><td><ul>
+	<li>Added <b style="color:black;background-color:#a0ffff">SVG</b> plotting plugin</li>
+	<li>Deprecated graph functions <code>chartArea</code>, <code>chartFormat</code>,
+		<code>chartOptions</code>, and <code>chartType</code> in favour of <code>area</code>,
+		<code>format</code>, <code>options</code>, and <code>type</code></li>
+	<li>Added an index to graph <code>series</code> function to target individual series</li>
+	<li>Added <code>end</code> functions to graph series, axes, and legend</li>
+	<li>Added <code><b style="color:black;background-color:#a0ffff">svg</b>-viewBox</code> animation</li>
+	<li>Added support for <b style="color:black;background-color:#a0ffff">SVG</b> nodes with <b style="color:black;background-color:#ffff66">jQuery</b> <code>addClass</code>, <code>removeClass</code>,
+		<code>toggleClass</code>, and <code>hasClass</code></li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.2.1.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.2.1');">
+	1.2.1</a></td><td>23&nbsp;Aug&nbsp;2008</td><td><ul>
+	<li>Parent may be omitted if null in all function calls</li>
+	<li>Fixed addition of script elements</li>
+	<li>Fixed addition of style elements in Opera</li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.2.0.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.2.0');">
+	1.2.0</a></td><td>19&nbsp;Jul&nbsp;2008</td><td><ul>
+	<li>Internal changes for instance values</li>
+	<li>Renamed <code>SVGRoot</code> to <code>SVGWrapper</code></li>
+	<li>Added <code>initPath</code> setting for initial loading of <b style="color:black;background-color:#a0ffff">SVG</b> in IE</li>
+	<li>Added <code>root</code> function to provide access to the <b style="color:black;background-color:#a0ffff">SVG</b> root element</li>
+	<li>Updated to work in Safari 3.1.1+</li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.1.1.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.1.1');">
+	1.1.1</a></td><td>14&nbsp;Jun&nbsp;2008</td><td><ul>
+	<li>Fixed bug in load external document in IE</li>
+	<li>Enhanced <code>load</code> with <code>changeSize</code> and <code>onLoad</code> settings</li>
+	<li><code>add</code>, <code>load</code>, <code>remove</code>, and <code>clear</code>
+		functions now return a reference to the <b style="color:black;background-color:#a0ffff">SVG</b> root object</li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.1.0.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.1.0');">
+	1.1.0</a></td><td>07&nbsp;Jun&nbsp;2008</td><td><ul>
+	<li>Updated interface to conform to <b style="color:black;background-color:#ffff66">jQuery</b> UI standards</li>
+	<li>Added 'destroy' command</li>
+	<li>Added optional rounding attributes to <code>rect</code> function and
+		removed <code>roundrect</code> function</li>
+	<li>Changed handling of settings with '-' in SVG or reserved words in JavaScript</li>
+	<li>Corrected error in <code>other</code> function</li>
+	<li>Other minor bug fixes</li>
+	<li>Support for Renesis Player in IE</li>
+	<li>Added SVG attribute animations plugin</li>
+	<li>Added 1.0.1 compatibility plugin</li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.0.1.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.0.1');">
+	1.0.1</a></td><td>05&nbsp;May&nbsp;2008</td><td><ul>
+	<li>Updated to work in FF 3</li>
+</ul></td></tr>
+<tr><td><a href="http://keith-wood.name/zip/jquery.svg.package-1.0.0.zip" onclick="pageTracker._trackPageview('/downloads/svg-1.0.0');">
+	1.0.0</a></td><td>14&nbsp;Sep&nbsp;2007</td><td><ul>
+	<li>Initial release</li>
+</ul></td></tr>
+</tbody></table>
+<hr>
+<p>
+	<a id="valid" href="http://validator.w3.org/check?uri=http://keith-wood.name/svg.html">
+		<img src="jquerysvg_files/valid-xhtml11.png" alt="Valid XHTML 1.1"></a>
+</p>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="jquerysvg_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4715900-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+
+</div></body></html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery and CSS3 Skew Example</title>
+		<link rel="stylesheet" href="css/skew.css">
+	</head>
+	<body>
+    	<div id="viewer">
+        	<div id="flow">
+		    	<img src="img/beatles.jpg">
+    	        <img src="img/blink.jpg">
+        	    <img src="img/doves.jpg">
+	            <img src="img/flash.jpg">
+    	        <img src="img/floyd.jpg">
+        	    <img src="img/jurassic.jpg">
+	            <img src="img/naked.jpg">
+    	        <img src="img/prodigy.jpg">
+        	    <img src="img/xx.jpg">
+	            <img src="img/zabiela.jpg">
+            </div>
+    	    <ul>
+               	<li id="left"><a href="#" title="Move Left">Left</a></li>
+                <li id="right"><a href="#" title="Move Right">Right</a></li>
+            </ul>
+        </div>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//init vars
+				var viewer = $("#viewer"),
+					flow = viewer.find("#flow"),
+					order = flow.children().length,
+					oneRad = 1 * (Math.PI / 180),
+					matrix = ["matrix(", 1, ",", 0, ",", 0, ",", 1, ",", "0px,", "0px)"],
+					msMatrix = "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand')",
+									
+					//function to return correct prefix
+					getVendor = function() {
+						
+						//init vars						
+						var prefix = null,
+							vendorStrings = {
+								pure: "transform",
+								moz: "-moz-transform",
+								webkit: "-webkit-transform",
+								op: "-o-transform"
+							};
+						
+						//iterate over transform strings
+						for (props in vendorStrings) {
+							//try and read each property
+							if(flow.css(vendorStrings[props]) === "none") {
+								prefix = vendorStrings[props];
+							}
+						}
+						
+						//ie
+						if (prefix === null) {
+							prefix = "filter";	
+						}
+						
+						return prefix;
+					},
+					vendor = getVendor(),
+					property = (vendor !== "filter") ? matrix.join("") : msMatrix;
+					
+				//prep first el
+				flow.children().eq(0).addClass("flat").css(vendor, property).css("zIndex", order + 1);
+				
+				//prep remaining els
+				flow.children().not(":first").each(function(i) {
+					
+					//cache current img
+					el = flow.children().eq(i + 1);
+					
+					//skew all els except first
+					matrix[1] = 0.7;
+					matrix[3] = -30 * oneRad;
+					matrix[5] = -10 * oneRad;
+					matrix[7] = 0.7;
+					matrix[9] = (vendor === "-moz-transform") ? "90px," : "90,";
+					matrix[10] = (vendor === "-moz-transform") ? "-30px)" : "-30)";
+					
+					if (vendor !== "filter") {								
+						//apply initial skew
+						el.css(vendor, matrix.join("")).css("zIndex", order);
+					} else {
+						//apply filter
+						el.css(vendor, msMatrix).css({
+							zIndex: order,
+							top: -30,
+							left: 250,
+							width: 140,
+							height: 140,
+							marginLeft: -100
+						});
+								
+						//apply skew
+						el.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M11 = 1;
+						el.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M12 = matrix[5];
+						el.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M21 = matrix[3];
+						el.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M22 = 1;		
+					}
+					
+					//set stacking order
+					order--;
+																				
+				});
+				
+				//reset matrix array
+				matrix[3] = 0;
+				matrix[5] = 0;
+								
+				//function to skew from rtl
+				function skewRTL() {
+					
+					//set vars
+					var flat = flow.find(".flat").css("zIndex", order + 1),
+						preFlat = flat.next(),
+						flatMatrix = matrix.slice(0),
+						preMatrix = matrix.slice(0),
+						flatDims = 200,
+						preDims = 170,
+						
+						//interval function
+						skew = function() {
+							
+							if (preFlat.length) {
+							
+								if (flatMatrix[3] <= 30 * oneRad && flatMatrix[5] <= 10 * oneRad) {
+									
+									//get current translate values
+									var flatTranslateX = parseInt(flatMatrix[9].split("p")[0], 10),
+										flatTranslateY = parseInt(flatMatrix[10].split("p")[0], 10),
+										preTranslateX = parseInt(preMatrix[9].split("p")[0], 10),
+										preTranslateY = parseInt(preMatrix[10].split("p")[0], 10);
+	
+									//update matrix values
+									flatMatrix[1] = flatMatrix[1] - 0.001;
+									flatMatrix[3] = flatMatrix[3] + oneRad;
+									flatMatrix[5] = flatMatrix[5] + (oneRad / 3);
+									flatMatrix[7] = flatMatrix[7] - 0.001;
+									flatMatrix[9] = (vendor === "-moz-transform") ? flatTranslateX - 6 + "px," : flatTranslateX - 6 + ",";
+									preMatrix[1] = preMatrix[1] + 0.01;
+									preMatrix[3] = preMatrix[3] + oneRad;
+									preMatrix[5] = preMatrix[5] + (oneRad / 3);
+									preMatrix[7] = preMatrix[7] + 0.01;									
+									preMatrix[9] = (vendor === "-moz-transform") ? preTranslateX - 3 + "px," : preTranslateX - 3 + ",";
+									preMatrix[10] = (vendor === "-moz-transform") ? preTranslateY + 1 + "px)" : preTranslateY + 1 + ")";
+																																				
+									//apply new matrix settings
+									if (vendor !== "filter") {
+										flat.css(vendor, flatMatrix.join(""));
+										preFlat.css(vendor, preMatrix.join(""));										
+										
+									} else {
+										flat.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M12 = flatMatrix[5];
+										flat.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M21 = flatMatrix[3];										
+										preFlat.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M12 = preMatrix[5];
+										preFlat.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M21 = preMatrix[3];
+										
+										//update vars
+										flatDims = flatDims - 2;
+										preDims = preDims + 0.5;
+										
+										//resize elements
+										flat.css({
+											width: flatDims,
+											height: flatDims
+										});
+										preFlat.css({
+											width: preDims,
+											height: preDims
+										});
+									}
+																		
+								} else {
+									
+									//stop animating
+									clearInterval(flatInterval);
+									
+									//correct end skew of preflat									
+									if (vendor !== "filter") {
+										preMatrix[3] = 0;
+										preMatrix[5] = 0;
+										preFlat.css(vendor, preMatrix.join(""));
+									} else {
+										flat.css({
+											top: -30,
+											left: 260
+										});
+									}
+									
+									//juggle class names and z-index
+									flat.removeClass("flat").css("zIndex", "");
+									preFlat.addClass("flat");
+								}		
+							} else {
+								
+								//clear intervals
+								clearInterval(flatInterval);
+								flat.css("zIndex", order + 1);
+							}
+						};	
+								
+					//set initial values
+					preMatrix[3] = -30 * oneRad;
+					preMatrix[5] = -10 * oneRad;
+					
+					//start anims
+					if(!flatInterval) {					
+						var flatInterval = setInterval(function() { skew() }, 1);
+					}
+					
+				};
+				
+				function skewLTR() {
+					
+					//set vars
+					var flat = flow.find(".flat"),
+						preFlat = flat.prev(),
+						flatMatrix = matrix.slice(0),
+						preMatrix = matrix.slice(0),
+						flatDims = 200,
+						preDims = 170,
+						
+						//interval function
+						skew = function() {
+							
+							if (preFlat.length) {
+							
+								if (flatMatrix[3] >= -30 * oneRad && flatMatrix[5] >= -10 * oneRad) {
+									
+									//get current translate values
+									var preTranslateX = parseInt(preMatrix[9].split("p")[0], 10),
+										preTranslateY = parseInt(preMatrix[10].split("p")[0], 10);
+	
+									//update matrix values
+									flatMatrix[1] = flatMatrix[1] - 0.001;
+									flatMatrix[3] = flatMatrix[3] - oneRad;
+									flatMatrix[5] = flatMatrix[5] - (oneRad / 3);
+									flatMatrix[7] = flatMatrix[7] - 0.001;
+									preMatrix[1] = preMatrix[1] + 0.01;
+									preMatrix[3] = preMatrix[3] - oneRad;
+									preMatrix[5] = preMatrix[5] - (oneRad / 3);
+									preMatrix[7] = preMatrix[7] + 0.01;									
+									preMatrix[9] = (vendor === "-moz-transform") ? preTranslateX + 3 + "px," : preTranslateX + 3 + ",";
+									preMatrix[10] = (vendor === "-moz-transform") ? preTranslateY + 1 + "px)" : preTranslateY + 1 + ")";
+																					
+									//apply new matrix settings
+									if (vendor !== "filter") {
+										flat.css(vendor, flatMatrix.join(""));
+										preFlat.css(vendor, preMatrix.join(""));										
+										
+									} else {
+										flat.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M12 = flatMatrix[5];
+										flat.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M21 = flatMatrix[3];										
+										preFlat.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M12 = preMatrix[5];
+										preFlat.get(0).filters.item("DXImageTransform.Microsoft.Matrix").M21 = preMatrix[3];;
+										
+										//update vars
+										flatDims = flatDims - 1.5;
+										preDims = preDims + 1.5;
+										
+										//resize elements
+										flat.css({
+											width: flatDims,
+											height: flatDims
+										});
+										preFlat.css({
+											width: preDims,
+											height: preDims
+										});
+									}
+																		
+								} else {
+									
+									//stop animating
+									clearInterval(flatInterval);
+									
+									//correct end skew of preflat		
+									if (vendor !== "filter") {
+										preMatrix[3] = 0;
+										preMatrix[5] = 0;
+										preFlat.css(vendor, preMatrix.join(""));
+									}
+									
+									//juggle class names
+									flat.removeClass("flat").css("zIndex", parseInt(flat.next().css("zIndex")) + 1);
+									preFlat.addClass("flat").css("zIndex", order + 1);
+																		
+								}		
+							} else {
+								
+								//stop animating
+								clearInterval(flatInterval);
+								flat.css("zIndex", order + 1);
+							}
+						};	
+							
+					//set initial values
+					order = flow.children().length;
+					preMatrix[3] = 30 * oneRad;
+					preMatrix[5] = 10 * oneRad;
+					preMatrix[9] = (vendor === "-moz-transform") ? "-90px," : "-90,";
+					preMatrix[10] = (vendor === "-moz-transform") ? "-30px," : "-30,";
+					
+					//start anims
+					if(!flatInterval) {					
+						var flatInterval = setInterval(function() { skew() }, 1);
+					}
+					
+				};
+				
+				//handlers for links
+				viewer.find("#left a").click(function(e) {
+					e.preventDefault();
+					skewRTL();
+				});
+				viewer.find("#right a").click(function(e) {
+					e.preventDefault();
+					skewLTR();
+				});
+				
+			})(jQuery);
+		</script>
+	</body>
+</html>

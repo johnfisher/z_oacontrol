@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenRRD.parsers.Cacti</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenRRD-module.html">Package&nbsp;ZenRRD</a> ::
+        <a href="Products.ZenRRD.parsers-module.html">Package&nbsp;parsers</a> ::
+        Module&nbsp;Cacti
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenRRD.parsers.Cacti-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenRRD.parsers.Cacti-module.html">Module Products.ZenRRD.parsers.Cacti</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2008, 2009 Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">re</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment"># how to parse each value from a Cacti plugin</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable Products.ZenRRD.parsers.Auto.CacParser=Products.ZenRRD.parsers.Auto-module.html#CacParser,Variable Products.ZenRRD.parsers.Cacti.CacParser=Products.ZenRRD.parsers.Cacti-module.html#CacParser"><a title="Products.ZenRRD.parsers.Auto.CacParser
+Products.ZenRRD.parsers.Cacti.CacParser" class="py-name" href="#" onclick="return doclink('link-0', 'CacParser', 'link-0');">CacParser</a></tt> <tt class="py-op">=</tt> <tt class="py-name">re</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method Products.ZenModel.Commandable.Commandable.compile()=Products.ZenModel.Commandable.Commandable-class.html#compile"><a title="Products.ZenModel.Commandable.Commandable.compile" class="py-name" href="#" onclick="return doclink('link-1', 'compile', 'link-1');">compile</a></tt><tt class="py-op">(</tt><tt class="py-string">r"""([^ :']+|'(.*)'+):([-0-9.]+)"""</tt><tt class="py-op">)</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package Products.ZenUtils=Products.ZenUtils-module.html"><a title="Products.ZenUtils" class="py-name" href="#" onclick="return doclink('link-2', 'ZenUtils', 'link-2');">ZenUtils</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module Products.ZenReports.Utils=Products.ZenReports.Utils-module.html,Module Products.ZenUtils.Utils=Products.ZenUtils.Utils-module.html"><a title="Products.ZenReports.Utils
+Products.ZenUtils.Utils" class="py-name" href="#" onclick="return doclink('link-3', 'Utils', 'link-3');">Utils</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Function Products.ZenUtils.Utils.getExitMessage()=Products.ZenUtils.Utils-module.html#getExitMessage"><a title="Products.ZenUtils.Utils.getExitMessage" class="py-name" href="#" onclick="return doclink('link-4', 'getExitMessage', 'link-4');">getExitMessage</a></tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Package Products.ZenRRD=Products.ZenRRD-module.html"><a title="Products.ZenRRD" class="py-name" href="#" onclick="return doclink('link-5', 'ZenRRD', 'link-5');">ZenRRD</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module Products.DataCollector.CommandParsers.CommandParser=Products.DataCollector.CommandParsers.CommandParser-module.html,Class Products.DataCollector.CommandParsers.CommandParser.CommandParser=Products.DataCollector.CommandParsers.CommandParser.CommandParser-class.html,Module Products.ZenRRD.CommandParser=Products.ZenRRD.CommandParser-module.html,Class Products.ZenRRD.CommandParser.CommandParser=Products.ZenRRD.CommandParser.CommandParser-class.html"><a title="Products.DataCollector.CommandParsers.CommandParser
+Products.DataCollector.CommandParsers.CommandParser.CommandParser
+Products.ZenRRD.CommandParser
+Products.ZenRRD.CommandParser.CommandParser" class="py-name" href="#" onclick="return doclink('link-6', 'CommandParser', 'link-6');">CommandParser</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name"><a title="Products.DataCollector.CommandParsers.CommandParser
+Products.DataCollector.CommandParsers.CommandParser.CommandParser
+Products.ZenRRD.CommandParser
+Products.ZenRRD.CommandParser.CommandParser" class="py-name" href="#" onclick="return doclink('link-7', 'CommandParser', 'link-6');">CommandParser</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
+<a name="Cacti"></a><div id="Cacti-def"><a name="L21"></a><tt class="py-lineno">21</tt> <a class="py-toggle" href="#" id="Cacti-toggle" onclick="return toggle('Cacti');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenRRD.parsers.Cacti.Cacti-class.html">Cacti</a><tt class="py-op">(</tt><tt class="py-base-class">CommandParser</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Cacti-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Cacti-expanded"><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="Cacti.processResults"></a><div id="Cacti.processResults-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="Cacti.processResults-toggle" onclick="return toggle('Cacti.processResults');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenRRD.parsers.Cacti.Cacti-class.html#processResults">processResults</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">cmd</tt><tt class="py-op">,</tt> <tt class="py-param">result</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Cacti.processResults-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Cacti.processResults-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Variable Products.ZenRRD.zencommand.ProcessRunner.output=Products.ZenRRD.zencommand.ProcessRunner-class.html#output,Variable Products.ZenRRD.zencommand.SshRunner.output=Products.ZenRRD.zencommand.SshRunner-class.html#output"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-8', 'output', 'link-8');">output</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Variable Products.DataCollector.TelnetClient.TelnetClientProtocol.result=Products.DataCollector.TelnetClient.TelnetClientProtocol-class.html#result,Variable Products.ZenRRD.zencommand.Cmd.result=Products.ZenRRD.zencommand.Cmd-class.html#result,Method Products.ZenUtils.Driver.Driver.result()=Products.ZenUtils.Driver.Driver-class.html#result"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-9', 'result', 'link-9');">result</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-10', 'output', 'link-8');">output</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt id="link-11" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-11', 'output', 'link-8');">output</a></tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-12', 'output', 'link-8');">output</a></tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Function Products.ZenUtils.IpUtil.strip()=Products.ZenUtils.IpUtil-module.html#strip"><a title="Products.ZenUtils.IpUtil.strip" class="py-name" href="#" onclick="return doclink('link-13', 'strip', 'link-13');">strip</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt id="link-14" class="py-name" targets="Variable Products.ZenRRD.zencommand.ProcessRunner.exitCode=Products.ZenRRD.zencommand.ProcessRunner-class.html#exitCode,Variable Products.ZenRRD.zencommand.SshRunner.exitCode=Products.ZenRRD.zencommand.SshRunner-class.html#exitCode,Method Products.ZenUtils.Watchdog.ExitStatus.exitCode()=Products.ZenUtils.Watchdog.ExitStatus-class.html#exitCode"><a title="Products.ZenRRD.zencommand.ProcessRunner.exitCode
+Products.ZenRRD.zencommand.SshRunner.exitCode
+Products.ZenUtils.Watchdog.ExitStatus.exitCode" class="py-name" href="#" onclick="return doclink('link-14', 'exitCode', 'link-14');">exitCode</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-15', 'result', 'link-9');">result</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.exitCode
+Products.ZenRRD.zencommand.SshRunner.exitCode
+Products.ZenUtils.Watchdog.ExitStatus.exitCode" class="py-name" href="#" onclick="return doclink('link-16', 'exitCode', 'link-14');">exitCode</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt id="link-17" class="py-name" targets="Variable Products.ZenHub.services.ProcessConfig.ProcessProxy.severity=Products.ZenHub.services.ProcessConfig.ProcessProxy-class.html#severity,Variable Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity=Products.ZenModel.MinMaxThreshold.MinMaxThreshold-class.html#severity,Variable Products.ZenModel.RRDDataSource.RRDDataSource.severity=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#severity,Variable Products.ZenModel.RRDThreshold.RRDThreshold.severity=Products.ZenModel.RRDThreshold.RRDThreshold-class.html#severity,Variable Products.ZenRRD.zencommand.Cmd.severity=Products.ZenRRD.zencommand.Cmd-class.html#severity,Method Products.ZenWin.services.WinServiceConfig.SmartService.severity()=Products.ZenWin.services.WinServiceConfig.SmartService-class.html#severity"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-17', 'severity', 'link-17');">severity</a></tt> <tt class="py-op">=</tt> <tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-18', 'severity', 'link-17');">severity</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-19" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-19', 'output', 'link-8');">output</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method Products.ZenEvents.EventClass.EventClass.find()=Products.ZenEvents.EventClass.EventClass-class.html#find,Method Products.ZenModel.ServiceOrganizer.ServiceOrganizer.find()=Products.ZenModel.ServiceOrganizer.ServiceOrganizer-class.html#find,Method Products.ZenWidgets.PortletManager.PortletManager.find()=Products.ZenWidgets.PortletManager.PortletManager-class.html#find"><a title="Products.ZenEvents.EventClass.EventClass.find
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.find
+Products.ZenWidgets.PortletManager.PortletManager.find" class="py-name" href="#" onclick="return doclink('link-20', 'find', 'link-20');">find</a></tt><tt class="py-op">(</tt><tt class="py-string">'|'</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">            <tt id="link-21" class="py-name" targets="Variable Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg=Products.ZenStatus.ZenTcpClient.ZenTcpClient-class.html#msg,Method Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg()=Products.ZenUtils.ZenBackupBase.ZenBackupBase-class.html#msg"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-21', 'msg', 'link-21');">msg</a></tt><tt class="py-op">,</tt> <tt id="link-22" class="py-name" targets="Method Products.ZenWidgets.ZenTableState.ZenTableState.values()=Products.ZenWidgets.ZenTableState.ZenTableState-class.html#values"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-22', 'values', 'link-22');">values</a></tt> <tt class="py-op">=</tt> <tt id="link-23" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-23', 'output', 'link-8');">output</a></tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-string">'|'</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">            <tt id="link-24" class="py-name"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-24', 'msg', 'link-21');">msg</a></tt><tt class="py-op">,</tt> <tt id="link-25" class="py-name"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-25', 'values', 'link-22');">values</a></tt> <tt class="py-op">=</tt> <tt id="link-26" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-26', 'output', 'link-8');">output</a></tt><tt class="py-op">,</tt> <tt class="py-string">''</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt id="link-27" class="py-name"><a title="Products.ZenRRD.parsers.Auto.CacParser
+Products.ZenRRD.parsers.Cacti.CacParser" class="py-name" href="#" onclick="return doclink('link-27', 'CacParser', 'link-0');">CacParser</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex.search()=Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#search,Method Products.ZenUtils.MultiPathIndex.MultiPathIndex.search()=Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html#search"><a title="Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex.search
+Products.ZenUtils.MultiPathIndex.MultiPathIndex.search" class="py-name" href="#" onclick="return doclink('link-28', 'search', 'link-28');">search</a></tt><tt class="py-op">(</tt><tt id="link-29" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-29', 'output', 'link-8');">output</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">            <tt id="link-30" class="py-name"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-30', 'msg', 'link-21');">msg</a></tt><tt class="py-op">,</tt> <tt id="link-31" class="py-name"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-31', 'values', 'link-22');">values</a></tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt> <tt id="link-32" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-32', 'output', 'link-8');">output</a></tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt class="py-name">points</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">            <tt class="py-comment"># Special case for plugins that only return one datapoint</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">                <tt class="py-name">number</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-33', 'output', 'link-8');">output</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt id="link-34" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-34', 'result', 'link-9');">result</a></tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-35', 'values', 'link-22');">values</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt> <tt class="py-op">(</tt><tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt class="py-name">points</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">number</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                <tt id="link-36" class="py-name"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-36', 'msg', 'link-21');">msg</a></tt><tt class="py-op">,</tt> <tt id="link-37" class="py-name"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-37', 'values', 'link-22');">values</a></tt> <tt class="py-op">=</tt> <tt class="py-string">''</tt><tt class="py-op">,</tt> <tt id="link-38" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-38', 'output', 'link-8');">output</a></tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                <tt id="link-39" class="py-name"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-39', 'msg', 'link-21');">msg</a></tt><tt class="py-op">,</tt> <tt id="link-40" class="py-name"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-40', 'values', 'link-22');">values</a></tt> <tt class="py-op">=</tt> <tt id="link-41" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-41', 'output', 'link-8');">output</a></tt><tt class="py-op">,</tt> <tt class="py-string">''</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">            <tt id="link-42" class="py-name"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-42', 'msg', 'link-21');">msg</a></tt><tt class="py-op">,</tt> <tt id="link-43" class="py-name"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-43', 'values', 'link-22');">values</a></tt> <tt class="py-op">=</tt> <tt id="link-44" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.output
+Products.ZenRRD.zencommand.SshRunner.output" class="py-name" href="#" onclick="return doclink('link-44', 'output', 'link-8');">output</a></tt><tt class="py-op">,</tt> <tt class="py-string">''</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt id="link-45" class="py-name"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-45', 'msg', 'link-21');">msg</a></tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-46', 'msg', 'link-21');">msg</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="Products.ZenUtils.IpUtil.strip" class="py-name" href="#" onclick="return doclink('link-47', 'strip', 'link-13');">strip</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-string">'Cmd: %s - Code: %s - Msg: %s'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">            <tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Variable Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.command=Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress-class.html#command,Variable Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.command=Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware-class.html#command,Variable Products.DataCollector.CommandParsers.CommandParser.CommandParser.command=Products.DataCollector.CommandParsers.CommandParser.CommandParser-class.html#command,Variable Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig.command=Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig-class.html#command,Variable Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.command=Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an-class.html#command,Variable Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.command=Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn-class.html#command,Variable Products.DataCollector.CommandParsers.Uname_A.Uname_A.command=Products.DataCollector.CommandParsers.Uname_A.Uname_A-class.html#command,Variable Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.command=Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k-class.html#command,Variable Products.DataCollector.TelnetClient.TelnetClientProtocol.command=Products.DataCollector.TelnetClient.TelnetClientProtocol-class.html#command,Variable Products.ZenEvents.EventCommand.EventCommand.command=Products.ZenEvents.EventCommand.EventCommand-class.html#command,Variable Products.ZenModel.UserCommand.UserCommand.command=Products.ZenModel.UserCommand.UserCommand-class.html#command,Variable Products.ZenRRD.zencommand.Cmd.command=Products.ZenRRD.zencommand.Cmd-class.html#command"><a title="Products.DataCollector.CommandParsers.CiscoDhcpHelperAddress.CiscoDhcpHelperAddress.command
+Products.DataCollector.CommandParsers.CiscoShowHardware.CiscoShowHardware.command
+Products.DataCollector.CommandParsers.CommandParser.CommandParser.command
+Products.DataCollector.CommandParsers.Linux_ifconfig.Linux_ifconfig.command
+Products.DataCollector.CommandParsers.Linux_netstat_an.Linux_netstat_an.command
+Products.DataCollector.CommandParsers.Linux_netstat_rn.Linux_netstat_rn.command
+Products.DataCollector.CommandParsers.Uname_A.Uname_A.command
+Products.DataCollector.CommandParsers.Unix_df_k.Unix_df_k.command
+Products.DataCollector.TelnetClient.TelnetClientProtocol.command
+Products.ZenEvents.EventCommand.EventCommand.command
+Products.ZenModel.UserCommand.UserCommand.command
+Products.ZenRRD.zencommand.Cmd.command" class="py-name" href="#" onclick="return doclink('link-48', 'command', 'link-48');">command</a></tt><tt class="py-op">,</tt> <tt id="link-49" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.exitCode
+Products.ZenRRD.zencommand.SshRunner.exitCode
+Products.ZenUtils.Watchdog.ExitStatus.exitCode" class="py-name" href="#" onclick="return doclink('link-49', 'exitCode', 'link-14');">exitCode</a></tt><tt class="py-op">,</tt> <tt id="link-50" class="py-name"><a title="Products.ZenUtils.Utils.getExitMessage" class="py-name" href="#" onclick="return doclink('link-50', 'getExitMessage', 'link-4');">getExitMessage</a></tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.exitCode
+Products.ZenRRD.zencommand.SshRunner.exitCode
+Products.ZenUtils.Watchdog.ExitStatus.exitCode" class="py-name" href="#" onclick="return doclink('link-51', 'exitCode', 'link-14');">exitCode</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-52" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.exitCode
+Products.ZenRRD.zencommand.SshRunner.exitCode
+Products.ZenUtils.Watchdog.ExitStatus.exitCode" class="py-name" href="#" onclick="return doclink('link-52', 'exitCode', 'link-14');">exitCode</a></tt> <tt class="py-op">!=</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-53" class="py-name"><a title="Products.ZenRRD.zencommand.ProcessRunner.exitCode
+Products.ZenRRD.zencommand.SshRunner.exitCode
+Products.ZenUtils.Watchdog.ExitStatus.exitCode" class="py-name" href="#" onclick="return doclink('link-53', 'exitCode', 'link-14');">exitCode</a></tt> <tt class="py-op">==</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">                <tt id="link-54" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-54', 'severity', 'link-17');">severity</a></tt> <tt class="py-op">=</tt> <tt class="py-name">min</tt><tt class="py-op">(</tt><tt id="link-55" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-55', 'severity', 'link-17');">severity</a></tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-number">5</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">            <tt id="link-56" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-56', 'result', 'link-9');">result</a></tt><tt class="py-op">.</tt><tt class="py-name">events</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">dict</tt><tt class="py-op">(</tt><tt id="link-57" class="py-name" targets="Method Products.ZenModel.Device.Device.device()=Products.ZenModel.Device.Device-class.html#device,Method Products.ZenModel.DeviceHW.DeviceHW.device()=Products.ZenModel.DeviceHW.DeviceHW-class.html#device,Method Products.ZenModel.GraphDefinition.FakeContext.device()=Products.ZenModel.GraphDefinition.FakeContext-class.html#device,Method Products.ZenModel.HWComponent.HWComponent.device()=Products.ZenModel.HWComponent.HWComponent-class.html#device,Method Products.ZenModel.IpAddress.IpAddress.device()=Products.ZenModel.IpAddress.IpAddress-class.html#device,Method Products.ZenModel.ManagedEntity.ManagedEntity.device()=Products.ZenModel.ManagedEntity.ManagedEntity-class.html#device,Method Products.ZenModel.OSComponent.OSComponent.device()=Products.ZenModel.OSComponent.OSComponent-class.html#device,Method Products.ZenModel.OperatingSystem.OperatingSystem.device()=Products.ZenModel.OperatingSystem.OperatingSystem-class.html#device,Method Products.ZenModel.Software.Software.device()=Products.ZenModel.Software.Software-class.html#device,Variable Products.ZenRRD.zencommand.DeviceConfig.device=Products.ZenRRD.zencommand.DeviceConfig-class.html#device,Variable Products.ZenRRD.zenperfsnmp.SnmpConfig.device=Products.ZenRRD.zenperfsnmp.SnmpConfig-class.html#device"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-57', 'device', 'link-57');">device</a></tt><tt class="py-op">=</tt><tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt class="py-name">deviceConfig</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-58', 'device', 'link-57');">device</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">                                      <tt id="link-59" class="py-name" targets="Method Products.ZenHub.services.PerformanceConfig.SnmpConnInfo.summary()=Products.ZenHub.services.PerformanceConfig.SnmpConnInfo-class.html#summary,Variable Products.ZenModel.GraphReportElement.GraphReportElement.summary=Products.ZenModel.GraphReportElement.GraphReportElement-class.html#summary,Method Products.ZenModel.MibBase.MibBase.summary()=Products.ZenModel.MibBase.MibBase-class.html#summary,Variable Products.ZenModel.RRDGraph.RRDGraph.summary=Products.ZenModel.RRDGraph.RRDGraph-class.html#summary,Method Products.ZenModel.System.System.summary()=Products.ZenModel.System.System-class.html#summary,Method Products.ZenRRD.RenderServer.RenderServer.summary()=Products.ZenRRD.RenderServer.RenderServer-class.html#summary"><a title="Products.ZenHub.services.PerformanceConfig.SnmpConnInfo.summary
+Products.ZenModel.GraphReportElement.GraphReportElement.summary
+Products.ZenModel.MibBase.MibBase.summary
+Products.ZenModel.RRDGraph.RRDGraph.summary
+Products.ZenModel.System.System.summary
+Products.ZenRRD.RenderServer.RenderServer.summary" class="py-name" href="#" onclick="return doclink('link-59', 'summary', 'link-59');">summary</a></tt><tt class="py-op">=</tt><tt id="link-60" class="py-name"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-60', 'msg', 'link-21');">msg</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">                                      <tt id="link-61" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-61', 'severity', 'link-17');">severity</a></tt><tt class="py-op">=</tt><tt id="link-62" class="py-name"><a title="Products.ZenHub.services.ProcessConfig.ProcessProxy.severity
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.severity
+Products.ZenModel.RRDDataSource.RRDDataSource.severity
+Products.ZenModel.RRDThreshold.RRDThreshold.severity
+Products.ZenRRD.zencommand.Cmd.severity
+Products.ZenWin.services.WinServiceConfig.SmartService.severity" class="py-name" href="#" onclick="return doclink('link-62', 'severity', 'link-17');">severity</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">                                      <tt class="py-name">message</tt><tt class="py-op">=</tt><tt id="link-63" class="py-name"><a title="Products.ZenStatus.ZenTcpClient.ZenTcpClient.msg
+Products.ZenUtils.ZenBackupBase.ZenBackupBase.msg" class="py-name" href="#" onclick="return doclink('link-63', 'msg', 'link-21');">msg</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">                                      <tt class="py-name">performanceData</tt><tt class="py-op">=</tt><tt id="link-64" class="py-name"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-64', 'values', 'link-22');">values</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">                                      <tt id="link-65" class="py-name" targets="Variable Products.ZenModel.RRDDataSource.RRDDataSource.eventKey=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#eventKey,Variable Products.ZenRRD.zencommand.Cmd.eventKey=Products.ZenRRD.zencommand.Cmd-class.html#eventKey"><a title="Products.ZenModel.RRDDataSource.RRDDataSource.eventKey
+Products.ZenRRD.zencommand.Cmd.eventKey" class="py-name" href="#" onclick="return doclink('link-65', 'eventKey', 'link-65');">eventKey</a></tt><tt class="py-op">=</tt><tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="Products.ZenModel.RRDDataSource.RRDDataSource.eventKey
+Products.ZenRRD.zencommand.Cmd.eventKey" class="py-name" href="#" onclick="return doclink('link-66', 'eventKey', 'link-65');">eventKey</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">                                      <tt id="link-67" class="py-name" targets="Variable Products.ZenEvents.Event.EventHeartbeat.eventClass=Products.ZenEvents.Event.EventHeartbeat-class.html#eventClass,Variable Products.ZenModel.BasicDataSource.BasicDataSource.eventClass=Products.ZenModel.BasicDataSource.BasicDataSource-class.html#eventClass,Variable Products.ZenModel.MinMaxThreshold.MinMaxThreshold.eventClass=Products.ZenModel.MinMaxThreshold.MinMaxThreshold-class.html#eventClass,Variable Products.ZenModel.RRDDataSource.RRDDataSource.eventClass=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#eventClass,Variable Products.ZenModel.RRDThreshold.RRDThreshold.eventClass=Products.ZenModel.RRDThreshold.RRDThreshold-class.html#eventClass,Variable Products.ZenRRD.zencommand.Cmd.eventClass=Products.ZenRRD.zencommand.Cmd-class.html#eventClass"><a title="Products.ZenEvents.Event.EventHeartbeat.eventClass
+Products.ZenModel.BasicDataSource.BasicDataSource.eventClass
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.eventClass
+Products.ZenModel.RRDDataSource.RRDDataSource.eventClass
+Products.ZenModel.RRDThreshold.RRDThreshold.eventClass
+Products.ZenRRD.zencommand.Cmd.eventClass" class="py-name" href="#" onclick="return doclink('link-67', 'eventClass', 'link-67');">eventClass</a></tt><tt class="py-op">=</tt><tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="Products.ZenEvents.Event.EventHeartbeat.eventClass
+Products.ZenModel.BasicDataSource.BasicDataSource.eventClass
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold.eventClass
+Products.ZenModel.RRDDataSource.RRDDataSource.eventClass
+Products.ZenModel.RRDThreshold.RRDThreshold.eventClass
+Products.ZenRRD.zencommand.Cmd.eventClass" class="py-name" href="#" onclick="return doclink('link-68', 'eventClass', 'link-67');">eventClass</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">                                      <tt id="link-69" class="py-name" targets="Variable Products.ZenModel.RRDDataSource.RRDDataSource.component=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#component,Variable Products.ZenRRD.zencommand.DataPointConfig.component=Products.ZenRRD.zencommand.DataPointConfig-class.html#component"><a title="Products.ZenModel.RRDDataSource.RRDDataSource.component
+Products.ZenRRD.zencommand.DataPointConfig.component" class="py-name" href="#" onclick="return doclink('link-69', 'component', 'link-69');">component</a></tt><tt class="py-op">=</tt><tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="Products.ZenModel.RRDDataSource.RRDDataSource.component
+Products.ZenRRD.zencommand.DataPointConfig.component" class="py-name" href="#" onclick="return doclink('link-70', 'component', 'link-69');">component</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-71" class="py-name" targets="Variable Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value=Products.ZenModel.AreaGraphPoint.AreaGraphPoint-class.html#value,Variable Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value=Products.ZenModel.HruleGraphPoint.HruleGraphPoint-class.html#value,Variable Products.ZenModel.LineGraphPoint.LineGraphPoint.value=Products.ZenModel.LineGraphPoint.LineGraphPoint-class.html#value"><a title="Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value
+Products.ZenModel.LineGraphPoint.LineGraphPoint.value" class="py-name" href="#" onclick="return doclink('link-71', 'value', 'link-71');">value</a></tt> <tt class="py-keyword">in</tt> <tt id="link-72" class="py-name"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-72', 'values', 'link-22');">values</a></tt><tt class="py-op">.</tt><tt class="py-name">split</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">            <tt class="py-name">parts</tt> <tt class="py-op">=</tt> <tt id="link-73" class="py-name"><a title="Products.ZenRRD.parsers.Auto.CacParser
+Products.ZenRRD.parsers.Cacti.CacParser" class="py-name" href="#" onclick="return doclink('link-73', 'CacParser', 'link-0');">CacParser</a></tt><tt class="py-op">.</tt><tt id="link-74" class="py-name" targets="Method Products.ZenEvents.EventClassInst.EventClassInst.match()=Products.ZenEvents.EventClassInst.EventClassInst-class.html#match,Method Products.ZenModel.OSProcessClass.OSProcessClass.match()=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#match,Method Products.ZenRRD.zenprocess.ProcessStats.match()=Products.ZenRRD.zenprocess.ProcessStats-class.html#match"><a title="Products.ZenEvents.EventClassInst.EventClassInst.match
+Products.ZenModel.OSProcessClass.OSProcessClass.match
+Products.ZenRRD.zenprocess.ProcessStats.match" class="py-name" href="#" onclick="return doclink('link-74', 'match', 'link-74');">match</a></tt><tt class="py-op">(</tt><tt id="link-75" class="py-name"><a title="Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value
+Products.ZenModel.LineGraphPoint.LineGraphPoint.value" class="py-name" href="#" onclick="return doclink('link-75', 'value', 'link-71');">value</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">parts</tt><tt class="py-op">:</tt> <tt class="py-keyword">continue</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">            <tt class="py-name">label</tt> <tt class="py-op">=</tt> <tt class="py-name">parts</tt><tt class="py-op">.</tt><tt class="py-name">group</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">replace</tt><tt class="py-op">(</tt><tt class="py-string">"''"</tt><tt class="py-op">,</tt> <tt class="py-string">"'"</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">                <tt id="link-76" class="py-name"><a title="Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value
+Products.ZenModel.LineGraphPoint.LineGraphPoint.value" class="py-name" href="#" onclick="return doclink('link-76', 'value', 'link-71');">value</a></tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">parts</tt><tt class="py-op">.</tt><tt class="py-name">group</tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">                <tt id="link-77" class="py-name"><a title="Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value
+Products.ZenModel.LineGraphPoint.LineGraphPoint.value" class="py-name" href="#" onclick="return doclink('link-77', 'value', 'link-71');">value</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'U'</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">dp</tt> <tt class="py-keyword">in</tt> <tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt class="py-name">points</tt><tt class="py-op">:</tt>       <tt class="py-comment"># FIXME: linear search</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">dp</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name" targets="Variable Products.ZenHub.services.DiscoverService.IpNetProxy.id=Products.ZenHub.services.DiscoverService.IpNetProxy-class.html#id,Method Products.ZenModel.browser.DeviceList.DeviceBatch.id()=Products.ZenModel.browser.DeviceList.DeviceBatch-class.html#id,Variable Products.ZenRRD.zencommand.DataPointConfig.id=Products.ZenRRD.zencommand.DataPointConfig-class.html#id,Variable Products.ZenRelations.ZItem.ZItem.id=Products.ZenRelations.ZItem.ZItem-class.html#id"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-78', 'id', 'link-78');">id</a></tt> <tt class="py-op">==</tt> <tt class="py-name">label</tt><tt class="py-op">:</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">                    <tt id="link-79" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-79', 'result', 'link-9');">result</a></tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="Products.ZenWidgets.ZenTableState.ZenTableState.values" class="py-name" href="#" onclick="return doclink('link-80', 'values', 'link-22');">values</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt> <tt class="py-op">(</tt><tt class="py-name">dp</tt><tt class="py-op">,</tt> <tt id="link-81" class="py-name"><a title="Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value
+Products.ZenModel.LineGraphPoint.LineGraphPoint.value" class="py-name" href="#" onclick="return doclink('link-81', 'value', 'link-71');">value</a></tt><tt class="py-op">)</tt> <tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">                    <tt class="py-keyword">break</tt> </tt>
+</div></div><a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:30 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

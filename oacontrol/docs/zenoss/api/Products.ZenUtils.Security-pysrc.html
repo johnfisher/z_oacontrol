@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenUtils.Security</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenUtils-module.html">Package&nbsp;ZenUtils</a> ::
+        Module&nbsp;Security
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenUtils.Security-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenUtils.Security-module.html">Module Products.ZenUtils.Security</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">random</tt> <tt class="py-keyword">import</tt> <tt class="py-name">random</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">datetime</tt> <tt class="py-keyword">import</tt> <tt class="py-name">datetime</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">sets</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Set</tt> <tt class="py-keyword">as</tt> <tt id="link-0" class="py-name" targets="Method Products.ZenModel.MaintenanceWindow.MaintenanceWindow.set()=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#set"><a title="Products.ZenModel.MaintenanceWindow.MaintenanceWindow.set" class="py-name" href="#" onclick="return doclink('link-0', 'set', 'link-0');">set</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">OFS</tt><tt class="py-op">.</tt><tt class="py-name">Folder</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Folder</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt class="py-name">PluggableAuthService</tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Variable Products.ZenHub.services.ModelerService.ModelerService.plugins=Products.ZenHub.services.ModelerService.ModelerService-class.html#plugins"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-1', 'plugins', 'link-1');">plugins</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt class="py-name">PluggableAuthService</tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module Products.ZenEvents.interfaces=Products.ZenEvents.interfaces-module.html,Module Products.ZenModel.interfaces=Products.ZenModel.interfaces-module.html,Module Products.ZenUtils.extdirect.zope.interfaces=Products.ZenUtils.extdirect.zope.interfaces-module.html,Module Products.ZenWidgets.interfaces=Products.ZenWidgets.interfaces-module.html"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-2', 'interfaces', 'link-2');">interfaces</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt class="py-name">PluggableAuthService</tt> <tt class="py-keyword">import</tt> <tt class="py-name">PluggableAuthService</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable Products.ZenUtils.Security.ZENOSS_ROLES=Products.ZenUtils.Security-module.html#ZENOSS_ROLES"><a title="Products.ZenUtils.Security.ZENOSS_ROLES" class="py-name" href="#" onclick="return doclink('link-3', 'ZENOSS_ROLES', 'link-3');">ZENOSS_ROLES</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'ZenUser'</tt><tt class="py-op">,</tt> <tt class="py-string">'ZenManager'</tt><tt class="py-op">]</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"> </tt>
+<a name="backupACLUserFolder"></a><div id="backupACLUserFolder-def"><a name="L27"></a><tt class="py-lineno"> 27</tt> <a class="py-toggle" href="#" id="backupACLUserFolder-toggle" onclick="return toggle('backupACLUserFolder');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#backupACLUserFolder">backupACLUserFolder</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="backupACLUserFolder-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="backupACLUserFolder-expanded"><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt id="link-4" class="py-name" targets="Variable Products.ZenWidgets.PersistentMessage.PersistentMessage.timestamp=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#timestamp,Variable Products.ZenWidgets.interfaces.IMessage.timestamp=Products.ZenWidgets.interfaces.IMessage-class.html#timestamp,Variable Products.ZenWidgets.messaging.BrowserMessage.timestamp=Products.ZenWidgets.messaging.BrowserMessage-class.html#timestamp"><a title="Products.ZenWidgets.PersistentMessage.PersistentMessage.timestamp
+Products.ZenWidgets.interfaces.IMessage.timestamp
+Products.ZenWidgets.messaging.BrowserMessage.timestamp" class="py-name" href="#" onclick="return doclink('link-4', 'timestamp', 'link-4');">timestamp</a></tt> <tt class="py-op">=</tt> <tt class="py-name">datetime</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Method Products.ZenEvents.Schedule.Schedule.now()=Products.ZenEvents.Schedule.Schedule-class.html#now"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-5', 'now', 'link-5');">now</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Variable Products.ZenModel.GprintGraphPoint.GprintGraphPoint.strftime=Products.ZenModel.GprintGraphPoint.GprintGraphPoint-class.html#strftime,Variable Products.ZenModel.PrintGraphPoint.PrintGraphPoint.strftime=Products.ZenModel.PrintGraphPoint.PrintGraphPoint-class.html#strftime"><a title="Products.ZenModel.GprintGraphPoint.GprintGraphPoint.strftime
+Products.ZenModel.PrintGraphPoint.PrintGraphPoint.strftime" class="py-name" href="#" onclick="return doclink('link-6', 'strftime', 'link-6');">strftime</a></tt><tt class="py-op">(</tt><tt class="py-string">'%Y.%d.%m-%H%M%S'</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-name">randomBit</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">random</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-number">10000</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-name">backupFolderName</tt> <tt class="py-op">=</tt> <tt class="py-string">'backup_acl_users_%s-%d'</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-7" class="py-name"><a title="Products.ZenWidgets.PersistentMessage.PersistentMessage.timestamp
+Products.ZenWidgets.interfaces.IMessage.timestamp
+Products.ZenWidgets.messaging.BrowserMessage.timestamp" class="py-name" href="#" onclick="return doclink('link-7', 'timestamp', 'link-4');">timestamp</a></tt><tt class="py-op">,</tt> <tt class="py-name">randomBit</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-name">backupFolder</tt> <tt class="py-op">=</tt> <tt class="py-name">Folder</tt><tt class="py-op">(</tt><tt class="py-name">backupFolderName</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-name">backupFolder</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2._setObject()=Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2-class.html#_setObject,Method Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager._setObject()=Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager-class.html#_setObject,Method Products.ZenRelations.RelationshipManager.RelationshipManager._setObject()=Products.ZenRelations.RelationshipManager.RelationshipManager-class.html#_setObject,Method Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._setObject()=Products.ZenRelations.ToManyContRelationship.ToManyContRelationship-class.html#_setObject,Method Products.ZenRelations.ToManyRelationship.ToManyRelationship._setObject()=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_setObject"><a title="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2._setObject
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager._setObject
+Products.ZenRelations.RelationshipManager.RelationshipManager._setObject
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._setObject
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._setObject" class="py-name" href="#" onclick="return doclink('link-8', '_setObject', 'link-8');">_setObject</a></tt><tt class="py-op">(</tt><tt class="py-string">'acl_users'</tt><tt class="py-op">,</tt> <tt id="link-9" class="py-name" targets="Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#context,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.context()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#context,Variable Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context=Products.ZenModel.ZDeviceLoader.BaseDeviceLoader-class.html#context,Method Products.ZenRelations.ImportRM.ImportRM.context()=Products.ZenRelations.ImportRM.ImportRM-class.html#context"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-9', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt id="link-10" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-10', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2._setObject
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager._setObject
+Products.ZenRelations.RelationshipManager.RelationshipManager._setObject
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._setObject
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._setObject" class="py-name" href="#" onclick="return doclink('link-11', '_setObject', 'link-8');">_setObject</a></tt><tt class="py-op">(</tt><tt class="py-name">backupFolder</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method Products.DataCollector.DeviceProxy.DeviceProxy.getId()=Products.DataCollector.DeviceProxy.DeviceProxy-class.html#getId,Method Products.ZenRelations.RelationshipBase.RelationshipBase.getId()=Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#getId,Method Products.ZenRelations.ZItem.ZItem.getId()=Products.ZenRelations.ZItem.ZItem-class.html#getId"><a title="Products.DataCollector.DeviceProxy.DeviceProxy.getId
+Products.ZenRelations.RelationshipBase.RelationshipBase.getId
+Products.ZenRelations.ZItem.ZItem.getId" class="py-name" href="#" onclick="return doclink('link-12', 'getId', 'link-12');">getId</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">backupFolder</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt id="link-13" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-13', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2._delObject()=Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2-class.html#_delObject,Method Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager._delObject()=Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager-class.html#_delObject,Method Products.ZenRelations.ToManyRelationship.ToManyRelationship._delObject()=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_delObject,Method Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._delObject()=Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#_delObject"><a title="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2._delObject
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager._delObject
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._delObject
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._delObject" class="py-name" href="#" onclick="return doclink('link-14', '_delObject', 'link-14');">_delObject</a></tt><tt class="py-op">(</tt><tt class="py-string">'acl_users'</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">backupFolderName</tt> </tt>
+</div><a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="_createInitialUser"></a><div id="_createInitialUser-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="_createInitialUser-toggle" onclick="return toggle('_createInitialUser');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#_createInitialUser">_createInitialUser</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_createInitialUser-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_createInitialUser-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    Note: copied and adapted from AccessControl.User.BasicUser</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    If there are no users or only one user in this user folder,</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">    populates from the 'inituser' file in the instance home.</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">    We have to do this even when there is already a user</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">    just in case the initial user ignored the setup messages.</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    We don't do it for more than one user to avoid</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">    abuse of this mechanism.</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">    Called only by OFS.Application.initialize().</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">AccessControl</tt><tt class="py-op">.</tt><tt class="py-name">User</tt> <tt class="py-keyword">import</tt> <tt class="py-name">readUserAccessFile</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt id="link-15" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-15', 'plugins', 'link-1');">plugins</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-16', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">listPlugins</tt><tt class="py-op">(</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt id="link-17" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-17', 'interfaces', 'link-2');">interfaces</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-18', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">IUserEnumerationPlugin</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-comment"># get the user count, but only for functional plugins</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-name">userCounts</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt id="link-19" class="py-name" targets="Method Products.ZenRRD.RenderServer.RenderServer.plugin()=Products.ZenRRD.RenderServer.RenderServer-class.html#plugin,Method Products.ZenReports.ReportServer.ReportServer.plugin()=Products.ZenReports.ReportServer.ReportServer-class.html#plugin"><a title="Products.ZenRRD.RenderServer.RenderServer.plugin
+Products.ZenReports.ReportServer.ReportServer.plugin" class="py-name" href="#" onclick="return doclink('link-19', 'plugin', 'link-19');">plugin</a></tt><tt class="py-op">.</tt><tt class="py-name">listUserInfo</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt id="link-20" class="py-name" targets="Variable Products.ZenHub.services.DiscoverService.IpNetProxy.id=Products.ZenHub.services.DiscoverService.IpNetProxy-class.html#id,Method Products.ZenModel.browser.DeviceList.DeviceBatch.id()=Products.ZenModel.browser.DeviceList.DeviceBatch-class.html#id,Variable Products.ZenRRD.zencommand.DataPointConfig.id=Products.ZenRRD.zencommand.DataPointConfig-class.html#id,Variable Products.ZenRelations.ZItem.ZItem.id=Products.ZenRelations.ZItem.ZItem-class.html#id"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-20', 'id', 'link-20');">id</a></tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name"><a title="Products.ZenRRD.RenderServer.RenderServer.plugin
+Products.ZenReports.ReportServer.ReportServer.plugin" class="py-name" href="#" onclick="return doclink('link-21', 'plugin', 'link-19');">plugin</a></tt> <tt class="py-keyword">in</tt> <tt id="link-22" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-22', 'plugins', 'link-1');">plugins</a></tt> <tt class="py-keyword">if</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="Products.ZenRRD.RenderServer.RenderServer.plugin
+Products.ZenReports.ReportServer.ReportServer.plugin" class="py-name" href="#" onclick="return doclink('link-23', 'plugin', 'link-19');">plugin</a></tt><tt class="py-op">,</tt> <tt class="py-string">"listUserInfo"</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">userCounts</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-name">info</tt> <tt class="py-op">=</tt> <tt class="py-name">readUserAccessFile</tt><tt class="py-op">(</tt><tt class="py-string">'inituser'</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">info</tt><tt class="py-op">:</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">            <tt class="py-keyword">import</tt> <tt class="py-name">App</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Method Products.DataCollector.zendisc.ZenDisc.config()=Products.DataCollector.zendisc.ZenDisc-class.html#config,Method Products.DataCollector.zenmodeler.ZenModeler.config()=Products.DataCollector.zenmodeler.ZenModeler-class.html#config,Method Products.ZenStatus.zenping.ZenPing.config()=Products.ZenStatus.zenping.ZenPing-class.html#config,Method Products.ZenUtils.DaemonStats.DaemonStats.config()=Products.ZenUtils.DaemonStats.DaemonStats-class.html#config"><a title="Products.DataCollector.zendisc.ZenDisc.config
+Products.DataCollector.zenmodeler.ZenModeler.config
+Products.ZenStatus.zenping.ZenPing.config
+Products.ZenUtils.DaemonStats.DaemonStats.config" class="py-name" href="#" onclick="return doclink('link-24', 'config', 'link-24');">config</a></tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">            <tt id="link-25" class="py-name" targets="Variable Products.DataCollector.SshClient.CommandChannel.name=Products.DataCollector.SshClient.CommandChannel-class.html#name,Variable Products.DataCollector.zendisc.ZenDisc.name=Products.DataCollector.zendisc.ZenDisc-class.html#name,Variable Products.DataCollector.zenmodeler.ZenModeler.name=Products.DataCollector.zenmodeler.ZenModeler-class.html#name,Variable Products.ZenEvents.EventServer.EventServer.name=Products.ZenEvents.EventServer.EventServer-class.html#name,Variable Products.ZenEvents.zenmail.ZenMail.name=Products.ZenEvents.zenmail.ZenMail-class.html#name,Variable Products.ZenEvents.zenpop3.ZenPOP3.name=Products.ZenEvents.zenpop3.ZenPOP3-class.html#name,Variable Products.ZenEvents.zensyslog.ZenSyslog.name=Products.ZenEvents.zensyslog.ZenSyslog-class.html#name,Variable Products.ZenEvents.zentrap.ZenTrap.name=Products.ZenEvents.zentrap.ZenTrap-class.html#name,Method Products.ZenHub.HubService.HubService.name()=Products.ZenHub.HubService.HubService-class.html#name,Variable Products.ZenHub.PBDaemon.PBDaemon.name=Products.ZenHub.PBDaemon.PBDaemon-class.html#name,Variable Products.ZenHub.services.ProcessConfig.ProcessProxy.name=Products.ZenHub.services.ProcessConfig.ProcessProxy-class.html#name,Variable Products.ZenHub.zenhub.ZenHub.name=Products.ZenHub.zenhub.ZenHub-class.html#name,Method Products.ZenModel.Device.Device.name()=Products.ZenModel.Device.Device-class.html#name,Method Products.ZenModel.DeviceComponent.DeviceComponent.name()=Products.ZenModel.DeviceComponent.DeviceComponent-class.html#name,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#name,Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#name,Method Products.ZenModel.OSProcess.OSProcess.name()=Products.ZenModel.OSProcess.OSProcess-class.html#name,Variable Products.ZenModel.OSProcessClass.OSProcessClass.name=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#name,Variable Products.ZenModel.ProductClass.ProductClass.name=Products.ZenModel.ProductClass.ProductClass-class.html#name,Method Products.ZenModel.RRDDataPoint.RRDDataPoint.name()=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#name,Method Products.ZenModel.Service.Service.name()=Products.ZenModel.Service.Service-class.html#name,Variable Products.ZenModel.ServiceClass.ServiceClass.name=Products.ZenModel.ServiceClass.ServiceClass-class.html#name,Method Products.ZenModel.Software.Software.name()=Products.ZenModel.Software.Software-class.html#name,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.name()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#name,Method Products.ZenModel.WinService.WinService.name()=Products.ZenModel.WinService.WinService-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLAbout.name=Products.ZenModel.ZenPackLoader.ZPLAbout-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLBin.name=Products.ZenModel.ZenPackLoader.ZPLBin-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDaemons.name=Products.ZenModel.ZenPackLoader.ZPLDaemons-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDataSources.name=Products.ZenModel.ZenPackLoader.ZPLDataSources-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibExec.name=Products.ZenModel.ZenPackLoader.ZPLLibExec-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibraries.name=Products.ZenModel.ZenPackLoader.ZPLLibraries-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLModelers.name=Products.ZenModel.ZenPackLoader.ZPLModelers-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLObject.name=Products.ZenModel.ZenPackLoader.ZPLObject-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLReport.name=Products.ZenModel.ZenPackLoader.ZPLReport-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLSkins.name=Products.ZenModel.ZenPackLoader.ZPLSkins-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZenPackLoader.name=Products.ZenModel.ZenPackLoader.ZenPackLoader-class.html#name,Method Products.ZenRRD.zencommand.Cmd.name()=Products.ZenRRD.zencommand.Cmd-class.html#name,Variable Products.ZenRRD.zenrender.zenrender.name=Products.ZenRRD.zenrender.zenrender-class.html#name,Variable Products.ZenStatus.zenping.ZenPing.name=Products.ZenStatus.zenping.ZenPing-class.html#name,Variable Products.ZenStatus.zenstatus.ZenStatus.name=Products.ZenStatus.zenstatus.ZenStatus-class.html#name,Variable Products.ZenUtils.DaemonStats.DaemonStats.name=Products.ZenUtils.DaemonStats.DaemonStats-class.html#name,Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#name,Variable Products.ZenUtils.zencatalog.ZenCatalog.name=Products.ZenUtils.zencatalog.ZenCatalog-class.html#name,Method Products.ZenWin.services.WinServiceConfig.SmartService.name()=Products.ZenWin.services.WinServiceConfig.SmartService-class.html#name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-25', 'name', 'link-25');">name</a></tt><tt class="py-op">,</tt> <tt id="link-26" class="py-name" targets="Variable Products.ZenRRD.zencommand.DeviceConfig.password=Products.ZenRRD.zencommand.DeviceConfig-class.html#password"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-26', 'password', 'link-26');">password</a></tt><tt class="py-op">,</tt> <tt class="py-name">domains</tt><tt class="py-op">,</tt> <tt class="py-name">remote_user_mode</tt> <tt class="py-op">=</tt> <tt class="py-name">info</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">            <tt class="py-name">userManagers</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-27', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">listPlugins</tt><tt class="py-op">(</tt><tt id="link-28" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-28', 'interfaces', 'link-2');">interfaces</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-29', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">IUserAdderPlugin</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-name">roleManagers</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-30', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">listPlugins</tt><tt class="py-op">(</tt><tt id="link-31" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-31', 'interfaces', 'link-2');">interfaces</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-32', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">IRolesPlugin</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">pluginId</tt><tt class="py-op">,</tt> <tt class="py-name">userPlugin</tt> <tt class="py-keyword">in</tt> <tt class="py-name">userManagers</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">                <tt class="py-comment"># delete user</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                    <tt class="py-name">userPlugin</tt><tt class="py-op">.</tt><tt class="py-name">removeUser</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-33', 'name', 'link-25');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                    <tt class="py-comment"># user doesn't exist</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                    <tt class="py-keyword">pass</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt class="py-comment"># recreate user</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                <tt class="py-name">userPlugin</tt><tt class="py-op">.</tt><tt class="py-name">doAddUser</tt><tt class="py-op">(</tt><tt id="link-34" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-34', 'name', 'link-25');">name</a></tt><tt class="py-op">,</tt> <tt id="link-35" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-35', 'password', 'link-26');">password</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                <tt class="py-comment"># add role</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">pluginId</tt><tt class="py-op">,</tt> <tt class="py-name">rolePlugin</tt> <tt class="py-keyword">in</tt> <tt class="py-name">roleManagers</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                    <tt class="py-name">rolePlugin</tt><tt class="py-op">.</tt><tt class="py-name">assignRoleToPrincipal</tt><tt class="py-op">(</tt><tt class="py-string">'Manager'</tt><tt class="py-op">,</tt> <tt id="link-36" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-36', 'name', 'link-25');">name</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-name">cfg</tt> <tt class="py-op">=</tt> <tt class="py-name">App</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="Products.DataCollector.zendisc.ZenDisc.config
+Products.DataCollector.zenmodeler.ZenModeler.config
+Products.ZenStatus.zenping.ZenPing.config
+Products.ZenUtils.DaemonStats.DaemonStats.config" class="py-name" href="#" onclick="return doclink('link-37', 'config', 'link-24');">config</a></tt><tt class="py-op">.</tt><tt class="py-name">getConfiguration</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-comment"># now that we've loaded from inituser, let's delete the file</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Method Products.ZenModel.ZenPack.ZenPack.remove()=Products.ZenModel.ZenPack.ZenPack-class.html#remove,Method Products.ZenRRD.Thresholds.Thresholds.remove()=Products.ZenRRD.Thresholds.Thresholds-class.html#remove"><a title="Products.ZenModel.ZenPack.ZenPack.remove
+Products.ZenRRD.Thresholds.Thresholds.remove" class="py-name" href="#" onclick="return doclink('link-38', 'remove', 'link-38');">remove</a></tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Method Products.ZenModel.Device.Device.path()=Products.ZenModel.Device.Device-class.html#path,Variable Products.ZenModel.DeviceReport.DeviceReport.path=Products.ZenModel.DeviceReport.DeviceReport-class.html#path,Method Products.ZenModel.ThresholdInstance.ThresholdContext.path()=Products.ZenModel.ThresholdInstance.ThresholdContext-class.html#path,Method Products.ZenModel.ZenPack.ZenPack.path()=Products.ZenModel.ZenPack.ZenPack-class.html#path,Method Products.ZenModel.ZenPackPersistence.ZenPackPersistence.path()=Products.ZenModel.ZenPackPersistence.ZenPackPersistence-class.html#path"><a title="Products.ZenModel.Device.Device.path
+Products.ZenModel.DeviceReport.DeviceReport.path
+Products.ZenModel.ThresholdInstance.ThresholdContext.path
+Products.ZenModel.ZenPack.ZenPack.path
+Products.ZenModel.ZenPackPersistence.ZenPackPersistence.path" class="py-name" href="#" onclick="return doclink('link-39', 'path', 'link-39');">path</a></tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">instancehome</tt><tt class="py-op">,</tt> <tt class="py-string">'inituser'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> </tt>
+<a name="createPASFolder"></a><div id="createPASFolder-def"><a name="L84"></a><tt class="py-lineno"> 84</tt> <a class="py-toggle" href="#" id="createPASFolder-toggle" onclick="return toggle('createPASFolder');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#createPASFolder">createPASFolder</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="createPASFolder-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="createPASFolder-expanded"><a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-comment"># check to see if we need to monkey patch PAS to accomodate inituser files</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">    <tt id="link-40" class="py-name" targets="Variable Products.ZenUtils.patches.pasmonkey.pas=Products.ZenUtils.patches.pasmonkey-module.html#pas"><a title="Products.ZenUtils.patches.pasmonkey.pas" class="py-name" href="#" onclick="return doclink('link-40', 'pas', 'link-40');">pas</a></tt> <tt class="py-op">=</tt> <tt class="py-name">PluggableAuthService</tt><tt class="py-op">.</tt><tt class="py-name">PluggableAuthService</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt id="link-41" class="py-name"><a title="Products.ZenUtils.patches.pasmonkey.pas" class="py-name" href="#" onclick="return doclink('link-41', 'pas', 'link-40');">pas</a></tt><tt class="py-op">,</tt> <tt class="py-string">'_createInitialUser'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt id="link-42" class="py-name"><a title="Products.ZenUtils.patches.pasmonkey.pas" class="py-name" href="#" onclick="return doclink('link-42', 'pas', 'link-40');">pas</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Function Products.ZenUtils.Security._createInitialUser()=Products.ZenUtils.Security-module.html#_createInitialUser"><a title="Products.ZenUtils.Security._createInitialUser" class="py-name" href="#" onclick="return doclink('link-43', '_createInitialUser', 'link-43');">_createInitialUser</a></tt> <tt class="py-op">=</tt>  <tt id="link-44" class="py-name"><a title="Products.ZenUtils.Security._createInitialUser" class="py-name" href="#" onclick="return doclink('link-44', '_createInitialUser', 'link-43');">_createInitialUser</a></tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-comment"># create new PAS</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-name">PluggableAuthService</tt><tt class="py-op">.</tt><tt class="py-name">addPluggableAuthService</tt><tt class="py-op">(</tt><tt id="link-45" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-45', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">    <tt id="link-46" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-46', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Variable Products.ZenModel.ZentinelPortal.ZentinelPortal.title=Products.ZenModel.ZentinelPortal.ZentinelPortal-class.html#title,Variable Products.ZenRelations.ZItem.ZItem.title=Products.ZenRelations.ZItem.ZItem-class.html#title,Variable Products.ZenWidgets.PersistentMessage.PersistentMessage.title=Products.ZenWidgets.PersistentMessage.PersistentMessage-class.html#title,Variable Products.ZenWidgets.interfaces.IMessage.title=Products.ZenWidgets.interfaces.IMessage-class.html#title,Variable Products.ZenWidgets.messaging.BrowserMessage.title=Products.ZenWidgets.messaging.BrowserMessage-class.html#title"><a title="Products.ZenModel.ZentinelPortal.ZentinelPortal.title
+Products.ZenRelations.ZItem.ZItem.title
+Products.ZenWidgets.PersistentMessage.PersistentMessage.title
+Products.ZenWidgets.interfaces.IMessage.title
+Products.ZenWidgets.messaging.BrowserMessage.title" class="py-name" href="#" onclick="return doclink('link-47', 'title', 'link-47');">title</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'PAS'</tt> </tt>
+</div><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"> </tt>
+<a name="setupBasciAuthHelper"></a><div id="setupBasciAuthHelper-def"><a name="L95"></a><tt class="py-lineno"> 95</tt> <a class="py-toggle" href="#" id="setupBasciAuthHelper-toggle" onclick="return toggle('setupBasciAuthHelper');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#setupBasciAuthHelper">setupBasciAuthHelper</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setupBasciAuthHelper-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="setupBasciAuthHelper-expanded"><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-name">acl</tt> <tt class="py-op">=</tt> <tt id="link-48" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-48', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">    <tt id="link-49" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-49', 'id', 'link-20');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'basicAuthHelper'</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-50" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-50', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt id="link-51" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-51', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">HTTPBasicAuthHelper</tt><tt class="py-op">.</tt><tt class="py-name">addHTTPBasicAuthHelper</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-52" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-52', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">    <tt id="link-53" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-53', 'interfaces', 'link-2');">interfaces</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-name">physPath</tt> <tt class="py-op">=</tt> <tt class="py-string">'/'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-54" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-54', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">getPhysicalPath</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">physPath</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt id="link-55" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-55', 'interfaces', 'link-2');">interfaces</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'IExtractionPlugin'</tt><tt class="py-op">,</tt> <tt class="py-string">'IChallengePlugin'</tt><tt class="py-op">,</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">            <tt class="py-string">'ICredentialsResetPlugin'</tt><tt class="py-op">]</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">physPath</tt> <tt class="py-op">==</tt> <tt class="py-string">'/zport'</tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt id="link-56" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-56', 'interfaces', 'link-2');">interfaces</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'IExtractionPlugin'</tt><tt class="py-op">,</tt> <tt class="py-string">'IChallengePlugin'</tt><tt class="py-op">]</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">basicAuthHelper</tt><tt class="py-op">.</tt><tt class="py-name">manage_activateInterfaces</tt><tt class="py-op">(</tt><tt id="link-57" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-57', 'interfaces', 'link-2');">interfaces</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="setupCookieHelper"></a><div id="setupCookieHelper-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="setupCookieHelper-toggle" onclick="return toggle('setupCookieHelper');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#setupCookieHelper">setupCookieHelper</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setupCookieHelper-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="setupCookieHelper-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-name">acl</tt> <tt class="py-op">=</tt> <tt id="link-58" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-58', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">    <tt id="link-59" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-59', 'id', 'link-20');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'cookieAuthHelper'</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-60" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-60', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt id="link-61" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-61', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">CookieAuthHelper</tt><tt class="py-op">.</tt><tt class="py-name">addCookieAuthHelper</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-62" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-62', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt id="link-63" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-63', 'interfaces', 'link-2');">interfaces</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-comment"># note that we are only enabling CookieAuth for the Zenoss portal</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">    <tt class="py-comment"># acl_users, not for the root acl_users.</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-name">physPath</tt> <tt class="py-op">=</tt> <tt class="py-string">'/'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-64" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-64', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">getPhysicalPath</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">physPath</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">:</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">        <tt id="link-65" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-65', 'interfaces', 'link-2');">interfaces</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'IExtractionPlugin'</tt><tt class="py-op">]</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">physPath</tt> <tt class="py-op">==</tt> <tt class="py-string">'/zport'</tt><tt class="py-op">:</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt id="link-66" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-66', 'interfaces', 'link-2');">interfaces</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'IExtractionPlugin'</tt><tt class="py-op">,</tt> <tt class="py-string">'ICredentialsUpdatePlugin'</tt><tt class="py-op">,</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">            <tt class="py-string">'ICredentialsResetPlugin'</tt><tt class="py-op">,</tt> <tt class="py-string">'IChallengePlugin'</tt><tt class="py-op">]</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">    <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">cookieAuthHelper</tt><tt class="py-op">.</tt><tt class="py-name">manage_activateInterfaces</tt><tt class="py-op">(</tt><tt id="link-67" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-67', 'interfaces', 'link-2');">interfaces</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"> </tt>
+<a name="setupRoleManager"></a><div id="setupRoleManager-def"><a name="L127"></a><tt class="py-lineno">127</tt> <a class="py-toggle" href="#" id="setupRoleManager-toggle" onclick="return toggle('setupRoleManager');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#setupRoleManager">setupRoleManager</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setupRoleManager-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="setupRoleManager-expanded"><a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">    <tt class="py-name">acl</tt> <tt class="py-op">=</tt> <tt id="link-68" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-68', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">    <tt id="link-69" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-69', 'id', 'link-20');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'roleManager'</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-70" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-70', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt id="link-71" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-71', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">ZODBRoleManager</tt><tt class="py-op">.</tt><tt class="py-name">addZODBRoleManager</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-72" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-72', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">    <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">roleManager</tt><tt class="py-op">.</tt><tt class="py-name">manage_activateInterfaces</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">'IRolesPlugin'</tt><tt class="py-op">,</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">        <tt class="py-string">'IRoleEnumerationPlugin'</tt><tt class="py-op">,</tt> <tt class="py-string">'IRoleAssignerPlugin'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">    <tt class="py-comment"># setup roles</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt id="link-73" class="py-name" targets="Variable Products.ZenModel.AdministrativeRole.AdministrativeRole.role=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#role"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.role" class="py-name" href="#" onclick="return doclink('link-73', 'role', 'link-73');">role</a></tt> <tt class="py-keyword">in</tt> <tt id="link-74" class="py-name"><a title="Products.ZenUtils.Security.ZENOSS_ROLES" class="py-name" href="#" onclick="return doclink('link-74', 'ZENOSS_ROLES', 'link-3');">ZENOSS_ROLES</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">            <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">roleManager</tt><tt class="py-op">.</tt><tt class="py-name">addRole</tt><tt class="py-op">(</tt><tt id="link-75" class="py-name"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.role" class="py-name" href="#" onclick="return doclink('link-75', 'role', 'link-73');">role</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">KeyError</tt><tt class="py-op">:</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">            <tt class="py-comment"># that role already exists</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line"> </tt>
+<a name="setupUserManager"></a><div id="setupUserManager-def"><a name="L143"></a><tt class="py-lineno">143</tt> <a class="py-toggle" href="#" id="setupUserManager-toggle" onclick="return toggle('setupUserManager');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#setupUserManager">setupUserManager</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setupUserManager-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="setupUserManager-expanded"><a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">    <tt class="py-name">acl</tt> <tt class="py-op">=</tt> <tt id="link-76" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-76', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">    <tt id="link-77" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-77', 'id', 'link-20');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'userManager'</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-78" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-78', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt id="link-79" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-79', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">ZODBUserManager</tt><tt class="py-op">.</tt><tt class="py-name">addZODBUserManager</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-80" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-80', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">userManager</tt><tt class="py-op">.</tt><tt class="py-name">manage_activateInterfaces</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">'IAuthenticationPlugin'</tt><tt class="py-op">,</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-string">'IUserEnumerationPlugin'</tt><tt class="py-op">,</tt> <tt class="py-string">'IUserAdderPlugin'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt>
+<a name="setupTypeSniffer"></a><div id="setupTypeSniffer-def"><a name="L152"></a><tt class="py-lineno">152</tt> <a class="py-toggle" href="#" id="setupTypeSniffer-toggle" onclick="return toggle('setupTypeSniffer');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#setupTypeSniffer">setupTypeSniffer</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setupTypeSniffer-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="setupTypeSniffer-expanded"><a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">    <tt class="py-name">acl</tt> <tt class="py-op">=</tt> <tt id="link-81" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-81', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">    <tt id="link-82" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-82', 'id', 'link-20');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'requestTypeSniffer'</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-83" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-83', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt id="link-84" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-84', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">RequestTypeSniffer</tt><tt class="py-op">.</tt><tt class="py-name">addRequestTypeSnifferPlugin</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-85" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-85', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">requestTypeSniffer</tt><tt class="py-op">.</tt><tt class="py-name">manage_activateInterfaces</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">'IRequestTypeSniffer'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"> </tt>
+<a name="setupProtocolChooser"></a><div id="setupProtocolChooser-def"><a name="L160"></a><tt class="py-lineno">160</tt> <a class="py-toggle" href="#" id="setupProtocolChooser-toggle" onclick="return toggle('setupProtocolChooser');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#setupProtocolChooser">setupProtocolChooser</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setupProtocolChooser-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="setupProtocolChooser-expanded"><a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">    <tt class="py-name">acl</tt> <tt class="py-op">=</tt> <tt id="link-86" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-86', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">    <tt id="link-87" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-87', 'id', 'link-20');">id</a></tt> <tt class="py-op">=</tt> <tt class="py-string">'protocolChooser'</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt id="link-88" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-88', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt id="link-89" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-89', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">ChallengeProtocolChooser</tt><tt class="py-op">.</tt><tt class="py-name">addChallengeProtocolChooserPlugin</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">            <tt id="link-90" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-90', 'id', 'link-20');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line">    <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">protocolChooser</tt><tt class="py-op">.</tt><tt class="py-name">manage_activateInterfaces</tt><tt class="py-op">(</tt><tt class="py-op">[</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line">        <tt class="py-string">'IChallengeProtocolChooser'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line">    <tt class="py-name">protocolMapping</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">    <tt class="py-comment"># set up non-Browser protocols to use HTTP BasicAuth</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">    <tt class="py-name">physPath</tt> <tt class="py-op">=</tt> <tt class="py-string">'/'</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt id="link-91" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-91', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">getPhysicalPath</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">physPath</tt> <tt class="py-op">==</tt> <tt class="py-string">''</tt><tt class="py-op">:</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">        <tt class="py-name">protocolMapping</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line">            <tt class="py-string">'Browser'</tt><tt class="py-op">:</tt> <tt class="py-op">[</tt><tt class="py-string">'http'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line">            <tt class="py-string">'FTP'</tt><tt class="py-op">:</tt> <tt class="py-op">[</tt><tt class="py-string">'http'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L175"></a><tt class="py-lineno">175</tt>  <tt class="py-line">            <tt class="py-string">'WebDAV'</tt><tt class="py-op">:</tt> <tt class="py-op">[</tt><tt class="py-string">'http'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">            <tt class="py-string">'XML-RPC'</tt><tt class="py-op">:</tt> <tt class="py-op">[</tt><tt class="py-string">'http'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt class="py-op">}</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">physPath</tt> <tt class="py-op">==</tt> <tt class="py-string">'/zport'</tt><tt class="py-op">:</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-name">protocolMapping</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">            <tt class="py-string">'FTP'</tt><tt class="py-op">:</tt> <tt class="py-op">[</tt><tt class="py-string">'http'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">            <tt class="py-string">'WebDAV'</tt><tt class="py-op">:</tt> <tt class="py-op">[</tt><tt class="py-string">'http'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">            <tt class="py-string">'XML-RPC'</tt><tt class="py-op">:</tt> <tt class="py-op">[</tt><tt class="py-string">'http'</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">        <tt class="py-op">}</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line">        <tt class="py-comment"># we don't want to hard-code plugin names here, so let's do a lookup</tt> </tt>
+<a name="L185"></a><tt class="py-lineno">185</tt>  <tt class="py-line">        <tt class="py-name">icookie</tt> <tt class="py-op">=</tt> <tt id="link-92" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-92', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">CookieAuthHelper</tt><tt class="py-op">.</tt><tt class="py-name">ICookieAuthHelper</tt> </tt>
+<a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-name">ichallenge</tt> <tt class="py-op">=</tt> <tt id="link-93" class="py-name"><a title="Products.ZenEvents.interfaces
+Products.ZenModel.interfaces
+Products.ZenUtils.extdirect.zope.interfaces
+Products.ZenWidgets.interfaces" class="py-name" href="#" onclick="return doclink('link-93', 'interfaces', 'link-2');">interfaces</a></tt><tt class="py-op">.</tt><tt id="link-94" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-94', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">IChallengePlugin</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">        <tt class="py-name">challenge</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-name">p</tt> <tt class="py-keyword">for</tt> <tt id="link-95" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-95', 'id', 'link-20');">id</a></tt><tt class="py-op">,</tt> <tt class="py-name">p</tt> <tt class="py-keyword">in</tt> <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt id="link-96" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-96', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">listPlugins</tt><tt class="py-op">(</tt><tt class="py-name">ichallenge</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-comment"># valid cooike auth plugins</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-name">cookiePlugins</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-name">p</tt> <tt class="py-keyword">for</tt> <tt class="py-name">p</tt> <tt class="py-keyword">in</tt> <tt class="py-name">challenge</tt> <tt class="py-keyword">if</tt> <tt class="py-name">icookie</tt><tt class="py-op">.</tt><tt class="py-name">providedBy</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-comment"># we want to move the cookie auth instance above the basic auth listing so</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-comment"># that it is accessed first and we can keep 'Browser' set to any; for</tt> </tt>
+<a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line">        <tt class="py-comment"># now, let's just get the first match and use that one (there should</tt> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line">        <tt class="py-comment"># really only be one...)</tt> </tt>
+<a name="L194"></a><tt class="py-lineno">194</tt>  <tt class="py-line">        <tt class="py-name">cookie</tt> <tt class="py-op">=</tt> <tt class="py-name">cookiePlugins</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">        <tt class="py-name">index</tt> <tt class="py-op">=</tt> <tt class="py-name">challenge</tt><tt class="py-op">.</tt><tt class="py-name">index</tt><tt class="py-op">(</tt><tt class="py-name">cookie</tt><tt class="py-op">)</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">xrange</tt><tt class="py-op">(</tt><tt class="py-name">index</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">            <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt id="link-97" class="py-name"><a title="Products.ZenHub.services.ModelerService.ModelerService.plugins" class="py-name" href="#" onclick="return doclink('link-97', 'plugins', 'link-1');">plugins</a></tt><tt class="py-op">.</tt><tt class="py-name">movePluginsUp</tt><tt class="py-op">(</tt><tt class="py-name">ichallenge</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-name">cookie</tt><tt class="py-op">.</tt><tt id="link-98" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-98', 'id', 'link-20');">id</a></tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">    <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">protocolChooser</tt><tt class="py-op">.</tt><tt class="py-name">manage_updateProtocolMapping</tt><tt class="py-op">(</tt><tt class="py-name">protocolMapping</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line"> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"> </tt>
+<a name="setupPASFolder"></a><div id="setupPASFolder-def"><a name="L201"></a><tt class="py-lineno">201</tt> <a class="py-toggle" href="#" id="setupPASFolder-toggle" onclick="return toggle('setupPASFolder');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#setupPASFolder">setupPASFolder</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="setupPASFolder-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="setupPASFolder-expanded"><a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">    <tt id="link-99" class="py-name" targets="Function Products.ZenUtils.Security.setupBasciAuthHelper()=Products.ZenUtils.Security-module.html#setupBasciAuthHelper"><a title="Products.ZenUtils.Security.setupBasciAuthHelper" class="py-name" href="#" onclick="return doclink('link-99', 'setupBasciAuthHelper', 'link-99');">setupBasciAuthHelper</a></tt><tt class="py-op">(</tt><tt id="link-100" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-100', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">    <tt id="link-101" class="py-name" targets="Function Products.ZenUtils.Security.setupCookieHelper()=Products.ZenUtils.Security-module.html#setupCookieHelper"><a title="Products.ZenUtils.Security.setupCookieHelper" class="py-name" href="#" onclick="return doclink('link-101', 'setupCookieHelper', 'link-101');">setupCookieHelper</a></tt><tt class="py-op">(</tt><tt id="link-102" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-102', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">    <tt id="link-103" class="py-name" targets="Function Products.ZenUtils.Security.setupRoleManager()=Products.ZenUtils.Security-module.html#setupRoleManager"><a title="Products.ZenUtils.Security.setupRoleManager" class="py-name" href="#" onclick="return doclink('link-103', 'setupRoleManager', 'link-103');">setupRoleManager</a></tt><tt class="py-op">(</tt><tt id="link-104" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-104', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line">    <tt id="link-105" class="py-name" targets="Function Products.ZenUtils.Security.setupUserManager()=Products.ZenUtils.Security-module.html#setupUserManager"><a title="Products.ZenUtils.Security.setupUserManager" class="py-name" href="#" onclick="return doclink('link-105', 'setupUserManager', 'link-105');">setupUserManager</a></tt><tt class="py-op">(</tt><tt id="link-106" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-106', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line">    <tt id="link-107" class="py-name" targets="Function Products.ZenUtils.Security.setupTypeSniffer()=Products.ZenUtils.Security-module.html#setupTypeSniffer"><a title="Products.ZenUtils.Security.setupTypeSniffer" class="py-name" href="#" onclick="return doclink('link-107', 'setupTypeSniffer', 'link-107');">setupTypeSniffer</a></tt><tt class="py-op">(</tt><tt id="link-108" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-108', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L207"></a><tt class="py-lineno">207</tt>  <tt class="py-line">    <tt class="py-comment"># this one has to go last in case any of the protocol mappings need to make</tt> </tt>
+<a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">    <tt class="py-comment"># reference to an already-installed plugin</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">    <tt id="link-109" class="py-name" targets="Function Products.ZenUtils.Security.setupProtocolChooser()=Products.ZenUtils.Security-module.html#setupProtocolChooser"><a title="Products.ZenUtils.Security.setupProtocolChooser" class="py-name" href="#" onclick="return doclink('link-109', 'setupProtocolChooser', 'link-109');">setupProtocolChooser</a></tt><tt class="py-op">(</tt><tt id="link-110" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-110', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line"> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"> </tt>
+<a name="replaceACLWithPAS"></a><div id="replaceACLWithPAS-def"><a name="L212"></a><tt class="py-lineno">212</tt> <a class="py-toggle" href="#" id="replaceACLWithPAS-toggle" onclick="return toggle('replaceACLWithPAS');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#replaceACLWithPAS">replaceACLWithPAS</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">,</tt> <tt class="py-param">deleteBackup</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="replaceACLWithPAS-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="replaceACLWithPAS-expanded"><a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line">    <tt class="py-comment"># archive the old "User Folder"</tt> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line">    <tt class="py-name">backupId</tt> <tt class="py-op">=</tt> <tt id="link-111" class="py-name" targets="Function Products.ZenUtils.Security.backupACLUserFolder()=Products.ZenUtils.Security-module.html#backupACLUserFolder"><a title="Products.ZenUtils.Security.backupACLUserFolder" class="py-name" href="#" onclick="return doclink('link-111', 'backupACLUserFolder', 'link-111');">backupACLUserFolder</a></tt><tt class="py-op">(</tt><tt id="link-112" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-112', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L215"></a><tt class="py-lineno">215</tt>  <tt class="py-line"> </tt>
+<a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">    <tt class="py-comment"># create a new PAS acl_users</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">    <tt id="link-113" class="py-name" targets="Function Products.ZenUtils.Security.createPASFolder()=Products.ZenUtils.Security-module.html#createPASFolder"><a title="Products.ZenUtils.Security.createPASFolder" class="py-name" href="#" onclick="return doclink('link-113', 'createPASFolder', 'link-113');">createPASFolder</a></tt><tt class="py-op">(</tt><tt id="link-114" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-114', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">    <tt id="link-115" class="py-name" targets="Function Products.ZenUtils.Security.setupPASFolder()=Products.ZenUtils.Security-module.html#setupPASFolder"><a title="Products.ZenUtils.Security.setupPASFolder" class="py-name" href="#" onclick="return doclink('link-115', 'setupPASFolder', 'link-115');">setupPASFolder</a></tt><tt class="py-op">(</tt><tt id="link-116" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-116', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line"> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">    <tt class="py-comment"># set up some convenience vars</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">    <tt class="py-name">orig</tt> <tt class="py-op">=</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt id="link-117" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-117', 'context', 'link-9');">context</a></tt><tt class="py-op">,</tt> <tt class="py-name">backupId</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">    <tt class="py-name">acl</tt> <tt class="py-op">=</tt> <tt id="link-118" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-118', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line">    <tt class="py-comment"># migrate the old user information over to the PAS</tt> </tt>
+<a name="L225"></a><tt class="py-lineno">225</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">u</tt> <tt class="py-keyword">in</tt> <tt class="py-name">orig</tt><tt class="py-op">.</tt><tt id="link-119" class="py-name" targets="Method Products.ZenModel.UserSettings.UserSettingsManager.getUsers()=Products.ZenModel.UserSettings.UserSettingsManager-class.html#getUsers"><a title="Products.ZenModel.UserSettings.UserSettingsManager.getUsers" class="py-name" href="#" onclick="return doclink('link-119', 'getUsers', 'link-119');">getUsers</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">        <tt class="py-name">user</tt><tt class="py-op">,</tt> <tt id="link-120" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-120', 'password', 'link-26');">password</a></tt><tt class="py-op">,</tt> <tt class="py-name">domains</tt><tt class="py-op">,</tt> <tt class="py-name">roles</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">u</tt><tt class="py-op">.</tt><tt id="link-121" class="py-name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-121', 'name', 'link-25');">name</a></tt><tt class="py-op">,</tt> <tt class="py-name">u</tt><tt class="py-op">.</tt><tt class="py-name">__</tt><tt class="py-op">,</tt> <tt class="py-name">u</tt><tt class="py-op">.</tt><tt class="py-name">domains</tt><tt class="py-op">,</tt> <tt class="py-name">u</tt><tt class="py-op">.</tt><tt class="py-name">roles</tt><tt class="py-op">)</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">userManager</tt><tt class="py-op">.</tt><tt class="py-name">doAddUser</tt><tt class="py-op">(</tt><tt class="py-name">user</tt><tt class="py-op">,</tt> <tt id="link-122" class="py-name"><a title="Products.ZenRRD.zencommand.DeviceConfig.password" class="py-name" href="#" onclick="return doclink('link-122', 'password', 'link-26');">password</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-123" class="py-name"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.role" class="py-name" href="#" onclick="return doclink('link-123', 'role', 'link-73');">role</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">roles</tt><tt class="py-op">:</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">            <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">roleManager</tt><tt class="py-op">.</tt><tt class="py-name">assignRoleToPrincipal</tt><tt class="py-op">(</tt><tt id="link-124" class="py-name"><a title="Products.ZenModel.AdministrativeRole.AdministrativeRole.role" class="py-name" href="#" onclick="return doclink('link-124', 'role', 'link-73');">role</a></tt><tt class="py-op">,</tt> <tt class="py-name">user</tt><tt class="py-op">)</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-comment"># initialize UserSettings for each user</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">            <tt class="py-name">dmd</tt> <tt class="py-op">=</tt> <tt id="link-125" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-125', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">getPhysicalRoot</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">zport</tt><tt class="py-op">.</tt><tt class="py-name">dmd</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">            <tt class="py-name">dmd</tt><tt class="py-op">.</tt><tt class="py-name">ZenUsers</tt><tt class="py-op">.</tt><tt id="link-126" class="py-name" targets="Method Products.ZenModel.UserSettings.UserSettingsManager.getUserSettings()=Products.ZenModel.UserSettings.UserSettingsManager-class.html#getUserSettings"><a title="Products.ZenModel.UserSettings.UserSettingsManager.getUserSettings" class="py-name" href="#" onclick="return doclink('link-126', 'getUserSettings', 'link-126');">getUserSettings</a></tt><tt class="py-op">(</tt><tt class="py-name">user</tt><tt class="py-op">)</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line">            <tt class="py-comment"># no dmd, or no ZenUsers</tt> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line">            <tt class="py-keyword">pass</tt> </tt>
+<a name="L237"></a><tt class="py-lineno">237</tt>  <tt class="py-line"> </tt>
+<a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">    <tt class="py-comment"># delete backup?</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">deleteBackup</tt><tt class="py-op">:</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">        <tt id="link-127" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-127', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt id="link-128" class="py-name"><a title="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2._delObject
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager._delObject
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._delObject
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._delObject" class="py-name" href="#" onclick="return doclink('link-128', '_delObject', 'link-14');">_delObject</a></tt><tt class="py-op">(</tt><tt class="py-name">backupId</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line"> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line"> </tt>
+<a name="migratePAS"></a><div id="migratePAS-def"><a name="L243"></a><tt class="py-lineno">243</tt> <a class="py-toggle" href="#" id="migratePAS-toggle" onclick="return toggle('migratePAS');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Security-module.html#migratePAS">migratePAS</a><tt class="py-op">(</tt><tt class="py-param">context</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="migratePAS-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="migratePAS-expanded"><a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">    <tt class="py-comment"># check to see if the current acl_users is a PAS instance or not</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line">    <tt class="py-name">newModule</tt> <tt class="py-op">=</tt> <tt class="py-string">'Products.PluggableAuthService.PluggableAuthService'</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">        <tt class="py-name">acl</tt> <tt class="py-op">=</tt> <tt id="link-129" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-129', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">        <tt class="py-comment"># if there's an acl_users object, let's see if theres a login_form</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">        <tt class="py-comment"># attribute; if there is, we need to delete it</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">,</tt> <tt class="py-string">'cookieAuthHelper'</tt><tt class="py-op">)</tt> </tt>
+<a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line">            <tt class="py-keyword">and</tt> <tt class="py-name">hasattr</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">cookieAuthHelper</tt><tt class="py-op">,</tt> <tt class="py-string">'login_form'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line">            <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">cookieAuthHelper</tt><tt class="py-op">.</tt><tt id="link-130" class="py-name"><a title="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2._delObject
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager._delObject
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._delObject
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._delObject" class="py-name" href="#" onclick="return doclink('link-130', '_delObject', 'link-14');">_delObject</a></tt><tt class="py-op">(</tt><tt class="py-string">'login_form'</tt><tt class="py-op">)</tt> </tt>
+<a name="L253"></a><tt class="py-lineno">253</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">AttributeError</tt><tt class="py-op">:</tt> </tt>
+<a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line">        <tt id="link-131" class="py-name"><a title="Products.ZenUtils.Security.createPASFolder" class="py-name" href="#" onclick="return doclink('link-131', 'createPASFolder', 'link-113');">createPASFolder</a></tt><tt class="py-op">(</tt><tt id="link-132" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-132', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L255"></a><tt class="py-lineno">255</tt>  <tt class="py-line">        <tt class="py-name">acl</tt> <tt class="py-op">=</tt> <tt id="link-133" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-133', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt class="py-name">acl_users</tt> </tt>
+<a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line"> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt class="py-name">__module__</tt> <tt class="py-op">!=</tt> <tt class="py-name">newModule</tt><tt class="py-op">:</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">        <tt id="link-134" class="py-name" targets="Function Products.ZenUtils.Security.replaceACLWithPAS()=Products.ZenUtils.Security-module.html#replaceACLWithPAS"><a title="Products.ZenUtils.Security.replaceACLWithPAS" class="py-name" href="#" onclick="return doclink('link-134', 'replaceACLWithPAS', 'link-134');">replaceACLWithPAS</a></tt><tt class="py-op">(</tt><tt id="link-135" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-135', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line">        <tt class="py-comment"># check to see if there are any missing attributes; we have to make the</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line">        <tt class="py-comment"># dir() call twice, because (when testing in the dmd) the 'plugins'</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">        <tt class="py-comment"># attribute doesn't show up on the first call.</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line">        <tt class="py-name">dummy</tt> <tt class="py-op">=</tt> <tt class="py-name">dir</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">)</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line">        <tt id="link-136" class="py-name" targets="Method Products.ZenUtils.Version.Version.full()=Products.ZenUtils.Version.Version-class.html#full"><a title="Products.ZenUtils.Version.Version.full" class="py-name" href="#" onclick="return doclink('link-136', 'full', 'link-136');">full</a></tt> <tt class="py-op">=</tt> <tt id="link-137" class="py-name"><a title="Products.ZenModel.MaintenanceWindow.MaintenanceWindow.set" class="py-name" href="#" onclick="return doclink('link-137', 'set', 'link-0');">set</a></tt><tt class="py-op">(</tt><tt class="py-name">dir</tt><tt class="py-op">(</tt><tt class="py-name">acl</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line">        <tt class="py-name">needed</tt> <tt class="py-op">=</tt> <tt id="link-138" class="py-name"><a title="Products.ZenModel.MaintenanceWindow.MaintenanceWindow.set" class="py-name" href="#" onclick="return doclink('link-138', 'set', 'link-0');">set</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">'_createInitialUser'</tt><tt class="py-op">,</tt> <tt class="py-string">'plugins'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L266"></a><tt class="py-lineno">266</tt>  <tt class="py-line">        <tt class="py-comment"># if any of 'needed' are missing, the PAS has to be recreated</tt> </tt>
+<a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-139" class="py-name"><a title="Products.ZenUtils.Version.Version.full" class="py-name" href="#" onclick="return doclink('link-139', 'full', 'link-136');">full</a></tt><tt class="py-op">.</tt><tt class="py-name">issuperset</tt><tt class="py-op">(</tt><tt class="py-name">needed</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line">            <tt class="py-name">backupId</tt> <tt class="py-op">=</tt> <tt id="link-140" class="py-name"><a title="Products.ZenUtils.Security.backupACLUserFolder" class="py-name" href="#" onclick="return doclink('link-140', 'backupACLUserFolder', 'link-111');">backupACLUserFolder</a></tt><tt class="py-op">(</tt><tt id="link-141" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-141', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line">            <tt class="py-name">backup</tt> <tt class="py-op">=</tt> <tt id="link-142" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-142', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt id="link-143" class="py-name" targets="Method Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._getOb()=Products.ZenRelations.ToManyContRelationship.ToManyContRelationship-class.html#_getOb,Method Products.ZenRelations.ToManyRelationship.ToManyRelationship._getOb()=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_getOb,Method Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._getOb()=Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#_getOb"><a title="Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._getOb
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._getOb
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._getOb" class="py-name" href="#" onclick="return doclink('link-143', '_getOb', 'link-143');">_getOb</a></tt><tt class="py-op">(</tt><tt class="py-name">backupId</tt><tt class="py-op">)</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line">            <tt id="link-144" class="py-name"><a title="Products.ZenUtils.Security.createPASFolder" class="py-name" href="#" onclick="return doclink('link-144', 'createPASFolder', 'link-113');">createPASFolder</a></tt><tt class="py-op">(</tt><tt id="link-145" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-145', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">            <tt class="py-comment"># now that we have a monkey-patched acl_users, restore the plugins</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">itemId</tt> <tt class="py-keyword">in</tt> <tt class="py-name">backup</tt><tt class="py-op">.</tt><tt id="link-146" class="py-name" targets="Method Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.objectIds()=Products.ZenRelations.ToManyContRelationship.ToManyContRelationship-class.html#objectIds,Method Products.ZenRelations.ToManyRelationship.ToManyRelationship.objectIds()=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#objectIds"><a title="Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.objectIds
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.objectIds" class="py-name" href="#" onclick="return doclink('link-146', 'objectIds', 'link-146');">objectIds</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line">                <tt class="py-name">acl</tt><tt class="py-op">.</tt><tt id="link-147" class="py-name"><a title="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2._setObject
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager._setObject
+Products.ZenRelations.RelationshipManager.RelationshipManager._setObject
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._setObject
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._setObject" class="py-name" href="#" onclick="return doclink('link-147', '_setObject', 'link-8');">_setObject</a></tt><tt class="py-op">(</tt><tt class="py-name">itemId</tt><tt class="py-op">,</tt> <tt class="py-name">backup</tt><tt class="py-op">.</tt><tt id="link-148" class="py-name"><a title="Products.ZenRelations.ToManyContRelationship.ToManyContRelationship._getOb
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._getOb
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._getOb" class="py-name" href="#" onclick="return doclink('link-148', '_getOb', 'link-143');">_getOb</a></tt><tt class="py-op">(</tt><tt class="py-name">itemId</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">            <tt class="py-comment"># delete the (empty) backup</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line">            <tt id="link-149" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-149', 'context', 'link-9');">context</a></tt><tt class="py-op">.</tt><tt id="link-150" class="py-name"><a title="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathBTreeFolder2._delObject
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathObjectManager._delObject
+Products.ZenRelations.ToManyRelationship.ToManyRelationship._delObject
+Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase._delObject" class="py-name" href="#" onclick="return doclink('link-150', '_delObject', 'link-14');">_delObject</a></tt><tt class="py-op">(</tt><tt class="py-name">backupId</tt><tt class="py-op">)</tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">        <tt class="py-comment"># the next function calls all the setup functions, each of which do an</tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">        <tt class="py-comment"># attriibute check and installs anything that's missing</tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line">        <tt id="link-151" class="py-name"><a title="Products.ZenUtils.Security.setupPASFolder" class="py-name" href="#" onclick="return doclink('link-151', 'setupPASFolder', 'link-115');">setupPASFolder</a></tt><tt class="py-op">(</tt><tt id="link-152" class="py-name"><a title="Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.context
+Products.ZenModel.ThresholdInstance.ThresholdInstance.context
+Products.ZenModel.ZDeviceLoader.BaseDeviceLoader.context
+Products.ZenRelations.ImportRM.ImportRM.context" class="py-name" href="#" onclick="return doclink('link-152', 'context', 'link-9');">context</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:27 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

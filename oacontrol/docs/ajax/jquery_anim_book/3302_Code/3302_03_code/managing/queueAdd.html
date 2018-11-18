@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery queue()</title>
+        <style>
+			#fader { width:100px; height:100px; background-color:#000; }
+		</style>
+	</head>
+	<body>
+		<div id="fader"><!-- --></div>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//add effects
+				$("#fader").fadeOut(function() {					
+					
+					//add new function to the end of the queue
+					$(this).queue(function() {
+						$(this).css("background-color", "green");
+					});
+					
+				}).fadeIn().fadeOut().fadeIn();
+
+			})(jQuery);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery Sequential Animation</title>
+		<link rel="stylesheet" href="css/stickman.css">
+	</head>
+	<body>
+    	<div id="cartoon">
+        	<img class="loading" src="img/stickman/ajax-loader.gif" alt="Loading Frames">
+        </div>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//init variables
+				var counter = 1,
+					srcStr1 = "img/stickman/stick-kick",
+					srcStr2 = ".jpg",
+					frames = $("<div id=\"frames\"></div>"),
+					removeFrame = function() {
+						if (frames.children().length > 1) {
+							frames.children(":first").remove();	
+						} else {
+							clearInterval(timer);	
+						}
+					},
+					timer = setInterval(function() { removeFrame() }, 50);
+				
+				//create frames
+				for(var x = 75; x--;) {
+					$("<img />", {
+						src:  srcStr1 + counter + srcStr2
+					}).css("zIndex", x).appendTo(frames);
+					counter++;
+				}
+				
+				frames.appendTo("#cartoon");
+								
+			})(jQuery);
+		</script>
+	</body>
+</html>

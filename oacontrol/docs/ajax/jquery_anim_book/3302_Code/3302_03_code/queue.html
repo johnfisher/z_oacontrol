@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery queue()</title>
+        <style>
+			#fader { width:100px; height:100px; background-color:#000; }
+		</style>
+	</head>
+	<body>
+		<div id="fader"><!-- --></div>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				//add effects
+				$("#fader").fadeOut(function() {
+				
+					//get queue
+					console.log($(this).queue());
+					
+					//get length of queue
+					console.log($(this).queue().length);
+					
+					//get second item in the queue
+					console.log($(this).queue()[1]);
+					
+					//show string contents of second item
+					console.log($(this).queue()[1].toString());
+					
+					//push a new item into the queue for fun
+					$(this).queue().push(function(){ console.log("this function will be executed after the other functions in the queue") });
+					
+				}).fadeIn().fadeOut().fadeIn();
+				
+			})(jQuery);
+		</script>
+	</body>
+</html>

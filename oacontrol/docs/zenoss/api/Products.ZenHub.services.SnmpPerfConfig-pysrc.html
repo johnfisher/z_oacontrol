@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenHub.services.SnmpPerfConfig</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenHub-module.html">Package&nbsp;ZenHub</a> ::
+        <a href="Products.ZenHub.services-module.html">Package&nbsp;services</a> ::
+        Module&nbsp;SnmpPerfConfig
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenHub.services.SnmpPerfConfig-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenHub.services.SnmpPerfConfig-module.html">Module Products.ZenHub.services.SnmpPerfConfig</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module Products.ZenHub.services.PerformanceConfig=Products.ZenHub.services.PerformanceConfig-module.html,Class Products.ZenHub.services.PerformanceConfig.PerformanceConfig=Products.ZenHub.services.PerformanceConfig.PerformanceConfig-class.html"><a title="Products.ZenHub.services.PerformanceConfig
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig" class="py-name" href="#" onclick="return doclink('link-0', 'PerformanceConfig', 'link-0');">PerformanceConfig</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name"><a title="Products.ZenHub.services.PerformanceConfig
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig" class="py-name" href="#" onclick="return doclink('link-1', 'PerformanceConfig', 'link-0');">PerformanceConfig</a></tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package Products.ZenHub=Products.ZenHub-module.html,Class Products.ZenHub.zenhub.ZenHub=Products.ZenHub.zenhub.ZenHub-class.html"><a title="Products.ZenHub
+Products.ZenHub.zenhub.ZenHub" class="py-name" href="#" onclick="return doclink('link-2', 'ZenHub', 'link-2');">ZenHub</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module Products.ZenHub.PBDaemon=Products.ZenHub.PBDaemon-module.html,Class Products.ZenHub.PBDaemon.PBDaemon=Products.ZenHub.PBDaemon.PBDaemon-class.html"><a title="Products.ZenHub.PBDaemon
+Products.ZenHub.PBDaemon.PBDaemon" class="py-name" href="#" onclick="return doclink('link-3', 'PBDaemon', 'link-3');">PBDaemon</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Function Products.ZenHub.PBDaemon.translateError()=Products.ZenHub.PBDaemon-module.html#translateError"><a title="Products.ZenHub.PBDaemon.translateError" class="py-name" href="#" onclick="return doclink('link-4', 'translateError', 'link-4');">translateError</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">sets</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Set</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Package Products.ZenRRD=Products.ZenRRD-module.html"><a title="Products.ZenRRD" class="py-name" href="#" onclick="return doclink('link-5', 'ZenRRD', 'link-5');">ZenRRD</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module Products.ZenRRD.zenperfsnmp=Products.ZenRRD.zenperfsnmp-module.html,Class Products.ZenRRD.zenperfsnmp.zenperfsnmp=Products.ZenRRD.zenperfsnmp.zenperfsnmp-class.html"><a title="Products.ZenRRD.zenperfsnmp
+Products.ZenRRD.zenperfsnmp.zenperfsnmp" class="py-name" href="#" onclick="return doclink('link-6', 'zenperfsnmp', 'link-6');">zenperfsnmp</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Class Products.ZenRRD.zenperfsnmp.SnmpConfig=Products.ZenRRD.zenperfsnmp.SnmpConfig-class.html,Class Products.ZenUtils.snmp.SnmpConfig=Products.ZenUtils.snmp.SnmpConfig-class.html"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig
+Products.ZenUtils.snmp.SnmpConfig" class="py-name" href="#" onclick="return doclink('link-7', 'SnmpConfig', 'link-7');">SnmpConfig</a></tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">logging</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt id="link-8" class="py-name" targets="Variable Products.DataCollector.ApplyDataMap.log=Products.DataCollector.ApplyDataMap-module.html#log,Variable Products.DataCollector.Classifier.log=Products.DataCollector.Classifier-module.html#log,Variable Products.DataCollector.CollectorClient.log=Products.DataCollector.CollectorClient-module.html#log,Variable Products.DataCollector.Plugins.log=Products.DataCollector.Plugins-module.html#log,Variable Products.DataCollector.PortscanClient.log=Products.DataCollector.PortscanClient-module.html#log,Variable Products.DataCollector.PythonClient.log=Products.DataCollector.PythonClient-module.html#log,Variable Products.DataCollector.SnmpClient.log=Products.DataCollector.SnmpClient-module.html#log,Variable Products.DataCollector.SshClient.log=Products.DataCollector.SshClient-module.html#log,Variable Products.DataCollector.TelnetClient.log=Products.DataCollector.TelnetClient-module.html#log,Variable Products.ZenEvents.ActionRule.log=Products.ZenEvents.ActionRule-module.html#log,Variable Products.ZenEvents.ActionRuleWindow.log=Products.ZenEvents.ActionRuleWindow-module.html#log,Variable Products.ZenEvents.CustomEventView.log=Products.ZenEvents.CustomEventView-module.html#log,Variable Products.ZenEvents.DbConnectionPool.log=Products.ZenEvents.DbConnectionPool-module.html#log,Variable Products.ZenEvents.EventClass.log=Products.ZenEvents.EventClass-module.html#log,Variable Products.ZenEvents.EventClassInst.log=Products.ZenEvents.EventClassInst-module.html#log,Variable Products.ZenEvents.EventManagerBase.log=Products.ZenEvents.EventManagerBase-module.html#log,Variable Products.ZenEvents.MailProcessor.log=Products.ZenEvents.MailProcessor-module.html#log,Variable Products.ZenEvents.MySqlEventManager.log=Products.ZenEvents.MySqlEventManager-module.html#log,Variable Products.ZenEvents.MySqlSendEvent.log=Products.ZenEvents.MySqlSendEvent-module.html#log,Variable Products.ZenEvents.zenmail.log=Products.ZenEvents.zenmail-module.html#log,Variable Products.ZenEvents.zenpop3.log=Products.ZenEvents.zenpop3-module.html#log,Variable Products.ZenHub.services.CommandConfig.log=Products.ZenHub.services.CommandConfig-module.html#log,Variable Products.ZenHub.services.DiscoverService.log=Products.ZenHub.services.DiscoverService-module.html#log,Variable Products.ZenHub.services.ModelerService.log=Products.ZenHub.services.ModelerService-module.html#log,Variable Products.ZenHub.services.RRDImpl.log=Products.ZenHub.services.RRDImpl-module.html#log,Variable Products.ZenHub.services.RRDService.log=Products.ZenHub.services.RRDService-module.html#log,Variable Products.ZenHub.services.SnmpPerfConfig.log=Products.ZenHub.services.SnmpPerfConfig-module.html#log,Variable Products.ZenHub.services.ZenRender.log=Products.ZenHub.services.ZenRender-module.html#log,Variable Products.ZenModel.Commandable.log=Products.ZenModel.Commandable-module.html#log,Variable Products.ZenModel.Device.log=Products.ZenModel.Device-module.html#log,Variable Products.ZenModel.DeviceClass.log=Products.ZenModel.DeviceClass-module.html#log,Variable Products.ZenModel.EventView.log=Products.ZenModel.EventView-module.html#log,Variable Products.ZenModel.GraphDefinition.GraphDefinition.log=Products.ZenModel.GraphDefinition.GraphDefinition-class.html#log,Variable Products.ZenModel.GraphDefinition.log=Products.ZenModel.GraphDefinition-module.html#log,Variable Products.ZenModel.IpAddress.log=Products.ZenModel.IpAddress-module.html#log,Variable Products.ZenModel.IpInterface.log=Products.ZenModel.IpInterface-module.html#log,Variable Products.ZenModel.IpNetwork.log=Products.ZenModel.IpNetwork-module.html#log,Variable Products.ZenModel.IpRouteEntry.log=Products.ZenModel.IpRouteEntry-module.html#log,Variable Products.ZenModel.MaintenanceWindow.log=Products.ZenModel.MaintenanceWindow-module.html#log,Variable Products.ZenModel.MaintenanceWindowable.log=Products.ZenModel.MaintenanceWindowable-module.html#log,Variable Products.ZenModel.ManagedEntity.log=Products.ZenModel.ManagedEntity-module.html#log,Variable Products.ZenModel.ManufacturerRoot.log=Products.ZenModel.ManufacturerRoot-module.html#log,Variable Products.ZenModel.MinMaxThreshold.log=Products.ZenModel.MinMaxThreshold-module.html#log,Variable Products.ZenModel.OSProcessOrganizer.log=Products.ZenModel.OSProcessOrganizer-module.html#log,Variable Products.ZenModel.OperatingSystem.log=Products.ZenModel.OperatingSystem-module.html#log,Variable Products.ZenModel.PerformanceConf.log=Products.ZenModel.PerformanceConf-module.html#log,Variable Products.ZenModel.RRDGraph.RRDGraph.log=Products.ZenModel.RRDGraph.RRDGraph-class.html#log,Variable Products.ZenModel.RRDTemplate.log=Products.ZenModel.RRDTemplate-module.html#log,Variable Products.ZenModel.RRDView.log=Products.ZenModel.RRDView-module.html#log,Variable Products.ZenModel.ServiceOrganizer.log=Products.ZenModel.ServiceOrganizer-module.html#log,Variable Products.ZenModel.UserSettings.log=Products.ZenModel.UserSettings-module.html#log,Variable Products.ZenModel.ZDeviceLoader.log=Products.ZenModel.ZDeviceLoader-module.html#log,Variable Products.ZenModel.ZenMenu.log=Products.ZenModel.ZenMenu-module.html#log,Variable Products.ZenModel.ZenMenuItem.log=Products.ZenModel.ZenMenuItem-module.html#log,Variable Products.ZenModel.ZenPackLoader.log=Products.ZenModel.ZenPackLoader-module.html#log,Variable Products.ZenModel.ZenPackPersistence.log=Products.ZenModel.ZenPackPersistence-module.html#log,Variable Products.ZenModel.ZenossInfo.log=Products.ZenModel.ZenossInfo-module.html#log,Variable Products.ZenModel.log=Products.ZenModel-module.html#log,Variable Products.ZenRRD.CommandParser.log=Products.ZenRRD.CommandParser-module.html#log,Variable Products.ZenRRD.ComponentCommandParser.log=Products.ZenRRD.ComponentCommandParser-module.html#log,Variable Products.ZenRRD.RRDUtil.log=Products.ZenRRD.RRDUtil-module.html#log,Variable Products.ZenRRD.RenderServer.log=Products.ZenRRD.RenderServer-module.html#log,Variable Products.ZenRRD.Thresholds.log=Products.ZenRRD.Thresholds-module.html#log,Variable Products.ZenRRD.parsers.ps.log=Products.ZenRRD.parsers.ps-module.html#log,Variable Products.ZenRRD.parsers.uptime.log=Products.ZenRRD.parsers.uptime-module.html#log,Variable Products.ZenRRD.zencommand.log=Products.ZenRRD.zencommand-module.html#log,Variable Products.ZenRRD.zenperfsnmp.log=Products.ZenRRD.zenperfsnmp-module.html#log,Variable Products.ZenRRD.zenprocess.log=Products.ZenRRD.zenprocess-module.html#log,Variable Products.ZenRRD.zenstep.log=Products.ZenRRD.zenstep-module.html#log,Variable Products.ZenRRD.zentestcommand.log=Products.ZenRRD.zentestcommand-module.html#log,Variable Products.ZenRelations.PrimaryPathObjectManager.log=Products.ZenRelations.PrimaryPathObjectManager-module.html#log,Variable Products.ZenRelations.RelationshipBase.log=Products.ZenRelations.RelationshipBase-module.html#log,Variable Products.ZenRelations.RelationshipManager.log=Products.ZenRelations.RelationshipManager-module.html#log,Variable Products.ZenRelations.ToManyContRelationship.log=Products.ZenRelations.ToManyContRelationship-module.html#log,Variable Products.ZenRelations.ToManyRelationship.log=Products.ZenRelations.ToManyRelationship-module.html#log,Variable Products.ZenRelations.ToManyRelationshipBase.log=Products.ZenRelations.ToManyRelationshipBase-module.html#log,Variable Products.ZenRelations.ToOneRelationship.log=Products.ZenRelations.ToOneRelationship-module.html#log,Variable Products.ZenRelations.ZenPropertyManager.log=Products.ZenRelations.ZenPropertyManager-module.html#log,Variable Products.ZenRelations.log=Products.ZenRelations-module.html#log,Variable Products.ZenStatus.AsyncPing.log=Products.ZenStatus.AsyncPing-module.html#log,Variable Products.ZenStatus.ZenTcpClient.log=Products.ZenStatus.ZenTcpClient-module.html#log,Variable Products.ZenStatus.pingtree.log=Products.ZenStatus.pingtree-module.html#log,Variable Products.ZenUtils.DaemonStats.log=Products.ZenUtils.DaemonStats-module.html#log,Variable Products.ZenUtils.PortScan.log=Products.ZenUtils.PortScan-module.html#log,Variable Products.ZenUtils.ProcessQueue.log=Products.ZenUtils.ProcessQueue-module.html#log,Variable Products.ZenUtils.Utils.log=Products.ZenUtils.Utils-module.html#log,Variable Products.ZenUtils.Watchdog.log=Products.ZenUtils.Watchdog-module.html#log,Variable Products.ZenUtils.ZenCheckRRD.log=Products.ZenUtils.ZenCheckRRD-module.html#log,Variable Products.ZenUtils.ZenDeleteHistory.log=Products.ZenUtils.ZenDeleteHistory-module.html#log,Variable Products.ZenUtils.ZenPackCmd.log=Products.ZenUtils.ZenPackCmd-module.html#log,Variable Products.ZenUtils.extdirect.router.log=Products.ZenUtils.extdirect.router-module.html#log,Variable Products.ZenUtils.zencatalog.log=Products.ZenUtils.zencatalog-module.html#log,Variable Products.ZenWin.WMIClient.log=Products.ZenWin.WMIClient-module.html#log,Variable Products.ZenWin.Watcher.log=Products.ZenWin.Watcher-module.html#log,Variable Products.ZenWin.services.EventLogConfig.log=Products.ZenWin.services.EventLogConfig-module.html#log,Variable Products.ZenWin.services.WinServiceConfig.log=Products.ZenWin.services.WinServiceConfig-module.html#log,Variable Products.ZenWin.zeneventlog.log=Products.ZenWin.zeneventlog-module.html#log,Variable Products.ZenWin.zenwin.log=Products.ZenWin.zenwin-module.html#log"><a title="Products.DataCollector.ApplyDataMap.log
+Products.DataCollector.Classifier.log
+Products.DataCollector.CollectorClient.log
+Products.DataCollector.Plugins.log
+Products.DataCollector.PortscanClient.log
+Products.DataCollector.PythonClient.log
+Products.DataCollector.SnmpClient.log
+Products.DataCollector.SshClient.log
+Products.DataCollector.TelnetClient.log
+Products.ZenEvents.ActionRule.log
+Products.ZenEvents.ActionRuleWindow.log
+Products.ZenEvents.CustomEventView.log
+Products.ZenEvents.DbConnectionPool.log
+Products.ZenEvents.EventClass.log
+Products.ZenEvents.EventClassInst.log
+Products.ZenEvents.EventManagerBase.log
+Products.ZenEvents.MailProcessor.log
+Products.ZenEvents.MySqlEventManager.log
+Products.ZenEvents.MySqlSendEvent.log
+Products.ZenEvents.zenmail.log
+Products.ZenEvents.zenpop3.log
+Products.ZenHub.services.CommandConfig.log
+Products.ZenHub.services.DiscoverService.log
+Products.ZenHub.services.ModelerService.log
+Products.ZenHub.services.RRDImpl.log
+Products.ZenHub.services.RRDService.log
+Products.ZenHub.services.SnmpPerfConfig.log
+Products.ZenHub.services.ZenRender.log
+Products.ZenModel.Commandable.log
+Products.ZenModel.Device.log
+Products.ZenModel.DeviceClass.log
+Products.ZenModel.EventView.log
+Products.ZenModel.GraphDefinition.GraphDefinition.log
+Products.ZenModel.GraphDefinition.log
+Products.ZenModel.IpAddress.log
+Products.ZenModel.IpInterface.log
+Products.ZenModel.IpNetwork.log
+Products.ZenModel.IpRouteEntry.log
+Products.ZenModel.MaintenanceWindow.log
+Products.ZenModel.MaintenanceWindowable.log
+Products.ZenModel.ManagedEntity.log
+Products.ZenModel.ManufacturerRoot.log
+Products.ZenModel.MinMaxThreshold.log
+Products.ZenModel.OSProcessOrganizer.log
+Products.ZenModel.OperatingSystem.log
+Products.ZenModel.PerformanceConf.log
+Products.ZenModel.RRDGraph.RRDGraph.log
+Products.ZenModel.RRDTemplate.log
+Products.ZenModel.RRDView.log
+Products.ZenModel.ServiceOrganizer.log
+Products.ZenModel.UserSettings.log
+Products.ZenModel.ZDeviceLoader.log
+Products.ZenModel.ZenMenu.log
+Products.ZenModel.ZenMenuItem.log
+Products.ZenModel.ZenPackLoader.log
+Products.ZenModel.ZenPackPersistence.log
+Products.ZenModel.ZenossInfo.log
+Products.ZenModel.log
+Products.ZenRRD.CommandParser.log
+Products.ZenRRD.ComponentCommandParser.log
+Products.ZenRRD.RRDUtil.log
+Products.ZenRRD.RenderServer.log
+Products.ZenRRD.Thresholds.log
+Products.ZenRRD.parsers.ps.log
+Products.ZenRRD.parsers.uptime.log
+Products.ZenRRD.zencommand.log
+Products.ZenRRD.zenperfsnmp.log
+Products.ZenRRD.zenprocess.log
+Products.ZenRRD.zenstep.log
+Products.ZenRRD.zentestcommand.log
+Products.ZenRelations.PrimaryPathObjectManager.log
+Products.ZenRelations.RelationshipBase.log
+Products.ZenRelations.RelationshipManager.log
+Products.ZenRelations.ToManyContRelationship.log
+Products.ZenRelations.ToManyRelationship.log
+Products.ZenRelations.ToManyRelationshipBase.log
+Products.ZenRelations.ToOneRelationship.log
+Products.ZenRelations.ZenPropertyManager.log
+Products.ZenRelations.log
+Products.ZenStatus.AsyncPing.log
+Products.ZenStatus.ZenTcpClient.log
+Products.ZenStatus.pingtree.log
+Products.ZenUtils.DaemonStats.log
+Products.ZenUtils.PortScan.log
+Products.ZenUtils.ProcessQueue.log
+Products.ZenUtils.Utils.log
+Products.ZenUtils.Watchdog.log
+Products.ZenUtils.ZenCheckRRD.log
+Products.ZenUtils.ZenDeleteHistory.log
+Products.ZenUtils.ZenPackCmd.log
+Products.ZenUtils.extdirect.router.log
+Products.ZenUtils.zencatalog.log
+Products.ZenWin.WMIClient.log
+Products.ZenWin.Watcher.log
+Products.ZenWin.services.EventLogConfig.log
+Products.ZenWin.services.WinServiceConfig.log
+Products.ZenWin.zeneventlog.log
+Products.ZenWin.zenwin.log" class="py-name" href="#" onclick="return doclink('link-8', 'log', 'link-8');">log</a></tt> <tt class="py-op">=</tt> <tt class="py-name">logging</tt><tt class="py-op">.</tt><tt class="py-name">getLogger</tt><tt class="py-op">(</tt><tt class="py-string">'zen.SnmpPerfConfig'</tt><tt class="py-op">)</tt> </tt>
+<a name="getComponentConfig"></a><div id="getComponentConfig-def"><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt> <a class="py-toggle" href="#" id="getComponentConfig-toggle" onclick="return toggle('getComponentConfig');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.SnmpPerfConfig-module.html#getComponentConfig">getComponentConfig</a><tt class="py-op">(</tt><tt class="py-param">comp</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getComponentConfig-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getComponentConfig-expanded"><a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt id="link-9" class="py-name" targets="Variable Products.ZenRRD.zenperfsnmp.SnmpConfig.oids=Products.ZenRRD.zenperfsnmp.SnmpConfig-class.html#oids"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig.oids" class="py-name" href="#" onclick="return doclink('link-9', 'oids', 'link-9');">oids</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method Products.ZenModel.IpInterface.IpInterface.snmpIgnore()=Products.ZenModel.IpInterface.IpInterface-class.html#snmpIgnore,Method Products.ZenModel.Monitor.Monitor.snmpIgnore()=Products.ZenModel.Monitor.Monitor-class.html#snmpIgnore,Method Products.ZenModel.RRDView.RRDView.snmpIgnore()=Products.ZenModel.RRDView.RRDView-class.html#snmpIgnore"><a title="Products.ZenModel.IpInterface.IpInterface.snmpIgnore
+Products.ZenModel.Monitor.Monitor.snmpIgnore
+Products.ZenModel.RRDView.RRDView.snmpIgnore" class="py-name" href="#" onclick="return doclink('link-10', 'snmpIgnore', 'link-10');">snmpIgnore</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">    <tt class="py-name">basepath</tt> <tt class="py-op">=</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Method Products.ZenModel.GraphDefinition.FakeContext.rrdPath()=Products.ZenModel.GraphDefinition.FakeContext-class.html#rrdPath,Method Products.ZenModel.Monitor.Monitor.rrdPath()=Products.ZenModel.Monitor.Monitor-class.html#rrdPath,Method Products.ZenModel.RRDView.RRDView.rrdPath()=Products.ZenModel.RRDView.RRDView-class.html#rrdPath,Variable Products.ZenRRD.zencommand.DataPointConfig.rrdPath=Products.ZenRRD.zencommand.DataPointConfig-class.html#rrdPath"><a title="Products.ZenModel.GraphDefinition.FakeContext.rrdPath
+Products.ZenModel.Monitor.Monitor.rrdPath
+Products.ZenModel.RRDView.RRDView.rrdPath
+Products.ZenRRD.zencommand.DataPointConfig.rrdPath" class="py-name" href="#" onclick="return doclink('link-11', 'rrdPath', 'link-11');">rrdPath</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt class="py-name">perfServer</tt> <tt class="py-op">=</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method Products.ZenModel.Device.Device.device()=Products.ZenModel.Device.Device-class.html#device,Method Products.ZenModel.DeviceHW.DeviceHW.device()=Products.ZenModel.DeviceHW.DeviceHW-class.html#device,Method Products.ZenModel.GraphDefinition.FakeContext.device()=Products.ZenModel.GraphDefinition.FakeContext-class.html#device,Method Products.ZenModel.HWComponent.HWComponent.device()=Products.ZenModel.HWComponent.HWComponent-class.html#device,Method Products.ZenModel.IpAddress.IpAddress.device()=Products.ZenModel.IpAddress.IpAddress-class.html#device,Method Products.ZenModel.ManagedEntity.ManagedEntity.device()=Products.ZenModel.ManagedEntity.ManagedEntity-class.html#device,Method Products.ZenModel.OSComponent.OSComponent.device()=Products.ZenModel.OSComponent.OSComponent-class.html#device,Method Products.ZenModel.OperatingSystem.OperatingSystem.device()=Products.ZenModel.OperatingSystem.OperatingSystem-class.html#device,Method Products.ZenModel.Software.Software.device()=Products.ZenModel.Software.Software-class.html#device,Variable Products.ZenRRD.zencommand.DeviceConfig.device=Products.ZenRRD.zencommand.DeviceConfig-class.html#device,Variable Products.ZenRRD.zenperfsnmp.SnmpConfig.device=Products.ZenRRD.zenperfsnmp.SnmpConfig-class.html#device"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-12', 'device', 'link-12');">device</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method Products.ZenModel.Device.Device.getPerformanceServer()=Products.ZenModel.Device.Device-class.html#getPerformanceServer"><a title="Products.ZenModel.Device.Device.getPerformanceServer" class="py-name" href="#" onclick="return doclink('link-13', 'getPerformanceServer', 'link-13');">getPerformanceServer</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">templ</tt> <tt class="py-keyword">in</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Method Products.ZenModel.Device.Device.getRRDTemplates()=Products.ZenModel.Device.Device-class.html#getRRDTemplates,Method Products.ZenModel.DeviceClass.DeviceClass.getRRDTemplates()=Products.ZenModel.DeviceClass.DeviceClass-class.html#getRRDTemplates,Method Products.ZenModel.GraphDefinition.FakeContext.getRRDTemplates()=Products.ZenModel.GraphDefinition.FakeContext-class.html#getRRDTemplates,Method Products.ZenModel.IpInterface.IpInterface.getRRDTemplates()=Products.ZenModel.IpInterface.IpInterface-class.html#getRRDTemplates,Method Products.ZenModel.MonitorClass.MonitorClass.getRRDTemplates()=Products.ZenModel.MonitorClass.MonitorClass-class.html#getRRDTemplates,Method Products.ZenModel.RRDView.RRDView.getRRDTemplates()=Products.ZenModel.RRDView.RRDView-class.html#getRRDTemplates"><a title="Products.ZenModel.Device.Device.getRRDTemplates
+Products.ZenModel.DeviceClass.DeviceClass.getRRDTemplates
+Products.ZenModel.GraphDefinition.FakeContext.getRRDTemplates
+Products.ZenModel.IpInterface.IpInterface.getRRDTemplates
+Products.ZenModel.MonitorClass.MonitorClass.getRRDTemplates
+Products.ZenModel.RRDView.RRDView.getRRDTemplates" class="py-name" href="#" onclick="return doclink('link-14', 'getRRDTemplates', 'link-14');">getRRDTemplates</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">ds</tt> <tt class="py-keyword">in</tt> <tt class="py-name">templ</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method Products.ZenModel.RRDTemplate.RRDTemplate.getRRDDataSources()=Products.ZenModel.RRDTemplate.RRDTemplate-class.html#getRRDDataSources"><a title="Products.ZenModel.RRDTemplate.RRDTemplate.getRRDDataSources" class="py-name" href="#" onclick="return doclink('link-15', 'getRRDDataSources', 'link-15');">getRRDDataSources</a></tt><tt class="py-op">(</tt><tt class="py-string">"SNMP"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">ds</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Variable Products.DataCollector.TelnetClient.TelnetClientProtocol.enabled=Products.DataCollector.TelnetClient.TelnetClientProtocol-class.html#enabled,Variable Products.ZenEvents.ActionRule.ActionRule.enabled=Products.ZenEvents.ActionRule.ActionRule-class.html#enabled,Variable Products.ZenEvents.EventCommand.EventCommand.enabled=Products.ZenEvents.EventCommand.EventCommand-class.html#enabled,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.enabled=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#enabled,Variable Products.ZenModel.RRDDataSource.RRDDataSource.enabled=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#enabled,Variable Products.ZenModel.RRDThreshold.RRDThreshold.enabled=Products.ZenModel.RRDThreshold.RRDThreshold-class.html#enabled,Variable Products.ZenModel.ThresholdClass.ThresholdClass.enabled=Products.ZenModel.ThresholdClass.ThresholdClass-class.html#enabled"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.enabled
+Products.ZenEvents.ActionRule.ActionRule.enabled
+Products.ZenEvents.EventCommand.EventCommand.enabled
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.enabled
+Products.ZenModel.RRDDataSource.RRDDataSource.enabled
+Products.ZenModel.RRDThreshold.RRDThreshold.enabled
+Products.ZenModel.ThresholdClass.ThresholdClass.enabled" class="py-name" href="#" onclick="return doclink('link-16', 'enabled', 'link-16');">enabled</a></tt><tt class="py-op">:</tt> <tt class="py-keyword">continue</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">            <tt id="link-17" class="py-name" targets="Variable Products.ZenModel.BasicDataSource.BasicDataSource.oid=Products.ZenModel.BasicDataSource.BasicDataSource-class.html#oid,Variable Products.ZenModel.MibBase.MibBase.oid=Products.ZenModel.MibBase.MibBase-class.html#oid"><a title="Products.ZenModel.BasicDataSource.BasicDataSource.oid
+Products.ZenModel.MibBase.MibBase.oid" class="py-name" href="#" onclick="return doclink('link-17', 'oid', 'link-17');">oid</a></tt> <tt class="py-op">=</tt> <tt class="py-name">ds</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="Products.ZenModel.BasicDataSource.BasicDataSource.oid
+Products.ZenModel.MibBase.MibBase.oid" class="py-name" href="#" onclick="return doclink('link-18', 'oid', 'link-17');">oid</a></tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-19" class="py-name"><a title="Products.ZenModel.BasicDataSource.BasicDataSource.oid
+Products.ZenModel.MibBase.MibBase.oid" class="py-name" href="#" onclick="return doclink('link-19', 'oid', 'link-17');">oid</a></tt><tt class="py-op">:</tt> <tt class="py-keyword">continue</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">            <tt id="link-20" class="py-name" targets="Variable Products.ZenModel.ManagedEntity.ManagedEntity.snmpindex=Products.ZenModel.ManagedEntity.ManagedEntity-class.html#snmpindex"><a title="Products.ZenModel.ManagedEntity.ManagedEntity.snmpindex" class="py-name" href="#" onclick="return doclink('link-20', 'snmpindex', 'link-20');">snmpindex</a></tt> <tt class="py-op">=</tt> <tt class="py-name">getattr</tt><tt class="py-op">(</tt><tt class="py-name">comp</tt><tt class="py-op">,</tt> <tt class="py-string">"ifindex"</tt><tt class="py-op">,</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="Products.ZenModel.ManagedEntity.ManagedEntity.snmpindex" class="py-name" href="#" onclick="return doclink('link-21', 'snmpindex', 'link-20');">snmpindex</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-22" class="py-name"><a title="Products.ZenModel.ManagedEntity.ManagedEntity.snmpindex" class="py-name" href="#" onclick="return doclink('link-22', 'snmpindex', 'link-20');">snmpindex</a></tt><tt class="py-op">:</tt> <tt id="link-23" class="py-name"><a title="Products.ZenModel.BasicDataSource.BasicDataSource.oid
+Products.ZenModel.MibBase.MibBase.oid" class="py-name" href="#" onclick="return doclink('link-23', 'oid', 'link-17');">oid</a></tt> <tt class="py-op">=</tt> <tt class="py-string">"%s.%s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-24" class="py-name"><a title="Products.ZenModel.BasicDataSource.BasicDataSource.oid
+Products.ZenModel.MibBase.MibBase.oid" class="py-name" href="#" onclick="return doclink('link-24', 'oid', 'link-17');">oid</a></tt><tt class="py-op">,</tt> <tt id="link-25" class="py-name"><a title="Products.ZenModel.ManagedEntity.ManagedEntity.snmpindex" class="py-name" href="#" onclick="return doclink('link-25', 'snmpindex', 'link-20');">snmpindex</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">dp</tt> <tt class="py-keyword">in</tt> <tt class="py-name">ds</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Method Products.ZenModel.RRDDataSource.RRDDataSource.getRRDDataPoints()=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#getRRDDataPoints,Method Products.ZenModel.RRDTemplate.RRDTemplate.getRRDDataPoints()=Products.ZenModel.RRDTemplate.RRDTemplate-class.html#getRRDDataPoints,Method Products.ZenModel.RRDView.RRDView.getRRDDataPoints()=Products.ZenModel.RRDView.RRDView-class.html#getRRDDataPoints"><a title="Products.ZenModel.RRDDataSource.RRDDataSource.getRRDDataPoints
+Products.ZenModel.RRDTemplate.RRDTemplate.getRRDDataPoints
+Products.ZenModel.RRDView.RRDView.getRRDDataPoints" class="py-name" href="#" onclick="return doclink('link-26', 'getRRDDataPoints', 'link-26');">getRRDDataPoints</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">                <tt class="py-name">cname</tt> <tt class="py-op">=</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name" targets="Variable Products.ZenEvents.ActionRule.ActionRule.meta_type=Products.ZenEvents.ActionRule.ActionRule-class.html#meta_type,Variable Products.ZenEvents.CustomEventView.CustomEventView.meta_type=Products.ZenEvents.CustomEventView.CustomEventView-class.html#meta_type,Variable Products.ZenEvents.EventClass.EventClass.meta_type=Products.ZenEvents.EventClass.EventClass-class.html#meta_type,Variable Products.ZenEvents.EventClassInst.EventClassInst.meta_type=Products.ZenEvents.EventClassInst.EventClassInst-class.html#meta_type,Variable Products.ZenEvents.MySqlEventManager.MySqlEventManager.meta_type=Products.ZenEvents.MySqlEventManager.MySqlEventManager-class.html#meta_type,Variable Products.ZenModel.AdministrativeRole.AdministrativeRole.meta_type=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#meta_type,Variable Products.ZenModel.AreaGraphPoint.AreaGraphPoint.meta_type=Products.ZenModel.AreaGraphPoint.AreaGraphPoint-class.html#meta_type,Variable Products.ZenModel.CPU.CPU.meta_type=Products.ZenModel.CPU.CPU-class.html#meta_type,Variable Products.ZenModel.CdefGraphPoint.CdefGraphPoint.meta_type=Products.ZenModel.CdefGraphPoint.CdefGraphPoint-class.html#meta_type,Variable Products.ZenModel.Classifier.Classifier.meta_type=Products.ZenModel.Classifier.Classifier-class.html#meta_type,Variable Products.ZenModel.ClassifierEntry.ClassifierEntry.meta_type=Products.ZenModel.ClassifierEntry.ClassifierEntry-class.html#meta_type,Variable Products.ZenModel.Collection.Collection.meta_type=Products.ZenModel.Collection.Collection-class.html#meta_type,Variable Products.ZenModel.CollectionItem.CollectionItem.meta_type=Products.ZenModel.CollectionItem.CollectionItem-class.html#meta_type,Variable Products.ZenModel.CommentGraphPoint.CommentGraphPoint.meta_type=Products.ZenModel.CommentGraphPoint.CommentGraphPoint-class.html#meta_type,Variable Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.meta_type=Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass-class.html#meta_type,Variable Products.ZenModel.DataPointGraphPoint.DataPointGraphPoint.meta_type=Products.ZenModel.DataPointGraphPoint.DataPointGraphPoint-class.html#meta_type,Variable Products.ZenModel.DataRoot.DataRoot.meta_type=Products.ZenModel.DataRoot.DataRoot-class.html#meta_type,Variable Products.ZenModel.DefGraphPoint.DefGraphPoint.meta_type=Products.ZenModel.DefGraphPoint.DefGraphPoint-class.html#meta_type,Variable Products.ZenModel.Device.Device.meta_type=Products.ZenModel.Device.Device-class.html#meta_type,Variable Products.ZenModel.DeviceClass.DeviceClass.meta_type=Products.ZenModel.DeviceClass.DeviceClass-class.html#meta_type,Variable Products.ZenModel.DeviceGroup.DeviceGroup.meta_type=Products.ZenModel.DeviceGroup.DeviceGroup-class.html#meta_type,Variable Products.ZenModel.DeviceHW.DeviceHW.meta_type=Products.ZenModel.DeviceHW.DeviceHW-class.html#meta_type,Variable Products.ZenModel.DeviceReport.DeviceReport.meta_type=Products.ZenModel.DeviceReport.DeviceReport-class.html#meta_type,Variable Products.ZenModel.DeviceReportClass.DeviceReportClass.meta_type=Products.ZenModel.DeviceReportClass.DeviceReportClass-class.html#meta_type,Variable Products.ZenModel.ExpansionCard.ExpansionCard.meta_type=Products.ZenModel.ExpansionCard.ExpansionCard-class.html#meta_type,Variable Products.ZenModel.Fan.Fan.meta_type=Products.ZenModel.Fan.Fan-class.html#meta_type,Variable Products.ZenModel.FileSystem.FileSystem.meta_type=Products.ZenModel.FileSystem.FileSystem-class.html#meta_type,Variable Products.ZenModel.GprintGraphPoint.GprintGraphPoint.meta_type=Products.ZenModel.GprintGraphPoint.GprintGraphPoint-class.html#meta_type,Variable Products.ZenModel.GraphDefinition.GraphDefinition.meta_type=Products.ZenModel.GraphDefinition.GraphDefinition-class.html#meta_type,Variable Products.ZenModel.GraphGroup.GraphGroup.meta_type=Products.ZenModel.GraphGroup.GraphGroup-class.html#meta_type,Variable Products.ZenModel.GraphReport.GraphReport.meta_type=Products.ZenModel.GraphReport.GraphReport-class.html#meta_type,Variable Products.ZenModel.GraphReportClass.GraphReportClass.meta_type=Products.ZenModel.GraphReportClass.GraphReportClass-class.html#meta_type,Variable Products.ZenModel.GraphReportElement.GraphReportElement.meta_type=Products.ZenModel.GraphReportElement.GraphReportElement-class.html#meta_type,Variable Products.ZenModel.HardDisk.HardDisk.meta_type=Products.ZenModel.HardDisk.HardDisk-class.html#meta_type,Variable Products.ZenModel.Hardware.Hardware.meta_type=Products.ZenModel.Hardware.Hardware-class.html#meta_type,Variable Products.ZenModel.HardwareClass.HardwareClass.meta_type=Products.ZenModel.HardwareClass.HardwareClass-class.html#meta_type,Variable Products.ZenModel.HruleGraphPoint.HruleGraphPoint.meta_type=Products.ZenModel.HruleGraphPoint.HruleGraphPoint-class.html#meta_type,Variable Products.ZenModel.IpAddress.IpAddress.meta_type=Products.ZenModel.IpAddress.IpAddress-class.html#meta_type,Variable Products.ZenModel.IpInterface.IpInterface.meta_type=Products.ZenModel.IpInterface.IpInterface-class.html#meta_type,Variable Products.ZenModel.IpNetwork.IpNetwork.meta_type=Products.ZenModel.IpNetwork.IpNetwork-class.html#meta_type,Variable Products.ZenModel.IpRouteEntry.IpRouteEntry.meta_type=Products.ZenModel.IpRouteEntry.IpRouteEntry-class.html#meta_type,Variable Products.ZenModel.IpService.IpService.meta_type=Products.ZenModel.IpService.IpService-class.html#meta_type,Variable Products.ZenModel.IpServiceClass.IpServiceClass.meta_type=Products.ZenModel.IpServiceClass.IpServiceClass-class.html#meta_type,Variable Products.ZenModel.LineGraphPoint.LineGraphPoint.meta_type=Products.ZenModel.LineGraphPoint.LineGraphPoint-class.html#meta_type,Variable Products.ZenModel.Location.Location.meta_type=Products.ZenModel.Location.Location-class.html#meta_type,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.meta_type=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#meta_type,Variable Products.ZenModel.Manufacturer.Manufacturer.meta_type=Products.ZenModel.Manufacturer.Manufacturer-class.html#meta_type,Variable Products.ZenModel.ManufacturerRoot.ManufacturerRoot.meta_type=Products.ZenModel.ManufacturerRoot.ManufacturerRoot-class.html#meta_type,Variable Products.ZenModel.MibOrganizer.MibOrganizer.meta_type=Products.ZenModel.MibOrganizer.MibOrganizer-class.html#meta_type,Variable Products.ZenModel.Monitor.Monitor.meta_type=Products.ZenModel.Monitor.Monitor-class.html#meta_type,Variable Products.ZenModel.MonitorClass.MonitorClass.meta_type=Products.ZenModel.MonitorClass.MonitorClass-class.html#meta_type,Variable Products.ZenModel.MultiGraphReport.MultiGraphReport.meta_type=Products.ZenModel.MultiGraphReport.MultiGraphReport-class.html#meta_type,Variable Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.meta_type=Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass-class.html#meta_type,Variable Products.ZenModel.OSProcess.OSProcess.meta_type=Products.ZenModel.OSProcess.OSProcess-class.html#meta_type,Variable Products.ZenModel.OSProcessClass.OSProcessClass.meta_type=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#meta_type,Variable Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.meta_type=Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer-class.html#meta_type,Variable Products.ZenModel.PerformanceConf.PerformanceConf.meta_type=Products.ZenModel.PerformanceConf.PerformanceConf-class.html#meta_type,Variable Products.ZenModel.PowerSupply.PowerSupply.meta_type=Products.ZenModel.PowerSupply.PowerSupply-class.html#meta_type,Variable Products.ZenModel.PrintGraphPoint.PrintGraphPoint.meta_type=Products.ZenModel.PrintGraphPoint.PrintGraphPoint-class.html#meta_type,Variable Products.ZenModel.ProductClass.ProductClass.meta_type=Products.ZenModel.ProductClass.ProductClass-class.html#meta_type,Variable Products.ZenModel.RRDDataPoint.RRDDataPoint.meta_type=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#meta_type,Variable Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias.meta_type=Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias-class.html#meta_type,Variable Products.ZenModel.RRDDataSource.RRDDataSource.meta_type=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#meta_type,Variable Products.ZenModel.RRDGraph.RRDGraph.meta_type=Products.ZenModel.RRDGraph.RRDGraph-class.html#meta_type,Variable Products.ZenModel.RRDTemplate.RRDTemplate.meta_type=Products.ZenModel.RRDTemplate.RRDTemplate-class.html#meta_type,Variable Products.ZenModel.RRDThreshold.RRDThreshold.meta_type=Products.ZenModel.RRDThreshold.RRDThreshold-class.html#meta_type,Variable Products.ZenModel.Report.Report.meta_type=Products.ZenModel.Report.Report-class.html#meta_type,Variable Products.ZenModel.ReportClass.ReportClass.meta_type=Products.ZenModel.ReportClass.ReportClass-class.html#meta_type,Variable Products.ZenModel.Service.Service.meta_type=Products.ZenModel.Service.Service-class.html#meta_type,Variable Products.ZenModel.ServiceClass.ServiceClass.meta_type=Products.ZenModel.ServiceClass.ServiceClass-class.html#meta_type,Variable Products.ZenModel.ServiceOrganizer.ServiceOrganizer.meta_type=Products.ZenModel.ServiceOrganizer.ServiceOrganizer-class.html#meta_type,Variable Products.ZenModel.ShiftGraphPoint.ShiftGraphPoint.meta_type=Products.ZenModel.ShiftGraphPoint.ShiftGraphPoint-class.html#meta_type,Variable Products.ZenModel.Software.Software.meta_type=Products.ZenModel.Software.Software-class.html#meta_type,Variable Products.ZenModel.SoftwareClass.OSSoftwareClass.meta_type=Products.ZenModel.SoftwareClass.OSSoftwareClass-class.html#meta_type,Variable Products.ZenModel.SoftwareClass.SoftwareClass.meta_type=Products.ZenModel.SoftwareClass.SoftwareClass-class.html#meta_type,Variable Products.ZenModel.StatusMonitorConf.StatusMonitorConf.meta_type=Products.ZenModel.StatusMonitorConf.StatusMonitorConf-class.html#meta_type,Variable Products.ZenModel.System.System.meta_type=Products.ZenModel.System.System-class.html#meta_type,Variable Products.ZenModel.TemperatureSensor.TemperatureSensor.meta_type=Products.ZenModel.TemperatureSensor.TemperatureSensor-class.html#meta_type,Variable Products.ZenModel.TemplateContainer.TemplateContainer.meta_type=Products.ZenModel.TemplateContainer.TemplateContainer-class.html#meta_type,Variable Products.ZenModel.ThresholdClass.ThresholdClass.meta_type=Products.ZenModel.ThresholdClass.ThresholdClass-class.html#meta_type,Variable Products.ZenModel.ThresholdGraphPoint.ThresholdGraphPoint.meta_type=Products.ZenModel.ThresholdGraphPoint.ThresholdGraphPoint-class.html#meta_type,Variable Products.ZenModel.TickGraphPoint.TickGraphPoint.meta_type=Products.ZenModel.TickGraphPoint.TickGraphPoint-class.html#meta_type,Variable Products.ZenModel.UserCommand.UserCommand.meta_type=Products.ZenModel.UserCommand.UserCommand-class.html#meta_type,Variable Products.ZenModel.UserSettings.GroupSettings.meta_type=Products.ZenModel.UserSettings.GroupSettings-class.html#meta_type,Variable Products.ZenModel.UserSettings.UserSettings.meta_type=Products.ZenModel.UserSettings.UserSettings-class.html#meta_type,Variable Products.ZenModel.UserSettings.UserSettingsManager.meta_type=Products.ZenModel.UserSettings.UserSettingsManager-class.html#meta_type,Variable Products.ZenModel.VdefGraphPoint.VdefGraphPoint.meta_type=Products.ZenModel.VdefGraphPoint.VdefGraphPoint-class.html#meta_type,Variable Products.ZenModel.VruleGraphPoint.VruleGraphPoint.meta_type=Products.ZenModel.VruleGraphPoint.VruleGraphPoint-class.html#meta_type,Variable Products.ZenModel.WinService.WinService.meta_type=Products.ZenModel.WinService.WinService-class.html#meta_type,Variable Products.ZenModel.ZDeviceLoader.ZDeviceLoader.meta_type=Products.ZenModel.ZDeviceLoader.ZDeviceLoader-class.html#meta_type,Variable Products.ZenModel.ZenMenu.ZenMenu.meta_type=Products.ZenModel.ZenMenu.ZenMenu-class.html#meta_type,Variable Products.ZenModel.ZenMenuItem.ZenMenuItem.meta_type=Products.ZenModel.ZenMenuItem.ZenMenuItem-class.html#meta_type,Variable Products.ZenModel.ZenModelItem.ZenModelItem.meta_type=Products.ZenModel.ZenModelItem.ZenModelItem-class.html#meta_type,Variable Products.ZenModel.ZenModelRM.ZenModelRM.meta_type=Products.ZenModel.ZenModelRM.ZenModelRM-class.html#meta_type,Variable Products.ZenModel.ZenPackManager.ZenPackManager.meta_type=Products.ZenModel.ZenPackManager.ZenPackManager-class.html#meta_type,Variable Products.ZenModel.ZenPackable.ZenPackable.meta_type=Products.ZenModel.ZenPackable.ZenPackable-class.html#meta_type,Variable Products.ZenModel.ZenossInfo.ZenossInfo.meta_type=Products.ZenModel.ZenossInfo.ZenossInfo-class.html#meta_type,Variable Products.ZenModel.ZentinelPortal.ZentinelPortal.meta_type=Products.ZenModel.ZentinelPortal.ZentinelPortal-class.html#meta_type,Variable Products.ZenRRD.RenderServer.RenderServer.meta_type=Products.ZenRRD.RenderServer.RenderServer-class.html#meta_type,Variable Products.ZenRelations.RelationshipManager.RelationshipManager.meta_type=Products.ZenRelations.RelationshipManager.RelationshipManager-class.html#meta_type,Variable Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.meta_type=Products.ZenRelations.ToManyContRelationship.ToManyContRelationship-class.html#meta_type,Variable Products.ZenRelations.ToManyRelationship.ToManyRelationship.meta_type=Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#meta_type,Variable Products.ZenRelations.ToOneRelationship.ToOneRelationship.meta_type=Products.ZenRelations.ToOneRelationship.ToOneRelationship-class.html#meta_type,Variable Products.ZenRelations.ZItem.ZItem.meta_type=Products.ZenRelations.ZItem.ZItem-class.html#meta_type,Variable Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex.meta_type=Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex-class.html#meta_type,Variable Products.ZenUtils.MultiPathIndex.MultiPathIndex.meta_type=Products.ZenUtils.MultiPathIndex.MultiPathIndex-class.html#meta_type,Variable Products.ZenWidgets.Portlet.Portlet.meta_type=Products.ZenWidgets.Portlet.Portlet-class.html#meta_type,Variable Products.ZenWidgets.PortletManager.PortletManager.meta_type=Products.ZenWidgets.PortletManager.PortletManager-class.html#meta_type,Variable Products.ZenWidgets.ZenTableManager.ZenTableManager.meta_type=Products.ZenWidgets.ZenTableManager.ZenTableManager-class.html#meta_type"><a title="Products.ZenEvents.ActionRule.ActionRule.meta_type
+Products.ZenEvents.CustomEventView.CustomEventView.meta_type
+Products.ZenEvents.EventClass.EventClass.meta_type
+Products.ZenEvents.EventClassInst.EventClassInst.meta_type
+Products.ZenEvents.MySqlEventManager.MySqlEventManager.meta_type
+Products.ZenModel.AdministrativeRole.AdministrativeRole.meta_type
+Products.ZenModel.AreaGraphPoint.AreaGraphPoint.meta_type
+Products.ZenModel.CPU.CPU.meta_type
+Products.ZenModel.CdefGraphPoint.CdefGraphPoint.meta_type
+Products.ZenModel.Classifier.Classifier.meta_type
+Products.ZenModel.ClassifierEntry.ClassifierEntry.meta_type
+Products.ZenModel.Collection.Collection.meta_type
+Products.ZenModel.CollectionItem.CollectionItem.meta_type
+Products.ZenModel.CommentGraphPoint.CommentGraphPoint.meta_type
+Products.ZenModel.CustomDeviceReportClass.CustomDeviceReportClass.meta_type
+Products.ZenModel.DataPointGraphPoint.DataPointGraphPoint.meta_type
+Products.ZenModel.DataRoot.DataRoot.meta_type
+Products.ZenModel.DefGraphPoint.DefGraphPoint.meta_type
+Products.ZenModel.Device.Device.meta_type
+Products.ZenModel.DeviceClass.DeviceClass.meta_type
+Products.ZenModel.DeviceGroup.DeviceGroup.meta_type
+Products.ZenModel.DeviceHW.DeviceHW.meta_type
+Products.ZenModel.DeviceReport.DeviceReport.meta_type
+Products.ZenModel.DeviceReportClass.DeviceReportClass.meta_type
+Products.ZenModel.ExpansionCard.ExpansionCard.meta_type
+Products.ZenModel.Fan.Fan.meta_type
+Products.ZenModel.FileSystem.FileSystem.meta_type
+Products.ZenModel.GprintGraphPoint.GprintGraphPoint.meta_type
+Products.ZenModel.GraphDefinition.GraphDefinition.meta_type
+Products.ZenModel.GraphGroup.GraphGroup.meta_type
+Products.ZenModel.GraphReport.GraphReport.meta_type
+Products.ZenModel.GraphReportClass.GraphReportClass.meta_type
+Products.ZenModel.GraphReportElement.GraphReportElement.meta_type
+Products.ZenModel.HardDisk.HardDisk.meta_type
+Products.ZenModel.Hardware.Hardware.meta_type
+Products.ZenModel.HardwareClass.HardwareClass.meta_type
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.meta_type
+Products.ZenModel.IpAddress.IpAddress.meta_type
+Products.ZenModel.IpInterface.IpInterface.meta_type
+Products.ZenModel.IpNetwork.IpNetwork.meta_type
+Products.ZenModel.IpRouteEntry.IpRouteEntry.meta_type
+Products.ZenModel.IpService.IpService.meta_type
+Products.ZenModel.IpServiceClass.IpServiceClass.meta_type
+Products.ZenModel.LineGraphPoint.LineGraphPoint.meta_type
+Products.ZenModel.Location.Location.meta_type
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.meta_type
+Products.ZenModel.Manufacturer.Manufacturer.meta_type
+Products.ZenModel.ManufacturerRoot.ManufacturerRoot.meta_type
+Products.ZenModel.MibOrganizer.MibOrganizer.meta_type
+Products.ZenModel.Monitor.Monitor.meta_type
+Products.ZenModel.MonitorClass.MonitorClass.meta_type
+Products.ZenModel.MultiGraphReport.MultiGraphReport.meta_type
+Products.ZenModel.MultiGraphReportClass.MultiGraphReportClass.meta_type
+Products.ZenModel.OSProcess.OSProcess.meta_type
+Products.ZenModel.OSProcessClass.OSProcessClass.meta_type
+Products.ZenModel.OSProcessOrganizer.OSProcessOrganizer.meta_type
+Products.ZenModel.PerformanceConf.PerformanceConf.meta_type
+Products.ZenModel.PowerSupply.PowerSupply.meta_type
+Products.ZenModel.PrintGraphPoint.PrintGraphPoint.meta_type
+Products.ZenModel.ProductClass.ProductClass.meta_type
+Products.ZenModel.RRDDataPoint.RRDDataPoint.meta_type
+Products.ZenModel.RRDDataPointAlias.RRDDataPointAlias.meta_type
+Products.ZenModel.RRDDataSource.RRDDataSource.meta_type
+Products.ZenModel.RRDGraph.RRDGraph.meta_type
+Products.ZenModel.RRDTemplate.RRDTemplate.meta_type
+Products.ZenModel.RRDThreshold.RRDThreshold.meta_type
+Products.ZenModel.Report.Report.meta_type
+Products.ZenModel.ReportClass.ReportClass.meta_type
+Products.ZenModel.Service.Service.meta_type
+Products.ZenModel.ServiceClass.ServiceClass.meta_type
+Products.ZenModel.ServiceOrganizer.ServiceOrganizer.meta_type
+Products.ZenModel.ShiftGraphPoint.ShiftGraphPoint.meta_type
+Products.ZenModel.Software.Software.meta_type
+Products.ZenModel.SoftwareClass.OSSoftwareClass.meta_type
+Products.ZenModel.SoftwareClass.SoftwareClass.meta_type
+Products.ZenModel.StatusMonitorConf.StatusMonitorConf.meta_type
+Products.ZenModel.System.System.meta_type
+Products.ZenModel.TemperatureSensor.TemperatureSensor.meta_type
+Products.ZenModel.TemplateContainer.TemplateContainer.meta_type
+Products.ZenModel.ThresholdClass.ThresholdClass.meta_type
+Products.ZenModel.ThresholdGraphPoint.ThresholdGraphPoint.meta_type
+Products.ZenModel.TickGraphPoint.TickGraphPoint.meta_type
+Products.ZenModel.UserCommand.UserCommand.meta_type
+Products.ZenModel.UserSettings.GroupSettings.meta_type
+Products.ZenModel.UserSettings.UserSettings.meta_type
+Products.ZenModel.UserSettings.UserSettingsManager.meta_type
+Products.ZenModel.VdefGraphPoint.VdefGraphPoint.meta_type
+Products.ZenModel.VruleGraphPoint.VruleGraphPoint.meta_type
+Products.ZenModel.WinService.WinService.meta_type
+Products.ZenModel.ZDeviceLoader.ZDeviceLoader.meta_type
+Products.ZenModel.ZenMenu.ZenMenu.meta_type
+Products.ZenModel.ZenMenuItem.ZenMenuItem.meta_type
+Products.ZenModel.ZenModelItem.ZenModelItem.meta_type
+Products.ZenModel.ZenModelRM.ZenModelRM.meta_type
+Products.ZenModel.ZenPackManager.ZenPackManager.meta_type
+Products.ZenModel.ZenPackable.ZenPackable.meta_type
+Products.ZenModel.ZenossInfo.ZenossInfo.meta_type
+Products.ZenModel.ZentinelPortal.ZentinelPortal.meta_type
+Products.ZenRRD.RenderServer.RenderServer.meta_type
+Products.ZenRelations.RelationshipManager.RelationshipManager.meta_type
+Products.ZenRelations.ToManyContRelationship.ToManyContRelationship.meta_type
+Products.ZenRelations.ToManyRelationship.ToManyRelationship.meta_type
+Products.ZenRelations.ToOneRelationship.ToOneRelationship.meta_type
+Products.ZenRelations.ZItem.ZItem.meta_type
+Products.ZenUtils.ExtendedPathIndex.ExtendedPathIndex.meta_type
+Products.ZenUtils.MultiPathIndex.MultiPathIndex.meta_type
+Products.ZenWidgets.Portlet.Portlet.meta_type
+Products.ZenWidgets.PortletManager.PortletManager.meta_type
+Products.ZenWidgets.ZenTableManager.ZenTableManager.meta_type" class="py-name" href="#" onclick="return doclink('link-27', 'meta_type', 'link-27');">meta_type</a></tt> <tt class="py-op">!=</tt> <tt class="py-string">"Device"</tt> \ </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">                        <tt class="py-keyword">and</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Method Products.ZenModel.Fan.Fan.viewName()=Products.ZenModel.Fan.Fan-class.html#viewName,Method Products.ZenModel.FileSystem.FileSystem.viewName()=Products.ZenModel.FileSystem.FileSystem-class.html#viewName,Method Products.ZenModel.HardDisk.HardDisk.viewName()=Products.ZenModel.HardDisk.HardDisk-class.html#viewName,Method Products.ZenModel.IpInterface.IpInterface.viewName()=Products.ZenModel.IpInterface.IpInterface-class.html#viewName,Method Products.ZenModel.PowerSupply.PowerSupply.viewName()=Products.ZenModel.PowerSupply.PowerSupply-class.html#viewName,Method Products.ZenModel.TemperatureSensor.TemperatureSensor.viewName()=Products.ZenModel.TemperatureSensor.TemperatureSensor-class.html#viewName,Method Products.ZenModel.ZenModelRM.ZenModelRM.viewName()=Products.ZenModel.ZenModelRM.ZenModelRM-class.html#viewName"><a title="Products.ZenModel.Fan.Fan.viewName
+Products.ZenModel.FileSystem.FileSystem.viewName
+Products.ZenModel.HardDisk.HardDisk.viewName
+Products.ZenModel.IpInterface.IpInterface.viewName
+Products.ZenModel.PowerSupply.PowerSupply.viewName
+Products.ZenModel.TemperatureSensor.TemperatureSensor.viewName
+Products.ZenModel.ZenModelRM.ZenModelRM.viewName" class="py-name" href="#" onclick="return doclink('link-28', 'viewName', 'link-28');">viewName</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-keyword">or</tt> <tt class="py-name">dp</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Variable Products.ZenHub.services.DiscoverService.IpNetProxy.id=Products.ZenHub.services.DiscoverService.IpNetProxy-class.html#id,Method Products.ZenModel.browser.DeviceList.DeviceBatch.id()=Products.ZenModel.browser.DeviceList.DeviceBatch-class.html#id,Variable Products.ZenRRD.zencommand.DataPointConfig.id=Products.ZenRRD.zencommand.DataPointConfig-class.html#id,Variable Products.ZenRelations.ZItem.ZItem.id=Products.ZenRelations.ZItem.ZItem-class.html#id"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-29', 'id', 'link-29');">id</a></tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">                <tt id="link-30" class="py-name"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig.oids" class="py-name" href="#" onclick="return doclink('link-30', 'oids', 'link-9');">oids</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">cname</tt><tt class="py-op">,</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                             <tt id="link-31" class="py-name"><a title="Products.ZenModel.BasicDataSource.BasicDataSource.oid
+Products.ZenModel.MibBase.MibBase.oid" class="py-name" href="#" onclick="return doclink('link-31', 'oid', 'link-17');">oid</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                             <tt class="py-string">"/"</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">basepath</tt><tt class="py-op">,</tt> <tt class="py-name">dp</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Variable Products.DataCollector.SshClient.CommandChannel.name=Products.DataCollector.SshClient.CommandChannel-class.html#name,Variable Products.DataCollector.zendisc.ZenDisc.name=Products.DataCollector.zendisc.ZenDisc-class.html#name,Variable Products.DataCollector.zenmodeler.ZenModeler.name=Products.DataCollector.zenmodeler.ZenModeler-class.html#name,Variable Products.ZenEvents.EventServer.EventServer.name=Products.ZenEvents.EventServer.EventServer-class.html#name,Variable Products.ZenEvents.zenmail.ZenMail.name=Products.ZenEvents.zenmail.ZenMail-class.html#name,Variable Products.ZenEvents.zenpop3.ZenPOP3.name=Products.ZenEvents.zenpop3.ZenPOP3-class.html#name,Variable Products.ZenEvents.zensyslog.ZenSyslog.name=Products.ZenEvents.zensyslog.ZenSyslog-class.html#name,Variable Products.ZenEvents.zentrap.ZenTrap.name=Products.ZenEvents.zentrap.ZenTrap-class.html#name,Method Products.ZenHub.HubService.HubService.name()=Products.ZenHub.HubService.HubService-class.html#name,Variable Products.ZenHub.PBDaemon.PBDaemon.name=Products.ZenHub.PBDaemon.PBDaemon-class.html#name,Variable Products.ZenHub.services.ProcessConfig.ProcessProxy.name=Products.ZenHub.services.ProcessConfig.ProcessProxy-class.html#name,Variable Products.ZenHub.zenhub.ZenHub.name=Products.ZenHub.zenhub.ZenHub-class.html#name,Method Products.ZenModel.Device.Device.name()=Products.ZenModel.Device.Device-class.html#name,Method Products.ZenModel.DeviceComponent.DeviceComponent.name()=Products.ZenModel.DeviceComponent.DeviceComponent-class.html#name,Variable Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name=Products.ZenModel.MaintenanceWindow.MaintenanceWindow-class.html#name,Method Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name()=Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance-class.html#name,Method Products.ZenModel.OSProcess.OSProcess.name()=Products.ZenModel.OSProcess.OSProcess-class.html#name,Variable Products.ZenModel.OSProcessClass.OSProcessClass.name=Products.ZenModel.OSProcessClass.OSProcessClass-class.html#name,Variable Products.ZenModel.ProductClass.ProductClass.name=Products.ZenModel.ProductClass.ProductClass-class.html#name,Method Products.ZenModel.RRDDataPoint.RRDDataPoint.name()=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#name,Method Products.ZenModel.Service.Service.name()=Products.ZenModel.Service.Service-class.html#name,Variable Products.ZenModel.ServiceClass.ServiceClass.name=Products.ZenModel.ServiceClass.ServiceClass-class.html#name,Method Products.ZenModel.Software.Software.name()=Products.ZenModel.Software.Software-class.html#name,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.name()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#name,Method Products.ZenModel.WinService.WinService.name()=Products.ZenModel.WinService.WinService-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLAbout.name=Products.ZenModel.ZenPackLoader.ZPLAbout-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLBin.name=Products.ZenModel.ZenPackLoader.ZPLBin-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDaemons.name=Products.ZenModel.ZenPackLoader.ZPLDaemons-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLDataSources.name=Products.ZenModel.ZenPackLoader.ZPLDataSources-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibExec.name=Products.ZenModel.ZenPackLoader.ZPLLibExec-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLLibraries.name=Products.ZenModel.ZenPackLoader.ZPLLibraries-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLModelers.name=Products.ZenModel.ZenPackLoader.ZPLModelers-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLObject.name=Products.ZenModel.ZenPackLoader.ZPLObject-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLReport.name=Products.ZenModel.ZenPackLoader.ZPLReport-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZPLSkins.name=Products.ZenModel.ZenPackLoader.ZPLSkins-class.html#name,Variable Products.ZenModel.ZenPackLoader.ZenPackLoader.name=Products.ZenModel.ZenPackLoader.ZenPackLoader-class.html#name,Method Products.ZenRRD.zencommand.Cmd.name()=Products.ZenRRD.zencommand.Cmd-class.html#name,Variable Products.ZenRRD.zenrender.zenrender.name=Products.ZenRRD.zenrender.zenrender-class.html#name,Variable Products.ZenStatus.zenping.ZenPing.name=Products.ZenStatus.zenping.ZenPing-class.html#name,Variable Products.ZenStatus.zenstatus.ZenStatus.name=Products.ZenStatus.zenstatus.ZenStatus-class.html#name,Variable Products.ZenUtils.DaemonStats.DaemonStats.name=Products.ZenUtils.DaemonStats.DaemonStats-class.html#name,Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#name,Variable Products.ZenUtils.zencatalog.ZenCatalog.name=Products.ZenUtils.zencatalog.ZenCatalog-class.html#name,Method Products.ZenWin.services.WinServiceConfig.SmartService.name()=Products.ZenWin.services.WinServiceConfig.SmartService-class.html#name"><a title="Products.DataCollector.SshClient.CommandChannel.name
+Products.DataCollector.zendisc.ZenDisc.name
+Products.DataCollector.zenmodeler.ZenModeler.name
+Products.ZenEvents.EventServer.EventServer.name
+Products.ZenEvents.zenmail.ZenMail.name
+Products.ZenEvents.zenpop3.ZenPOP3.name
+Products.ZenEvents.zensyslog.ZenSyslog.name
+Products.ZenEvents.zentrap.ZenTrap.name
+Products.ZenHub.HubService.HubService.name
+Products.ZenHub.PBDaemon.PBDaemon.name
+Products.ZenHub.services.ProcessConfig.ProcessProxy.name
+Products.ZenHub.zenhub.ZenHub.name
+Products.ZenModel.Device.Device.name
+Products.ZenModel.DeviceComponent.DeviceComponent.name
+Products.ZenModel.MaintenanceWindow.MaintenanceWindow.name
+Products.ZenModel.MinMaxThreshold.MinMaxThresholdInstance.name
+Products.ZenModel.OSProcess.OSProcess.name
+Products.ZenModel.OSProcessClass.OSProcessClass.name
+Products.ZenModel.ProductClass.ProductClass.name
+Products.ZenModel.RRDDataPoint.RRDDataPoint.name
+Products.ZenModel.Service.Service.name
+Products.ZenModel.ServiceClass.ServiceClass.name
+Products.ZenModel.Software.Software.name
+Products.ZenModel.ThresholdInstance.ThresholdInstance.name
+Products.ZenModel.WinService.WinService.name
+Products.ZenModel.ZenPackLoader.ZPLAbout.name
+Products.ZenModel.ZenPackLoader.ZPLBin.name
+Products.ZenModel.ZenPackLoader.ZPLDaemons.name
+Products.ZenModel.ZenPackLoader.ZPLDataSources.name
+Products.ZenModel.ZenPackLoader.ZPLLibExec.name
+Products.ZenModel.ZenPackLoader.ZPLLibraries.name
+Products.ZenModel.ZenPackLoader.ZPLModelers.name
+Products.ZenModel.ZenPackLoader.ZPLObject.name
+Products.ZenModel.ZenPackLoader.ZPLReport.name
+Products.ZenModel.ZenPackLoader.ZPLSkins.name
+Products.ZenModel.ZenPackLoader.ZenPackLoader.name
+Products.ZenRRD.zencommand.Cmd.name
+Products.ZenRRD.zenrender.zenrender.name
+Products.ZenStatus.zenping.ZenPing.name
+Products.ZenStatus.zenstatus.ZenStatus.name
+Products.ZenUtils.DaemonStats.DaemonStats.name
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.name
+Products.ZenUtils.zencatalog.ZenCatalog.name
+Products.ZenWin.services.WinServiceConfig.SmartService.name" class="py-name" href="#" onclick="return doclink('link-32', 'name', 'link-32');">name</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                             <tt class="py-name">dp</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Variable Products.ZenModel.RRDDataPoint.RRDDataPoint.rrdtype=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#rrdtype"><a title="Products.ZenModel.RRDDataPoint.RRDDataPoint.rrdtype" class="py-name" href="#" onclick="return doclink('link-33', 'rrdtype', 'link-33');">rrdtype</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                             <tt class="py-name">dp</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Method Products.ZenModel.RRDDataPoint.RRDDataPoint.getRRDCreateCommand()=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#getRRDCreateCommand"><a title="Products.ZenModel.RRDDataPoint.RRDDataPoint.getRRDCreateCommand" class="py-name" href="#" onclick="return doclink('link-34', 'getRRDCreateCommand', 'link-34');">getRRDCreateCommand</a></tt><tt class="py-op">(</tt><tt class="py-name">perfServer</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">                             <tt class="py-op">(</tt><tt class="py-name">dp</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Variable Products.ZenModel.RRDDataPoint.RRDDataPoint.rrdmin=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#rrdmin"><a title="Products.ZenModel.RRDDataPoint.RRDDataPoint.rrdmin" class="py-name" href="#" onclick="return doclink('link-35', 'rrdmin', 'link-35');">rrdmin</a></tt><tt class="py-op">,</tt> <tt class="py-name">dp</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Variable Products.ZenModel.RRDDataPoint.RRDDataPoint.rrdmax=Products.ZenModel.RRDDataPoint.RRDDataPoint-class.html#rrdmax"><a title="Products.ZenModel.RRDDataPoint.RRDDataPoint.rrdmax" class="py-name" href="#" onclick="return doclink('link-36', 'rrdmax', 'link-36');">rrdmax</a></tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">(</tt><tt id="link-37" class="py-name"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig.oids" class="py-name" href="#" onclick="return doclink('link-37', 'oids', 'link-9');">oids</a></tt><tt class="py-op">,</tt> <tt class="py-name">comp</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Method Products.ZenModel.RRDView.RRDView.getThresholdInstances()=Products.ZenModel.RRDView.RRDView-class.html#getThresholdInstances"><a title="Products.ZenModel.RRDView.RRDView.getThresholdInstances" class="py-name" href="#" onclick="return doclink('link-38', 'getThresholdInstances', 'link-38');">getThresholdInstances</a></tt><tt class="py-op">(</tt><tt class="py-string">'SNMP'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="getDeviceConfig"></a><div id="getDeviceConfig-def"><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt> <a class="py-toggle" href="#" id="getDeviceConfig-toggle" onclick="return toggle('getDeviceConfig');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.SnmpPerfConfig-module.html#getDeviceConfig">getDeviceConfig</a><tt class="py-op">(</tt><tt class="py-param">dev</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getDeviceConfig-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getDeviceConfig-expanded"><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-name">dev</tt> <tt class="py-op">=</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Method Products.ZenModel.ZenModelItem.ZenModelItem.primaryAq()=Products.ZenModel.ZenModelItem.ZenModelItem-class.html#primaryAq,Method Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.primaryAq()=Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager-class.html#primaryAq"><a title="Products.ZenModel.ZenModelItem.ZenModelItem.primaryAq
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.primaryAq" class="py-name" href="#" onclick="return doclink('link-39', 'primaryAq', 'link-39');">primaryAq</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method Products.ZenModel.Device.Device.snmpMonitorDevice()=Products.ZenModel.Device.Device-class.html#snmpMonitorDevice"><a title="Products.ZenModel.Device.Device.snmpMonitorDevice" class="py-name" href="#" onclick="return doclink('link-40', 'snmpMonitorDevice', 'link-40');">snmpMonitorDevice</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt id="link-41" class="py-name"><a title="Products.DataCollector.ApplyDataMap.log
+Products.DataCollector.Classifier.log
+Products.DataCollector.CollectorClient.log
+Products.DataCollector.Plugins.log
+Products.DataCollector.PortscanClient.log
+Products.DataCollector.PythonClient.log
+Products.DataCollector.SnmpClient.log
+Products.DataCollector.SshClient.log
+Products.DataCollector.TelnetClient.log
+Products.ZenEvents.ActionRule.log
+Products.ZenEvents.ActionRuleWindow.log
+Products.ZenEvents.CustomEventView.log
+Products.ZenEvents.DbConnectionPool.log
+Products.ZenEvents.EventClass.log
+Products.ZenEvents.EventClassInst.log
+Products.ZenEvents.EventManagerBase.log
+Products.ZenEvents.MailProcessor.log
+Products.ZenEvents.MySqlEventManager.log
+Products.ZenEvents.MySqlSendEvent.log
+Products.ZenEvents.zenmail.log
+Products.ZenEvents.zenpop3.log
+Products.ZenHub.services.CommandConfig.log
+Products.ZenHub.services.DiscoverService.log
+Products.ZenHub.services.ModelerService.log
+Products.ZenHub.services.RRDImpl.log
+Products.ZenHub.services.RRDService.log
+Products.ZenHub.services.SnmpPerfConfig.log
+Products.ZenHub.services.ZenRender.log
+Products.ZenModel.Commandable.log
+Products.ZenModel.Device.log
+Products.ZenModel.DeviceClass.log
+Products.ZenModel.EventView.log
+Products.ZenModel.GraphDefinition.GraphDefinition.log
+Products.ZenModel.GraphDefinition.log
+Products.ZenModel.IpAddress.log
+Products.ZenModel.IpInterface.log
+Products.ZenModel.IpNetwork.log
+Products.ZenModel.IpRouteEntry.log
+Products.ZenModel.MaintenanceWindow.log
+Products.ZenModel.MaintenanceWindowable.log
+Products.ZenModel.ManagedEntity.log
+Products.ZenModel.ManufacturerRoot.log
+Products.ZenModel.MinMaxThreshold.log
+Products.ZenModel.OSProcessOrganizer.log
+Products.ZenModel.OperatingSystem.log
+Products.ZenModel.PerformanceConf.log
+Products.ZenModel.RRDGraph.RRDGraph.log
+Products.ZenModel.RRDTemplate.log
+Products.ZenModel.RRDView.log
+Products.ZenModel.ServiceOrganizer.log
+Products.ZenModel.UserSettings.log
+Products.ZenModel.ZDeviceLoader.log
+Products.ZenModel.ZenMenu.log
+Products.ZenModel.ZenMenuItem.log
+Products.ZenModel.ZenPackLoader.log
+Products.ZenModel.ZenPackPersistence.log
+Products.ZenModel.ZenossInfo.log
+Products.ZenModel.log
+Products.ZenRRD.CommandParser.log
+Products.ZenRRD.ComponentCommandParser.log
+Products.ZenRRD.RRDUtil.log
+Products.ZenRRD.RenderServer.log
+Products.ZenRRD.Thresholds.log
+Products.ZenRRD.parsers.ps.log
+Products.ZenRRD.parsers.uptime.log
+Products.ZenRRD.zencommand.log
+Products.ZenRRD.zenperfsnmp.log
+Products.ZenRRD.zenprocess.log
+Products.ZenRRD.zenstep.log
+Products.ZenRRD.zentestcommand.log
+Products.ZenRelations.PrimaryPathObjectManager.log
+Products.ZenRelations.RelationshipBase.log
+Products.ZenRelations.RelationshipManager.log
+Products.ZenRelations.ToManyContRelationship.log
+Products.ZenRelations.ToManyRelationship.log
+Products.ZenRelations.ToManyRelationshipBase.log
+Products.ZenRelations.ToOneRelationship.log
+Products.ZenRelations.ZenPropertyManager.log
+Products.ZenRelations.log
+Products.ZenStatus.AsyncPing.log
+Products.ZenStatus.ZenTcpClient.log
+Products.ZenStatus.pingtree.log
+Products.ZenUtils.DaemonStats.log
+Products.ZenUtils.PortScan.log
+Products.ZenUtils.ProcessQueue.log
+Products.ZenUtils.Utils.log
+Products.ZenUtils.Watchdog.log
+Products.ZenUtils.ZenCheckRRD.log
+Products.ZenUtils.ZenDeleteHistory.log
+Products.ZenUtils.ZenPackCmd.log
+Products.ZenUtils.extdirect.router.log
+Products.ZenUtils.zencatalog.log
+Products.ZenWin.WMIClient.log
+Products.ZenWin.Watcher.log
+Products.ZenWin.services.EventLogConfig.log
+Products.ZenWin.services.WinServiceConfig.log
+Products.ZenWin.zeneventlog.log
+Products.ZenWin.zenwin.log" class="py-name" href="#" onclick="return doclink('link-41', 'log', 'link-8');">log</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"skipping %s SNMP monitoring disabled"</tt><tt class="py-op">,</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-42', 'id', 'link-29');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    <tt id="link-43" class="py-name" targets="Variable Products.DataCollector.TelnetClient.TelnetClientProtocol.result=Products.DataCollector.TelnetClient.TelnetClientProtocol-class.html#result,Variable Products.ZenRRD.zencommand.Cmd.result=Products.ZenRRD.zencommand.Cmd-class.html#result,Method Products.ZenUtils.Driver.Driver.result()=Products.ZenUtils.Driver.Driver-class.html#result"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-43', 'result', 'link-43');">result</a></tt> <tt class="py-op">=</tt> <tt id="link-44" class="py-name"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig
+Products.ZenUtils.snmp.SnmpConfig" class="py-name" href="#" onclick="return doclink('link-44', 'SnmpConfig', 'link-7');">SnmpConfig</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt id="link-45" class="py-name"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig.oids" class="py-name" href="#" onclick="return doclink('link-45', 'oids', 'link-9');">oids</a></tt><tt class="py-op">,</tt> <tt class="py-name">threshs</tt> <tt class="py-op">=</tt> <tt id="link-46" class="py-name" targets="Function Products.ZenHub.services.SnmpPerfConfig.getComponentConfig()=Products.ZenHub.services.SnmpPerfConfig-module.html#getComponentConfig"><a title="Products.ZenHub.services.SnmpPerfConfig.getComponentConfig" class="py-name" href="#" onclick="return doclink('link-46', 'getComponentConfig', 'link-46');">getComponentConfig</a></tt><tt class="py-op">(</tt><tt class="py-name">dev</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">comp</tt> <tt class="py-keyword">in</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method Products.ZenModel.Device.Device.getMonitoredComponents()=Products.ZenModel.Device.Device-class.html#getMonitoredComponents,Method Products.ZenModel.DeviceClass.DeviceClass.getMonitoredComponents()=Products.ZenModel.DeviceClass.DeviceClass-class.html#getMonitoredComponents,Method Products.ZenModel.DeviceOrganizer.DeviceOrganizer.getMonitoredComponents()=Products.ZenModel.DeviceOrganizer.DeviceOrganizer-class.html#getMonitoredComponents"><a title="Products.ZenModel.Device.Device.getMonitoredComponents
+Products.ZenModel.DeviceClass.DeviceClass.getMonitoredComponents
+Products.ZenModel.DeviceOrganizer.DeviceOrganizer.getMonitoredComponents" class="py-name" href="#" onclick="return doclink('link-47', 'getMonitoredComponents', 'link-47');">getMonitoredComponents</a></tt><tt class="py-op">(</tt><tt class="py-name">collector</tt><tt class="py-op">=</tt><tt class="py-string">"zenperfsnmp"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-name">cfg</tt> <tt class="py-op">=</tt> <tt id="link-48" class="py-name"><a title="Products.ZenHub.services.SnmpPerfConfig.getComponentConfig" class="py-name" href="#" onclick="return doclink('link-48', 'getComponentConfig', 'link-46');">getComponentConfig</a></tt><tt class="py-op">(</tt><tt class="py-name">comp</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">cfg</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">            <tt id="link-49" class="py-name"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig.oids" class="py-name" href="#" onclick="return doclink('link-49', 'oids', 'link-9');">oids</a></tt><tt class="py-op">.</tt><tt class="py-name">extend</tt><tt class="py-op">(</tt><tt class="py-name">cfg</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt class="py-name">threshs</tt><tt class="py-op">.</tt><tt class="py-name">extend</tt><tt class="py-op">(</tt><tt class="py-name">cfg</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt id="link-50" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-50', 'result', 'link-43');">result</a></tt><tt class="py-op">.</tt><tt id="link-51" class="py-name" targets="Variable Products.ZenRRD.zenperfsnmp.SnmpConfig.lastChangeTime=Products.ZenRRD.zenperfsnmp.SnmpConfig-class.html#lastChangeTime"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig.lastChangeTime" class="py-name" href="#" onclick="return doclink('link-51', 'lastChangeTime', 'link-51');">lastChangeTime</a></tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Method Products.ZenModel.Device.Device.getLastChange()=Products.ZenModel.Device.Device-class.html#getLastChange"><a title="Products.ZenModel.Device.Device.getLastChange" class="py-name" href="#" onclick="return doclink('link-52', 'getLastChange', 'link-52');">getLastChange</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt id="link-53" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-53', 'result', 'link-43');">result</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-54', 'device', 'link-12');">device</a></tt> <tt class="py-op">=</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-55', 'id', 'link-29');">id</a></tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">    <tt id="link-56" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-56', 'result', 'link-43');">result</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name" targets="Variable Products.ZenRRD.zenperfsnmp.SnmpConfig.connInfo=Products.ZenRRD.zenperfsnmp.SnmpConfig-class.html#connInfo"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig.connInfo" class="py-name" href="#" onclick="return doclink('link-57', 'connInfo', 'link-57');">connInfo</a></tt> <tt class="py-op">=</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name" targets="Method Products.ZenModel.Device.Device.getSnmpConnInfo()=Products.ZenModel.Device.Device-class.html#getSnmpConnInfo"><a title="Products.ZenModel.Device.Device.getSnmpConnInfo" class="py-name" href="#" onclick="return doclink('link-58', 'getSnmpConnInfo', 'link-58');">getSnmpConnInfo</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt id="link-59" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-59', 'result', 'link-43');">result</a></tt><tt class="py-op">.</tt><tt id="link-60" class="py-name" targets="Method Products.ZenModel.RRDGraph.RRDGraph.thresholds()=Products.ZenModel.RRDGraph.RRDGraph-class.html#thresholds,Variable Products.ZenRRD.RRDDaemon.RRDDaemon.thresholds=Products.ZenRRD.RRDDaemon.RRDDaemon-class.html#thresholds,Variable Products.ZenRRD.zenperfsnmp.SnmpConfig.thresholds=Products.ZenRRD.zenperfsnmp.SnmpConfig-class.html#thresholds"><a title="Products.ZenModel.RRDGraph.RRDGraph.thresholds
+Products.ZenRRD.RRDDaemon.RRDDaemon.thresholds
+Products.ZenRRD.zenperfsnmp.SnmpConfig.thresholds" class="py-name" href="#" onclick="return doclink('link-60', 'thresholds', 'link-60');">thresholds</a></tt> <tt class="py-op">=</tt> <tt class="py-name">threshs</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt id="link-61" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-61', 'result', 'link-43');">result</a></tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig.oids" class="py-name" href="#" onclick="return doclink('link-62', 'oids', 'link-9');">oids</a></tt> <tt class="py-op">=</tt> <tt id="link-63" class="py-name"><a title="Products.ZenRRD.zenperfsnmp.SnmpConfig.oids" class="py-name" href="#" onclick="return doclink('link-63', 'oids', 'link-9');">oids</a></tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-64" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-64', 'result', 'link-43');">result</a></tt> </tt>
+</div><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
+<a name="SnmpPerfConfig"></a><div id="SnmpPerfConfig-def"><a name="L67"></a><tt class="py-lineno"> 67</tt> <a class="py-toggle" href="#" id="SnmpPerfConfig-toggle" onclick="return toggle('SnmpPerfConfig');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html">SnmpPerfConfig</a><tt class="py-op">(</tt><tt class="py-base-class">PerformanceConfig</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SnmpPerfConfig-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SnmpPerfConfig-expanded"><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">translateError</tt> </tt>
+<a name="SnmpPerfConfig.remote_getDevices"></a><div id="SnmpPerfConfig.remote_getDevices-def"><a name="L70"></a><tt class="py-lineno"> 70</tt> <a class="py-toggle" href="#" id="SnmpPerfConfig.remote_getDevices-toggle" onclick="return toggle('SnmpPerfConfig.remote_getDevices');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#remote_getDevices">remote_getDevices</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">devices</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SnmpPerfConfig.remote_getDevices-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SnmpPerfConfig.remote_getDevices-expanded"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return the subset of devices that should be monitored.</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">        If devices is empty, then all the monitored devices are given.</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">devices</tt><tt class="py-op">:</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">devices</tt><tt class="py-op">,</tt> <tt id="link-65" class="py-name" targets="Method Products.ZenModel.ZenPack.ZenPack.list()=Products.ZenModel.ZenPack.ZenPack-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLAbout.list()=Products.ZenModel.ZenPackLoader.ZPLAbout-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLBin.list()=Products.ZenModel.ZenPackLoader.ZPLBin-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLDaemons.list()=Products.ZenModel.ZenPackLoader.ZPLDaemons-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLDataSources.list()=Products.ZenModel.ZenPackLoader.ZPLDataSources-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLLibExec.list()=Products.ZenModel.ZenPackLoader.ZPLLibExec-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLLibraries.list()=Products.ZenModel.ZenPackLoader.ZPLLibraries-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLModelers.list()=Products.ZenModel.ZenPackLoader.ZPLModelers-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLObject.list()=Products.ZenModel.ZenPackLoader.ZPLObject-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLReport.list()=Products.ZenModel.ZenPackLoader.ZPLReport-class.html#list,Method Products.ZenModel.ZenPackLoader.ZPLSkins.list()=Products.ZenModel.ZenPackLoader.ZPLSkins-class.html#list,Method Products.ZenModel.ZenPackLoader.ZenPackLoader.list()=Products.ZenModel.ZenPackLoader.ZenPackLoader-class.html#list"><a title="Products.ZenModel.ZenPack.ZenPack.list
+Products.ZenModel.ZenPackLoader.ZPLAbout.list
+Products.ZenModel.ZenPackLoader.ZPLBin.list
+Products.ZenModel.ZenPackLoader.ZPLDaemons.list
+Products.ZenModel.ZenPackLoader.ZPLDataSources.list
+Products.ZenModel.ZenPackLoader.ZPLLibExec.list
+Products.ZenModel.ZenPackLoader.ZPLLibraries.list
+Products.ZenModel.ZenPackLoader.ZPLModelers.list
+Products.ZenModel.ZenPackLoader.ZPLObject.list
+Products.ZenModel.ZenPackLoader.ZPLReport.list
+Products.ZenModel.ZenPackLoader.ZPLSkins.list
+Products.ZenModel.ZenPackLoader.ZenPackLoader.list" class="py-name" href="#" onclick="return doclink('link-65', 'list', 'link-65');">list</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                <tt class="py-name">devices</tt> <tt class="py-op">=</tt> <tt class="py-name">Set</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">devices</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt class="py-name">devices</tt> <tt class="py-op">=</tt> <tt class="py-name">Set</tt><tt class="py-op">(</tt><tt class="py-name">devices</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt id="link-66" class="py-name" targets="Module Products.ZenUtils.snmp=Products.ZenUtils.snmp-module.html"><a title="Products.ZenUtils.snmp" class="py-name" href="#" onclick="return doclink('link-66', 'snmp', 'link-66');">snmp</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">dev</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name" targets="Method Products.DataCollector.zendisc.ZenDisc.config()=Products.DataCollector.zendisc.ZenDisc-class.html#config,Method Products.DataCollector.zenmodeler.ZenModeler.config()=Products.DataCollector.zenmodeler.ZenModeler-class.html#config,Method Products.ZenStatus.zenping.ZenPing.config()=Products.ZenStatus.zenping.ZenPing-class.html#config,Method Products.ZenUtils.DaemonStats.DaemonStats.config()=Products.ZenUtils.DaemonStats.DaemonStats-class.html#config"><a title="Products.DataCollector.zendisc.ZenDisc.config
+Products.DataCollector.zenmodeler.ZenModeler.config
+Products.ZenStatus.zenping.ZenPing.config
+Products.ZenUtils.DaemonStats.DaemonStats.config" class="py-name" href="#" onclick="return doclink('link-67', 'config', 'link-67');">config</a></tt><tt class="py-op">.</tt><tt class="py-name">devices</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">devices</tt> <tt class="py-keyword">and</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-68', 'id', 'link-29');">id</a></tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">devices</tt><tt class="py-op">:</tt> <tt class="py-keyword">continue</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-name">dev</tt> <tt class="py-op">=</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="Products.ZenModel.ZenModelItem.ZenModelItem.primaryAq
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.primaryAq" class="py-name" href="#" onclick="return doclink('link-69', 'primaryAq', 'link-39');">primaryAq</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="Products.ZenModel.Device.Device.snmpMonitorDevice" class="py-name" href="#" onclick="return doclink('link-70', 'snmpMonitorDevice', 'link-40');">snmpMonitorDevice</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                <tt id="link-71" class="py-name"><a title="Products.ZenUtils.snmp" class="py-name" href="#" onclick="return doclink('link-71', 'snmp', 'link-66');">snmp</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-72', 'id', 'link-29');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-73" class="py-name"><a title="Products.ZenUtils.snmp" class="py-name" href="#" onclick="return doclink('link-73', 'snmp', 'link-66');">snmp</a></tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"> </tt>
+<a name="SnmpPerfConfig.getDeviceConfig"></a><div id="SnmpPerfConfig.getDeviceConfig-def"><a name="L89"></a><tt class="py-lineno"> 89</tt> <a class="py-toggle" href="#" id="SnmpPerfConfig.getDeviceConfig-toggle" onclick="return toggle('SnmpPerfConfig.getDeviceConfig');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#getDeviceConfig">getDeviceConfig</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">device</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SnmpPerfConfig.getDeviceConfig-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SnmpPerfConfig.getDeviceConfig-expanded"><a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-docstring">"Fill in the template method to push our configs"</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-74" class="py-name" targets="Method Products.ZenHub.services.CommandConfig.CommandConfig.getDeviceConfig()=Products.ZenHub.services.CommandConfig.CommandConfig-class.html#getDeviceConfig,Method Products.ZenHub.services.PerformanceConfig.PerformanceConfig.getDeviceConfig()=Products.ZenHub.services.PerformanceConfig.PerformanceConfig-class.html#getDeviceConfig,Method Products.ZenHub.services.PingConfig.PingConfig.getDeviceConfig()=Products.ZenHub.services.PingConfig.PingConfig-class.html#getDeviceConfig,Method Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.getDeviceConfig()=Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#getDeviceConfig,Function Products.ZenHub.services.SnmpPerfConfig.getDeviceConfig()=Products.ZenHub.services.SnmpPerfConfig-module.html#getDeviceConfig"><a title="Products.ZenHub.services.CommandConfig.CommandConfig.getDeviceConfig
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig.getDeviceConfig
+Products.ZenHub.services.PingConfig.PingConfig.getDeviceConfig
+Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.getDeviceConfig
+Products.ZenHub.services.SnmpPerfConfig.getDeviceConfig" class="py-name" href="#" onclick="return doclink('link-74', 'getDeviceConfig', 'link-74');">getDeviceConfig</a></tt><tt class="py-op">(</tt><tt id="link-75" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-75', 'device', 'link-12');">device</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">translateError</tt> </tt>
+<a name="SnmpPerfConfig.remote_getDeviceConfigs"></a><div id="SnmpPerfConfig.remote_getDeviceConfigs-def"><a name="L95"></a><tt class="py-lineno"> 95</tt> <a class="py-toggle" href="#" id="SnmpPerfConfig.remote_getDeviceConfigs-toggle" onclick="return toggle('SnmpPerfConfig.remote_getDeviceConfigs');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#remote_getDeviceConfigs">remote_getDeviceConfigs</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">devices</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SnmpPerfConfig.remote_getDeviceConfigs-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SnmpPerfConfig.remote_getDeviceConfigs-expanded"><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-docstring">"Fetch the configs for the given devices"</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt id="link-76" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-76', 'result', 'link-43');">result</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">d</tt> <tt class="py-keyword">in</tt> <tt class="py-name">devices</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt id="link-77" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-77', 'device', 'link-12');">device</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name" targets="Method Products.ZenHub.HubService.HubService.getPerformanceMonitor()=Products.ZenHub.HubService.HubService-class.html#getPerformanceMonitor,Method Products.ZenModel.MonitorClass.MonitorClass.getPerformanceMonitor()=Products.ZenModel.MonitorClass.MonitorClass-class.html#getPerformanceMonitor"><a title="Products.ZenHub.HubService.HubService.getPerformanceMonitor
+Products.ZenModel.MonitorClass.MonitorClass.getPerformanceMonitor" class="py-name" href="#" onclick="return doclink('link-78', 'getPerformanceMonitor', 'link-78');">getPerformanceMonitor</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt id="link-79" class="py-name" targets="Method Products.ZenModel.DeviceClass.DeviceClass.findDevice()=Products.ZenModel.DeviceClass.DeviceClass-class.html#findDevice,Method Products.ZenModel.PerformanceConf.PerformanceConf.findDevice()=Products.ZenModel.PerformanceConf.PerformanceConf-class.html#findDevice,Method Products.ZenUtils.ZCmdBase.ZCmdBase.findDevice()=Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#findDevice,Method Products.ZenUtils.ZenScriptBase.ZenScriptBase.findDevice()=Products.ZenUtils.ZenScriptBase.ZenScriptBase-class.html#findDevice"><a title="Products.ZenModel.DeviceClass.DeviceClass.findDevice
+Products.ZenModel.PerformanceConf.PerformanceConf.findDevice
+Products.ZenUtils.ZCmdBase.ZCmdBase.findDevice
+Products.ZenUtils.ZenScriptBase.ZenScriptBase.findDevice" class="py-name" href="#" onclick="return doclink('link-79', 'findDevice', 'link-79');">findDevice</a></tt><tt class="py-op">(</tt><tt class="py-name">d</tt><tt class="py-op">)</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-80" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-80', 'device', 'link-12');">device</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                <tt id="link-81" class="py-name"><a title="Products.DataCollector.zendisc.ZenDisc.config
+Products.DataCollector.zenmodeler.ZenModeler.config
+Products.ZenStatus.zenping.ZenPing.config
+Products.ZenUtils.DaemonStats.DaemonStats.config" class="py-name" href="#" onclick="return doclink('link-81', 'config', 'link-67');">config</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="Products.ZenHub.services.CommandConfig.CommandConfig.getDeviceConfig
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig.getDeviceConfig
+Products.ZenHub.services.PingConfig.PingConfig.getDeviceConfig
+Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.getDeviceConfig
+Products.ZenHub.services.SnmpPerfConfig.getDeviceConfig" class="py-name" href="#" onclick="return doclink('link-82', 'getDeviceConfig', 'link-74');">getDeviceConfig</a></tt><tt class="py-op">(</tt><tt id="link-83" class="py-name"><a title="Products.ZenModel.Device.Device.device
+Products.ZenModel.DeviceHW.DeviceHW.device
+Products.ZenModel.GraphDefinition.FakeContext.device
+Products.ZenModel.HWComponent.HWComponent.device
+Products.ZenModel.IpAddress.IpAddress.device
+Products.ZenModel.ManagedEntity.ManagedEntity.device
+Products.ZenModel.OSComponent.OSComponent.device
+Products.ZenModel.OperatingSystem.OperatingSystem.device
+Products.ZenModel.Software.Software.device
+Products.ZenRRD.zencommand.DeviceConfig.device
+Products.ZenRRD.zenperfsnmp.SnmpConfig.device" class="py-name" href="#" onclick="return doclink('link-83', 'device', 'link-12');">device</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-84" class="py-name"><a title="Products.DataCollector.zendisc.ZenDisc.config
+Products.DataCollector.zenmodeler.ZenModeler.config
+Products.ZenStatus.zenping.ZenPing.config
+Products.ZenUtils.DaemonStats.DaemonStats.config" class="py-name" href="#" onclick="return doclink('link-84', 'config', 'link-67');">config</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                    <tt id="link-85" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-85', 'result', 'link-43');">result</a></tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt id="link-86" class="py-name"><a title="Products.DataCollector.zendisc.ZenDisc.config
+Products.DataCollector.zenmodeler.ZenModeler.config
+Products.ZenStatus.zenping.ZenPing.config
+Products.ZenUtils.DaemonStats.DaemonStats.config" class="py-name" href="#" onclick="return doclink('link-86', 'config', 'link-67');">config</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-87" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.result
+Products.ZenRRD.zencommand.Cmd.result
+Products.ZenUtils.Driver.Driver.result" class="py-name" href="#" onclick="return doclink('link-87', 'result', 'link-43');">result</a></tt> </tt>
+</div><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">translateError</tt> </tt>
+<a name="SnmpPerfConfig.remote_getDeviceUpdates"></a><div id="SnmpPerfConfig.remote_getDeviceUpdates-def"><a name="L108"></a><tt class="py-lineno">108</tt> <a class="py-toggle" href="#" id="SnmpPerfConfig.remote_getDeviceUpdates-toggle" onclick="return toggle('SnmpPerfConfig.remote_getDeviceUpdates');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#remote_getDeviceUpdates">remote_getDeviceUpdates</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">devices</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SnmpPerfConfig.remote_getDeviceUpdates-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SnmpPerfConfig.remote_getDeviceUpdates-expanded"><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-docstring">"""Return a list of devices that have changed.</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">        Takes a list of known devices and the time of last known change.</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">        The result is a list of devices that have changed,</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">        or not in the list."""</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-name">lastChanged</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">devices</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-name">new</tt> <tt class="py-op">=</tt> <tt class="py-name">Set</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-name">all</tt> <tt class="py-op">=</tt> <tt class="py-name">Set</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">dev</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-88" class="py-name"><a title="Products.DataCollector.zendisc.ZenDisc.config
+Products.DataCollector.zenmodeler.ZenModeler.config
+Products.ZenStatus.zenping.ZenPing.config
+Products.ZenUtils.DaemonStats.DaemonStats.config" class="py-name" href="#" onclick="return doclink('link-88', 'config', 'link-67');">config</a></tt><tt class="py-op">.</tt><tt class="py-name">devices</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-name">dev</tt> <tt class="py-op">=</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-89" class="py-name"><a title="Products.ZenModel.ZenModelItem.ZenModelItem.primaryAq
+Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager.primaryAq" class="py-name" href="#" onclick="return doclink('link-89', 'primaryAq', 'link-39');">primaryAq</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-90" class="py-name"><a title="Products.ZenModel.Device.Device.snmpMonitorDevice" class="py-name" href="#" onclick="return doclink('link-90', 'snmpMonitorDevice', 'link-40');">snmpMonitorDevice</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">                <tt class="py-name">all</tt><tt class="py-op">.</tt><tt id="link-91" class="py-name" targets="Method Products.ZenEvents.EventServer.Stats.add()=Products.ZenEvents.EventServer.Stats-class.html#add,Method Products.ZenRRD.Thresholds.Thresholds.add()=Products.ZenRRD.Thresholds.Thresholds-class.html#add"><a title="Products.ZenEvents.EventServer.Stats.add
+Products.ZenRRD.Thresholds.Thresholds.add" class="py-name" href="#" onclick="return doclink('link-91', 'add', 'link-91');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-92" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-92', 'id', 'link-29');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">lastChanged</tt><tt class="py-op">.</tt><tt id="link-93" class="py-name" targets="Method Products.ZenEvents.DbConnectionPool.DbConnectionPool.get()=Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#get,Method Products.ZenRRD.zencommand.SshPool.get()=Products.ZenRRD.zencommand.SshPool-class.html#get,Method Products.ZenUtils.Map.Locked.get()=Products.ZenUtils.Map.Locked-class.html#get,Method Products.ZenUtils.Map.Timed.get()=Products.ZenUtils.Map.Timed-class.html#get"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.get
+Products.ZenRRD.zencommand.SshPool.get
+Products.ZenUtils.Map.Locked.get
+Products.ZenUtils.Map.Timed.get" class="py-name" href="#" onclick="return doclink('link-93', 'get', 'link-93');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-94" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-94', 'id', 'link-29');">id</a></tt><tt class="py-op">,</tt> <tt class="py-number">0</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-95" class="py-name"><a title="Products.ZenModel.Device.Device.getLastChange" class="py-name" href="#" onclick="return doclink('link-95', 'getLastChange', 'link-52');">getLastChange</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">                    <tt class="py-name">new</tt><tt class="py-op">.</tt><tt id="link-96" class="py-name"><a title="Products.ZenEvents.EventServer.Stats.add
+Products.ZenRRD.Thresholds.Thresholds.add" class="py-name" href="#" onclick="return doclink('link-96', 'add', 'link-91');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">dev</tt><tt class="py-op">.</tt><tt id="link-97" class="py-name"><a title="Products.ZenHub.services.DiscoverService.IpNetProxy.id
+Products.ZenModel.browser.DeviceList.DeviceBatch.id
+Products.ZenRRD.zencommand.DataPointConfig.id
+Products.ZenRelations.ZItem.ZItem.id" class="py-name" href="#" onclick="return doclink('link-97', 'id', 'link-29');">id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt id="link-98" class="py-name" targets="Method Products.ZenHub.HubService.HubService.deleted()=Products.ZenHub.HubService.HubService-class.html#deleted,Method Products.ZenHub.services.PerformanceConfig.PerformanceConfig.deleted()=Products.ZenHub.services.PerformanceConfig.PerformanceConfig-class.html#deleted,Method Products.ZenHub.services.StatusConfig.StatusConfig.deleted()=Products.ZenHub.services.StatusConfig.StatusConfig-class.html#deleted,Method Products.ZenHub.zenhub.WorkerInterceptor.deleted()=Products.ZenHub.zenhub.WorkerInterceptor-class.html#deleted,Method Products.ZenRRD.zenprocess.ConfigListener.deleted()=Products.ZenRRD.zenprocess.ConfigListener-class.html#deleted"><a title="Products.ZenHub.HubService.HubService.deleted
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig.deleted
+Products.ZenHub.services.StatusConfig.StatusConfig.deleted
+Products.ZenHub.zenhub.WorkerInterceptor.deleted
+Products.ZenRRD.zenprocess.ConfigListener.deleted" class="py-name" href="#" onclick="return doclink('link-98', 'deleted', 'link-98');">deleted</a></tt> <tt class="py-op">=</tt> <tt class="py-name">Set</tt><tt class="py-op">(</tt><tt class="py-name">lastChanged</tt><tt class="py-op">.</tt><tt id="link-99" class="py-name" targets="Variable Products.ZenEvents.zengensyslog.keys=Products.ZenEvents.zengensyslog-module.html#keys,Method Products.ZenWidgets.ZenTableState.ZenTableState.keys()=Products.ZenWidgets.ZenTableState.ZenTableState-class.html#keys"><a title="Products.ZenEvents.zengensyslog.keys
+Products.ZenWidgets.ZenTableState.ZenTableState.keys" class="py-name" href="#" onclick="return doclink('link-99', 'keys', 'link-99');">keys</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-name">all</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-100" class="py-name"><a title="Products.ZenModel.ZenPack.ZenPack.list
+Products.ZenModel.ZenPackLoader.ZPLAbout.list
+Products.ZenModel.ZenPackLoader.ZPLBin.list
+Products.ZenModel.ZenPackLoader.ZPLDaemons.list
+Products.ZenModel.ZenPackLoader.ZPLDataSources.list
+Products.ZenModel.ZenPackLoader.ZPLLibExec.list
+Products.ZenModel.ZenPackLoader.ZPLLibraries.list
+Products.ZenModel.ZenPackLoader.ZPLModelers.list
+Products.ZenModel.ZenPackLoader.ZPLObject.list
+Products.ZenModel.ZenPackLoader.ZPLReport.list
+Products.ZenModel.ZenPackLoader.ZPLSkins.list
+Products.ZenModel.ZenPackLoader.ZenPackLoader.list" class="py-name" href="#" onclick="return doclink('link-100', 'list', 'link-65');">list</a></tt><tt class="py-op">(</tt><tt class="py-name">new</tt> <tt class="py-op">|</tt> <tt id="link-101" class="py-name"><a title="Products.ZenHub.HubService.HubService.deleted
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig.deleted
+Products.ZenHub.services.StatusConfig.StatusConfig.deleted
+Products.ZenHub.zenhub.WorkerInterceptor.deleted
+Products.ZenRRD.zenprocess.ConfigListener.deleted" class="py-name" href="#" onclick="return doclink('link-101', 'deleted', 'link-98');">deleted</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"> </tt>
+<a name="SnmpPerfConfig.sendDeviceConfig"></a><div id="SnmpPerfConfig.sendDeviceConfig-def"><a name="L126"></a><tt class="py-lineno">126</tt> <a class="py-toggle" href="#" id="SnmpPerfConfig.sendDeviceConfig-toggle" onclick="return toggle('SnmpPerfConfig.sendDeviceConfig');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#sendDeviceConfig">sendDeviceConfig</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">listener</tt><tt class="py-op">,</tt> <tt class="py-param">config</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SnmpPerfConfig.sendDeviceConfig-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SnmpPerfConfig.sendDeviceConfig-expanded"><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-docstring">"Template method helper for PerformanceConfig.pushConfig"</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">listener</tt><tt class="py-op">.</tt><tt id="link-102" class="py-name" targets="Method Products.ZenHub.PBDaemon.FakeRemote.callRemote()=Products.ZenHub.PBDaemon.FakeRemote-class.html#callRemote"><a title="Products.ZenHub.PBDaemon.FakeRemote.callRemote" class="py-name" href="#" onclick="return doclink('link-102', 'callRemote', 'link-102');">callRemote</a></tt><tt class="py-op">(</tt><tt class="py-string">'updateDeviceConfig'</tt><tt class="py-op">,</tt> <tt id="link-103" class="py-name"><a title="Products.DataCollector.zendisc.ZenDisc.config
+Products.DataCollector.zenmodeler.ZenModeler.config
+Products.ZenStatus.zenping.ZenPing.config
+Products.ZenUtils.DaemonStats.DaemonStats.config" class="py-name" href="#" onclick="return doclink('link-103', 'config', 'link-67');">config</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"> </tt>
+<a name="SnmpPerfConfig.update"></a><div id="SnmpPerfConfig.update-def"><a name="L131"></a><tt class="py-lineno">131</tt> <a class="py-toggle" href="#" id="SnmpPerfConfig.update-toggle" onclick="return toggle('SnmpPerfConfig.update');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#update">update</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SnmpPerfConfig.update-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="SnmpPerfConfig.update-expanded"><a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-104" class="py-name" targets="Package Products.ZenModel=Products.ZenModel-module.html"><a title="Products.ZenModel" class="py-name" href="#" onclick="return doclink('link-104', 'ZenModel', 'link-104');">ZenModel</a></tt><tt class="py-op">.</tt><tt id="link-105" class="py-name" targets="Module Products.ZenModel.RRDDataSource=Products.ZenModel.RRDDataSource-module.html,Class Products.ZenModel.RRDDataSource.RRDDataSource=Products.ZenModel.RRDDataSource.RRDDataSource-class.html"><a title="Products.ZenModel.RRDDataSource
+Products.ZenModel.RRDDataSource.RRDDataSource" class="py-name" href="#" onclick="return doclink('link-105', 'RRDDataSource', 'link-105');">RRDDataSource</a></tt> <tt class="py-keyword">import</tt> <tt id="link-106" class="py-name"><a title="Products.ZenModel.RRDDataSource
+Products.ZenModel.RRDDataSource.RRDDataSource" class="py-name" href="#" onclick="return doclink('link-106', 'RRDDataSource', 'link-105');">RRDDataSource</a></tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-107" class="py-name" targets="Class object=object-class.html"><a title="object" class="py-name" href="#" onclick="return doclink('link-107', 'object', 'link-107');">object</a></tt><tt class="py-op">,</tt> <tt id="link-108" class="py-name"><a title="Products.ZenModel.RRDDataSource
+Products.ZenModel.RRDDataSource.RRDDataSource" class="py-name" href="#" onclick="return doclink('link-108', 'RRDDataSource', 'link-105');">RRDDataSource</a></tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-109" class="py-name"><a title="object" class="py-name" href="#" onclick="return doclink('link-109', 'object', 'link-107');">object</a></tt><tt class="py-op">.</tt><tt id="link-110" class="py-name" targets="Variable Products.ZenModel.BasicDataSource.BasicDataSource.sourcetype=Products.ZenModel.BasicDataSource.BasicDataSource-class.html#sourcetype,Variable Products.ZenModel.BuiltInDS.BuiltInDS.sourcetype=Products.ZenModel.BuiltInDS.BuiltInDS-class.html#sourcetype,Variable Products.ZenModel.RRDDataSource.RRDDataSource.sourcetype=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#sourcetype"><a title="Products.ZenModel.BasicDataSource.BasicDataSource.sourcetype
+Products.ZenModel.BuiltInDS.BuiltInDS.sourcetype
+Products.ZenModel.RRDDataSource.RRDDataSource.sourcetype" class="py-name" href="#" onclick="return doclink('link-110', 'sourcetype', 'link-110');">sourcetype</a></tt> <tt class="py-op">!=</tt> <tt class="py-string">'SNMP'</tt><tt class="py-op">:</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">                <tt class="py-keyword">return</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt id="link-111" class="py-name"><a title="Products.ZenHub.services.PerformanceConfig
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig" class="py-name" href="#" onclick="return doclink('link-111', 'PerformanceConfig', 'link-0');">PerformanceConfig</a></tt><tt class="py-op">.</tt><tt id="link-112" class="py-name" targets="Method Products.ZenHub.HubService.HubService.update()=Products.ZenHub.HubService.HubService-class.html#update,Method Products.ZenHub.services.CommandConfig.CommandConfig.update()=Products.ZenHub.services.CommandConfig.CommandConfig-class.html#update,Method Products.ZenHub.services.PerformanceConfig.PerformanceConfig.update()=Products.ZenHub.services.PerformanceConfig.PerformanceConfig-class.html#update,Method Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.update()=Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#update,Method Products.ZenHub.services.StatusConfig.StatusConfig.update()=Products.ZenHub.services.StatusConfig.StatusConfig-class.html#update,Method Products.ZenHub.zenhub.WorkerInterceptor.update()=Products.ZenHub.zenhub.WorkerInterceptor-class.html#update,Method Products.ZenModel.AdministrativeRole.AdministrativeRole.update()=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#update,Method Products.ZenRRD.Thresholds.Thresholds.update()=Products.ZenRRD.Thresholds.Thresholds-class.html#update,Method Products.ZenRRD.zenperfsnmp.OidData.update()=Products.ZenRRD.zenperfsnmp.OidData-class.html#update,Method Products.ZenRRD.zenprocess.DeviceStats.update()=Products.ZenRRD.zenprocess.DeviceStats-class.html#update,Method Products.ZenRRD.zenprocess.ProcessStats.update()=Products.ZenRRD.zenprocess.ProcessStats-class.html#update,Method Products.ZenUtils.Map.Locked.update()=Products.ZenUtils.Map.Locked-class.html#update,Method Products.ZenUtils.Map.Timed.update()=Products.ZenUtils.Map.Timed-class.html#update"><a title="Products.ZenHub.HubService.HubService.update
+Products.ZenHub.services.CommandConfig.CommandConfig.update
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig.update
+Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.update
+Products.ZenHub.services.StatusConfig.StatusConfig.update
+Products.ZenHub.zenhub.WorkerInterceptor.update
+Products.ZenModel.AdministrativeRole.AdministrativeRole.update
+Products.ZenRRD.Thresholds.Thresholds.update
+Products.ZenRRD.zenperfsnmp.OidData.update
+Products.ZenRRD.zenprocess.DeviceStats.update
+Products.ZenRRD.zenprocess.ProcessStats.update
+Products.ZenUtils.Map.Locked.update
+Products.ZenUtils.Map.Timed.update" class="py-name" href="#" onclick="return doclink('link-112', 'update', 'link-112');">update</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt id="link-113" class="py-name"><a title="object" class="py-name" href="#" onclick="return doclink('link-113', 'object', 'link-107');">object</a></tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:21 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

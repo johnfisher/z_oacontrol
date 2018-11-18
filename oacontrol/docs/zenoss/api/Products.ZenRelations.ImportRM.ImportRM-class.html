@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenRelations.ImportRM.ImportRM</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenRelations-module.html">Package&nbsp;ZenRelations</a> ::
+        <a href="Products.ZenRelations.ImportRM-module.html">Module&nbsp;ImportRM</a> ::
+        Class&nbsp;ImportRM
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenRelations.ImportRM.ImportRM-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ImportRM</h1><p class="nomargin-top"><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+              <a href="object-class.html">object</a> --+            
+                       |            
+<a href="Products.ZenUtils.CmdBase.CmdBase-class.html">ZenUtils.CmdBase.CmdBase</a> --+        
+                           |        
+<a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html">ZenUtils.ZenDaemon.ZenDaemon</a> --+    
+                               |    
+      <a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html">ZenUtils.ZCmdBase.ZCmdBase</a> --+
+                                   |
+  xml.sax.handler.ContentHandler --+
+                                   |
+                                  <strong class="uidshort">ImportRM</strong>
+</pre>
+
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li><a href="Products.ZenRelations.ImportRM.NoLoginImportRM-class.html">NoLoginImportRM</a></li><li>, <a href="Products.ZenModel.XmlDataLoader.XmlDataLoader-class.html">ZenModel.XmlDataLoader.XmlDataLoader</a></li>  </ul>
+</dd></dl>
+
+<hr />
+<pre class="literalblock">
+
+    Wrapper module to interface between Zope and the Python SAX XML library. 
+The xml.sax.parse() calls different routines depending on what it finds. 
+
+A simple example of a valid XML file can be found in the objects.xml file 
+for a ZenPack. 
+
+ &lt;?xml version=&quot;1.0&quot;?&gt; 
+ &lt;objects&gt; 
+   &lt;!-- ('', 'zport', 'dmd', 'Devices', 'rrdTemplates', 'HelloWorld') --&gt; 
+   &lt;object id='/zport/dmd/Devices/rrdTemplates/HelloWorld' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'&gt; 
+     &lt;property type=&quot;text&quot; id=&quot;description&quot; mode=&quot;w&quot; &gt; This is the glorious description that shows up when we click on our RRD template &lt;/property&gt; 
+   &lt;tomanycont id='datasources'&gt; 
+     &lt;object id='hello' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'&gt; 
+       &lt;property select_variable=&quot;sourcetypes&quot; type=&quot;selection&quot; id=&quot;sourcetype&quot; mode=&quot;w&quot; &gt; SNMP &lt;/property&gt; 
+       &lt;property type=&quot;boolean&quot; id=&quot;enabled&quot; mode=&quot;w&quot; &gt; True &lt;/property&gt; 
+       &lt;property type=&quot;string&quot; id=&quot;eventClass&quot; mode=&quot;w&quot; &gt; /Cmd/Fail &lt;/property&gt; 
+       &lt;property type=&quot;int&quot; id=&quot;severity&quot; mode=&quot;w&quot; &gt; 3 &lt;/property&gt; 
+       &lt;property type=&quot;int&quot; id=&quot;cycletime&quot; mode=&quot;w&quot; &gt; 300 &lt;/property&gt; 
+       &lt;property type=&quot;boolean&quot; id=&quot;usessh&quot; mode=&quot;w&quot; &gt; False &lt;/property&gt; 
+     &lt;tomanycont id='datapoints'&gt; 
+       &lt;object id='hello' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'&gt; 
+           &lt;property select_variable=&quot;rrdtypes&quot; type=&quot;selection&quot; id=&quot;rrdtype&quot; mode=&quot;w&quot; &gt; GAUGE &lt;/property&gt; 
+           &lt;property type=&quot;boolean&quot; id=&quot;isrow&quot; mode=&quot;w&quot; &gt; True &lt;/property&gt; 
+       &lt;/object&gt; 
+     &lt;/tomanycont&gt; 
+  &lt;/object&gt; 
+
+ &lt;!--    snip  --&gt; 
+
+ &lt;/objects&gt; 
+    
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">noopts</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">app</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">keeproot</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Initializer</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">object</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#context" class="summary-sig-name">context</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return the bottom object in the stack</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.context">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">list</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#cleanattrs" class="summary-sig-name">cleanattrs</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attrs</span>)</span><br />
+      Convert all attributes to string values</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.cleanattrs">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#startElement" class="summary-sig-name">startElement</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>,
+        <span class="summary-sig-arg">attrs</span>)</span><br />
+      Function called when the parser finds the starting element in the XML
+      file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.startElement">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#endElement" class="summary-sig-name">endElement</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">name</span>)</span><br />
+      Function called when the parser finds the starting element in the XML
+      file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.endElement">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#characters" class="summary-sig-name">characters</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">chars</span>)</span><br />
+      Called by xml.sax.parse() with data found in an element eg 
+      &lt;object&gt;my characters stuff&lt;/object&gt;</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.characters">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">object</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#createObject" class="summary-sig-name">createObject</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attrs</span>)</span><br />
+      Create an object and set it into its container</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.createObject">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="setZendoc"></a><span class="summary-sig-name">setZendoc</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">value</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.setZendoc">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#setProperty" class="summary-sig-name">setProperty</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">attrs</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Set the value of a property on an object.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.setProperty">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#addLink" class="summary-sig-name">addLink</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">rel</span>,
+        <span class="summary-sig-arg">objid</span>)</span><br />
+      Build list of links to form after all objects have been created make 
+      sure that we don't add other side of a bidirectional relation</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.addLink">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="processLinks"></a><span class="summary-sig-name">processLinks</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Walk through all the links that we saved and link them up</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.processLinks">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#buildOptions" class="summary-sig-name">buildOptions</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Command-line options specific to this command</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.buildOptions">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ImportRM.ImportRM-class.html#loadObjectFromXML" class="summary-sig-name">loadObjectFromXML</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">xmlfile</span>=<span class="summary-sig-default">''</span>)</span><br />
+      This method can be used to load data for the root of Zenoss (default 
+      behavior) or it can be used to operate on a specific point in the 
+      Zenoss hierarchy (ZODB).</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.loadObjectFromXML">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="loadDatabase"></a><span class="summary-sig-name">loadDatabase</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      The default behavior of loadObjectFromXML() will be to use the Zope 
+      app object, and thus operatate on the whole of Zenoss.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.loadDatabase">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="commit"></a><span class="summary-sig-name">commit</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Wrapper around the Zope database commit()</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.commit">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html">ZenUtils.ZCmdBase.ZCmdBase</a></code></b>:
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#closeAll">closeAll</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#closedb">closedb</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#findDevice">findDevice</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#getConnection">getConnection</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#getContext">getContext</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#getDataRoot">getDataRoot</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#getDmdObj">getDmdObj</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#login">login</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#logout">logout</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#opendb">opendb</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#sigTerm">sigTerm</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#syncdb">syncdb</a></code>,
+      <code><a href="Products.ZenUtils.ZCmdBase.ZCmdBase-class.html#zeoConnect">zeoConnect</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html">ZenUtils.ZenDaemon.ZenDaemon</a></code></b>:
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#becomeDaemon">becomeDaemon</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#becomeWatchdog">becomeWatchdog</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#changeUser">changeUser</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#niceDoggie">niceDoggie</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#openPrivilegedPort">openPrivilegedPort</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#setupLogging">setupLogging</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#sighandler_USR1">sighandler_USR1</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#watchdogCycleTime">watchdogCycleTime</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#watchdogMaxRestartTime">watchdogMaxRestartTime</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#watchdogStartTimeout">watchdogStartTimeout</a></code>,
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#writePidFile">writePidFile</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html">ZenUtils.CmdBase.CmdBase</a></code></b>:
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#buildParser">buildParser</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#checkLogpath">checkLogpath</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#generate_configs">generate_configs</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#generate_xml_configs">generate_xml_configs</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#generate_xml_table">generate_xml_table</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#getConfigFileDefaults">getConfigFileDefaults</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#parseOptions">parseOptions</a></code>,
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#pretty_print_config_comment">pretty_print_config_comment</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>xml.sax.handler.ContentHandler</code></b>:
+      <code>endDocument</code>,
+      <code>endElementNS</code>,
+      <code>endPrefixMapping</code>,
+      <code>ignorableWhitespace</code>,
+      <code>processingInstruction</code>,
+      <code>setDocumentLocator</code>,
+      <code>skippedEntity</code>,
+      <code>startDocument</code>,
+      <code>startElementNS</code>,
+      <code>startPrefixMapping</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="rootpath"></a><span class="summary-name">rootpath</span> = <code title="''">''</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="skipobj"></a><span class="summary-name">skipobj</span> = <code title="0">0</code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html">ZenUtils.ZenDaemon.ZenDaemon</a></code></b>:
+      <code><a href="Products.ZenUtils.ZenDaemon.ZenDaemon-class.html#pidfile">pidfile</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html">ZenUtils.CmdBase.CmdBase</a></code></b>:
+      <code><a href="Products.ZenUtils.CmdBase.CmdBase-class.html#doesLogging">doesLogging</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">noopts</span>=<span class="sig-default">0</span>,
+        <span class="sig-arg">app</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">keeproot</span>=<span class="sig-default">False</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initializer</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>noopts</code></strong> (boolean) - don't use sys.argv for command-line options</li>
+        <li><strong class="pname"><code>app</code></strong> (object) - app</li>
+        <li><strong class="pname"><code>keeproot</code></strong> (boolean) - keeproot</li>
+    </ul></dd>
+    <dt>Overrides:
+        xml.sax.handler.ContentHandler.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="context"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">context</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.context">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return the bottom object in the stack</p>
+  <dl class="fields">
+    <dt>Returns: object</dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="cleanattrs"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">cleanattrs</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attrs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.cleanattrs">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Convert all attributes to string values</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>attrs</code></strong> (list) - (key,val) pairs</li>
+    </ul></dd>
+    <dt>Returns: list</dt>
+        <dd>same list, but with all values as strings</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="startElement"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">startElement</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>,
+        <span class="sig-arg">attrs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.startElement">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Function called when the parser finds the starting element in the XML 
+  file.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (string) - name of the element</li>
+        <li><strong class="pname"><code>attrs</code></strong> (list) - list of (key, value) tuples</li>
+    </ul></dd>
+    <dt>Overrides:
+        xml.sax.handler.ContentHandler.startElement
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="endElement"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">endElement</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">name</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.endElement">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Function called when the parser finds the starting element in the XML 
+  file.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>name</code></strong> (string) - name of the ending element</li>
+    </ul></dd>
+    <dt>Overrides:
+        xml.sax.handler.ContentHandler.endElement
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="characters"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">characters</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">chars</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.characters">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Called by xml.sax.parse() with data found in an element eg 
+  &lt;object&gt;my characters stuff&lt;/object&gt;</p>
+  <p>Note that this can be called character by character.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>chars</code></strong> (string) - chars</li>
+    </ul></dd>
+    <dt>Overrides:
+        xml.sax.handler.ContentHandler.characters
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="createObject"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">createObject</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attrs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.createObject">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create an object and set it into its container</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>attrs</code></strong> (string) - attrs</li>
+    </ul></dd>
+    <dt>Returns: object</dt>
+        <dd>newly created object</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="setProperty"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">setProperty</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>,
+        <span class="sig-arg">attrs</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.setProperty">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Set the value of a property on an object.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>obj</code></strong> (string) - obj</li>
+        <li><strong class="pname"><code>attrs</code></strong> (string) - attrs</li>
+        <li><strong class="pname"><code>value</code></strong> (string) - value</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="addLink"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">addLink</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">rel</span>,
+        <span class="sig-arg">objid</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.addLink">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Build list of links to form after all objects have been created make 
+  sure that we don't add other side of a bidirectional relation</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>rel</code></strong> (relation object) - relationship object</li>
+        <li><strong class="pname"><code>objid</code></strong> (string) - objid</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="buildOptions"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">buildOptions</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.buildOptions">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Command-line options specific to this command</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenUtils.CmdBase.CmdBase-class.html#buildOptions">ZenUtils.CmdBase.CmdBase.buildOptions</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="loadObjectFromXML"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">loadObjectFromXML</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">xmlfile</span>=<span class="sig-default">''</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ImportRM-pysrc.html#ImportRM.loadObjectFromXML">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This method can be used to load data for the root of Zenoss (default 
+  behavior) or it can be used to operate on a specific point in the Zenoss 
+  hierarchy (ZODB).</p>
+  <p>Upon loading the XML file to be processed, the content of the XML file
+  is handled by the methods in this class when called by 
+  xml.sax.parse().</p>
+  <p>Reads from a file if xmlfile is specified, otherwise reads from the 
+  command-line option --infile.  If no files are found from any of these 
+  places, read from standard input.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>xmlfile</code></strong> (string or file-like object) - Name of XML file to load, or file-like object</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:42 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

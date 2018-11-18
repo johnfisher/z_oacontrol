@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenHub.services.ThresholdMixin</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenHub-module.html">Package&nbsp;ZenHub</a> ::
+        <a href="Products.ZenHub.services-module.html">Package&nbsp;services</a> ::
+        Module&nbsp;ThresholdMixin
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenHub.services.ThresholdMixin-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenHub.services.ThresholdMixin-module.html">Module Products.ZenHub.services.ThresholdMixin</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Package Products.ZenHub=Products.ZenHub-module.html,Class Products.ZenHub.zenhub.ZenHub=Products.ZenHub.zenhub.ZenHub-class.html"><a title="Products.ZenHub
+Products.ZenHub.zenhub.ZenHub" class="py-name" href="#" onclick="return doclink('link-0', 'ZenHub', 'link-0');">ZenHub</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module Products.ZenHub.PBDaemon=Products.ZenHub.PBDaemon-module.html,Class Products.ZenHub.PBDaemon.PBDaemon=Products.ZenHub.PBDaemon.PBDaemon-class.html"><a title="Products.ZenHub.PBDaemon
+Products.ZenHub.PBDaemon.PBDaemon" class="py-name" href="#" onclick="return doclink('link-1', 'PBDaemon', 'link-1');">PBDaemon</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Function Products.ZenHub.PBDaemon.translateError()=Products.ZenHub.PBDaemon-module.html#translateError"><a title="Products.ZenHub.PBDaemon.translateError" class="py-name" href="#" onclick="return doclink('link-2', 'translateError', 'link-2');">translateError</a></tt> </tt>
+<a name="ThresholdMixin"></a><div id="ThresholdMixin-def"><a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt> <a class="py-toggle" href="#" id="ThresholdMixin-toggle" onclick="return toggle('ThresholdMixin');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenHub.services.ThresholdMixin.ThresholdMixin-class.html">ThresholdMixin</a><tt class="py-op">:</tt> </tt>
+</div><div id="ThresholdMixin-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="ThresholdMixin-expanded"><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable Products.ZenHub.services.ThresholdMixin.ThresholdMixin._cached_thresholdClasses=Products.ZenHub.services.ThresholdMixin.ThresholdMixin-class.html#_cached_thresholdClasses"><a title="Products.ZenHub.services.ThresholdMixin.ThresholdMixin._cached_thresholdClasses" class="py-name" href="#" onclick="return doclink('link-3', '_cached_thresholdClasses', 'link-3');">_cached_thresholdClasses</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">translateError</tt> </tt>
+<a name="ThresholdMixin.remote_getThresholdClasses"></a><div id="ThresholdMixin.remote_getThresholdClasses-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="ThresholdMixin.remote_getThresholdClasses-toggle" onclick="return toggle('ThresholdMixin.remote_getThresholdClasses');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.ThresholdMixin.ThresholdMixin-class.html#remote_getThresholdClasses">remote_getThresholdClasses</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ThresholdMixin.remote_getThresholdClasses-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ThresholdMixin.remote_getThresholdClasses-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="Products.ZenHub.services.ThresholdMixin.ThresholdMixin._cached_thresholdClasses" class="py-name" href="#" onclick="return doclink('link-4', '_cached_thresholdClasses', 'link-3');">_cached_thresholdClasses</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">            <tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Package Products.ZenModel=Products.ZenModel-module.html"><a title="Products.ZenModel" class="py-name" href="#" onclick="return doclink('link-5', 'ZenModel', 'link-5');">ZenModel</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module Products.ZenModel.MinMaxThreshold=Products.ZenModel.MinMaxThreshold-module.html,Class Products.ZenModel.MinMaxThreshold.MinMaxThreshold=Products.ZenModel.MinMaxThreshold.MinMaxThreshold-class.html"><a title="Products.ZenModel.MinMaxThreshold
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold" class="py-name" href="#" onclick="return doclink('link-6', 'MinMaxThreshold', 'link-6');">MinMaxThreshold</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name"><a title="Products.ZenModel.MinMaxThreshold
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold" class="py-name" href="#" onclick="return doclink('link-7', 'MinMaxThreshold', 'link-6');">MinMaxThreshold</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">            <tt class="py-name">classes</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-8" class="py-name"><a title="Products.ZenModel.MinMaxThreshold
+Products.ZenModel.MinMaxThreshold.MinMaxThreshold" class="py-name" href="#" onclick="return doclink('link-8', 'MinMaxThreshold', 'link-6');">MinMaxThreshold</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">pack</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dmd</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Module Products.ZenModel.ZenPackManager=Products.ZenModel.ZenPackManager-module.html,Class Products.ZenModel.ZenPackManager.ZenPackManager=Products.ZenModel.ZenPackManager.ZenPackManager-class.html"><a title="Products.ZenModel.ZenPackManager
+Products.ZenModel.ZenPackManager.ZenPackManager" class="py-name" href="#" onclick="return doclink('link-9', 'ZenPackManager', 'link-9');">ZenPackManager</a></tt><tt class="py-op">.</tt><tt class="py-name">packs</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">                <tt class="py-name">classes</tt> <tt class="py-op">+=</tt> <tt class="py-name">pack</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method Products.ZenModel.RRDTemplate.RRDTemplate.getThresholdClasses()=Products.ZenModel.RRDTemplate.RRDTemplate-class.html#getThresholdClasses,Method Products.ZenModel.ZenPack.ZenPack.getThresholdClasses()=Products.ZenModel.ZenPack.ZenPack-class.html#getThresholdClasses"><a title="Products.ZenModel.RRDTemplate.RRDTemplate.getThresholdClasses
+Products.ZenModel.ZenPack.ZenPack.getThresholdClasses" class="py-name" href="#" onclick="return doclink('link-10', 'getThresholdClasses', 'link-10');">getThresholdClasses</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="Products.ZenHub.services.ThresholdMixin.ThresholdMixin._cached_thresholdClasses" class="py-name" href="#" onclick="return doclink('link-11', '_cached_thresholdClasses', 'link-3');">_cached_thresholdClasses</a></tt> <tt class="py-op">=</tt> <tt class="py-name">map</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">c</tt><tt class="py-op">:</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">__module__</tt><tt class="py-op">,</tt> <tt class="py-name">classes</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="Products.ZenHub.services.ThresholdMixin.ThresholdMixin._cached_thresholdClasses" class="py-name" href="#" onclick="return doclink('link-12', '_cached_thresholdClasses', 'link-3');">_cached_thresholdClasses</a></tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">    <tt class="py-decorator">@</tt><tt class="py-decorator">translateError</tt> </tt>
+<a name="ThresholdMixin.remote_getCollectorThresholds"></a><div id="ThresholdMixin.remote_getCollectorThresholds-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="ThresholdMixin.remote_getCollectorThresholds-toggle" onclick="return toggle('ThresholdMixin.remote_getCollectorThresholds');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenHub.services.ThresholdMixin.ThresholdMixin-class.html#remote_getCollectorThresholds">remote_getCollectorThresholds</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ThresholdMixin.remote_getCollectorThresholds-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="ThresholdMixin.remote_getCollectorThresholds-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">from</tt> <tt class="py-name">Products</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="Products.ZenModel" class="py-name" href="#" onclick="return doclink('link-13', 'ZenModel', 'link-5');">ZenModel</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Module Products.ZenModel.BuiltInDS=Products.ZenModel.BuiltInDS-module.html,Class Products.ZenModel.BuiltInDS.BuiltInDS=Products.ZenModel.BuiltInDS.BuiltInDS-class.html"><a title="Products.ZenModel.BuiltInDS
+Products.ZenModel.BuiltInDS.BuiltInDS" class="py-name" href="#" onclick="return doclink('link-14', 'BuiltInDS', 'link-14');">BuiltInDS</a></tt> <tt class="py-keyword">import</tt> <tt id="link-15" class="py-name"><a title="Products.ZenModel.BuiltInDS
+Products.ZenModel.BuiltInDS.BuiltInDS" class="py-name" href="#" onclick="return doclink('link-15', 'BuiltInDS', 'link-14');">BuiltInDS</a></tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method Products.DataCollector.zendisc.ZenDisc.config()=Products.DataCollector.zendisc.ZenDisc-class.html#config,Method Products.DataCollector.zenmodeler.ZenModeler.config()=Products.DataCollector.zenmodeler.ZenModeler-class.html#config,Method Products.ZenStatus.zenping.ZenPing.config()=Products.ZenStatus.zenping.ZenPing-class.html#config,Method Products.ZenUtils.DaemonStats.DaemonStats.config()=Products.ZenUtils.DaemonStats.DaemonStats-class.html#config"><a title="Products.DataCollector.zendisc.ZenDisc.config
+Products.DataCollector.zenmodeler.ZenModeler.config
+Products.ZenStatus.zenping.ZenPing.config
+Products.ZenUtils.DaemonStats.DaemonStats.config" class="py-name" href="#" onclick="return doclink('link-16', 'config', 'link-16');">config</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method Products.ZenModel.RRDView.RRDView.getThresholdInstances()=Products.ZenModel.RRDView.RRDView-class.html#getThresholdInstances"><a title="Products.ZenModel.RRDView.RRDView.getThresholdInstances" class="py-name" href="#" onclick="return doclink('link-17', 'getThresholdInstances', 'link-17');">getThresholdInstances</a></tt><tt class="py-op">(</tt><tt id="link-18" class="py-name"><a title="Products.ZenModel.BuiltInDS
+Products.ZenModel.BuiltInDS.BuiltInDS" class="py-name" href="#" onclick="return doclink('link-18', 'BuiltInDS', 'link-14');">BuiltInDS</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Variable Products.ZenModel.BasicDataSource.BasicDataSource.sourcetype=Products.ZenModel.BasicDataSource.BasicDataSource-class.html#sourcetype,Variable Products.ZenModel.BuiltInDS.BuiltInDS.sourcetype=Products.ZenModel.BuiltInDS.BuiltInDS-class.html#sourcetype,Variable Products.ZenModel.RRDDataSource.RRDDataSource.sourcetype=Products.ZenModel.RRDDataSource.RRDDataSource-class.html#sourcetype"><a title="Products.ZenModel.BasicDataSource.BasicDataSource.sourcetype
+Products.ZenModel.BuiltInDS.BuiltInDS.sourcetype
+Products.ZenModel.RRDDataSource.RRDDataSource.sourcetype" class="py-name" href="#" onclick="return doclink('link-19', 'sourcetype', 'link-19');">sourcetype</a></tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:47 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

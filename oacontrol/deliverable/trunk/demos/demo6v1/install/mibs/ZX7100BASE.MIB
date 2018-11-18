@@ -1,0 +1,366 @@
+--==========================================================================
+--
+--	ZX7100BASE.MIB
+--
+--	ZNYX ZX7100BASE SNMP MIB
+--
+--==========================================================================
+--
+--	(c) Copyright 2001 ZNYX Networks, Inc.
+--	All rights reserved.
+--
+--==========================================================================
+
+
+	ZX7100BASE-MIB DEFINITIONS ::= BEGIN
+
+	IMPORTS
+		enterprises, NetworkAddress, IpAddress, Counter,
+		Gauge, TimeTicks, OBJECT-TYPE
+			FROM RFC1155-SMI
+		znyxProductSpecificMib
+			FROM ZNYX-MIB;
+
+	-- Conventions
+
+	DisplayString ::= OCTET STRING
+
+
+
+	znyxPsMibZX7100BASE		OBJECT IDENTIFIER ::= { znyxProductSpecificMib 7 }
+
+	zZX7100BASEGeoPins OBJECT-TYPE
+		SYNTAX  DisplayString (SIZE (0..255))
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object returns a string identifying
+			 the shelf and the slot within the shelf
+			 the switch is located in."
+		::= { znyxPsMibZX7100BASE 1 }
+
+	zZX7100BASEInternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 Internal Fault LED is driven."
+		::= { znyxPsMibZX7100BASE 2 }
+
+	zZX7100BASEInternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current Internal Fault LED status."
+		::= { znyxPsMibZX7100BASE 3 }
+
+	zZX7100BASEExternalFaultLedControl OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2),
+			other(3)	-- driven by other control
+			}
+		ACCESS  read-write
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine how the
+			 External Fault LED is driven."
+		::= { znyxPsMibZX7100BASE 4 }
+
+	zZX7100BASEExternalFaultLedStatus OBJECT-TYPE
+		SYNTAX  INTEGER {
+			off(1),
+			on(2)
+			}
+		ACCESS  read-only
+		STATUS  mandatory
+		DESCRIPTION
+			"This object is used to determine the
+			 current External Fault LED status."
+		::= { znyxPsMibZX7100BASE 5 }
+
+	zZX7100BASEOpenArchVersion OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Open Architect software version."
+    		::= { znyxPsMibZX7100BASE 6 }
+
+	zZX7100BASELinkCtrlTable OBJECT-TYPE
+	    	SYNTAX      SEQUENCE OF ZZX7100BASELinkCtrlEntry
+  		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      	    	"A table containing link control information for each port
+		       available on the device."
+    		::= { znyxPsMibZX7100BASE 7 }
+
+	zZX7100BASELinkCtrlEntry OBJECT-TYPE
+ 		SYNTAX      ZZX7100BASELinkCtrlEntry
+    		ACCESS  not-accessible
+    		STATUS      mandatory
+    		DESCRIPTION
+      		"Link control information for each port available on the
+			 device."
+   		INDEX   { zZX7100BASELinkCtrlPort }
+    		::= { zZX7100BASELinkCtrlTable 1 }
+
+ 	ZZX7100BASELinkCtrlEntry ::=
+  		SEQUENCE {
+			zZX7100BASELinkCtrlPort
+				INTEGER,
+			zZX7100BASELinkCtrlState
+				INTEGER,
+			zZX7100BASELinkCtrlSpeed
+				INTEGER
+    		}
+
+	zZX7100BASELinkCtrlPort OBJECT-TYPE
+		SYNTAX      INTEGER (1..65535)
+		ACCESS  not-accessible
+		STATUS      mandatory
+		DESCRIPTION
+		"The port number associated with this Link Control entry."
+		::= { zZX7100BASELinkCtrlEntry 1 }
+
+	zZX7100BASELinkCtrlState OBJECT-TYPE
+    		SYNTAX      INTEGER { up (1), down (2) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control state of the port."
+    		::= { zZX7100BASELinkCtrlEntry 2 }
+
+	zZX7100BASELinkCtrlSpeed OBJECT-TYPE
+    		SYNTAX      INTEGER  { auto(1), n100fd(2), n100hd(3), n10fd (4), n10hd(5), n1000fd(6), n1000hd(7) }
+    		ACCESS  read-write
+    		STATUS      mandatory
+    		DESCRIPTION
+        		"The link control speed of the port. Changes to this speed
+			 require the port to be in the down state."
+    		::= { zZX7100BASELinkCtrlEntry 3 }
+
+	-- Vital Product Data (VPD)
+
+	zZX7100BASEVPDPN OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Part Number."
+    		::= { znyxPsMibZX7100BASE 8 }
+
+	zZX7100BASEVPDSN OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Serial Number."
+    		::= { znyxPsMibZX7100BASE 9 }
+
+	zZX7100BASEVPDV0 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Mac Address."
+    		::= { znyxPsMibZX7100BASE 10 }
+
+	zZX7100BASEVPDV1 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Mac Address Number."
+    		::= { znyxPsMibZX7100BASE 11 }
+
+	zZX7100BASEVPDV2 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The PPC 82xx Memory Subsystem."
+    		::= { znyxPsMibZX7100BASE 12 }
+
+	zZX7100BASEVPDV3 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The BCM 56xx Memory Subsystem."
+    		::= { znyxPsMibZX7100BASE 13 }
+
+	zZX7100BASEVPDV4 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Boot Flash Subsystem."
+    		::= { znyxPsMibZX7100BASE 14 }
+
+	zZX7100BASEVPDV5 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Application Flash Subsystem."
+    		::= { znyxPsMibZX7100BASE 15 }
+
+	zZX7100BASEVPDV6 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Firmware Revision."
+    		::= { znyxPsMibZX7100BASE 16 }
+
+	zZX7100BASEVPDV7 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Reset Counter."
+    		::= { znyxPsMibZX7100BASE 17 }
+
+	zZX7100BASEVPDV8 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Kernel Runtime."
+    		::= { znyxPsMibZX7100BASE 18 }
+
+	zZX7100BASEVPDV9 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The VPD Revision."
+    		::= { znyxPsMibZX7100BASE 19 }
+
+	zZX7100BASEVPDVA OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Adapter ID."
+    		::= { znyxPsMibZX7100BASE 20 }
+
+	zZX7100BASEVPDVB OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Model Number."
+    		::= { znyxPsMibZX7100BASE 21 }
+
+	zZX7100BASEVPDVS OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Logical Slot Number."
+    		::= { znyxPsMibZX7100BASE 22 }
+
+	zZX7100BASEVPDVT OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Geographical Shelf Address."
+    		::= { znyxPsMibZX7100BASE 23 }
+
+	zZX7100BASEVPDVP OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The IPMC Version."
+    		::= { znyxPsMibZX7100BASE 24 }
+
+	zZX7100BASEVPDVM OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Main CPLD Version."
+    		::= { znyxPsMibZX7100BASE 25 }
+
+	zZX7100BASEVPDVR OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Reset CPLD Version."
+    		::= { znyxPsMibZX7100BASE 26 }
+
+	zZX7100BASEVPDVL OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The LED CPLD Version."
+    		::= { znyxPsMibZX7100BASE 27 }
+
+	zZX7100BASEVPDVZ OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The ZMON Version."
+    		::= { znyxPsMibZX7100BASE 28 }
+
+	zZX7100BASEVPDY1 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Manufacturer ID."
+    		::= { znyxPsMibZX7100BASE 29 }
+
+	zZX7100BASEVPDY2 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Board ID."
+    		::= { znyxPsMibZX7100BASE 30 }
+
+	zZX7100BASEVPDY3 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Data CLEI."
+    		::= { znyxPsMibZX7100BASE 31 }
+
+	zZX7100BASEVPDY4 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Data PEC."
+    		::= { znyxPsMibZX7100BASE 32 }
+
+	zZX7100BASEVPDY5 OBJECT-TYPE
+   		SYNTAX DisplayString
+   		ACCESS read-only
+   	 	STATUS     mandatory
+   		DESCRIPTION
+    	    		"The Release Number."
+    		::= { znyxPsMibZX7100BASE 33 }
+
+	END
+
+

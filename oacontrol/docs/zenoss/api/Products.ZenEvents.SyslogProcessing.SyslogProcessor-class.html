@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenEvents.SyslogProcessing.SyslogProcessor</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenEvents-module.html">Package&nbsp;ZenEvents</a> ::
+        <a href="Products.ZenEvents.SyslogProcessing-module.html">Module&nbsp;SyslogProcessing</a> ::
+        Class&nbsp;SyslogProcessor
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenEvents.SyslogProcessing.SyslogProcessor-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class SyslogProcessor</h1><p class="nomargin-top"><span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+<a href="object-class.html">object</a> --+
+         |
+        <strong class="uidshort">SyslogProcessor</strong>
+</pre>
+
+<hr />
+<p>Class to process syslog messages and convert them into events viewable
+  in the Zenoss event console.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenEvents.SyslogProcessing.SyslogProcessor-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">sendEvent</span>,
+        <span class="summary-sig-arg">minpriority</span>,
+        <span class="summary-sig-arg">parsehost</span>,
+        <span class="summary-sig-arg">monitor</span>,
+        <span class="summary-sig-arg">defaultPriority</span>)</span><br />
+      Initializer</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenEvents.SyslogProcessing.SyslogProcessor-class.html#process" class="summary-sig-name">process</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">msg</span>,
+        <span class="summary-sig-arg">ipaddr</span>,
+        <span class="summary-sig-arg">host</span>,
+        <span class="summary-sig-arg">rtime</span>)</span><br />
+      Process an event from syslog and convert to a Zenoss event</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.process">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenEvents.SyslogProcessing.SyslogProcessor-class.html#parsePRI" class="summary-sig-name">parsePRI</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">evt</span>,
+        <span class="summary-sig-arg">msg</span>)</span><br />
+      Parse RFC-3164 PRI part of syslog message to get facility and 
+      priority.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.parsePRI">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenEvents.SyslogProcessing.SyslogProcessor-class.html#defaultSeverityMap" class="summary-sig-name">defaultSeverityMap</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">pri</span>)</span><br />
+      Default mapping from syslog priority to severity.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.defaultSeverityMap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenEvents.SyslogProcessing.SyslogProcessor-class.html#parseHEADER" class="summary-sig-name">parseHEADER</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">evt</span>,
+        <span class="summary-sig-arg">msg</span>)</span><br />
+      Parse RFC-3164 HEADER part of syslog message.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.parseHEADER">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenEvents.SyslogProcessing.SyslogProcessor-class.html#parseTag" class="summary-sig-name">parseTag</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">evt</span>,
+        <span class="summary-sig-arg">msg</span>)</span><br />
+      Parse the RFC-3164 tag of the syslog message using the regex defined 
+      at the top of this module.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.parseTag">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenEvents.SyslogProcessing.SyslogProcessor-class.html#buildEventClassKey" class="summary-sig-name">buildEventClassKey</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">evt</span>)</span><br />
+      Build the key used to find an events dictionary record.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.buildEventClassKey">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Products.ZenEvents.SyslogProcessing.SyslogProcessor-class.html#timeParse" class="summary-name">timeParse</a> = <code title="re.compile(&quot;^(\S{3} [\d ]{2} [\d ]{2}:[\d ]{2}:[\d ]{2}) (.*)&quot;).search">re.compile(&quot;^(\S{3} [\d ]{2} [\d ]{2}:[\d ]{2}:[\d<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="notHostSearch"></a><span class="summary-name">notHostSearch</span> = <code title="re.compile(&quot;[\[:]&quot;).search">re.compile(&quot;[\[:]&quot;).search</code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">sendEvent</span>,
+        <span class="sig-arg">minpriority</span>,
+        <span class="sig-arg">parsehost</span>,
+        <span class="sig-arg">monitor</span>,
+        <span class="sig-arg">defaultPriority</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Initializer</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>sendEvent</code></strong> (string) - message from a remote host</li>
+        <li><strong class="pname"><code>minpriority</code></strong> (integer) - ignore anything under this priority</li>
+        <li><strong class="pname"><code>parsehost</code></strong> (string) - hostname where this parser is running</li>
+        <li><strong class="pname"><code>monitor</code></strong> (string) - name of the distributed collector monitor</li>
+        <li><strong class="pname"><code>defaultPriority</code></strong> (integer) - priority to use if it can't be understood from the received 
+          packet</li>
+    </ul></dd>
+    <dt>Overrides:
+        object.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="process"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">process</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">msg</span>,
+        <span class="sig-arg">ipaddr</span>,
+        <span class="sig-arg">host</span>,
+        <span class="sig-arg">rtime</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.process">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Process an event from syslog and convert to a Zenoss event</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>msg</code></strong> (string) - message from a remote host</li>
+        <li><strong class="pname"><code>ipaddr</code></strong> (string) - IP address of the remote host</li>
+        <li><strong class="pname"><code>host</code></strong> (string) - remote host's name</li>
+        <li><strong class="pname"><code>rtime</code></strong> (string) - time as reported by the remote host</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="parsePRI"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parsePRI</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">evt</span>,
+        <span class="sig-arg">msg</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.parsePRI">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Parse RFC-3164 PRI part of syslog message to get facility and 
+  priority.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>evt</code></strong> (dictionary) - dictionary of event properties</li>
+        <li><strong class="pname"><code>msg</code></strong> (string) - message from host</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>tuple of dictionary of event properties and the message</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="defaultSeverityMap"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">defaultSeverityMap</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">pri</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.defaultSeverityMap">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Default mapping from syslog priority to severity.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>pri</code></strong> (integer) - syslog priority from host</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>numeric severity</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="parseHEADER"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parseHEADER</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">evt</span>,
+        <span class="sig-arg">msg</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.parseHEADER">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Parse RFC-3164 HEADER part of syslog message.  TIMESTAMP format is: 
+  MMM HH:MM:SS and host is next token without the characters '[' or 
+  ':'.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>evt</code></strong> (dictionary) - dictionary of event properties</li>
+        <li><strong class="pname"><code>msg</code></strong> (string) - message from host</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>tuple of dictionary of event properties and the message</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="parseTag"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">parseTag</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">evt</span>,
+        <span class="sig-arg">msg</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.parseTag">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Parse the RFC-3164 tag of the syslog message using the regex defined 
+  at the top of this module.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>evt</code></strong> (dictionary) - dictionary of event properties</li>
+        <li><strong class="pname"><code>msg</code></strong> (string) - message from host</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>dictionary of event properties</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="buildEventClassKey"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">buildEventClassKey</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">evt</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenEvents.SyslogProcessing-pysrc.html#SyslogProcessor.buildEventClassKey">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Build the key used to find an events dictionary record. If eventClass 
+  is defined it is used. For NT events &quot;Source_Evid&quot; is used. For
+  other syslog events we use the summary of the event to perform a full 
+  text or'ed search.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>evt</code></strong> (dictionary) - dictionary of event properties</li>
+    </ul></dd>
+    <dt>Returns:</dt>
+        <dd>dictionary of event properties</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="timeParse"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">timeParse</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+re.compile(&quot;^(\S{3} [\d ]{2} [\d ]{2}:[\d ]{2}:[\d ]{2}) (.*)&quot;).search
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:24 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

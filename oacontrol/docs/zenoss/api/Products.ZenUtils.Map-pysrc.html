@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenUtils.Map</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenUtils-module.html">Package&nbsp;ZenUtils</a> ::
+        Module&nbsp;Map
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenUtils.Map-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Products.ZenUtils.Map-module.html">Module Products.ZenUtils.Map</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment"># This program is part of Zenoss Core, an open source monitoring platform.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-comment"># Copyright (C) 2007, Zenoss Inc.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-comment"># This program is free software; you can redistribute it and/or modify it</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment"># under the terms of the GNU General Public License version 2 as published by</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># the Free Software Foundation.</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-comment"># For complete information please visit: http://www.zenoss.com/oss/</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-comment">###########################################################################</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">threading</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Variable Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time=Products.ZenModel.VruleGraphPoint.VruleGraphPoint-class.html#time"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-0', 'time', 'link-0');">time</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="Timed"></a><div id="Timed-def"><a name="L17"></a><tt class="py-lineno"> 17</tt> <a class="py-toggle" href="#" id="Timed-toggle" onclick="return toggle('Timed');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Timed-class.html">Timed</a><tt class="py-op">:</tt> </tt>
+</div><div id="Timed-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Timed-expanded"><a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-docstring">"Store elements in a map for the given time"</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="Timed.__init__"></a><div id="Timed.__init__-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="Timed.__init__-toggle" onclick="return toggle('Timed.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Timed-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">map</tt><tt class="py-op">,</tt> <tt class="py-param">timeout</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Timed.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Timed.__init__-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt> <tt class="py-op">=</tt> <tt class="py-name">map</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Variable Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout=Products.DataCollector.TelnetClient.TelnetClientProtocol-class.html#timeout,Variable Products.ZenEvents.zenpop3.POPProtocol.timeout=Products.ZenEvents.zenpop3.POPProtocol-class.html#timeout,Method Products.ZenRRD.zencommand.ProcessRunner.timeout()=Products.ZenRRD.zencommand.ProcessRunner-class.html#timeout,Method Products.ZenRRD.zencommand.SshRunner.timeout()=Products.ZenRRD.zencommand.SshRunner-class.html#timeout,Function Products.ZenUtils.Timeout.timeout()=Products.ZenUtils.Timeout-module.html#timeout,Variable Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout=Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter-class.html#timeout"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout
+Products.ZenEvents.zenpop3.POPProtocol.timeout
+Products.ZenRRD.zencommand.ProcessRunner.timeout
+Products.ZenRRD.zencommand.SshRunner.timeout
+Products.ZenUtils.Timeout.timeout
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout" class="py-name" href="#" onclick="return doclink('link-1', 'timeout', 'link-1');">timeout</a></tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout
+Products.ZenEvents.zenpop3.POPProtocol.timeout
+Products.ZenRRD.zencommand.ProcessRunner.timeout
+Products.ZenRRD.zencommand.SshRunner.timeout
+Products.ZenUtils.Timeout.timeout
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout" class="py-name" href="#" onclick="return doclink('link-2', 'timeout', 'link-1');">timeout</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lastClean</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="Timed.clean"></a><div id="Timed.clean-def"><a name="L26"></a><tt class="py-lineno"> 26</tt> <a class="py-toggle" href="#" id="Timed.clean-toggle" onclick="return toggle('Timed.clean');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Timed-class.html#clean">clean</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">now</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Timed.clean-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Timed.clean-expanded"><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-docstring">"remove old values"</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-comment"># FIXME O(N) search</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-3" class="py-name" targets="Method Products.ZenEvents.Schedule.Schedule.now()=Products.ZenEvents.Schedule.Schedule-class.html#now"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-3', 'now', 'link-3');">now</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">            <tt id="link-4" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-4', 'now', 'link-3');">now</a></tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-5', 'time', 'link-0');">time</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-6', 'time', 'link-0');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lastClean</tt> <tt class="py-op">+</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout
+Products.ZenEvents.zenpop3.POPProtocol.timeout
+Products.ZenRRD.zencommand.ProcessRunner.timeout
+Products.ZenRRD.zencommand.SshRunner.timeout
+Products.ZenUtils.Timeout.timeout
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout" class="py-name" href="#" onclick="return doclink('link-7', 'timeout', 'link-1');">timeout</a></tt> <tt class="py-op">&gt;</tt> <tt id="link-8" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-8', 'now', 'link-3');">now</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">,</tt> <tt class="py-name">t</tt><tt class="py-op">)</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">t</tt> <tt class="py-op">+</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout
+Products.ZenEvents.zenpop3.POPProtocol.timeout
+Products.ZenRRD.zencommand.ProcessRunner.timeout
+Products.ZenRRD.zencommand.SshRunner.timeout
+Products.ZenUtils.Timeout.timeout
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout" class="py-name" href="#" onclick="return doclink('link-9', 'timeout', 'link-1');">timeout</a></tt> <tt class="py-op">&lt;</tt> <tt id="link-10" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-10', 'now', 'link-3');">now</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">                <tt class="py-keyword">del</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lastClean</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-11', 'now', 'link-3');">now</a></tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">     </tt>
+<a name="Timed.get"></a><div id="Timed.get-def"><a name="L39"></a><tt class="py-lineno"> 39</tt> <a class="py-toggle" href="#" id="Timed.get-toggle" onclick="return toggle('Timed.get');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Timed-class.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">,</tt> <tt class="py-param">default</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Timed.get-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Timed.get-expanded"><a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt id="link-12" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-12', 'now', 'link-3');">now</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-13', 'time', 'link-0');">time</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-14', 'time', 'link-0');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method Products.ZenUtils.Map.Timed.clean()=Products.ZenUtils.Map.Timed-class.html#clean"><a title="Products.ZenUtils.Map.Timed.clean" class="py-name" href="#" onclick="return doclink('link-15', 'clean', 'link-15');">clean</a></tt><tt class="py-op">(</tt><tt id="link-16" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-16', 'now', 'link-3');">now</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">v</tt><tt class="py-op">,</tt> <tt class="py-name">t</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Method Products.ZenEvents.DbConnectionPool.DbConnectionPool.get()=Products.ZenEvents.DbConnectionPool.DbConnectionPool-class.html#get,Method Products.ZenRRD.zencommand.SshPool.get()=Products.ZenRRD.zencommand.SshPool-class.html#get,Method Products.ZenUtils.Map.Locked.get()=Products.ZenUtils.Map.Locked-class.html#get,Method Products.ZenUtils.Map.Timed.get()=Products.ZenUtils.Map.Timed-class.html#get"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.get
+Products.ZenRRD.zencommand.SshPool.get
+Products.ZenUtils.Map.Locked.get
+Products.ZenUtils.Map.Timed.get" class="py-name" href="#" onclick="return doclink('link-17', 'get', 'link-17');">get</a></tt><tt class="py-op">(</tt><tt id="link-18" class="py-name" targets="Method Products.ZenModel.Service.Service.key()=Products.ZenModel.Service.Service-class.html#key,Method Products.ZenModel.ThresholdInstance.ThresholdContext.key()=Products.ZenModel.ThresholdInstance.ThresholdContext-class.html#key,Method Products.ZenModel.ThresholdInstance.ThresholdInstance.key()=Products.ZenModel.ThresholdInstance.ThresholdInstance-class.html#key"><a title="Products.ZenModel.Service.Service.key
+Products.ZenModel.ThresholdInstance.ThresholdContext.key
+Products.ZenModel.ThresholdInstance.ThresholdInstance.key" class="py-name" href="#" onclick="return doclink('link-18', 'key', 'link-18');">key</a></tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt id="link-19" class="py-name" targets="Method Products.ZenUtils.jsonutils.JavaScriptEncoder.default()=Products.ZenUtils.jsonutils.JavaScriptEncoder-class.html#default"><a title="Products.ZenUtils.jsonutils.JavaScriptEncoder.default" class="py-name" href="#" onclick="return doclink('link-19', 'default', 'link-19');">default</a></tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">)</tt> <tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">t</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt> <tt class="py-keyword">or</tt> <tt class="py-name">t</tt> <tt class="py-op">+</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout
+Products.ZenEvents.zenpop3.POPProtocol.timeout
+Products.ZenRRD.zencommand.ProcessRunner.timeout
+Products.ZenRRD.zencommand.SshRunner.timeout
+Products.ZenUtils.Timeout.timeout
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout" class="py-name" href="#" onclick="return doclink('link-20', 'timeout', 'link-1');">timeout</a></tt> <tt class="py-op">&lt;</tt> <tt id="link-21" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-21', 'now', 'link-3');">now</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt id="link-22" class="py-name"><a title="Products.ZenUtils.jsonutils.JavaScriptEncoder.default" class="py-name" href="#" onclick="return doclink('link-22', 'default', 'link-19');">default</a></tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">v</tt> </tt>
+</div><a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="Timed.__getitem__"></a><div id="Timed.__getitem__-def"><a name="L48"></a><tt class="py-lineno"> 48</tt> <a class="py-toggle" href="#" id="Timed.__getitem__-toggle" onclick="return toggle('Timed.__getitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Timed-class.html#__getitem__">__getitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Timed.__getitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Timed.__getitem__-expanded"><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt id="link-23" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-23', 'now', 'link-3');">now</a></tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-24', 'time', 'link-0');">time</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-25', 'time', 'link-0');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">v</tt><tt class="py-op">,</tt> <tt class="py-name">t</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">[</tt><tt id="link-26" class="py-name"><a title="Products.ZenModel.Service.Service.key
+Products.ZenModel.ThresholdInstance.ThresholdContext.key
+Products.ZenModel.ThresholdInstance.ThresholdInstance.key" class="py-name" href="#" onclick="return doclink('link-26', 'key', 'link-18');">key</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">t</tt> <tt class="py-op">+</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="Products.DataCollector.TelnetClient.TelnetClientProtocol.timeout
+Products.ZenEvents.zenpop3.POPProtocol.timeout
+Products.ZenRRD.zencommand.ProcessRunner.timeout
+Products.ZenRRD.zencommand.SshRunner.timeout
+Products.ZenUtils.Timeout.timeout
+Products.ZenUtils.extdirect.zope.metadirectives.IDirectRouter.timeout" class="py-name" href="#" onclick="return doclink('link-27', 'timeout', 'link-1');">timeout</a></tt> <tt class="py-op">&lt;</tt> <tt id="link-28" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-28', 'now', 'link-3');">now</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">            <tt class="py-keyword">del</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">[</tt><tt id="link-29" class="py-name"><a title="Products.ZenModel.Service.Service.key
+Products.ZenModel.ThresholdInstance.ThresholdContext.key
+Products.ZenModel.ThresholdInstance.ThresholdInstance.key" class="py-name" href="#" onclick="return doclink('link-29', 'key', 'link-18');">key</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">KeyError</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">v</tt> </tt>
+</div><a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"> </tt>
+<a name="Timed.__setitem__"></a><div id="Timed.__setitem__-def"><a name="L57"></a><tt class="py-lineno"> 57</tt> <a class="py-toggle" href="#" id="Timed.__setitem__-toggle" onclick="return toggle('Timed.__setitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Timed-class.html#__setitem__">__setitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">,</tt> <tt class="py-param">value</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Timed.__setitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Timed.__setitem__-expanded"><a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt id="link-30" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-30', 'now', 'link-3');">now</a></tt> <tt class="py-op">=</tt> <tt id="link-31" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-31', 'time', 'link-0');">time</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-32', 'time', 'link-0');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="Products.ZenUtils.Map.Timed.clean" class="py-name" href="#" onclick="return doclink('link-33', 'clean', 'link-15');">clean</a></tt><tt class="py-op">(</tt><tt id="link-34" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-34', 'now', 'link-3');">now</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">[</tt><tt id="link-35" class="py-name"><a title="Products.ZenModel.Service.Service.key
+Products.ZenModel.ThresholdInstance.ThresholdContext.key
+Products.ZenModel.ThresholdInstance.ThresholdInstance.key" class="py-name" href="#" onclick="return doclink('link-35', 'key', 'link-18');">key</a></tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt id="link-36" class="py-name" targets="Variable Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value=Products.ZenModel.AreaGraphPoint.AreaGraphPoint-class.html#value,Variable Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value=Products.ZenModel.HruleGraphPoint.HruleGraphPoint-class.html#value,Variable Products.ZenModel.LineGraphPoint.LineGraphPoint.value=Products.ZenModel.LineGraphPoint.LineGraphPoint-class.html#value"><a title="Products.ZenModel.AreaGraphPoint.AreaGraphPoint.value
+Products.ZenModel.HruleGraphPoint.HruleGraphPoint.value
+Products.ZenModel.LineGraphPoint.LineGraphPoint.value" class="py-name" href="#" onclick="return doclink('link-36', 'value', 'link-36');">value</a></tt><tt class="py-op">,</tt> <tt id="link-37" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-37', 'now', 'link-3');">now</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"> </tt>
+<a name="Timed.update"></a><div id="Timed.update-def"><a name="L63"></a><tt class="py-lineno"> 63</tt> <a class="py-toggle" href="#" id="Timed.update-toggle" onclick="return toggle('Timed.update');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Timed-class.html#update">update</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">d</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Timed.update-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Timed.update-expanded"><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt id="link-38" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-38', 'now', 'link-3');">now</a></tt> <tt class="py-op">=</tt> <tt id="link-39" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-39', 'time', 'link-0');">time</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="Products.ZenModel.VruleGraphPoint.VruleGraphPoint.time" class="py-name" href="#" onclick="return doclink('link-40', 'time', 'link-0');">time</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="Products.ZenUtils.Map.Timed.clean" class="py-name" href="#" onclick="return doclink('link-41', 'clean', 'link-15');">clean</a></tt><tt class="py-op">(</tt><tt id="link-42" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-42', 'now', 'link-3');">now</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt><tt class="py-op">,</tt> <tt class="py-name">v</tt> <tt class="py-keyword">in</tt> <tt class="py-name">d</tt><tt class="py-op">.</tt><tt class="py-name">items</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-name">v</tt><tt class="py-op">,</tt> <tt id="link-43" class="py-name"><a title="Products.ZenEvents.Schedule.Schedule.now" class="py-name" href="#" onclick="return doclink('link-43', 'now', 'link-3');">now</a></tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="Locked"></a><div id="Locked-def"><a name="L70"></a><tt class="py-lineno"> 70</tt> <a class="py-toggle" href="#" id="Locked-toggle" onclick="return toggle('Locked');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Locked-class.html">Locked</a><tt class="py-op">:</tt> </tt>
+</div><div id="Locked-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Locked-expanded"><a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">    <tt class="py-docstring">"Use a simple lock for all read/write access to a map"</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="Locked.__init__"></a><div id="Locked.__init__-def"><a name="L73"></a><tt class="py-lineno"> 73</tt> <a class="py-toggle" href="#" id="Locked.__init__-toggle" onclick="return toggle('Locked.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Locked-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">map</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Locked.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Locked.__init__-expanded"><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt> <tt class="py-op">=</tt> <tt class="py-name">map</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lock</tt> <tt class="py-op">=</tt> <tt class="py-name">threading</tt><tt class="py-op">.</tt><tt class="py-name">Lock</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
+<a name="Locked.impl"></a><div id="Locked.impl-def"><a name="L78"></a><tt class="py-lineno"> 78</tt> <a class="py-toggle" href="#" id="Locked.impl-toggle" onclick="return toggle('Locked.impl');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Locked-class.html#impl">impl</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">m</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kw</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Locked.impl-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Locked.impl-expanded"><a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-docstring">"call a method on the map, with the lock held"</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lock</tt><tt class="py-op">.</tt><tt class="py-name">acquire</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">m</tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kw</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">finally</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">lock</tt><tt class="py-op">.</tt><tt class="py-name">release</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">         </tt>
+<a name="Locked.has_key"></a><div id="Locked.has_key-def"><a name="L87"></a><tt class="py-lineno"> 87</tt> <a class="py-toggle" href="#" id="Locked.has_key-toggle" onclick="return toggle('Locked.has_key');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Locked-class.html#has_key">has_key</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kw</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Locked.has_key-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Locked.has_key-expanded"><a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name" targets="Method Products.ZenUtils.Map.Locked.impl()=Products.ZenUtils.Map.Locked-class.html#impl"><a title="Products.ZenUtils.Map.Locked.impl" class="py-name" href="#" onclick="return doclink('link-44', 'impl', 'link-44');">impl</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name" targets="Method Products.ZenUtils.Map.Locked.has_key()=Products.ZenUtils.Map.Locked-class.html#has_key"><a title="Products.ZenUtils.Map.Locked.has_key" class="py-name" href="#" onclick="return doclink('link-45', 'has_key', 'link-45');">has_key</a></tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kw</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="Locked.get"></a><div id="Locked.get-def"><a name="L91"></a><tt class="py-lineno"> 91</tt> <a class="py-toggle" href="#" id="Locked.get-toggle" onclick="return toggle('Locked.get');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Locked-class.html#get">get</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kw</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Locked.get-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Locked.get-expanded"><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="Products.ZenUtils.Map.Locked.impl" class="py-name" href="#" onclick="return doclink('link-46', 'impl', 'link-44');">impl</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="Products.ZenEvents.DbConnectionPool.DbConnectionPool.get
+Products.ZenRRD.zencommand.SshPool.get
+Products.ZenUtils.Map.Locked.get
+Products.ZenUtils.Map.Timed.get" class="py-name" href="#" onclick="return doclink('link-47', 'get', 'link-17');">get</a></tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kw</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">         </tt>
+<a name="Locked.__setitem__"></a><div id="Locked.__setitem__-def"><a name="L95"></a><tt class="py-lineno"> 95</tt> <a class="py-toggle" href="#" id="Locked.__setitem__-toggle" onclick="return toggle('Locked.__setitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Locked-class.html#__setitem__">__setitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">,</tt> <tt class="py-param">item</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Locked.__setitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Locked.__setitem__-expanded"><a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="Products.ZenUtils.Map.Locked.impl" class="py-name" href="#" onclick="return doclink('link-48', 'impl', 'link-44');">impl</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name" targets="Method Products.ZenUtils.Map.Locked.__setitem__()=Products.ZenUtils.Map.Locked-class.html#__setitem__,Method Products.ZenUtils.Map.Timed.__setitem__()=Products.ZenUtils.Map.Timed-class.html#__setitem__,Method Products.ZenUtils.extdirect.router.DirectResponse.__setitem__()=Products.ZenUtils.extdirect.router.DirectResponse-class.html#__setitem__"><a title="Products.ZenUtils.Map.Locked.__setitem__
+Products.ZenUtils.Map.Timed.__setitem__
+Products.ZenUtils.extdirect.router.DirectResponse.__setitem__" class="py-name" href="#" onclick="return doclink('link-49', '__setitem__', 'link-49');">__setitem__</a></tt><tt class="py-op">,</tt> <tt id="link-50" class="py-name"><a title="Products.ZenModel.Service.Service.key
+Products.ZenModel.ThresholdInstance.ThresholdContext.key
+Products.ZenModel.ThresholdInstance.ThresholdInstance.key" class="py-name" href="#" onclick="return doclink('link-50', 'key', 'link-18');">key</a></tt><tt class="py-op">,</tt> <tt class="py-name">item</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="Locked.__getitem__"></a><div id="Locked.__getitem__-def"><a name="L99"></a><tt class="py-lineno"> 99</tt> <a class="py-toggle" href="#" id="Locked.__getitem__-toggle" onclick="return toggle('Locked.__getitem__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Locked-class.html#__getitem__">__getitem__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">key</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Locked.__getitem__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Locked.__getitem__-expanded"><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="Products.ZenUtils.Map.Locked.impl" class="py-name" href="#" onclick="return doclink('link-51', 'impl', 'link-44');">impl</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Method Products.ZenModel.GraphDefinition.FakeContext.__getitem__()=Products.ZenModel.GraphDefinition.FakeContext-class.html#__getitem__,Method Products.ZenReports.Utils.Record.__getitem__()=Products.ZenReports.Utils.Record-class.html#__getitem__,Method Products.ZenUtils.Map.Locked.__getitem__()=Products.ZenUtils.Map.Locked-class.html#__getitem__,Method Products.ZenUtils.Map.Timed.__getitem__()=Products.ZenUtils.Map.Timed-class.html#__getitem__,Method Products.ZenWidgets.ExtJSShortcut.__getitem__()=Products.ZenWidgets.ExtJSShortcut-class.html#__getitem__,Method Products.ZenWidgets.browser.quickstart.views.QuickstartBase.__getitem__()=Products.ZenWidgets.browser.quickstart.views.QuickstartBase-class.html#__getitem__"><a title="Products.ZenModel.GraphDefinition.FakeContext.__getitem__
+Products.ZenReports.Utils.Record.__getitem__
+Products.ZenUtils.Map.Locked.__getitem__
+Products.ZenUtils.Map.Timed.__getitem__
+Products.ZenWidgets.ExtJSShortcut.__getitem__
+Products.ZenWidgets.browser.quickstart.views.QuickstartBase.__getitem__" class="py-name" href="#" onclick="return doclink('link-52', '__getitem__', 'link-52');">__getitem__</a></tt><tt class="py-op">,</tt> <tt id="link-53" class="py-name"><a title="Products.ZenModel.Service.Service.key
+Products.ZenModel.ThresholdInstance.ThresholdContext.key
+Products.ZenModel.ThresholdInstance.ThresholdInstance.key" class="py-name" href="#" onclick="return doclink('link-53', 'key', 'link-18');">key</a></tt><tt class="py-op">)</tt> </tt>
+</div><a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt>
+<a name="Locked.update"></a><div id="Locked.update-def"><a name="L103"></a><tt class="py-lineno">103</tt> <a class="py-toggle" href="#" id="Locked.update-toggle" onclick="return toggle('Locked.update');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Products.ZenUtils.Map.Locked-class.html#update">update</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kw</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Locked.update-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Locked.update-expanded"><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="Products.ZenUtils.Map.Locked.impl" class="py-name" href="#" onclick="return doclink('link-54', 'impl', 'link-44');">impl</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">map</tt><tt class="py-op">.</tt><tt id="link-55" class="py-name" targets="Method Products.ZenHub.HubService.HubService.update()=Products.ZenHub.HubService.HubService-class.html#update,Method Products.ZenHub.services.CommandConfig.CommandConfig.update()=Products.ZenHub.services.CommandConfig.CommandConfig-class.html#update,Method Products.ZenHub.services.PerformanceConfig.PerformanceConfig.update()=Products.ZenHub.services.PerformanceConfig.PerformanceConfig-class.html#update,Method Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.update()=Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig-class.html#update,Method Products.ZenHub.services.StatusConfig.StatusConfig.update()=Products.ZenHub.services.StatusConfig.StatusConfig-class.html#update,Method Products.ZenHub.zenhub.WorkerInterceptor.update()=Products.ZenHub.zenhub.WorkerInterceptor-class.html#update,Method Products.ZenModel.AdministrativeRole.AdministrativeRole.update()=Products.ZenModel.AdministrativeRole.AdministrativeRole-class.html#update,Method Products.ZenRRD.Thresholds.Thresholds.update()=Products.ZenRRD.Thresholds.Thresholds-class.html#update,Method Products.ZenRRD.zenperfsnmp.OidData.update()=Products.ZenRRD.zenperfsnmp.OidData-class.html#update,Method Products.ZenRRD.zenprocess.DeviceStats.update()=Products.ZenRRD.zenprocess.DeviceStats-class.html#update,Method Products.ZenRRD.zenprocess.ProcessStats.update()=Products.ZenRRD.zenprocess.ProcessStats-class.html#update,Method Products.ZenUtils.Map.Locked.update()=Products.ZenUtils.Map.Locked-class.html#update,Method Products.ZenUtils.Map.Timed.update()=Products.ZenUtils.Map.Timed-class.html#update"><a title="Products.ZenHub.HubService.HubService.update
+Products.ZenHub.services.CommandConfig.CommandConfig.update
+Products.ZenHub.services.PerformanceConfig.PerformanceConfig.update
+Products.ZenHub.services.SnmpPerfConfig.SnmpPerfConfig.update
+Products.ZenHub.services.StatusConfig.StatusConfig.update
+Products.ZenHub.zenhub.WorkerInterceptor.update
+Products.ZenModel.AdministrativeRole.AdministrativeRole.update
+Products.ZenRRD.Thresholds.Thresholds.update
+Products.ZenRRD.zenperfsnmp.OidData.update
+Products.ZenRRD.zenprocess.DeviceStats.update
+Products.ZenRRD.zenprocess.ProcessStats.update
+Products.ZenUtils.Map.Locked.update
+Products.ZenUtils.Map.Timed.update" class="py-name" href="#" onclick="return doclink('link-55', 'update', 'link-55');">update</a></tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-name">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">kw</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:07:24 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

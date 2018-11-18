@@ -1,0 +1,35 @@
+################################################################
+# shmc
+#
+# ifconfig
+eth1      Link encap:Ethernet  HWaddr 00:18:49:00:CD:6D  
+          inet addr:10.1.7.201  Bcast:10.1.7.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:96 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:28 errors:3 dropped:0 overruns:0 carrier:6
+          collisions:0 txqueuelen:1000 
+          RX bytes:13134 (12.8 KiB)  TX bytes:10466 (10.2 KiB)
+          Interrupt:28 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.255.255.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:3 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:396 (396.0 B)  TX bytes:396 (396.0 B)
+
+# 
+####################
+add to /etc/netconfig
+at end!
+
+######                                                                          
+# CHANGE NETWORK FOR DEMO                                                       
+#                                                                               
+IFCONFIG ETH1 10.1.7.201 NETMASK 255.255.255.0 BROADCAST 10.1.7.255             
+# 
+
+Need to add default route to dislay Pigeon Point HTML UI from Santa Barbara. MUST DO....
+route add default gw 10.1.7.1 eth1
+

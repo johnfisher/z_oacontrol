@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery queue()</title>
+        <style>
+			#fader { width:100px; height:100px; background-color:#000; position:relative; }
+			#fader span { display:none; width:100%; height:100%; position:absolute; left:0; top:0; }
+		</style>
+	</head>
+	<body>
+		<div id="fader"><!-- --></div>
+		<script src="js/jquery.js"></script>
+		<script>
+			(function($){
+				
+				function changeColor(element, newColor) {
+					
+					//create new span and append to element
+					$("<span>").css("backgroundColor", newColor).appendTo(element).fadeIn(function(){
+												
+						//call next queued function
+						element.dequeue();						
+					});		
+				}
+				
+				//cache target element
+				var fader = $("#fader");
+				
+				//define new queue
+				var newQ = [
+					function() { changeColor(fader, "yellow") },
+					function() { changeColor(fader, "orange") },
+					function() { changeColor(fader, "green") },
+					function() { changeColor(fader, "red") },
+					function() { changeColor(fader, "blue") },
+					function() { changeColor(fader, "purple") }
+				];
+				
+				//add effects
+				$("#fader").fadeOut(function() {					
+					
+					//replace queue
+					$(this).queue(newQ);
+					
+				}).fadeIn().fadeOut().fadeIn();
+
+			})(jQuery);
+		</script>
+	</body>
+</html>

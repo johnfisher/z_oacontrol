@@ -1,0 +1,1190 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenRelations.ToManyRelationship.ToManyRelationship</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Products ::
+        ZenRelations ::
+        ToManyRelationship ::
+        ToManyRelationship ::
+        Class&nbsp;ToManyRelationship
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class ToManyRelationship</h1><p class="nomargin-top"><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+                            ExtensionClass.Base --+            
+                                                  |            
+                      OFS.CopySupport.CopyContainer --+        
+                                                      |        
+                        <a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html">RelCopySupport.RelCopyContainer</a> --+    
+                                                          |    
+                        ExtensionClass.Base --+           |    
+                                              |           |    
+                    ExtensionClass.Base --+   |           |    
+                                          |   |           |    
+                 OFS.CopySupport.CopySource --+           |    
+                                              |           |    
+                    ExtensionClass.Base --+   |           |    
+                                          |   |           |    
+                        App.Management.Tabs --+           |    
+                                              |           |    
+                OFS.Traversable.Traversable --+           |    
+                                              |           |    
+                    ExtensionClass.Base --+   |           |    
+                                          |   |           |    
+                  AccessControl.Owned.Owned --+           |    
+                                              |           |    
+                                    <a href="Products.ZenRelations.ZItem.ZItem-class.html">ZItem.ZItem</a> --+       |    
+                                                  |       |    
+                           Acquisition.Implicit --+       |    
+                                                  |       |    
+                        ExtensionClass.Base --+   |       |    
+                                              |   |       |    
+AccessControl.PermissionMapping.RoleManager --+   |       |    
+                                              |   |       |    
+                 AccessControl.Role.RoleManager --+       |    
+                                                  |       |    
+        <a href="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager-class.html">PrimaryPathObjectManager.PrimaryPathManager</a> --+   |    
+                                                      |   |    
+                      <a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html">RelationshipBase.RelationshipBase</a> --+    
+                                                          |    
+              <a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html">ToManyRelationshipBase.ToManyRelationshipBase</a> --+
+                                                              |
+                                                             <strong class="uidshort">ToManyRelationship</strong>
+</pre>
+
+<hr />
+<p>ToManyRelationship manages the ToMany side of a bi-directional 
+  relation between to objects.  It does not return values for any of the 
+  object* calls defined on ObjectManager so that Zope can still work with 
+  its containment assumptions.  It provides object*All calles that return 
+  its object in the same way that ObjectManager does.</p>
+  <p>Related references are maintained in a list.</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__init__"></a><span class="summary-sig-name">__init__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      ToManyRelationships use an array to store related objects</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#__call__" class="summary-sig-name">__call__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      when we are called return our related object in our aq context</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.__call__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#hasobject" class="summary-sig-name">hasobject</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>)</span><br />
+      check to see if we have this object</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.hasobject">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#manage_pasteObjects" class="summary-sig-name">manage_pasteObjects</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">cb_copy_data</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">REQUEST</span>=<span class="summary-sig-default">None</span>)</span><br />
+      ToManyRelationships link instead of pasting</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.manage_pasteObjects">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_add" class="summary-sig-name" onclick="show_private();">_add</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>)</span><br />
+      add an object to one side of this toMany relationship</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._add">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_remove" class="summary-sig-name" onclick="show_private();">_remove</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">suppress_events</span>=<span class="summary-sig-default">False</span>)</span><br />
+      remove object from our side of a relationship</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._remove">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_remoteRemove" class="summary-sig-name" onclick="show_private();">_remoteRemove</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>=<span class="summary-sig-default">None</span>)</span><br />
+      remove an object from the far side of this relationship if no object 
+      is passed in remove all objects</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._remoteRemove">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_setObject"></a><span class="summary-sig-name">_setObject</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">object</span>,
+        <span class="summary-sig-arg">roles</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">user</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">set_owner</span>=<span class="summary-sig-default">1</span>)</span><br />
+      Set and object onto a ToMany by calling addRelation</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._setObject">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_delObject" class="summary-sig-name" onclick="show_private();">_delObject</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">dp</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">suppress_events</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Delete object by its absolute id (ie /zport/dmd/bla/bla) (this is 
+      sent out in the object*All API)</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._delObject">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_getOb" class="summary-sig-name" onclick="show_private();">_getOb</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">default</span>=<span class="summary-sig-default">zenmarker</span>)</span><br />
+      Return object based on its primaryId.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._getOb">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="objectIdsAll"></a><span class="summary-sig-name">objectIdsAll</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return object ids as their absolute primaryId.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectIdsAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#objectIds" class="summary-sig-name">objectIds</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">spec</span>=<span class="summary-sig-default">None</span>)</span><br />
+      ToManyRelationship doesn't publish objectIds to prevent zope 
+      recursion problems.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectIds">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="objectValuesAll"></a><span class="summary-sig-name">objectValuesAll</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      return all related object values</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectValuesAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="objectValuesGen"></a><span class="summary-sig-name">objectValuesGen</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Generator that returns all related objects.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectValuesGen">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#objectValues" class="summary-sig-name">objectValues</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">spec</span>=<span class="summary-sig-default">None</span>)</span><br />
+      ToManyRelationship doesn't publish objectValues to prevent zope 
+      recursion problems.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectValues">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="objectItemsAll"></a><span class="summary-sig-name">objectItemsAll</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Return object items where key is primaryId.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectItemsAll">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#objectItems" class="summary-sig-name">objectItems</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">spec</span>=<span class="summary-sig-default">None</span>)</span><br />
+      ToManyRelationship doesn't publish objectItems to prevent zope 
+      recursion problems.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectItems">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#_getCopy" class="summary-sig-name" onclick="show_private();">_getCopy</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">container</span>)</span><br />
+      create copy and link remote objects if remote side is TO_MANY</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._getCopy">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#exportXml" class="summary-sig-name">exportXml</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ofile</span>,
+        <span class="summary-sig-arg">ignorerels</span>=<span class="summary-sig-default">[]</span>)</span><br />
+      Return an xml representation of a ToManyRelationship...</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.exportXml">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="all_meta_types"></a><span class="summary-sig-name">all_meta_types</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">interfaces</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Return empty list not allowed to add objects to a ToManyRelation</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.all_meta_types">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="checkObjectRelation"></a><span class="summary-sig-name">checkObjectRelation</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">obj</span>,
+        <span class="summary-sig-arg">remoteName</span>,
+        <span class="summary-sig-arg">parentObject</span>,
+        <span class="summary-sig-arg">repair</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.checkObjectRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenRelations.ToManyRelationship.ToManyRelationship-class.html#checkRelation" class="summary-sig-name">checkRelation</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">repair</span>=<span class="summary-sig-default">False</span>)</span><br />
+      Check to make sure that relationship bidirectionality is ok.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.checkRelation">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html">ToManyRelationshipBase.ToManyRelationshipBase</a></code></b>:
+      <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#countObjects">countObjects</a></code>,
+      <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#findObjectsById">findObjectsById</a></code>,
+      <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#manage_workspace">manage_workspace</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html">ToManyRelationshipBase.ToManyRelationshipBase</a></code></b> (private):
+      <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#_delOb" onclick="show_private();">_delOb</a></code>,
+      <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#_setOb" onclick="show_private();">_setOb</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html">RelCopySupport.RelCopyContainer</a></code></b>:
+      <code><a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html#manage_linkObjects">manage_linkObjects</a></code>,
+      <code><a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html#manage_unlinkObjects">manage_unlinkObjects</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html">RelCopySupport.RelCopyContainer</a></code></b> (private):
+      <code><a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html#_checkId" onclick="show_private();">_checkId</a></code>,
+      <code><a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html#_getRelName" onclick="show_private();">_getRelName</a></code>,
+      <code><a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html#_getSourceObjects" onclick="show_private();">_getSourceObjects</a></code>,
+      <code><a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html#_verifyObjectLink" onclick="show_private();">_verifyObjectLink</a></code>,
+      <code><a href="Products.ZenRelations.RelCopySupport.RelCopyContainer-class.html#_verifyObjectPaste" onclick="show_private();">_verifyObjectPaste</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopyContainer</code></b>:
+      <code>cb_dataItems</code>,
+      <code>cb_dataValid</code>,
+      <code>manage_CopyContainerAllItems</code>,
+      <code>manage_CopyContainerFirstItem</code>,
+      <code>manage_clone</code>,
+      <code>manage_copyObjects</code>,
+      <code>manage_cutObjects</code>,
+      <code>manage_renameObject</code>,
+      <code>manage_renameObjects</code>,
+      <code>validClipData</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopyContainer</code></b> (private):
+      <code>_get_id</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html">RelationshipBase.RelationshipBase</a></code></b>:
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#addRelation">addRelation</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#cb_isCopyable">cb_isCopyable</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#cb_isMoveable">cb_isMoveable</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#getId">getId</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#getPrimaryParent">getPrimaryParent</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#getRelationshipManagerClass">getRelationshipManagerClass</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#remoteClass">remoteClass</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#remoteName">remoteName</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#remoteType">remoteType</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#remoteTypeName">remoteTypeName</a></code>,
+      <code><a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#removeRelation">removeRelation</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager-class.html">PrimaryPathObjectManager.PrimaryPathManager</a></code></b>:
+      <code><a href="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager-class.html#getPrimaryId">getPrimaryId</a></code>,
+      <code><a href="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager-class.html#getPrimaryPath">getPrimaryPath</a></code>,
+      <code><a href="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager-class.html#getPrimaryUrlPath">getPrimaryUrlPath</a></code>,
+      <code><a href="Products.ZenRelations.PrimaryPathObjectManager.PrimaryPathManager-class.html#primaryAq">primaryAq</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.ZItem.ZItem-class.html">ZItem.ZItem</a></code></b>:
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#__len__">__len__</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#__repr__">__repr__</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#manage">manage</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#manage_FTPlist">manage_FTPlist</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#manage_FTPstat">manage_FTPstat</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#manage_editedDialog">manage_editedDialog</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#this">this</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#titleOrId">titleOrId</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#title_and_id">title_and_id</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#title_or_id">title_or_id</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#tpURL">tpURL</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#tpValues">tpValues</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopySource</code></b>:
+      <code>cb_userHasCopyOrMovePermission</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopySource</code></b> (private):
+      <code>_canCopy</code>,
+      <code>_notifyOfCopyTo</code>,
+      <code>_postCopy</code>,
+      <code>_setId</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>App.Management.Tabs</code></b>:
+      <code>filtered_manage_options</code>,
+      <code>tabs_path_default</code>,
+      <code>tabs_path_info</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.Traversable.Traversable</code></b>:
+      <code>absolute_url</code>,
+      <code>absolute_url_path</code>,
+      <code>getPhysicalPath</code>,
+      <code>restrictedTraverse</code>,
+      <code>unrestrictedTraverse</code>,
+      <code>virtual_url_path</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Owned.Owned</code></b>:
+      <code>changeOwnership</code>,
+      <code>getOwner</code>,
+      <code>getOwnerTuple</code>,
+      <code>getWrappedOwner</code>,
+      <code>manage_changeOwnershipType</code>,
+      <code>manage_fixupOwnershipAfterAdd</code>,
+      <code>manage_takeOwnership</code>,
+      <code>owner_info</code>,
+      <code>userCanTakeOwnership</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Owned.Owned</code></b> (private):
+      <code>_deleteOwnershipAfterAdd</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Role.RoleManager</code></b>:
+      <code>ac_inherited_permissions</code>,
+      <code>access_debug_info</code>,
+      <code>acquiredRolesAreUsedBy</code>,
+      <code>get_local_roles</code>,
+      <code>get_local_roles_for_userid</code>,
+      <code>get_valid_userids</code>,
+      <code>has_local_roles</code>,
+      <code>manage_access</code>,
+      <code>manage_acquiredPermissions</code>,
+      <code>manage_addLocalRoles</code>,
+      <code>manage_changePermissions</code>,
+      <code>manage_defined_roles</code>,
+      <code>manage_delLocalRoles</code>,
+      <code>manage_editRoles</code>,
+      <code>manage_getUserRolesAndPermissions</code>,
+      <code>manage_permission</code>,
+      <code>manage_role</code>,
+      <code>manage_setLocalRoles</code>,
+      <code>permission_settings</code>,
+      <code>permissionsOfRole</code>,
+      <code>possible_permissions</code>,
+      <code>rolesOfPermission</code>,
+      <code>userdefined_roles</code>,
+      <code>users_with_local_role</code>,
+      <code>validRoles</code>,
+      <code>valid_roles</code>,
+      <code>validate_roles</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Role.RoleManager</code></b> (private):
+      <code>_addRole</code>,
+      <code>_delRoles</code>,
+      <code>_has_user_defined_role</code>,
+      <code>_setRoles</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.PermissionMapping.RoleManager</code></b>:
+      <code>manage_getPermissionMapping</code>,
+      <code>manage_setPermissionMapping</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.PermissionMapping.RoleManager</code></b> (private):
+      <code>_isBeingUsedAsAMethod</code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__pychecker__"></a><span class="summary-name">__pychecker__</span> = <code title="'no-override'">'no-override'</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="meta_type"></a><span class="summary-name">meta_type</span> = <code title="&quot;ToManyRelationship&quot;">&quot;ToManyRelationship&quot;</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="security"></a><span class="summary-name">security</span> = <code title="ClassSecurityInfo()">ClassSecurityInfo()</code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html">ToManyRelationshipBase.ToManyRelationshipBase</a></code></b>:
+      <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#manage_main">manage_main</a></code>,
+      <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#manage_options">manage_options</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html">ToManyRelationshipBase.ToManyRelationshipBase</a></code></b> (private):
+      <code><a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#_operation" onclick="show_private();">_operation</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopyContainer</code></b>:
+      <code>manage_renameForm</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.ZItem.ZItem-class.html">ZItem.ZItem</a></code></b>:
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#REQUEST">REQUEST</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#__allow_access_to_unprotected_subobjects__">__allow_access_to_unprotected_subobjects__</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#__name__">__name__</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#__propsets__">__propsets__</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#getId__roles__">getId__roles__</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#icon">icon</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#id">id</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#isPrincipiaFolderish">isPrincipiaFolderish</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#isTopLevelPrincipiaApplicationObject">isTopLevelPrincipiaApplicationObject</a></code>,
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#title">title</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenRelations.ZItem.ZItem-class.html">ZItem.ZItem</a></code></b> (private):
+      <code><a href="Products.ZenRelations.ZItem.ZItem-class.html#_manage_editedDialog" onclick="show_private();">_manage_editedDialog</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>App.Management.Tabs</code></b>:
+      <code>manage_tabs</code>,
+      <code>manage_workspace__roles__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.Traversable.Traversable</code></b>:
+      <code>getPhysicalRoot</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Owned.Owned</code></b>:
+      <code>manage_owner</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Role.RoleManager</code></b>:
+      <code>__ac_local_roles__</code>,
+      <code>__ac_roles__</code>,
+      <code>aclAChecked</code>,
+      <code>aclEChecked</code>,
+      <code>aclPChecked</code>,
+      <code>manage_acquiredForm</code>,
+      <code>manage_editLocalRoles</code>,
+      <code>manage_listLocalRoles</code>,
+      <code>manage_permissionForm</code>,
+      <code>manage_reportUserPermissions</code>,
+      <code>manage_roleForm</code>,
+      <code>permissionMappingPossibleValues</code>,
+      <code>selectedRoles</code>,
+      <code>smallRolesWidget</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Role.RoleManager</code></b> (private):
+      <code>_normal_manage_access</code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__call__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__call__</span>(<span class="sig-arg">self</span>)</span>
+    <br /><em class="fname">(Call operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.__call__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>when we are called return our related object in our aq context</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#__call__">RelationshipBase.RelationshipBase.__call__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="hasobject"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">hasobject</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.hasobject">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>check to see if we have this object</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#hasobject">RelationshipBase.RelationshipBase.hasobject</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="manage_pasteObjects"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">manage_pasteObjects</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">cb_copy_data</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">REQUEST</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.manage_pasteObjects">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>ToManyRelationships link instead of pasting</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.CopySupport.CopyContainer.manage_pasteObjects
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_add"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_add</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._add">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>add an object to one side of this toMany relationship</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#_add" onclick="show_private();">RelationshipBase.RelationshipBase._add</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_remove"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_remove</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">suppress_events</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._remove">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>remove object from our side of a relationship</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#_remove" onclick="show_private();">RelationshipBase.RelationshipBase._remove</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_remoteRemove"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_remoteRemove</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">obj</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._remoteRemove">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>remove an object from the far side of this relationship if no object 
+  is passed in remove all objects</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#_remoteRemove" onclick="show_private();">RelationshipBase.RelationshipBase._remoteRemove</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_delObject"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_delObject</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">dp</span>=<span class="sig-default">1</span>,
+        <span class="sig-arg">suppress_events</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._delObject">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Delete object by its absolute id (ie /zport/dmd/bla/bla) (this is sent
+  out in the object*All API)</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.ToManyRelationshipBase.ToManyRelationshipBase-class.html#_delObject" onclick="show_private();">ToManyRelationshipBase.ToManyRelationshipBase._delObject</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_getOb"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_getOb</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">default</span>=<span class="sig-default">zenmarker</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._getOb">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Return object based on its primaryId. plain id will not work!!!</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.CopySupport.CopyContainer._getOb
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="objectIds"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">objectIds</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">spec</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectIds">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>ToManyRelationship doesn't publish objectIds to prevent zope recursion
+  problems.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.ZItem.ZItem-class.html#objectValues">ZItem.ZItem.objectValues</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="objectValues"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">objectValues</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">spec</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectValues">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>ToManyRelationship doesn't publish objectValues to prevent zope 
+  recursion problems.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.ZItem.ZItem-class.html#objectValues">ZItem.ZItem.objectValues</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="objectItems"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">objectItems</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">spec</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.objectItems">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>ToManyRelationship doesn't publish objectItems to prevent zope 
+  recursion problems.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.ZItem.ZItem-class.html#objectValues">ZItem.ZItem.objectValues</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_getCopy"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_getCopy</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">container</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship._getCopy">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>create copy and link remote objects if remote side is TO_MANY</p>
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.CopySupport.CopySource._getCopy
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="exportXml"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">exportXml</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">ofile</span>,
+        <span class="sig-arg">ignorerels</span>=<span class="sig-default">[]</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.exportXml">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+Return an xml representation of a ToManyRelationship
+&lt;tomany id='interfaces'&gt;
+    &lt;link&gt;/Systems/OOL/Mail&lt;/link&gt;
+&lt;/tomany&gt;
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="checkRelation"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">checkRelation</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">repair</span>=<span class="sig-default">False</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenRelations.ToManyRelationship-pysrc.html#ToManyRelationship.checkRelation">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Check to make sure that relationship bidirectionality is ok.</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="Products.ZenRelations.RelationshipBase.RelationshipBase-class.html#checkRelation">RelationshipBase.RelationshipBase.checkRelation</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:42 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

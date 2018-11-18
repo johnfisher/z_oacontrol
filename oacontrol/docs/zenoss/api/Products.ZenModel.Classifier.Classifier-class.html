@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Products.ZenModel.Classifier.Classifier</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;Products ::
+        <a href="Products.ZenModel-module.html">Package&nbsp;ZenModel</a> ::
+        <a href="Products.ZenModel.Classifier-module.html">Module&nbsp;Classifier</a> ::
+        Class&nbsp;Classifier
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Products.ZenModel.Classifier.Classifier-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class Classifier</h1><p class="nomargin-top"><span class="codelink"><a href="Products.ZenModel.Classifier-pysrc.html#Classifier">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+                                         <a href="object-class.html">object</a> --+        
+                                                  |        
+                          <a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html">ZenModelBase.ZenModelBase</a> --+    
+                                                      |    
+                              <a href="Products.ZenModel.ZenModelItem.ZenModelItem-class.html">ZenModelItem.ZenModelItem</a> --+
+                                                          |
+                                         <a href="object-class.html">object</a> --+       |
+                                                  |       |
+                      OFS.OrderSupport.OrderSupport --+   |
+                                                      |   |
+                    ExtensionClass.Base --+           |   |
+                                          |           |   |
+              OFS.CopySupport.CopyContainer --+       |   |
+                                              |       |   |
+                    ExtensionClass.Base --+   |       |   |
+                                          |   |       |   |
+                  App.Management.Navigation --+       |   |
+                                              |       |   |
+                    ExtensionClass.Base --+   |       |   |
+                                          |   |       |   |
+                        App.Management.Tabs --+       |   |
+                                              |       |   |
+                       Acquisition.Implicit --+       |   |
+                                              |       |   |
+                     Persistence.Persistent --+       |   |
+                                              |       |   |
+                ExtensionClass.Base --+       |       |   |
+                                      |       |       |   |
+ webdav.EtagSupport.EtagSupport --+   |       |       |   |
+                                  |   |       |       |   |
+       webdav.Lockable.LockableItem --+       |       |   |
+                                      |       |       |   |
+               webdav.Resource.Resource --+   |       |   |
+                                          |   |       |   |
+               webdav.Collection.Collection --+       |   |
+                                              |       |   |
+                OFS.Traversable.Traversable --+       |   |
+                                              |       |   |
+                OFS.ObjectManager.ObjectManager --+   |   |
+                                                  |   |   |
+                        ExtensionClass.Base --+   |   |   |
+                                              |   |   |   |
+                      OFS.ZDOM.Node --+       |   |   |   |
+                                      |       |   |   |   |
+                       OFS.ZDOM.Element --+   |   |   |   |
+                                          |   |   |   |   |
+             OFS.ZDOM.ElementWithAttributes --+   |   |   |
+                                              |   |   |   |
+            OFS.PropertyManager.PropertyManager --+   |   |
+                                                  |   |   |
+                        ExtensionClass.Base --+   |   |   |
+                                              |   |   |   |
+AccessControl.PermissionMapping.RoleManager --+   |   |   |
+                                              |   |   |   |
+                 AccessControl.Role.RoleManager --+   |   |
+                                                  |   |   |
+                    ExtensionClass.Base --+       |   |   |
+                                          |       |   |   |
+     webdav.EtagSupport.EtagSupport --+   |       |   |   |
+                                      |   |       |   |   |
+           webdav.Lockable.LockableItem --+       |   |   |
+                                          |       |   |   |
+                   webdav.Resource.Resource --+   |   |   |
+                                              |   |   |   |
+                   webdav.Collection.Collection --+   |   |
+                                                  |   |   |
+                        ExtensionClass.Base --+   |   |   |
+                                              |   |   |   |
+                    ExtensionClass.Base --+   |   |   |   |
+                                          |   |   |   |   |
+     webdav.EtagSupport.EtagSupport --+   |   |   |   |   |
+                                      |   |   |   |   |   |
+           webdav.Lockable.LockableItem --+   |   |   |   |
+                                          |   |   |   |   |
+                   webdav.Resource.Resource --+   |   |   |
+                                              |   |   |   |
+                    ExtensionClass.Base --+   |   |   |   |
+                                          |   |   |   |   |
+                 OFS.CopySupport.CopySource --+   |   |   |
+                                              |   |   |   |
+                    ExtensionClass.Base --+   |   |   |   |
+                                          |   |   |   |   |
+                        App.Management.Tabs --+   |   |   |
+                                              |   |   |   |
+                OFS.Traversable.Traversable --+   |   |   |
+                                              |   |   |   |
+                          OFS.ZDOM.Node --+   |   |   |   |
+                                          |   |   |   |   |
+                           OFS.ZDOM.Element --+   |   |   |
+                                              |   |   |   |
+                    ExtensionClass.Base --+   |   |   |   |
+                                          |   |   |   |   |
+                  AccessControl.Owned.Owned --+   |   |   |
+                                              |   |   |   |
+                    ExtensionClass.Base --+   |   |   |   |
+                                          |   |   |   |   |
+                       App.Undo.UndoSupport --+   |   |   |
+                                              |   |   |   |
+                            OFS.SimpleItem.Item --+   |   |
+                                                  |   |   |
+                        ExtensionClass.Base --+   |   |   |
+                                              |   |   |   |
+                    OFS.FindSupport.FindSupport --+   |   |
+                                                  |   |   |
+                                  OFS.Folder.Folder --+   |
+                                                      |   |
+                        OFS.OrderedFolder.OrderedFolder --+
+                                                          |
+                                                         <strong class="uidshort">Classifier</strong>
+</pre>
+
+<hr />
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.Classifier.Classifier-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>,
+        <span class="summary-sig-arg">title</span>=<span class="summary-sig-default">None</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.Classifier-pysrc.html#Classifier.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="Products.ZenModel.Classifier.Classifier-class.html#classifyDevice" class="summary-sig-name">classifyDevice</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">deviceName</span>,
+        <span class="summary-sig-arg">loginInfo</span>,
+        <span class="summary-sig-arg">log</span>=<span class="summary-sig-default">None</span>)</span><br />
+      kick off device classification against all classifiers will walk down
+      a tree of classifiers until the most specific is found.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.Classifier-pysrc.html#Classifier.classifyDevice">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getClassifierValues"></a><span class="summary-sig-name">getClassifierValues</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.Classifier-pysrc.html#Classifier.getClassifierValues">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getClassifierNames"></a><span class="summary-sig-name">getClassifierNames</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      return a list of availible classifiers for entry popup</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.Classifier-pysrc.html#Classifier.getClassifierNames">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="getNextClassifierEntryId"></a><span class="summary-sig-name">getNextClassifierEntryId</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="Products.ZenModel.Classifier-pysrc.html#Classifier.getNextClassifierEntryId">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenModel.ZenModelItem.ZenModelItem-class.html">ZenModelItem.ZenModelItem</a></code></b>:
+      <code><a href="Products.ZenModel.ZenModelItem.ZenModelItem-class.html#getPrimaryPath">getPrimaryPath</a></code>,
+      <code><a href="Products.ZenModel.ZenModelItem.ZenModelItem-class.html#getPrimaryUrlPath">getPrimaryUrlPath</a></code>,
+      <code><a href="Products.ZenModel.ZenModelItem.ZenModelItem-class.html#primaryAq">primaryAq</a></code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html">ZenModelBase.ZenModelBase</a></code></b>:
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#__call__">__call__</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#__hash__">__hash__</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#all_meta_types">all_meta_types</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#aqBaseHasAttr">aqBaseHasAttr</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#breadCrumbs">breadCrumbs</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#callZenScreen">callZenScreen</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#checkRemotePerm">checkRemotePerm</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#checkValidId">checkValidId</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#createHierarchyObj">createHierarchyObj</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#custPropertyIds">custPropertyIds</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#custPropertyMap">custPropertyMap</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getBreadCrumbName">getBreadCrumbName</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getBreadCrumbUrlPath">getBreadCrumbUrlPath</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getDmd">getDmd</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getDmdObj">getDmdObj</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getDmdRoot">getDmdRoot</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getHierarchyObj">getHierarchyObj</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getIconPath">getIconPath</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getIdLink">getIdLink</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getNowString">getNowString</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getObjByPath">getObjByPath</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getPrimaryDmdId">getPrimaryDmdId</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getUnusedId">getUnusedId</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#getZopeObj">getZopeObj</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#helpLink">helpLink</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#isLocalName">isLocalName</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#manage_deleteObjects">manage_deleteObjects</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#prepId">prepId</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#saveCustProperties">saveCustProperties</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#todayDate">todayDate</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#upToOrganizerBreadCrumbs">upToOrganizerBreadCrumbs</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#urlLink">urlLink</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#view">view</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#visibleCustPropertyMap">visibleCustPropertyMap</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#yesterdayDate">yesterdayDate</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#zenScreenUrl">zenScreenUrl</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#zenpathjoin">zenpathjoin</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#zenpathsplit">zenpathsplit</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#zentinelTabs">zentinelTabs</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#zmanage_editProperties">zmanage_editProperties</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html">ZenModelBase.ZenModelBase</a></code></b> (private):
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#_selectedTabName" onclick="show_private();">_selectedTabName</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.OrderSupport.OrderSupport</code></b>:
+      <code>getDefaultSorting</code>,
+      <code>getObjectPosition</code>,
+      <code>manage_move_objects_down</code>,
+      <code>manage_move_objects_to_bottom</code>,
+      <code>manage_move_objects_to_top</code>,
+      <code>manage_move_objects_up</code>,
+      <code>manage_renameObject</code>,
+      <code>manage_set_default_sorting</code>,
+      <code>moveObjectToPosition</code>,
+      <code>moveObjectsByDelta</code>,
+      <code>moveObjectsDown</code>,
+      <code>moveObjectsToBottom</code>,
+      <code>moveObjectsToTop</code>,
+      <code>moveObjectsUp</code>,
+      <code>orderObjects</code>,
+      <code>setDefaultSorting</code>,
+      <code>tpValues</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ObjectManager.ObjectManager</code></b>:
+      <code>__class_init__</code>,
+      <code>__contains__</code>,
+      <code>__delitem__</code>,
+      <code>__getitem__</code>,
+      <code>__iter__</code>,
+      <code>__len__</code>,
+      <code>__nonzero__</code>,
+      <code>__setitem__</code>,
+      <code>filtered_meta_types</code>,
+      <code>get</code>,
+      <code>getSiteManager</code>,
+      <code>hasObject</code>,
+      <code>items</code>,
+      <code>keys</code>,
+      <code>list_imports</code>,
+      <code>manage_FTPlist</code>,
+      <code>manage_FTPstat</code>,
+      <code>manage_afterAdd</code>,
+      <code>manage_afterClone</code>,
+      <code>manage_beforeDelete</code>,
+      <code>manage_delObjects</code>,
+      <code>manage_exportObject</code>,
+      <code>manage_hasId</code>,
+      <code>manage_importObject</code>,
+      <code>objectIds</code>,
+      <code>objectIds_d</code>,
+      <code>objectItems</code>,
+      <code>objectItems_d</code>,
+      <code>objectMap</code>,
+      <code>objectMap_d</code>,
+      <code>objectValues</code>,
+      <code>objectValues_d</code>,
+      <code>setSiteManager</code>,
+      <code>superValues</code>,
+      <code>values</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ObjectManager.ObjectManager</code></b> (private):
+      <code>_checkId</code>,
+      <code>_delOb</code>,
+      <code>_delObject</code>,
+      <code>_getImportPaths</code>,
+      <code>_getOb</code>,
+      <code>_importObjectFromFile</code>,
+      <code>_setOb</code>,
+      <code>_setObject</code>,
+      <code>_subobject_permissions</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopyContainer</code></b>:
+      <code>cb_dataItems</code>,
+      <code>cb_dataValid</code>,
+      <code>manage_CopyContainerAllItems</code>,
+      <code>manage_CopyContainerFirstItem</code>,
+      <code>manage_clone</code>,
+      <code>manage_copyObjects</code>,
+      <code>manage_cutObjects</code>,
+      <code>manage_pasteObjects</code>,
+      <code>manage_renameObjects</code>,
+      <code>validClipData</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopyContainer</code></b> (private):
+      <code>_get_id</code>,
+      <code>_verifyObjectPaste</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>App.Management.Navigation</code></b>:
+      <code>manage_zmi_logout</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>App.Management.Tabs</code></b>:
+      <code>filtered_manage_options</code>,
+      <code>manage_workspace</code>,
+      <code>tabs_path_default</code>,
+      <code>tabs_path_info</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>webdav.Collection.Collection</code></b>:
+      <code>DELETE</code>,
+      <code>HEAD</code>,
+      <code>PUT</code>,
+      <code>dav__init</code>,
+      <code>listDAVObjects</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>webdav.Resource.Resource</code></b>:
+      <code>COPY</code>,
+      <code>LOCK</code>,
+      <code>MKCOL</code>,
+      <code>MOVE</code>,
+      <code>OPTIONS</code>,
+      <code>PROPFIND</code>,
+      <code>PROPPATCH</code>,
+      <code>TRACE</code>,
+      <code>UNLOCK</code>,
+      <code>dav__simpleifhandler</code>,
+      <code>dav__validate</code>,
+      <code>manage_DAVget</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>webdav.Lockable.LockableItem</code></b>:
+      <code>wl_clearLocks</code>,
+      <code>wl_delLock</code>,
+      <code>wl_getLock</code>,
+      <code>wl_hasLock</code>,
+      <code>wl_isLocked</code>,
+      <code>wl_lockItems</code>,
+      <code>wl_lockTokens</code>,
+      <code>wl_lockValues</code>,
+      <code>wl_lockmapping</code>,
+      <code>wl_setLock</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>webdav.EtagSupport.EtagSupport</code></b>:
+      <code>http__etag</code>,
+      <code>http__parseMatchList</code>,
+      <code>http__processMatchHeaders</code>,
+      <code>http__refreshEtag</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.Traversable.Traversable</code></b>:
+      <code>absolute_url</code>,
+      <code>absolute_url_path</code>,
+      <code>getPhysicalPath</code>,
+      <code>restrictedTraverse</code>,
+      <code>unrestrictedTraverse</code>,
+      <code>virtual_url_path</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.PropertyManager.PropertyManager</code></b>:
+      <code>getProperty</code>,
+      <code>getPropertyType</code>,
+      <code>hasProperty</code>,
+      <code>manage_addProperty</code>,
+      <code>manage_changeProperties</code>,
+      <code>manage_changePropertyTypes</code>,
+      <code>manage_delProperties</code>,
+      <code>manage_editProperties</code>,
+      <code>propdict</code>,
+      <code>propertyDescription</code>,
+      <code>propertyIds</code>,
+      <code>propertyItems</code>,
+      <code>propertyLabel</code>,
+      <code>propertyMap</code>,
+      <code>propertyValues</code>,
+      <code>valid_property_id</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.PropertyManager.PropertyManager</code></b> (private):
+      <code>_delPropValue</code>,
+      <code>_delProperty</code>,
+      <code>_propertyMap</code>,
+      <code>_setPropValue</code>,
+      <code>_setProperty</code>,
+      <code>_updateProperty</code>,
+      <code>_wrapperCheck</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ZDOM.ElementWithAttributes</code></b>:
+      <code>getAttribute</code>,
+      <code>getAttributeNode</code>,
+      <code>getAttributes</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ZDOM.Element</code></b>:
+      <code>getChildNodes</code>,
+      <code>getElementsByTagName</code>,
+      <code>getFirstChild</code>,
+      <code>getLastChild</code>,
+      <code>getNextSibling</code>,
+      <code>getNodeName</code>,
+      <code>getNodeType</code>,
+      <code>getParentNode</code>,
+      <code>getPreviousSibling</code>,
+      <code>getTagName</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ZDOM.Node</code></b>:
+      <code>getNodeValue</code>,
+      <code>getOwnerDocument</code>,
+      <code>hasChildNodes</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Role.RoleManager</code></b>:
+      <code>ac_inherited_permissions</code>,
+      <code>access_debug_info</code>,
+      <code>acquiredRolesAreUsedBy</code>,
+      <code>get_local_roles</code>,
+      <code>get_local_roles_for_userid</code>,
+      <code>get_valid_userids</code>,
+      <code>has_local_roles</code>,
+      <code>manage_access</code>,
+      <code>manage_acquiredPermissions</code>,
+      <code>manage_addLocalRoles</code>,
+      <code>manage_changePermissions</code>,
+      <code>manage_defined_roles</code>,
+      <code>manage_delLocalRoles</code>,
+      <code>manage_editRoles</code>,
+      <code>manage_getUserRolesAndPermissions</code>,
+      <code>manage_permission</code>,
+      <code>manage_role</code>,
+      <code>manage_setLocalRoles</code>,
+      <code>permission_settings</code>,
+      <code>permissionsOfRole</code>,
+      <code>possible_permissions</code>,
+      <code>rolesOfPermission</code>,
+      <code>userdefined_roles</code>,
+      <code>users_with_local_role</code>,
+      <code>validRoles</code>,
+      <code>valid_roles</code>,
+      <code>validate_roles</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Role.RoleManager</code></b> (private):
+      <code>_addRole</code>,
+      <code>_delRoles</code>,
+      <code>_has_user_defined_role</code>,
+      <code>_setRoles</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.PermissionMapping.RoleManager</code></b>:
+      <code>manage_getPermissionMapping</code>,
+      <code>manage_setPermissionMapping</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.PermissionMapping.RoleManager</code></b> (private):
+      <code>_isBeingUsedAsAMethod</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.SimpleItem.Item</code></b>:
+      <code>__repr__</code>,
+      <code>getId</code>,
+      <code>manage_editedDialog</code>,
+      <code>raise_standardErrorMessage</code>,
+      <code>this</code>,
+      <code>title_and_id</code>,
+      <code>title_or_id</code>,
+      <code>tpURL</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopySource</code></b>:
+      <code>cb_isCopyable</code>,
+      <code>cb_isMoveable</code>,
+      <code>cb_userHasCopyOrMovePermission</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopySource</code></b> (private):
+      <code>_canCopy</code>,
+      <code>_getCopy</code>,
+      <code>_notifyOfCopyTo</code>,
+      <code>_postCopy</code>,
+      <code>_setId</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Owned.Owned</code></b>:
+      <code>changeOwnership</code>,
+      <code>getOwner</code>,
+      <code>getOwnerTuple</code>,
+      <code>getWrappedOwner</code>,
+      <code>manage_changeOwnershipType</code>,
+      <code>manage_fixupOwnershipAfterAdd</code>,
+      <code>manage_takeOwnership</code>,
+      <code>owner_info</code>,
+      <code>userCanTakeOwnership</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Owned.Owned</code></b> (private):
+      <code>_deleteOwnershipAfterAdd</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>App.Undo.UndoSupport</code></b>:
+      <code>get_request_var_or_attr</code>,
+      <code>manage_undo_transactions</code>,
+      <code>undoable_transactions</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.FindSupport.FindSupport</code></b>:
+      <code>PrincipiaFind</code>,
+      <code>ZopeFind</code>,
+      <code>ZopeFindAndApply</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="meta_type"></a><span class="summary-name">meta_type</span> = <code title="'Classifier'">'Classifier'</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="Products.ZenModel.Classifier.Classifier-class.html#factory_type_information" class="summary-name">factory_type_information</a> = <code title="{'id': 'Classifier', 'meta_type': 'Classifier', 'description': &quot;&quot;&quot;Clas\
+s to manage product information&quot;&quot;&quot;, 'icon': 'Classifier_icon.gif', 'pr\
+oduct': 'ZenModel', 'factory': 'manage_addClassifier', 'immediate_view\
+': 'manageClassifiers', 'actions':({'id': 'overview', 'name': 'Overvie\
+w', 'action': 'manageClassifiers', 'permissions':(permissions.view,)},\
+ {'id': 'viewHistory', 'name': 'Modifications', 'action': 'viewHistory\
+', 'permissions':(ZEN_VIEW_MODIFICATIONS,)},)},">{'id': 'Classifier', 'meta_type': '<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="security"></a><span class="summary-name">security</span> = <code title="ClassSecurityInfo()">ClassSecurityInfo()</code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html">ZenModelBase.ZenModelBase</a></code></b>:
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#index_html">index_html</a></code>,
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#sub_meta_types">sub_meta_types</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html">ZenModelBase.ZenModelBase</a></code></b> (private):
+      <code><a href="Products.ZenModel.ZenModelBase.ZenModelBase-class.html#_zendoc" onclick="show_private();">_zendoc</a></code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.OrderedFolder.OrderedFolder</code></b>:
+      <code>manage_options</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.OrderSupport.OrderSupport</code></b>:
+      <code>has_order_support</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.OrderSupport.OrderSupport</code></b> (private):
+      <code>_default_sort_key</code>,
+      <code>_default_sort_reverse</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.Folder.Folder</code></b>:
+      <code>__ac_permissions__</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.Folder.Folder</code></b> (private):
+      <code>_properties</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ObjectManager.ObjectManager</code></b>:
+      <code>isAnObjectManager</code>,
+      <code>isPrincipiaFolderish</code>,
+      <code>manage_addProduct</code>,
+      <code>manage_importExportForm</code>,
+      <code>manage_index_main</code>,
+      <code>manage_main</code>,
+      <code>meta_types</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.ObjectManager.ObjectManager</code></b> (private):
+      <code>_components</code>,
+      <code>_objects</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.CopySupport.CopyContainer</code></b>:
+      <code>manage_renameForm</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>App.Management.Navigation</code></b>:
+      <code>manage</code>,
+      <code>manage_copyright</code>,
+      <code>manage_form_title</code>,
+      <code>manage_menu</code>,
+      <code>manage_page_footer</code>,
+      <code>manage_page_header</code>,
+      <code>manage_top_frame</code>,
+      <code>manage_zmi_prefs</code>,
+      <code>zope_quick_start</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>App.Management.Tabs</code></b>:
+      <code>manage_tabs</code>,
+      <code>manage_workspace__roles__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>webdav.Collection.Collection</code></b>:
+      <code>__dav_collection__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>webdav.Resource.Resource</code></b>:
+      <code>__dav_resource__</code>,
+      <code>__http_methods__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.Traversable.Traversable</code></b>:
+      <code>getPhysicalRoot</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.PropertyManager.PropertyManager</code></b>:
+      <code>__propsets__</code>,
+      <code>manage_propertiesForm</code>,
+      <code>manage_propertyTypeForm</code>,
+      <code>propertysheets</code>,
+      <code>title</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.PropertyManager.PropertyManager</code></b> (private):
+      <code>_reserved_names</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Role.RoleManager</code></b>:
+      <code>__ac_local_roles__</code>,
+      <code>__ac_roles__</code>,
+      <code>aclAChecked</code>,
+      <code>aclEChecked</code>,
+      <code>aclPChecked</code>,
+      <code>manage_acquiredForm</code>,
+      <code>manage_editLocalRoles</code>,
+      <code>manage_listLocalRoles</code>,
+      <code>manage_permissionForm</code>,
+      <code>manage_reportUserPermissions</code>,
+      <code>manage_roleForm</code>,
+      <code>permissionMappingPossibleValues</code>,
+      <code>selectedRoles</code>,
+      <code>smallRolesWidget</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Role.RoleManager</code></b> (private):
+      <code>_normal_manage_access</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.SimpleItem.Item</code></b>:
+      <code>REQUEST</code>,
+      <code>__allow_access_to_unprotected_subobjects__</code>,
+      <code>__name__</code>,
+      <code>icon</code>,
+      <code>id</code>,
+      <code>isTopLevelPrincipiaApplicationObject</code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.SimpleItem.Item</code></b> (private):
+      <code>_manage_editedDialog</code>
+      </p></div>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>AccessControl.Owned.Owned</code></b>:
+      <code>manage_owner</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>App.Undo.UndoSupport</code></b>:
+      <code>manage_UndoForm</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>OFS.FindSupport.FindSupport</code></b>:
+      <code>manage_findAdv</code>,
+      <code>manage_findForm</code>,
+      <code>manage_findFrame</code>,
+      <code>manage_findResult</code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>,
+        <span class="sig-arg">title</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.Classifier-pysrc.html#Classifier.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        OFS.Folder.Folder.__init__
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="classifyDevice"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">classifyDevice</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">deviceName</span>,
+        <span class="sig-arg">loginInfo</span>,
+        <span class="sig-arg">log</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="Products.ZenModel.Classifier-pysrc.html#Classifier.classifyDevice">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>kick off device classification against all classifiers will walk down 
+  a tree of classifiers until the most specific is found.  Top level 
+  classifiers can jump into the tree where lower level classifiers will 
+  then take over the process</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="factory_type_information"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">factory_type_information</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+{'id': 'Classifier', 'meta_type': 'Classifier', 'description': &quot;&quot;&quot;Clas<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+s to manage product information&quot;&quot;&quot;, 'icon': 'Classifier_icon.gif', 'pr<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+oduct': 'ZenModel', 'factory': 'manage_addClassifier', 'immediate_view<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+': 'manageClassifiers', 'actions':({'id': 'overview', 'name': 'Overvie<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+w', 'action': 'manageClassifiers', 'permissions':(permissions.view,)},<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ {'id': 'viewHistory', 'name': 'Modifications', 'action': 'viewHistory<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+', 'permissions':(ZEN_VIEW_MODIFICATIONS,)},)},
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            >Zenoss</th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Wed Jul 14 12:01:25 2010
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

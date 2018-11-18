@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>The jQuery UI Clip Effect</title>
+		<link rel="stylesheet" href="css/clip.css">
+	</head>
+	<body>
+    	<div id="tv">
+        	<div id="bg"><!-- --></div>
+        	<div id="static"><!-- --></div>
+        </div>
+		<script src="js/jquery.js"></script>
+        <script src="js/jquery-ui-1.8.2.custom.min.js"></script>
+		<script>
+			(function($){
+				$("#tv").click(function() {
+					$("#static").effect("clip");
+				});				
+			})(jQuery);
+		</script>
+	</body>
+</html>

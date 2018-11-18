@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.svg.js"></script>
+<script type="text/javascript" src="jquery.svganim.js" ></script> 
+<script type="text/javascript" src="hoverIntent.js"></script>
+<script type="text/javascript" src="zsuperfish.js"></script>
+<script type="text/javascript" src="jquery.xml2json.js"></script>
+<script type="text/javascript" src="oac.js"></script>
+<script type="text/javascript" src="oac_test.js"></script>
+
+<link rel="stylesheet" media="screen" href="oac.css" /> 
+
+<script type="text/javascript">
+///////////////////////////////////////////////
+xmlns="http://www.w3.org/2000/svg" ;
+
+
+
+// prepare the dom and then load the svg
+$(document).ready(function(){
+
+    $("ul.sf-menu").superfish();
+
+    getsvg();  
+});
+    
+// load the svg
+function getsvg(){
+      $("#svgload").svg({  
+            loadURL: 'zx2000_master_exploded.svg',  
+            onLoad: main,  
+            settings: {}  
+          } );
+}
+
+function main (){
+
+//alert ("debugging: START!");
+		//$("#mybody").oac.logDebug("some text")
+	$("#mybody").oac.setupPage();
+	$("#mybody").oac.blinkLED();
+	$("#mybody").oac.loopGetSNMP();
+		//$("#mybody").oac.loopDoBackendGetSNMP();
+
+
+
+// define urls for menus based on variables
+$("#73001a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZX7300");
+$("#73002a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZX7300");
+$("#73003a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZX7300");
+$("#73004a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZX7300");
+$("#73005a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZX7300");
+$("#73006a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZX7300");
+
+$("#92101a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#92102a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#92103a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#92104a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#92105a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#92106a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+
+$("#sbc1a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#sbc2a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#sbc3a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#sbc4a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#sbc5a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+$("#sbc6a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZXSBC");
+
+$("#20107a").attr("href",oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZX2010");
+$("#20108a").attr("href", oacglobals["localurl"] + "/itinfrastructure#devices:.zport.dmd.Devices.Network.OASwitch.ZX2010");
+
+
+}
+function writeDebug( text){
+	document.getElementById("debugdiv").innerHTML = text ;
+}
+/////////////////////////////////////////////////
+</script>
+
+</head><body class="mybody">
+<div id="pagebkg" class="mycanvas">
+<div id="debugdiv"></div>
+<div id="logodiv"><img src="oacontrol_logoB40.png"></div>
+<!-- START invisble divs for drop-down menus until raised by mouseover -->
+<div id="menuDiv73001" class ="menuDiv">
+	<ul class="sf-menu">    
+		<li>
+			<a href="#a">ZX7300-Slot 3 <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a id="73001a"  href="" target="_blank">ZX7300 Details</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+<br></div>
+<div id="menuDiv73002" class ="menuDiv">
+	<ul class="sf-menu">    
+		<li>
+			<a href="#a">ZX7300-Slot 3 <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a id="73002a" href="" target="_blank">ZX7300 Details</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+<br></div>
+<div id="menuDiv73003" class ="menuDiv">
+	<ul class="sf-menu">    
+		<li>
+			<a href="#a">ZX7300-Slot 3 <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a id="73003a" href="" target="_blank">ZX7300 Details</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+<br></div>
+<div id="menuDiv73004" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 4 <img src="arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a id="73004a" href="" target="_blank">ZX7300 Details</a>
+				    </li>
+				</ul>
+			</li>
+
+		</ul>
+<br></div>
+<div id="menuDiv73005" class ="menuDiv">
+<ul class="sf-menu">    <li>
+				<a href="#a">ZX7300-Slot 5 <img src="arrows-orange-down.png"/></a>
+				<ul>
+				    <li> 
+					    <a id="73005a" href="" target="_blank">ZX7300 Details</a>
+				    </li>
+				</ul>
+			</li>
+		</ul>
+<br></div>
+<div id="menuDiv73006" class ="menuDiv">
+	<ul class="sf-menu">    
+		<li>
+			<a href="#a">ZX7300-Slot 3 <img src="arrows-orange-down.png"/></a>
+			<ul>
+				<li> 
+					<a id="73006a" href="" target="_blank">ZX7300 Details</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+<br></div>
+<!--  ####################################################################### -->
+<div id="menuDiv92101" class ="menuDiv">
+<ul class="sf-menu">   
+			<li>
+				<a id="92101a" href=""  target="_blank" >9210-Slot 1 <img src="arrows-orange-down.png"/></a>
+			</li>
+		</ul>
+<br></div>
+<div id="menuDiv92102" class ="menuDiv">
+<ul class="sf-menu">  
+			<li>
+				<a id="92102a" href="" target="_blank" >9210-Slot 2 <img src="arrows-orange-down.png"/></a>
+			</li>
+		</ul>
+<br></div>
+<div id="menuDiv92103" class ="menuDiv">
+<ul class="sf-menu">    
+			<li>
+				<a id="92103a" href=""  target="_blank" >9210-Slot 3 <img src="arrows-orange-down.png"/></a>
+			</li>
+		</ul>
+<br></div>
+<div id="menuDiv92104" class ="menuDiv">
+	<ul class="sf-menu">    
+			<li>
+				<a id="92104a" href=""  target="_blank" >9210-Slot 4 <img src="arrows-orange-down.png"/></a>
+			</li>
+	</ul>
+<br></div>
+<div id="menuDiv92105" class ="menuDiv">
+	<ul class="sf-menu">  
+			<li>
+				<a id="92105a" href="" target="_blank" >9210-Slot 5 <img src="arrows-orange-down.png"/></a>
+			</li>
+	</ul>
+<br></div>
+<div id="menuDiv92106" class ="menuDiv">
+	<ul class="sf-menu">  
+			<li>
+				<a id="92106a" href="" target="_blank" >9210-Slot 6 <img src="arrows-orange-down.png"/></a>
+			</li>
+	</ul>
+<br></div>
+<!--  ####################################################################### -->
+<div id="menuDivSbc1" class ="menuDiv">
+<ul class="sf-menu">    
+			<li>
+				<a id="sbc1a" href="" target="_blank">SBC-Slot 1 <img src="arrows-orange-down.png"/></a>
+			</li>
+		</ul>
+<br></div>
+<div id="menuDivSbc2" class ="menuDiv">
+<ul class="sf-menu">    
+			<li>
+				<a id="sbc2a" href="" target="_blank">SBC-Slot 2 <img src="arrows-orange-down.png"/></a>
+			</li>
+		</ul>
+<br></div>
+<div id="menuDivSbc3" class ="menuDiv">
+<ul class="sf-menu">    
+			<li>
+				<a id="sbc3a" href="" target="_blank">SBC-Slot 3 <img src="arrows-orange-down.png"/></a>
+			</li>
+		</ul>
+<br></div>
+<div id="menuDivSbc4" class ="menuDiv">
+	<ul class="sf-menu">    
+			<li>
+				<a id="sbc4a" href="" target="_blank">SBC-Slot 4 <img src="arrows-orange-down.png"/></a>
+			</li>
+	</ul>
+<br></div>
+<div id="menuDivSbc5" class ="menuDiv">
+	<ul class="sf-menu">  
+			<li>
+				<a id="sbc5a" href="" target="_blank">SBC-Slot 5 <img src="arrows-orange-down.png"/></a>
+			</li>
+	</ul>
+<br></div>
+<div id="menuDivSbc6" class ="menuDiv">
+<ul class="sf-menu">    
+			<li>
+				<a id="sbc6a" href="" target="_blank">SBC-Slot 6 <img src="arrows-orange-down.png"/></a>
+			</li>
+		</ul>
+<br></div>
+
+<!--  ####################################################################### -->
+<div id="menuDiv20107" class ="menuDiv">
+	<ul class="sf-menu">    
+			<li>
+				<a id="20107a" href="" target="_blank">ZX2010-Slot 7 <img src="arrows-orange-down.png"/></a>
+			</li>
+	</ul>
+<br></div>
+<div id="menuDiv20108" class ="menuDiv">
+	<ul class="sf-menu">    
+			<li>
+				<a id="20108a" href="" target="_blank">ZX2010-Slot 8 <img src="arrows-orange-down.png"/></a>
+			</li>
+	</ul>
+<br></div>
+<!-- END invisible divs for drop-down menus hidden until raised by mouseover -->
+
+<br>
+<div id="tempnotify"> </div>
+<div id="slot1notify"> </div>
+<div id="slot2notify"> </div>
+<div id="slot3notify"> </div>
+<div id="slot4notify"> </div>
+<div id="slot5notify"> </div>
+<div id="slot6notify"> </div>
+<div id="slot7notify"> </div>
+<div id="slot8notify"> </div>
+<div id="svgload" class="svgbasics"><!------------------------ SVG loads here ---------------------></div>
+
+
+</div><!---pagebkg-->
+
+
+</body></html>
+
+
